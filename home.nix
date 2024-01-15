@@ -48,7 +48,7 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    neofetch lolcat cmatrix discord firefox btop libvirt brave
+    neofetch lolcat cmatrix discord firefox btop libvirt brave bat
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
@@ -157,7 +157,7 @@
       background_opacity = "0.85";
     };
     extraConfig = ''
-      foreground #a9b1d6
+      foreground #00ff22
       background #1a1b26
       color0 #414868
       color8 #414868
@@ -169,17 +169,17 @@
       color11 #ffaa00
       color4  #7aa2f7
       color12 #7aa2f7
-      color5  #bb9af7
-      color13 #bb9af7
+      color5  #9900ff
+      color13 #9900ff
       color6  #00ccff
       color14 #00ccff
-      color7  #00ff22
-      color15 #00ff22
+      color7  #228800
+      color15 #228800
       cursor #ee4400
       cursor_text_color #1a1b26
       selection_foreground none
       selection_background #28344a
-      url_color #9ece6a
+      url_color #002288
       active_border_color #3d59a1
       inactive_border_color #101014
       bell_border_color #e0af68
