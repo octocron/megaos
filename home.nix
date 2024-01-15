@@ -13,8 +13,8 @@
   home.file.".vimrc".source = ./config/vimrc;
   home.file.".emoji".source = ./config/emoji;
   home.file.".face".source = ./config/face.jpg;
-  home.file."Pictures/Wallpapers" = {
-    source = ./media/Wallpapers;
+  home.file."Pictures/wallpapers" = {
+    source = ./media/wallpapers;
     recursive = true;
   };
   home.file.".local/share/fonts" = {
