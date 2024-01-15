@@ -65,7 +65,6 @@
     ];
     packages = with pkgs; [
       maple-mono-NF
-      mullvad-vpn
       nerdfonts
     ];
   };
@@ -83,7 +82,6 @@
     curl
     git
     vim
-    wezterm
     wget
     zsh
   ];

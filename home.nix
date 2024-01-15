@@ -48,7 +48,7 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    neofetch lolcat cmatrix discord firefox btop libvirt
+    neofetch lolcat cmatrix discord firefox btop libvirt brave
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
@@ -163,19 +163,19 @@
       color8 #414868
       color1 #f7768e
       color9 #f7768e
-      color2  #73daca
-      color10 #73daca
-      color3  #e0af68
-      color11 #e0af68
+      color2  #228800
+      color10 #228800
+      color3  #ffaa00
+      color11 #ffaa00
       color4  #7aa2f7
       color12 #7aa2f7
       color5  #bb9af7
       color13 #bb9af7
-      color6  #7dcfff
-      color14 #7dcfff
-      color7  #c0caf5
-      color15 #c0caf5
-      cursor #c0caf5
+      color6  #00ccff
+      color14 #00ccff
+      color7  #00ff22
+      color15 #00ff22
+      cursor #ee4400
       cursor_text_color #1a1b26
       selection_foreground none
       selection_background #28344a
@@ -366,14 +366,14 @@
     		padding: 2px 20px;
 	}
 	#clock {
-    		color: #c0caf5;
+    		color: #ee4400;
     		background: #1a1b26;
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#cpu {
-    		color: #b4f9f8;
+    		color: #228800;
     		background: #1a1b26;
     		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
