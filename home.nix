@@ -157,7 +157,7 @@
       background_opacity = "0.85";
     };
     extraConfig = ''
-      foreground #00ff22
+      foreground #2ac3de
       background #1a1b26
       color0 #414868
       color8 #414868
@@ -173,8 +173,8 @@
       color13 #9900ff
       color6  #00ccff
       color14 #00ccff
-      color7  #228800
-      color15 #228800
+      color7  #fafa1a
+      color15 #fafa1a
       cursor #ee4400
       cursor_text_color #1a1b26
       selection_foreground none
@@ -366,7 +366,7 @@
     		padding: 2px 20px;
 	}
 	#clock {
-    		color: #ee4400;
+    		color: #fafa1a;
     		background: #1a1b26;
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
@@ -380,7 +380,7 @@
     		padding: 2px 20px;
 	}
 	#disk {
-    		color: #9ece6a;
+    		color: #880022;
     		background: #1a1b26;
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
@@ -394,7 +394,7 @@
     		padding: 2px 20px;
 	}
 	#network {
-    		color: #ff9e64;
+    		color: #ee4400;
     		background: #1a1b26;
     		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
