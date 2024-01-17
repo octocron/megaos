@@ -179,4 +179,5 @@
    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
    MOZ_ENABLE_WAYLAND = "1";
   };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
