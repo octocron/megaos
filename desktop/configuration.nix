@@ -96,6 +96,12 @@
     dedicatedServer.openFirewall = true;
   };
 
+  # zsh configuration
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh = {
+    enable = true;
+  }
+
   # OpenGL
   hardware.opengl = {
     enable = true;
