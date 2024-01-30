@@ -119,9 +119,11 @@
   };
 
   # Configure Bash
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
+   # histSize = 10000;
+   #histFile = "${config.xdg.dataHome}/zsh/history";
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
       #  exec Hyprland
@@ -130,11 +132,19 @@
     sessionVariables = {
     
     };
+    #plugins = [
+     # {
+      #  name = "zsh-autosuggestions";
+       # src = pkgs.fetchFromGithub {
+         # owner = "zsh-users";
+         # repo = "zsh-autosuggestions";
+         # rev = "v0.7.0";
+         # sha256 = " ";
+       # };
+     # }
     shellAliases = {
       sv="sudo vim";
       flake-rebuild="sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
-      laptop-rebuild="sudo nixos-rebuild switch --flake ~/projects/megaos/#laptop";
-      v="vim";
       ls="lsd";
       ll="lsd -l";
       la="lsd -a";
