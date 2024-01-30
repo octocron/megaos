@@ -12,7 +12,7 @@
   home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
   home.file.".vimrc".source = ./config/vimrc;
   home.file.".emoji".source = ./config/emoji;
-  home.file."face".source = ./config/face.png;
+  home.file.".face".source = ./config/face.png;
   home.file."Pictures/wallpapers" = {
     source = ./media/wallpapers;
     recursive = true;
