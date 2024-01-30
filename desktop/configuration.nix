@@ -100,7 +100,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
-  }
+  };
 
   # OpenGL
   hardware.opengl = {
@@ -109,6 +109,11 @@
     driSupport32Bit = true;
   };
 
+  # Open Razer
+  hardware.openrazer.enable = true;
+  hardware.openrazer.users = ["$username"];
+
+  # Hyprland
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
