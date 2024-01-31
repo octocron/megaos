@@ -84,6 +84,7 @@
   environment.systemPackages = with pkgs; [
     curl
     git
+    polychromatic
     vim
     wget
     zsh
