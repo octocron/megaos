@@ -9,6 +9,7 @@
     darkmatter-grub-theme = {
       url = gitlab:VandalByte/darkmatter-grub-theme;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{self, nixpkgs, home-manager, darkmatter-grub-theme, ... }:
