@@ -62,8 +62,8 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)
-set shiftwidth=4                " One tab == four spaces.
-set tabstop=4                   " One tab == four spaces.
+set shiftwidth=2                " One tab == two spaces.
+set tabstop=2                   " One tab == two spaces.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys

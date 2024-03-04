@@ -15,7 +15,6 @@
   # Bootloader choose either systemd (modern) or grub (legacy)
   boot.loader.grub = {
     enable = true;
-    version = 2;
     device = "/dev/sda";
     useOSProber = true;
 
@@ -23,7 +22,7 @@
       enable = true;
       style = "nixos";
       icon = "color";
-      resolution = "1080p";
+      resolution = "1440p";
     };
   };
 
