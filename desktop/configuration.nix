@@ -25,6 +25,7 @@
       resolution = "1440p";
     };
   };
+  boot.loader.timeout = 30;
 
 #boot.loader.systemd-boot.enable = true;
 #boot.loader.efi.canTouchEfiVariables = true;
