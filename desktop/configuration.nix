@@ -15,7 +15,7 @@
   # Bootloader choose either systemd (modern) or grub (legacy)
   boot.loader.grub = {
     enable = true;
-    version = "2";
+    version = 2;
     device = "/dev/sda";
     useOSProber = true;
 

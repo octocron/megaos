@@ -12,11 +12,26 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "v4l2loopback" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  # Bootloader choose either systemd (modern) or grub (legacy)
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    device = "/dev/sda";
+    useOSProber = true;
+
+    darkmatter-theme = {
+      enable = true;
+      style = "nixos";
+      icon = "color";
+      resolution = "1080p";
+    };
+  };
+
+# Bootloader.
+#boot.loader.systemd-boot.enable = true;
+#boot.loader.efi.canTouchEfiVariables = true;
+#boot.kernelModules = [ "v4l2loopback" ];
+#boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
