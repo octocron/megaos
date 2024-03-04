@@ -6,9 +6,12 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    darkmatter-grub-theme = {
+      url = gitlab:VandalByte/darkmatter-grub-theme;
+      inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs@{self, nixpkgs, home-manager, darkmatter-grub-theme, ... }:
   let
     system = "x86_64-linux";
     hostname = "galvatron";
@@ -31,6 +34,7 @@
             inherit gitEmail; inherit theLocale; inherit theTimezone;
             };
 	    modules = [ ./laptop/configuration.nix
+          darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username;
             inherit gitUsername; inherit gitEmail;
@@ -47,6 +51,7 @@
             inherit gitEmail; inherit theLocale; inherit theTimezone;
         };
 	    modules = [ ./desktop/configuration.nix
+          darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
                 inherit gitUsername; inherit gitEmail;

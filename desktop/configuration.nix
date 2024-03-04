@@ -13,9 +13,19 @@
     ];
 
   # Bootloader choose either systemd (modern) or grub (legacy)
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    version = "2";
+    device = "/dev/sda";
+    useOSProber = true;
+
+    darkmatter-theme = {
+      enable = true;
+      style = "nixos";
+      icon = "color";
+      resolution = "1080p";
+    };
+  };
 
 #boot.loader.systemd-boot.enable = true;
 #boot.loader.efi.canTouchEfiVariables = true;
