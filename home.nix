@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, nix-index-database, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, ... }:
 
 {
   # Home Manager Settings

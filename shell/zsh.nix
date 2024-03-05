@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, nix-index-database, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, ... }:
 
 {
   # Configure zsh
@@ -197,7 +197,6 @@
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
-    nix-index-database.comma.enable = true;
   };
 
   # zoxide config
