@@ -7,8 +7,6 @@
     autocd = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    dotDir = "$HOME/.config/zsh";
-    history.path = "$HOME/.config/zsh/history";
     history.save = 10000;
     history.size = 10000;
     history.ignoreDups = true;
