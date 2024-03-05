@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, secrets, ... }:
 
 {
   programs.git = {
@@ -18,7 +18,6 @@
       #   "https://oauth2:${secrets.github_token}@github.com" = {
       #     insteadOf = "https://github.com";
       #   };
-      # TODO: add rest of gitlab code related to this
         "https://oauth2:${secrets.gitlab_token}@gitlab.com" = {
           insteadOf = "https://gitlab.com";
         };
