@@ -37,7 +37,7 @@
     killall
     lazydocker
     lazygit
-    libvert
+    libvirt
     lua
     magic-wormhole
     mosh
