@@ -4,7 +4,7 @@
 
 { inputs, config, pkgs, username,
   hostname, gitUsername, theLocale,
-  theTimezone, ... }:
+  theTimezone, secrets ... }:
 
 {
   imports =
