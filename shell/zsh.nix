@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, nix-index-database, ... }:
 
 {
   # Configure zsh

@@ -7,13 +7,15 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     darkmatter-grub-theme = {
       url = gitlab:VandalByte/darkmatter-grub-theme;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, home-manager, darkmatter-grub-theme, ... }:
+  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nix-index-database, home-manager, darkmatter-grub-theme, ... }:
   let
     secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
     system = "x86_64-linux";
