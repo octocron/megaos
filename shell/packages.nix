@@ -47,10 +47,12 @@
     pinentry
     procs
     ripgrep
+    rust-analyzer
     rustup
     scc
     sd
     slurp
+    sniffnet
     speedread
     tealdeer
     thefuck
@@ -58,6 +60,7 @@
     tmux
     tokei
     tree
+    xclip
     xsel
     unrar
     unzip

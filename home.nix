@@ -8,6 +8,7 @@
 
   # Module imports
   imports = [
+    ./app/theme.nix
     ./app/waybar.nix
     ./shell/git.nix
     ./shell/kitty.nix
@@ -45,10 +46,19 @@
     recursive = true;
   };
 
-  # Define Settings For Xresources
-  xresources.properties = {
-    "Xcursor.size" = 24;
+  # editorconfig
+  editorconfig = {
+    enable = true;
+    settings = {
+      "*" = {
+        indent_style = "space";
+        indent_size = 2;
+        end_of_line = "lf";
+        charset = "utf-8";
+      };
+    };
   };
+
 
   # Install Packages For The User
   home.packages = with pkgs; [
@@ -96,61 +106,8 @@
     (import ./scripts/wallsetter.nix { inherit pkgs; })
   ];
 
-  # Configure Cursor Theme
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
-  };
-
-  # Enable & Configure QT
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
-  qt.style.package = pkgs.adwaita-qt;
-
-  # Theme GTK
-  gtk = {
-    enable = true;
-    font = {
-      name = "Ubuntu";
-      size = 12;
-      package = pkgs.ubuntu_font_family;
-    };
-    theme = {
-      name = "Tokyonight-Storm-BL";
-      package = pkgs.tokyo-night-gtk;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-    };
-    gtk3.extraConfig = {
-      Settings = ''
-      gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-      gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
-
-  # Create XDG Dirs
-  xdg = {
-    userDirs = {
-        enable = true;
-        createDirectories = true;
-    };
-  };
-
   programs.home-manager.enable = true;
+  programs.command-not-found.enable = true;
+  programs.jq.enable = true;
 }
 
