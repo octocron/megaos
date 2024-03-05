@@ -15,7 +15,7 @@
 
   outputs = inputs@{self, nixpkgs, nixpkgs-unstable, home-manager, darkmatter-grub-theme, ... }:
   let
-    secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
+    secrets = builtins.fromJSON (builtins.readFile "./secrets.json");
     system = "x86_64-linux";
     hostname = "galvatron";
     username = "megacron";
