@@ -58,7 +58,7 @@
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify nix-index
+    spotify nix-index zsh-autosuggestions zsh-syntax-highlighting
     # Import Scripts
     (import ./scripts/emopicker9000.nix { inherit pkgs; })
     (import ./scripts/task-waybar.nix { inherit pkgs; })
