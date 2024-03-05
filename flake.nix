@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -12,8 +13,9 @@
     };
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, darkmatter-grub-theme, ... }:
+  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, home-manager, darkmatter-grub-theme, ... }:
   let
+    secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
     system = "x86_64-linux";
     hostname = "galvatron";
     username = "megacron";
@@ -30,7 +32,7 @@
   in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs;
+	    specialArgs = { inherit system; inherit inputs; inherit secrets;
             inherit username; inherit hostname; inherit gitUsername;
             inherit gitEmail; inherit theLocale; inherit theTimezone;
             };
@@ -47,7 +49,7 @@
 	    ];
       };
       desktop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; 
+	    specialArgs = { inherit system; inherit inputs; inherit secrets;
             inherit username; inherit hostname; inherit gitUsername;
             inherit gitEmail; inherit theLocale; inherit theTimezone;
         };

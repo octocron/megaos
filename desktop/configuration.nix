@@ -168,7 +168,14 @@
 
   system.stateVersion = "23.11";
   nix = {
-    settings.auto-optimise-store = true;
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = ["$username"];
+      access-tokens = [
+      #   "github.com=${secrets.github_token}"
+        "gitlab.com=OAuth2:${secrets.gitlab_token}"
+      ];
+    };
     gc = {
       automatic = true;
       dates = "weekly";
