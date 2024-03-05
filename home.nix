@@ -11,6 +11,7 @@
     ./app/waybar.nix
     ./shell/git.nix
     ./shell/kitty.nix
+    ./shell/packages.nix
     ./shell/starship.nix
     ./shell/wezterm.nix
     ./shell/zsh.nix
@@ -51,14 +52,43 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    neofetch lolcat cmatrix discord firefox btop libvirt brave bat
-    swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
-    libnotify swaynotificationcenter rofi-wayland imv v4l-utils
-    ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
-    gimp obs-studio blender kdenlive meson hugo gnumake ninja go
-    nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
-    openra font-awesome symbola noto-fonts-color-emoji material-icons
+    audacity
+    blender
+    brave
+    discord
+    firefox
+    font-awesome
+    gimp
+    godot_4
+    gnome.file-roller
+    grim
+    imv
+    kdenlive
+    libnotify
+    lm_sensors
+    material-icons
+    meson
+    mpv
+    ninja
+    noto-fonts-color-emoji
+    obs-studio
+    openra
+    pavucontrol
+    pkg-config
+    polkit_gnome
+    rofi-wayland
+    socat
     spotify
+    swaynotificationcenter
+    symbola
+    swww
+    transmission-gtk
+    v4l-utils
+    wl-clipboard
+    xnotic
+    ydotool
+    zeroad
+
     # Import Scripts
     (import ./scripts/emopicker9000.nix { inherit pkgs; })
     (import ./scripts/task-waybar.nix { inherit pkgs; })
