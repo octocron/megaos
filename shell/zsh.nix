@@ -115,12 +115,6 @@
     enableZshIntegration = true;
   };
 
-  # nix-index config
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   # zoxide config
   programs.zoxide = {
     enable = true;
