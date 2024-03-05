@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, secrets, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, ... }:
 
 {
   programs.git = {
@@ -13,15 +13,6 @@
     userEmail = "${gitEmail}";
     userName = "${gitUsername}";
     extraConfig = {
-      # clone private https repos
-      url = {
-      #   "https://oauth2:${secrets.github_token}@github.com" = {
-      #     insteadOf = "https://github.com";
-      #   };
-        "https://oauth2:${secrets.gitlab_token}@gitlab.com" = {
-          insteadOf = "https://gitlab.com";
-        };
-      };
       push = {
         default = "current";
         autoSetupRemote = true;

@@ -4,7 +4,7 @@
 
 { inputs, config, pkgs, username,
   hostname, gitUsername, theLocale,
-  theTimezone, secrets, ... }:
+  theTimezone, ... }:
 
 {
   imports =
@@ -170,11 +170,6 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      trusted-users = [username];
-      access-tokens = [
-      #   "github.com=${secrets.github_token}"
-        "gitlab.com=OAuth2:${secrets.gitlab_token}"
-      ];
     };
     gc = {
       automatic = true;

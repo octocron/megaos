@@ -15,7 +15,6 @@
 
   outputs = inputs@{self, nixpkgs, nixpkgs-unstable, home-manager, darkmatter-grub-theme, ... }:
   let
-    secrets = builtins.fromJSON (builtins.readFile "./secrets.json");
     system = "x86_64-linux";
     hostname = "galvatron";
     username = "megacron";
@@ -32,7 +31,7 @@
   in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; inherit secrets;
+	    specialArgs = { inherit system; inherit inputs;
             inherit username; inherit hostname; inherit gitUsername;
             inherit gitEmail; inherit theLocale; inherit theTimezone;
             };
@@ -49,7 +48,7 @@
 	    ];
       };
       desktop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; inherit secrets;
+	    specialArgs = { inherit system; inherit inputs;
             inherit username; inherit hostname; inherit gitUsername;
             inherit gitEmail; inherit theLocale; inherit theTimezone;
         };
