@@ -85,7 +85,7 @@
     transmission-gtk
     v4l-utils
     wl-clipboard
-    xnotic
+    xonotic
     ydotool
     zeroad
 
