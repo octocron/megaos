@@ -3,7 +3,6 @@
 {
   programs.git = {
     enable = true;
-    package = pkgs.unstable.git;
     delta.enable = true;
     delta.options = {
       line-numbers = true;
