@@ -7,8 +7,8 @@
     autocd = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    dotDir = "${config.xdg.dataHome}/.config/zsh";
-    histFile = "${config.xdg.dataHome}/.config/zsh/history";
+    dotDir = "$HOME/.config/zsh";
+    histFile = "$HOME/.config/zsh/history";
     history.save = 10000;
     history.size = 10000;
     history.ignoreDups = true;
