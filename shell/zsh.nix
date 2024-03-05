@@ -6,7 +6,7 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
-    enableAutoSuggestions = true;
+    autosuggestions.enable = true;
     dotDir = ["${config.xdg.dataHome}/.config/zsh"];
     history.file = "${config.xdg.dataHome}/.config/zsh/history";
     history.save = 10000;
