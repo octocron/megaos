@@ -32,7 +32,6 @@
     hugo
     hyperfine
     inxi
-    jq
     just
     killall
     lazydocker
@@ -47,7 +46,6 @@
     pinentry
     procs
     ripgrep
-    rust-analyzer
     rustup
     scc
     sd
