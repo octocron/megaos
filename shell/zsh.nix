@@ -53,13 +53,13 @@
       lg = "eza -lh --git";
       mostcli = "history | awk '{print $2} | sort | uniq -c | sort -nr | head -10";
       reload = "source ${config.home.homeDirectory}/.zshrc";
-      #reload ="exec $SHELL -l";
+      reload ="exec $SHELL -l";
       show_path = "echo $PATH | tr ':' '\n'";
-      vimcon = "vim ~/.vimrc";
       week = "date +%V";
       wttr = "curl wttr.in";
       #-------------git---------------------------------------------------->>>
       ga = "git add .";
+      gb = "git branch -a";
       gc = "git commit -S -m ";
       gd = "git diff";
       gs = "git status";
@@ -67,6 +67,9 @@
       gp = "git push";
       gpt = "git push -u origin trunk";
       gph = "git push -u origin HEAD";
+      gsl = "git stash list";
+      gsf = "git stash push --";
+      gsp = "git stash pop";
       gco = "git checkout";
       gcob = "git checkout -b";
       gct = "git checkout trunk";
@@ -77,6 +80,53 @@
     };
 
     envExtra = ''
+      #-------------starship------------------------------------------->>>
+      LFILE="/etc/*-release"
+      MFILE="/System/Library/CoreServices/SystemVersion.plist"
+      if [[ -f $LFILE ]]; then
+        _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
+      elif [[ -f $MFILE ]]; then
+        _distro="macos"
+
+      #-------------determine-mac-model-------------------------------->>>
+        _device=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print $3,$4,$5,$6,$7}')
+
+        case $_device in
+          *MacBook*)     DEVICE="󰌢";;
+          *)             DEVICE="";;
+        esac
+      fi
+
+      # set an icon based on the distro
+      # make sure your font is compatible with https://github.com/lukas-w/font-logos
+      case $_distro in
+          *kali*)                  ICON="󰠥";;
+          *arch*)                  ICON="";;
+          *debian*)                ICON="";;
+          *raspbian*)              ICON="";;
+          *ubuntu*)                ICON="";;
+          *elementary*)            ICON="";;
+          *fedora*)                ICON="";;
+          *coreos*)                ICON="";;
+          *gentoo*)                ICON="";;
+          *mageia*)                ICON="";;
+          *centos*)                ICON="";;
+          *opensuse*|*tumbleweed*) ICON="";;
+          *sabayon*)               ICON="";;
+          *slackware*)             ICON="";;
+          *linuxmint*)             ICON="";;
+          *alpine*)                ICON="";;
+          *aosc*)                  ICON="";;
+          *nixos*)                 ICON="";;
+          *devuan*)                ICON="";;
+          *manjaro*)               ICON="";;
+          *rhel*)                  ICON="";;
+          *macos*)                 ICON="󰀵";;
+          *)                       ICON="";;
+      esac
+
+      export STARSHIP_DISTRO="$ICON"
+      export STARSHIP_DEVICE="$DEVICE"
       export PATH=$PATH:$HOME/.local/bin
     '';
 
