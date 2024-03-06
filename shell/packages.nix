@@ -55,7 +55,6 @@
     tealdeer
     thefuck
     tmate
-    tmux
     tokei
     tree
     xclip
