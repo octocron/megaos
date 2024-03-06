@@ -110,5 +110,13 @@
   programs.home-manager.enable = true;
   programs.command-not-found.enable = true;
   programs.jq.enable = true;
+  programs.tealdeer = {
+    enable = true;
+    settings = {
+      updates = {
+        auto_update = true;
+      };
+    };
+  };
 }
 
