@@ -10,8 +10,12 @@ The rabbit hole of nixos has begun!
 - gpg
 - ssh
 - gui apps??
-- 
-
+- mullvad
+- tailscale
+- flake-parts
+- direnv
+- containers
+ 
 #### DONE:
 - tmux
 - git 
