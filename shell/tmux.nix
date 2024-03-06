@@ -11,7 +11,7 @@
     historyLimit = 5000;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      tmux-sensible
+      sensible
       vim-tmux-navigator
       {
         plugin = continuum;
