@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs }:
 
 {
   programs.starship = {
@@ -10,29 +10,29 @@
       [╭╴](046)$env_var\
       $all[╰─](046)$character"""
       character = {
-        success_symbol = "[⟩](bold 046)"
-        error_symbol = "[ƒ](bold 005)"
+        success_symbol = "[⟩](bold 046)";
+        error_symbol = "[ƒ](bold 005)";
       };
 
       # Shows an icon depending on what distro it is running on
       env_var.STARSHIP_DISTRO = {
-        format = '[$env_value](bold white) '
-        variable = "STARSHIP_DISTRO"
-        disabled = false
+        format = '[$env_value](bold white) ';
+        variable = "STARSHIP_DISTRO";
+        disabled = false;
       };
 
       # Shows the current username
       env_var.USER = {
-        format = '[$env_value](bold white) '
-        variable = "USER"
-        disabled = false
+        format = '[$env_value](bold white) ';
+        variable = "USER";
+        disabled = false;
       };
 
       # Shows an icon depending on what device it is running on
       env_var.STARSHIP_DEVICE = {
-        format = 'on [$env_value](bold yellow)'
-        variable = "STARSHIP_DEVICE"
-        disabled = false
+        format = 'on [$env_value](bold yellow)';
+        variable = "STARSHIP_DEVICE";
+        disabled = false;
       };
 
       # Path settings
@@ -65,38 +65,38 @@
       };
       git_status = {
         format = '[\($all_status$ahead_behind\)]($style) ';
-        style = "bold green"
-        conflicted = "󱚠 "
-        up_to_date = "󱓏 "
-        untracked = "󱙄 "
-        ahead = "󰶼${count}"
-        diverged = "󱡷 󰶼${ahead_count}󰶹${behind_count}"
-        behind = "⇣${count}"
-        stashed = "󱧕 "
-        modified = "󱔽 "
-        staged = '[++\($count\)](green)'
-        renamed = "󰽄 "
-        deleted = " "
-        submodule = " "
+        style = "bold green";
+        conflicted = "󱚠 ";
+        up_to_date = "󱓏 ";
+        untracked = "󱙄 ";
+        ahead = "󰶼${count}";
+        diverged = "󱡷 󰶼${ahead_count}󰶹${behind_count}";
+        behind = "⇣${count}";
+        stashed = "󱧕 ";
+        modified = "󱔽 ";
+        staged = '[++\($count\)](green)';
+        renamed = "󰽄 ";
+        deleted = " ";
+        submodule = " ";
       };
       golang = {
-        format = 'via [💨 $version](bold cyan) '
+        format = 'via [💨 $version](bold cyan) ';
       };
       kubernetes = {
-        format = 'via [󰠳 $context\($namespace\)](bold purple) '
-        disabled = false
+        format = 'via [󰠳 $context\($namespace\)](bold purple) ';
+        disabled = false;
       };
       localip = {
-        ssh_only = false
-        format = 'at [$localipv4](012) '
-        disabled = false
+        ssh_only = false;
+        format = 'at [$localipv4](012) ';
+        disabled = false;
       };
       ssh = {
-        format = 'at [$ssh_symbol$hostname]($style) '
-        ssh_symbol = "󱕴󰣀 "
-        style = "bold blue"
-        disabled = false
-        ssh-only = true
+        format = 'at [$ssh_symbol$hostname]($style) ';
+        ssh_symbol = "󱕴󰣀 ";
+        style = "bold blue";
+        disabled = false;
+        ssh-only = true;
       };
 
       # Disable some modules that are not needed anymore

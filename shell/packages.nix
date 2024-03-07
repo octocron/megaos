@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -52,8 +52,6 @@
     slurp
     sniffnet
     speedread
-    tealdeer
-    thefuck
     tmate
     tokei
     tree

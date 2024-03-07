@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
+{ config, pkgs, ... }:
 
 {
   # Configure zsh
@@ -32,12 +32,12 @@
     ];
 
     shellAliases = {
-      ".."="cd ..";
+      ".." = "cd ..";
       "..." = "./..";
       "...." = "././..";
-      sv="sudo vim";
+      sv = "sudo vim";
       #-------------nix---------------------------------------------------->>>
-      flake-rebuild="sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
+      flake-rebuild = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
       ncg = "nix-collect-garbage --delete-old";
       #-------------aliases------------------------------------------------>>>
       a = "ansible";
@@ -51,9 +51,9 @@
       lt = "eza -lhTL";
       lsd = "eza -D";
       lg = "eza -lh --git";
-      mostcli = "history | awk '{print $2} | sort | uniq -c | sort -nr | head -10";
+      mostcli = "history | awk '{print $2}' | sort | uniq -c | sort -nr | head -10";
       reload = "source ${config.home.homeDirectory}/.zshrc";
-      reload ="exec $SHELL -l";
+      #reload ="exec $SHELL -l";
       show_path = "echo $PATH | tr ':' '\n'";
       week = "date +%V";
       wttr = "curl wttr.in";
@@ -140,12 +140,10 @@
       #fi
     '';
 
-    sessionVariables = {
-    
-    };
+    sessionVariables = { };
   };
 
-#-------------zsh plugins---------------------------------------------------->>>
+  #-------------zsh plugins---------------------------------------------------->>>
   # broot config
   programs.broot = {
     enable = true;
@@ -165,11 +163,17 @@
     enableZshIntegration = true;
   };
 
+  # fuck config
+  programs.thefuck = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   # zoxide config
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
     options = [ "--cmd cd" ];
   };
- 
+
 }

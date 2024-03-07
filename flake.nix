@@ -7,64 +7,72 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     darkmatter-grub-theme = {
-      url = gitlab:VandalByte/darkmatter-grub-theme;
+      url = "gitlab:VandalByte/darkmatter-grub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, darkmatter-grub-theme, ... }:
-  let
-    system = "x86_64-linux";
-    hostname = "galvatron";
-    username = "megacron";
-    gitUsername = "megacron";
-    gitEmail = "megacron@d3c3p7.com";
-    theLocale = "en_US.UTF-8";
-    theTimezone = "America/New_York";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-	  allowUnfree = true;
-      };
-    };
-  in {
-    nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs;
-            inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; inherit theLocale; inherit theTimezone;
-            };
-	    modules = [ ./laptop/configuration.nix
-          darkmatter-grub-theme.nixosModule
-          home-manager.nixosModules.home-manager {
-	        home-manager.extraSpecialArgs = { inherit username;
-            inherit gitUsername; inherit gitEmail;
-            };
-	        home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
-	        home-manager.users.${username} = import ./home.nix;
-	      }
-	    ];
-      };
-      desktop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs;
-            inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; inherit theLocale; inherit theTimezone;
+  outputs = inputs@{ self, nixpkgs, home-manager, darkmatter-grub-theme, ... }:
+    let
+      system = "x86_64-linux";
+      hostname = "galvatron";
+      username = "megacron";
+      gitUsername = "megacron";
+      gitEmail = "megacron@d3c3p7.com";
+      theLocale = "en_US.UTF-8";
+      theTimezone = "America/New_York";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
         };
-	    modules = [ ./desktop/configuration.nix
-          darkmatter-grub-theme.nixosModule
-          home-manager.nixosModules.home-manager {
-	        home-manager.extraSpecialArgs = { inherit username; 
+      };
+    in
+    {
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system; inherit inputs;
+            inherit username; inherit hostname; inherit gitUsername;
+            inherit gitEmail; inherit theLocale; inherit theTimezone;
+          };
+          modules = [
+            ./laptop/configuration.nix
+            darkmatter-grub-theme.nixosModule
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit username;
                 inherit gitUsername; inherit gitEmail;
-            };
-	        home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
-	        home-manager.users.${username} = import ./home.nix;
-	      }
-	    ];
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home.nix;
+            }
+          ];
+        };
+        desktop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system; inherit inputs;
+            inherit username; inherit hostname; inherit gitUsername;
+            inherit gitEmail; inherit theLocale; inherit theTimezone;
+          };
+          modules = [
+            ./desktop/configuration.nix
+            darkmatter-grub-theme.nixosModule
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit username;
+                inherit gitUsername; inherit gitEmail;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home.nix;
+            }
+          ];
+        };
       };
     };
-  };
 }
-
 

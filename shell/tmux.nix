@@ -1,4 +1,4 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
+{ pkgs, ... }:
 
 {
   programs.tmux = {
