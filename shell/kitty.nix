@@ -19,28 +19,28 @@
       background #1a1b26
       color0 #414868
       color8 #414868
-      color1 #f7768e
-      color9 #f7768e
+      color1 #0066cc
+      color9 #0066cc
       color2  #228800
       color10 #228800
       color3  #ffaa00
       color11 #ffaa00
-      color4  #7aa2f7
-      color12 #7aa2f7
-      color5  #9900ff
-      color13 #9900ff
-      color6  #00ccff
-      color14 #00ccff
-      color7  #fafa1a
-      color15 #fafa1a
+      color4  #aa44cc
+      color12 #aa44cc
+      color5  #ff9900
+      color13 #ee1b1b
+      color6  #990011
+      color14 #990011
+      color7  #ee4400
+      color15 #ee4400
       cursor #ee4400
       cursor_text_color #1a1b26
       selection_foreground none
       selection_background #28344a
-      url_color #002288
+      url_color #0000ff
       active_border_color #3d59a1
       inactive_border_color #101014
-      bell_border_color #e0af68
+      bell_border_color #ee1b1b
       tab_bar_style fade
       tab_fade 1
       active_tab_foreground   #3d59a1
