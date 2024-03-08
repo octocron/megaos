@@ -138,8 +138,14 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
+  # SSH setup
   services.openssh.enable = true;
+  security.sudo = {
+    enable = true;
+    timeout = 1800;  # Set the timeout to 30 minutes (1800 seconds)
+  };
+
+  # List services that you want to enable:
   services.fstrim.enable = true;
   services.xserver = {
     enable = true;
@@ -189,7 +195,7 @@
    ];
    NIXPKGS_ALLOW_UNFREE = "1";
    SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
-   STARSHIP_CONFIG = "\${HOME}/.config/starship/starship.toml";
+   STARSHIP_CONFIG = "\${HOME}/.config/starship.toml";
    XDG_CURRENT_DESKTOP = "Hyprland";
    XDG_SESSION_TYPE = "wayland";
    XDG_SESSION_DESKTOP = "Hyprland";
