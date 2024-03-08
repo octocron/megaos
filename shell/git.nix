@@ -15,7 +15,6 @@
     extraConfig = {
       core = {
         editor = "nvim";
-        pager = "delta";
       };
       diff = {
         colorMoved = "default";
