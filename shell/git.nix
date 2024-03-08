@@ -22,9 +22,6 @@
       init = {
         defaultBranch = "trunk";
       };
-      interactive = {
-        diffFilter = "delta --color-only";
-      };
       merge = {
         conflictstyle = "diff3";
       };
