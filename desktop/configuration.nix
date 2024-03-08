@@ -138,14 +138,13 @@
     enableSSHSupport = true;
   };
 
-  # SSH setup
-  services.openssh.enable = true;
-  security.sudo = {
-    enable = true;
-    timeout = 1800;  # Set the timeout to 30 minutes (1800 seconds)
-  };
+  # security
+  security.sudo.extraConfig = ''
+    Defaults      timestamp_timeout=30
+  '';
 
   # List services that you want to enable:
+  services.openssh.enable = true;
   services.fstrim.enable = true;
   services.xserver = {
     enable = true;
