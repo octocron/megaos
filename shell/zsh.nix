@@ -163,6 +163,12 @@
     enableZshIntegration = true;
   };
 
+  # starship >>> config/starship.toml
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   # fuck config
   programs.thefuck = {
     enable = true;

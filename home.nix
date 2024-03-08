@@ -13,7 +13,6 @@
     ./shell/git.nix
     ./shell/kitty.nix
     ./shell/packages.nix
-    ./shell/starship.nix
     ./shell/tmux.nix
     ./shell/wezterm.nix
     ./shell/zsh.nix
@@ -23,6 +22,7 @@
   home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
   home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
   home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
+  home.file.".config/starship.toml".source = ./config/starship.toml;
   home.file.".vimrc".source = ./config/vimrc;
   home.file.".emoji".source = ./config/emoji;
   home.file.".face".source = ./config/face.png;
