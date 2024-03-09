@@ -2,13 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, username,
-  hostname, gitUsername, theLocale,
-  theTimezone, ... }:
+{ inputs
+, pkgs
+, username
+, hostname
+, gitUsername
+, theLocale
+, theTimezone
+, ...
+}:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -27,17 +34,17 @@
   };
   boot.loader.timeout = 30;
 
-#boot.loader.systemd-boot.enable = true;
-#boot.loader.efi.canTouchEfiVariables = true;
-#boot.kernelModules = [ "v4l2loopback" ];
-#boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+  #boot.kernelModules = [ "v4l2loopback" ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
-# networking.wireless.enable = true;
+  # networking.wireless.enable = true;
 
-# Configure network proxy if necessary
-# networking.proxy.default = "http://user:password@proxy:port/";
-# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -69,22 +76,31 @@
     isNormalUser = true;
     description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [ 
+    openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCFpd0UZyX1T0WewVnzEWYY+9oXX+JcJaTLusO33/FX ansible"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPOPzh8vu5f8/T5IbbD6/1tzpnH94EPcta7FS2vUy45 optimus"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF1ZJSRTAzfmHNMDLWHKEm1oCr82v8zYvoaMVAvIGZdp galvatron"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYwMb4RRHkA0WL+TF9XtW54hqu4XrY2yLsF7b+9PCdY blackout.local"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDPnQdwT0HIgx43nv37wrepEAn6BDeP0uxLT/KDKAHE/ energon"
     ];
-    packages = with pkgs; [
-      maple-mono-NF
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    #packages = with pkgs; [
+    #     maple-mono-NF
+    #     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    #   ];
+    fonts.fonts = with pkgs; [
+      nerdfonts
+      (fontConfig.buildFont {
+        name = "Maple Mono Nerd Font";
+        fonts = [ ./fonts/maple/MapleMono-Regular.otf ];
+      })
     ];
+
   };
 
+
   # User automatic login
-#services.xserver.displayManger.autoLogin.enable=true;
-#services.xserver.displayManger.autoLogin.user="megacron";
+  #services.xserver.displayManger.autoLogin.enable=true;
+  #services.xserver.displayManger.autoLogin.user="megacron";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -122,7 +138,7 @@
 
   # Open Razer
   hardware.openrazer.enable = true;
-  hardware.openrazer.users = ["$username"];
+  hardware.openrazer.users = [ "$username" ];
 
   # Hyprland
   programs.hyprland = {
@@ -185,28 +201,28 @@
   };
 
   # Set Environment Variables
-  environment.variables={
-   NIXOS_OZONE_WL = "1";
-   PATH = [
-     "\${HOME}/.local/bin"
-     "\${HOME}/.cargo/bin"
-     "\$/usr/local/bin"
-   ];
-   NIXPKGS_ALLOW_UNFREE = "1";
-   SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
-   STARSHIP_CONFIG = "\${HOME}/.config/starship.toml";
-   XDG_CURRENT_DESKTOP = "Hyprland";
-   XDG_SESSION_TYPE = "wayland";
-   XDG_SESSION_DESKTOP = "Hyprland";
-   GDK_BACKEND = "wayland";
-   CLUTTER_BACKEND = "wayland";
-   SDL_VIDEODRIVER = "x11";
-   XCURSOR_SIZE = "24";
-   XCURSOR_THEME = "Bibata-Modern-Ice";
-   QT_QPA_PLATFORM = "wayland";
-   QT_QPA_PLATFORMTHEME = "qt5ct";
-   QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-   QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-   MOZ_ENABLE_WAYLAND = "1";
+  environment.variables = {
+    NIXOS_OZONE_WL = "1";
+    PATH = [
+      "\${HOME}/.local/bin"
+      "\${HOME}/.cargo/bin"
+      "\$/usr/local/bin"
+    ];
+    NIXPKGS_ALLOW_UNFREE = "1";
+    SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
+    STARSHIP_CONFIG = "\${HOME}/.config/starship.toml";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    GDK_BACKEND = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    SDL_VIDEODRIVER = "x11";
+    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Bibata-Modern-Ice";
+    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 }
