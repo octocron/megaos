@@ -87,16 +87,14 @@
     #     maple-mono-NF
     #     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     #   ];
-    fonts.fonts = with pkgs; [
-      nerdfonts
-      (fontConfig.buildFont {
-        name = "Maple Mono Nerd Font";
-        fonts = [ ./fonts/maple/MapleMono-Regular.otf ];
-      })
-    ];
 
   };
 
+  # Fonts (systemwide)
+  fonts.packages = with pkgs; [
+    nerdfonts
+    maple-mono-NF
+  ];
 
   # User automatic login
   #services.xserver.displayManger.autoLogin.enable=true;
