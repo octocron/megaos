@@ -78,7 +78,7 @@
     ];
     packages = with pkgs; [
       maple-mono-NF
-      nerdfonts
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 
@@ -140,7 +140,7 @@
 
   # security
   security.sudo.extraConfig = ''
-    Defaults      timestamp_timeout=30
+    Defaults      timestamp_timeout=1800
   '';
 
   # List services that you want to enable:

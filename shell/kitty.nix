@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    font.name = "MapleMono-NF";
+    font.name = "JetBrainsMono Nerd Font";
     font.size = 16;
     settings = {
       scrollback_lines = 2000;
