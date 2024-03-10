@@ -6,6 +6,7 @@
     wezterm
 
     # cli tools
+    amfora
     asciinema
     bandwhich
     bat
