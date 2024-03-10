@@ -19,9 +19,6 @@
       ./hardware-configuration.nix
     ];
 
-  # allow unfree packages
-  allowUnfree = true;
-
   # Bootloader choose either systemd (modern) or grub (legacy)
   boot.loader.grub = {
     enable = true;
