@@ -28,7 +28,7 @@
       color4  #aa44cc
       color12 #aa44cc
       color5  #ff9900
-      color13 #ee1b1b
+      color13 #5277c3
       color6  #990011
       color14 #990011
       color7  #ee4400

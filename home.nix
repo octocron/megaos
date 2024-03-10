@@ -14,7 +14,6 @@
     ./shell/kitty.nix
     ./shell/packages.nix
     ./shell/tmux.nix
-    ./shell/wezterm.nix
     ./shell/zsh.nix
   ];
 
