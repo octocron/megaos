@@ -2,6 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    # apps
+    wezterm
+
+    # cli tools
     asciinema
     bandwhich
     bat
