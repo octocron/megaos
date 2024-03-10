@@ -21,12 +21,6 @@
       gitEmail = "megacron@d3c3p7.com";
       theLocale = "en_US.UTF-8";
       theTimezone = "America/New_York";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
     in
     {
       nixosConfigurations = {
