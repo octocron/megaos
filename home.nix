@@ -12,6 +12,7 @@
     ./app/waybar.nix
     ./shell/git.nix
     ./shell/kitty.nix
+    ./shell/megavim.nix
     ./shell/packages.nix
     ./shell/tmux.nix
     ./shell/zsh.nix
