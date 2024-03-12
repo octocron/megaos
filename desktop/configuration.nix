@@ -162,9 +162,9 @@
     xkbVariant = "";
     libinput.enable = true;
     videoDrivers = [ "amdgpu" ];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    displayManager = {
+      gdm.enable = true;
+      gdm.wayland = true;
       autoLogin.enable = true;
       autoLogin.user = "${username}";
     };
