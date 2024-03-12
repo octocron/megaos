@@ -4,6 +4,9 @@
   home.packages = with pkgs; [
     # apps
     davinci-resolve
+    plex
+    plexamp
+    signal-desktop
 
     # cli tools
     amfora
