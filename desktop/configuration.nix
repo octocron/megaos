@@ -97,6 +97,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (pkgs.nnn.override { withNerdIcons = true; })
     curl
     git
     polychromatic
@@ -108,11 +109,6 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  programs.nnn = {
-    enable = true;
-    icon = "nerdfonts";
   };
 
   programs.steam = {
