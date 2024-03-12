@@ -83,11 +83,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYwMb4RRHkA0WL+TF9XtW54hqu4XrY2yLsF7b+9PCdY blackout.local"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDPnQdwT0HIgx43nv37wrepEAn6BDeP0uxLT/KDKAHE/ energon"
     ];
-    #packages = with pkgs; [
-    #     maple-mono-NF
-    #     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    #   ];
-
   };
 
   # Fonts (systemwide)
@@ -110,14 +105,29 @@
     zsh
   ];
 
-  # Steam Configuration
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  programs.nnn = {
+    enable = true;
+    icon = "nerdfonts";
+  };
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
 
-  # zsh configuration
+  programs.thunar.enable = true;
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
@@ -130,25 +140,13 @@
     driSupport32Bit = true;
   };
 
-  # Open Razer
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
   hardware.openrazer.enable = true;
   hardware.openrazer.users = [ "$username" ];
 
-  # Hyprland
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   # security
+  security.rtkit.enable = true;
   security.sudo.extraConfig = ''
     Defaults      timestamp_timeout=1800
   '';
@@ -176,10 +174,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  hardware.pulseaudio.enable = false;
-  sound.enable = true;
-  security.rtkit.enable = true;
-  programs.thunar.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
