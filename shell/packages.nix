@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # apps
-    youtube-music
+    davinci-resolve
 
     # cli tools
     amfora
