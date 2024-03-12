@@ -61,6 +61,7 @@
       ga = "git add .";
       gb = "git branch -a";
       gbd = "git branch -d";
+      gbod = "git push origin --delete";
       gc = "git commit -S -m ";
       gd = "git diff";
       gs = "git status";

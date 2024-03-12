@@ -3,7 +3,12 @@
 {
   home.packages = with pkgs; [
     # apps
+    plex
+    plexamp
+    davinci-resolve
+    signal-desktop
     wezterm
+    youtube-music
 
     # cli tools
     amfora
