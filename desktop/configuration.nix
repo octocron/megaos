@@ -176,13 +176,18 @@
   system.stateVersion = "23.11";
   nix = {
     settings = {
+      log-lines = 50;
+      warn-dirty = false;
+      trusted-users = [ "$username" ];
+      allowed-users = [ "$username" ];
+      http-connections = 50;
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 30d";
     };
   };
 
