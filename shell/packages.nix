@@ -3,9 +3,6 @@
 {
   home.packages = with pkgs; [
     # apps
-    plex
-    plexamp
-    signal-desktop
     youtube-music
 
     # cli tools
