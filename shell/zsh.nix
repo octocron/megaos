@@ -60,11 +60,13 @@
       #-------------git---------------------------------------------------->>>
       ga = "git add .";
       gb = "git branch -a";
+      gbd = "git branch -d";
       gc = "git commit -S -m ";
       gd = "git diff";
       gs = "git status";
       gdh = "git diff HEAD";
       gp = "git push";
+      gpu = "git pull";
       gpt = "git push -u origin trunk";
       gph = "git push -u origin HEAD";
       gsl = "git stash list";
@@ -72,7 +74,7 @@
       gsp = "git stash pop";
       gco = "git checkout";
       gcob = "git checkout -b";
-      gct = "git checkout trunk";
+      gcot = "git checkout trunk";
 
       pbcopy = "/mnt/c/Windows/System32/clip.exe";
       pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
