@@ -96,10 +96,6 @@
     maple-mono-NF
   ];
 
-  # User automatic login
-  #services.xserver.displayManger.autoLogin.enable=true;
-  #services.xserver.displayManger.autoLogin.user="megacron";
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -169,6 +165,8 @@
     displayManager.gdm = {
       enable = true;
       wayland = true;
+      autoLogin.enable = true;
+      autoLogin.user = "${username}";
     };
   };
   services.pipewire = {
