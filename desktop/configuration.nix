@@ -181,7 +181,7 @@
     enable = true;
     openFirewall = true;
   };
-  samba-wsdd = {
+  services.samba-wsdd = {
     # This enables autodiscovery on windows since SMB1 (and thus netbios) support was discontinued
     enable = true;
     openFirewall = true;
