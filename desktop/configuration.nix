@@ -102,7 +102,6 @@
 
   programs.cava = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.cava;
     general.frameRate = 60;
     input.method = "alsa";
     smoothing.noise_reduction = 88;
@@ -173,6 +172,10 @@
   };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+  services.samba = {
+    enable = true;
+    client = true;
+  };
 
   system.stateVersion = "23.11";
   nix = {
