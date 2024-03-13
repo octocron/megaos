@@ -3,10 +3,25 @@
 {
   home.packages = with pkgs; [
     # apps
+    audacity
+    blender
+    brave
+    discord
     davinci-resolve
-    plex
+    gimp
+    godot_4
+    gparted
+    kdenlive
+    mpv
+    obs-studio
+    openra
+    plex-media-player
     plexamp
     signal-desktop
+    spotify
+    superTuxKart
+    tailscale
+    xonotic
 
     # cli tools
     amfora
@@ -36,9 +51,11 @@
     gitmoji-cli
     gping
     go
+    grim
     htop
     hugo
     hyperfine
+    imv
     inxi
     just
     killall

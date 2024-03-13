@@ -1,14 +1,17 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, username,
-  hostname, gitUsername, theLocale,
-  theTimezone, ... }:
+{ inputs
+, pkgs
+, username
+, hostname
+, gitUsername
+, theLocale
+, theTimezone
+, ...
+}:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -26,11 +29,11 @@
     };
   };
 
-# Bootloader.
-#boot.loader.systemd-boot.enable = true;
-#boot.loader.efi.canTouchEfiVariables = true;
-#boot.kernelModules = [ "v4l2loopback" ];
-#boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  # Bootloader.
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+  #boot.kernelModules = [ "v4l2loopback" ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
@@ -58,9 +61,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {
     isNormalUser = true;
-    description = "${git Username}";
+    description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -69,7 +71,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget curl
+    vim
+    wget
+    curl
   ];
 
   fonts.packages = with pkgs; [
@@ -82,21 +86,34 @@
     dedicatedServer.openFirewall = true;
   };
 
+  programs.cava = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.cava;
+    general.frameRate = 60;
+    input.method = "alsa";
+    smoothing.noise_reduction = 88;
+    color = {
+      background = "#ee4400";
+      foreground = "#228800";
+    };
+  };
+
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       vaapiVdpau
       libvdpau-va-gl
     ];
     driSupport = true;
     driSupport32Bit = true;
   };
-  
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;

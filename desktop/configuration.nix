@@ -1,16 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs
-, pkgs
-, username
-, hostname
-, gitUsername
-, theLocale
-, theTimezone
-, ...
-}:
+{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ...}:
 
 {
   imports =
@@ -100,6 +88,7 @@
     (pkgs.nnn.override { withNerdIcons = true; })
     curl
     git
+    parted
     polychromatic
     vim
     wget
@@ -109,6 +98,18 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  programs.cava = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.cava;
+    general.frameRate = 60;
+    input.method = "alsa";
+    smoothing.noise_reduction = 88;
+    color = {
+      background = "#ee4400";
+      foreground = "#228800";
+    };
   };
 
   programs.steam = {
