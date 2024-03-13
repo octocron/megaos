@@ -105,12 +105,14 @@
   };
   programs.cava = {
     enable = true;
-    general.frameRate = 60;
-    input.method = "alsa";
-    smoothing.noise_reduction = 88;
-    color = {
-      background = "#ee4400";
-      foreground = "#228800";
+    settings = {
+      general.frameRate = 60;
+      input.method = "alsa";
+      smoothing.noise_reduction = 88;
+      color = {
+        background = "#ee4400";
+        foreground = "#228800";
+      };
     };
   };
 
