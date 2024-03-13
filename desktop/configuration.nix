@@ -177,7 +177,7 @@
   services.avahi = {
     publish.enable = true;
     publish.userServices = true;
-    nssmdns4 = true;
+    nssmdns = true;
     enable = true;
     openFirewall = true;
   };
