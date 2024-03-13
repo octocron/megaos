@@ -100,17 +100,6 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
-  programs.cava = {
-    enable = true;
-    general.frameRate = 60;
-    input.method = "alsa";
-    smoothing.noise_reduction = 88;
-    color = {
-      background = "#ee4400";
-      foreground = "#228800";
-    };
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
