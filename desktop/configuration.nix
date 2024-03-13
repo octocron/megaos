@@ -174,7 +174,7 @@
       server min protocol = SMB3_00
     '';
   };
-  programs.avahi = {
+  services.avahi = {
     publish.enable = true;
     publish.userServices = true;
     nssmdns4 = true;
