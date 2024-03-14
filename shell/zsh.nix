@@ -76,6 +76,9 @@
       gco = "git checkout";
       gcob = "git checkout -b";
       gcot = "git checkout trunk";
+      gl = "git log";
+      gla = "git log --all --graph --oneline";
+      glo = "git log -1 --pretty=%H";
 
       pbcopy = "/mnt/c/Windows/System32/clip.exe";
       pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";

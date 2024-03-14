@@ -27,9 +27,14 @@
   #boot.kernelModules = [ "v4l2loopback" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
   networking.hostName = "${hostname}"; # Define your hostname.
+  networking.networkmanager.enable = true;
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 3030 4444 8080 ];
+    allowedUDPPorts = [ 22 80 443 ];
+  };
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
