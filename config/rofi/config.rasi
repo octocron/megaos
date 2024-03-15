@@ -1,7 +1,7 @@
 @theme "/dev/null"
 
 * {
-	bg: #181E27;
+	bg: #5277c3;
 	background-color: @bg;
 }
 
@@ -23,7 +23,6 @@ window {
 mainbox {
 	children: [inputbar, listview];
 }
-
 
 // ELEMENT
 // -----------------------------------

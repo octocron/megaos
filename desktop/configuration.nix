@@ -1,16 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs
-, pkgs
-, username
-, hostname
-, gitUsername
-, theLocale
-, theTimezone
-, ...
-}:
+{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
@@ -40,14 +28,16 @@
   #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
+  networking.networkmanager.enable = true;
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 3030 4444 8080 ];
+    allowedUDPPorts = [ 22 80 443 ];
+  };
   # networking.wireless.enable = true;
-
-  # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "${theTimezone}";
@@ -98,8 +88,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     (pkgs.nnn.override { withNerdIcons = true; })
+    cifs-utils # for mounting SMB shares
     curl
     git
+    parted
     polychromatic
     vim
     wget
@@ -172,15 +164,38 @@
   };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+  # still need to $ sudo smbpasswd -a $username
+  services.samba = {
+    package = pkgs.samba4Full;
+    enable = true;
+    openFirewall = true;
+    shares.public = {
+      enable = true;
+      path = "/home/$username/Public";
+      comment = "Hiya World!";
+    };
+    extraConfig = ''
+      server smb encrypt = required
+      server min protocol = SMB3_00
+    '';
+  };
+  services.avahi = {
+    publish.enable = true;
+    publish.userServices = true;
+    nssmdns = true;
+    enable = true;
+    openFirewall = true;
+  };
+  services.samba-wsdd = {
+    # This enables autodiscovery on windows since SMB1 (and thus netbios) support was discontinued
+    enable = true;
+    openFirewall = true;
+  };
 
   system.stateVersion = "23.11";
   nix = {
     settings = {
-      log-lines = 50;
       warn-dirty = false;
-      trusted-users = [ "$username" ];
-      allowed-users = [ "$username" ];
-      http-connections = 50;
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" ];
     };
