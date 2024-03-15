@@ -1,7 +1,7 @@
 @theme "/dev/null"
 
 * {
-	bg: #5277c3;
+	bg: #181e27;
 	background-color: @bg;
 }
 
@@ -17,7 +17,7 @@ window {
 	width: 35%;
 	transparency: "real";
 	orientation: vertical;
-	border-color: #74adc0;
+	border-color: #ee4400;
 }
 
 mainbox {
@@ -33,7 +33,7 @@ element {
 }
 
 element selected {
-	background-color: #74adc0;
+	background-color: #228800;
 }
 
 element-text {
@@ -62,19 +62,19 @@ listview {
 //------------------------------------------------
 
 entry {
-	text-color: #EFE7DD;
+	text-color: #00ccff;
 	padding: 10 10 0 0;
 	margin: 0 -2 0 0;
 }
 
 inputbar {
-	background-image: url("~/.config/rofi/rofi.jpg", width);
+	background-image: url("~/Pictures/wallpapers/groot_oldies.png", width);
 	padding: 180 0 0;
 	margin: 0 0 0 0;
 } 
 
 prompt {
-	text-color: #aaffaa;
+	text-color: #ffaa00;
 	padding: 10 6 0 10;
 	margin: 0 -2 0 0;
 }

@@ -111,7 +111,7 @@
       smoothing.noise_reduction = 88;
       color = {
         background = "#ee4400";
-        foreground = "#228800";
+        foreground = "#00ff00";
       };
     };
   };

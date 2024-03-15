@@ -90,6 +90,7 @@
     (pkgs.nnn.override { withNerdIcons = true; })
     cifs-utils # for mounting SMB shares
     curl
+    file
     git
     parted
     polychromatic
