@@ -20,7 +20,6 @@
     signal-desktop
     spotify
     superTuxKart
-    tailscale
     xonotic
 
     # cli tools
@@ -70,6 +69,7 @@
     neovim
     pinentry
     procs
+    pscircle
     ripgrep
     rustup
     scc
@@ -77,6 +77,7 @@
     slurp
     sniffnet
     speedread
+    tailscale
     tmate
     tokei
     tree
