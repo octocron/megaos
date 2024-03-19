@@ -32,7 +32,7 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 443 3030 4444 8080 ];
+    allowedTCPPorts = [ 22 80 443 ];
     allowedUDPPorts = [ 22 80 443 ];
   };
   # networking.wireless.enable = true;
@@ -170,11 +170,6 @@
     package = pkgs.samba4Full;
     enable = true;
     openFirewall = true;
-    shares.public = {
-      enable = true;
-      path = "/home/$username/Public";
-      comment = "Hiya World!";
-    };
     extraConfig = ''
       server smb encrypt = required
       server min protocol = SMB3_00
