@@ -8,6 +8,7 @@
 
   # Module imports
   imports = [
+    ./app/dunst.nix
     ./app/theme.nix
     ./app/waybar.nix
     ./shell/git.nix
