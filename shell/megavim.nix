@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  megavim = pkgs.vimUtils.buildVimPlugin {
+  megavimVimPlugin = pkgs.vimUtils.buildVimPlugin {
     name = "megavim";
     src = ../config/nvim;
   };
@@ -12,11 +12,11 @@ in
     enable = true;
     defaultEditor = true;
     plugins = [
-      megavim
+      megavimVimPlugin
       pkgs.vimPlugins.lazy-nvim
     ];
-#    extraLuaConfig = ''
-#      require('megavim')
-#    '';
+    extraLuaConfig = ''
+      require('megavim')
+    '';
   };
 }
