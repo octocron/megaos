@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.kitty;
     font.name = "Maple Mono";
-    font.size = 16;
+    font.size = 10;
     settings = {
       scrollback_lines = 2000;
       wheel_scroll_min_lines = 1;
