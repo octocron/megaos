@@ -66,7 +66,6 @@
     mosh
     navi
     neofetch
-    neovim
     pinentry
     procs
     pscircle
