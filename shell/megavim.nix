@@ -13,6 +13,7 @@ in
     defaultEditor = true;
     plugins = [
       megavimPlugin
+      pkgs.vimPlugins.lazy-nvim
     ];
     extraLuaConfig = ''
       require('megavim')
