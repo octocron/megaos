@@ -1,22 +1,19 @@
-{ pkgs, builtins, fetchGit, ... }:
+{ pkgs, ... }:
 
 let
-  megavim = fetchGit {
-    url = "https://gitlab.com/megacron/megavim.git";
-    rev = "trunk"; # or specify a specific commit hash or tag
-    ref = "refs/heads/trunk"; # GitLab uses refs/heads/ for branches
-    fetchSubmodules = true; # Fetch submodule contents too, if any
+  megavimPlugin = pkgs.vimUtils.buildVimPlugin {
+    name = "megavim";
+    src = ../config/nvim;
   };
-
 in
+
 {
-  megavimNvim = pkgs.symlinkJoin {
-    name = "nvim";
-    paths = builtins.filterSource (path: type: type != "directory" && path != ".git") megavim;
-    target = "${pkgs.userHome}/.config/nvim";
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    plugins = [
+      megavimPlugin
+    ];
   };
-
-  # Error handling: Throw an error if the fetchGit operation fails
-  megavimError = builtins.elemAt (builtins.filterAttrs (name: val: val.state != "success") megavim) "errorMessage";
-
 }
+
