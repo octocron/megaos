@@ -5,6 +5,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      #./app/crowdsec.nix
+      #./app/tailscale.nix
     ];
 
   # Bootloader choose either systemd (modern) or grub (legacy)
@@ -34,6 +36,7 @@
     enable = true;
     allowedTCPPorts = [ 22 80 443 ];
     allowedUDPPorts = [ 22 80 443 ];
+    trustedInterfaces = [ "tailscale0" ];
   };
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -194,6 +197,8 @@
       warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" ];
+      trust-users = [ "root" "@wheel" ];
+      allowed-users = [ "root"  "@wheel" ];
     };
     gc = {
       automatic = true;
