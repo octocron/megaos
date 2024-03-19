@@ -14,6 +14,8 @@ in
     plugins = [
       megavimPlugin
     ];
+    extraLuaConfig = ''
+      require('megavim')
+    '';
   };
 }
-
