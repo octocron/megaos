@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  megavimPlugin = pkgs.vimUtils.buildVimPlugin {
-    name = "megavim";
+  userVimPlugin = pkgs.vimUtils.buildVimPlugin {
+    name = "user";
     src = ../config/nvim;
   };
 in
@@ -12,7 +12,7 @@ in
     enable = true;
     defaultEditor = true;
     plugins = [
-      megavimPlugin
+      userVimPlugin
       pkgs.vimPlugins.lazy-nvim
     ];
     extraLuaConfig = ''
