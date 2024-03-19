@@ -197,7 +197,7 @@
       warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = [ "flakes" "nix-command" ];
-      trust-users = [ "root" "@wheel" ];
+      trusted-users = [ "root" "@wheel" ];
       allowed-users = [ "root"  "@wheel" ];
     };
     gc = {
