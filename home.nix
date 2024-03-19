@@ -34,6 +34,10 @@
     source = ./fonts;
     recursive = true;
   };
+  home.file.".config/nvim" = {
+    source = ./config/nvim;
+    recursive = true;
+  };
   home.file.".config/rofi" = {
     source = ./config/rofi;
     recursive = true;
