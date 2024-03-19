@@ -15,8 +15,8 @@ in
       megavim
       pkgs.vimPlugins.lazy-nvim
     ];
-    extraLuaConfig = ''
-      require('megavim')
-    '';
+#    extraLuaConfig = ''
+#      require('megavim')
+#    '';
   };
 }
