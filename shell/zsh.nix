@@ -66,23 +66,23 @@
       gbd = "git branch -d";
       gbod = "git push origin --delete";
       gc = "git commit -S -m ";
+      gco = "git checkout";
+      gcob = "git checkout -b";
+      gcot = "git checkout trunk";
       gd = "git diff";
-      gs = "git status";
       gdh = "git diff HEAD";
+      gl = "git log";
+      gla = "git log --all --graph --oneline";
+      glo = "git log -1 --pretty=%H";
       gp = "git push";
       gpu = "git pull";
       gpt = "git push -u origin trunk";
       gph = "git push -u origin HEAD";
+      gs = "git status";
       gsl = "git stash list";
       gsf = "git stash push --";
       gsp = "git stash pop";
-      gco = "git checkout";
-      gcob = "git checkout -b";
-      gcot = "git checkout trunk";
-      gl = "git log";
-      gla = "git log --all --graph --oneline";
-      glo = "git log -1 --pretty=%H";
-
+      #-------------copy--------------------------------------------------->>>
       pbcopy = "/mnt/c/Windows/System32/clip.exe";
       pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
       explorer = "/mnt/c/Windows/explorer.exe";
