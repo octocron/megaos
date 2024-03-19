@@ -37,8 +37,10 @@
       "...." = "././..";
       sv = "sudo vim";
       #-------------nix---------------------------------------------------->>>
-      nrc = "sudo nixos-rebuild check --flake ~/projects/megaos/#desktop";
+      nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
+      nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
       nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
+      nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#desktop";
       ncg = "nix-collect-garbage --delete-old";
       #-------------aliases------------------------------------------------>>>
       a = "ansible";
