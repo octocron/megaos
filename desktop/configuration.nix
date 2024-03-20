@@ -146,6 +146,7 @@
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
   services.xserver = {
     enable = true;
     layout = "us";
