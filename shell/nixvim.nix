@@ -1,9 +1,9 @@
 {
   programs.nixvim = {
     enable = true;
-    colorschemes.tokyonight.nvim = {
-      enable = true;
-    };
+
+    colorschemes.gruvbox.enable = true;
+    plugins.lightline.enable = true;
   };
 }
 
