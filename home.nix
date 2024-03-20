@@ -13,6 +13,7 @@
     ./shell/cava.nix
     ./shell/git.nix
     ./shell/kitty.nix
+    ./shell/nixvim.nix
     ./shell/packages.nix
     ./shell/tmux.nix
     ./shell/zsh.nix
