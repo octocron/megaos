@@ -8,12 +8,11 @@
 
   # Module imports
   imports = [
-    ./app/dunst.nix
     ./app/theme.nix
     ./app/waybar.nix
+    ./shell/cava.nix
     ./shell/git.nix
     ./shell/kitty.nix
-    ./shell/megavim.nix
     ./shell/packages.nix
     ./shell/tmux.nix
     ./shell/zsh.nix
@@ -33,10 +32,6 @@
   };
   home.file.".local/share/fonts" = {
     source = ./fonts;
-    recursive = true;
-  };
-  home.file.".config/nvim" = {
-    source = ./config/nvim;
     recursive = true;
   };
   home.file.".config/rofi" = {
@@ -98,6 +93,7 @@
   ];
 
   programs.home-manager.enable = true;
+  programs.cava.enable = true;
   programs.command-not-found.enable = true;
   programs.jq.enable = true;
   programs.tealdeer = {
@@ -108,17 +104,4 @@
       };
     };
   };
-  programs.cava = {
-    enable = true;
-    settings = {
-      general.frameRate = 60;
-      input.method = "alsa";
-      smoothing.noise_reduction = 88;
-      color = {
-        background = "#ee4400";
-        foreground = "#00ff00";
-      };
-    };
-  };
-
 }

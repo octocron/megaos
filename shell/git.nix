@@ -14,7 +14,7 @@
     userName = "${gitUsername}";
     extraConfig = {
       core = {
-        editor = "nvim";
+        editor = "vim";
       };
       diff = {
         colorMoved = "default";

@@ -75,6 +75,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF1ZJSRTAzfmHNMDLWHKEm1oCr82v8zYvoaMVAvIGZdp galvatron"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYwMb4RRHkA0WL+TF9XtW54hqu4XrY2yLsF7b+9PCdY blackout.local"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDPnQdwT0HIgx43nv37wrepEAn6BDeP0uxLT/KDKAHE/ energon"
+      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG++DllhoaxmTnSQ155B0dgEbRO+XHsXP8a3znDm8YesXYcct+cDvV1ysf7HEP/9jaQmrbOSXKtdC1bA3fYU4mk= drift"
     ];
   };
 
@@ -197,9 +198,9 @@
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
-      experimental-features = [ "flakes" "nix-command" ];
       trusted-users = [ "root" "@wheel" ];
       allowed-users = [ "root"  "@wheel" ];
+      experimental-features = [ "flakes" "nix-command" ];
     };
     gc = {
       automatic = true;
