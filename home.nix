@@ -10,7 +10,7 @@
   imports = [
     ./app/theme.nix
     ./app/waybar.nix
-    ./shell/cava.nix
+#./shell/cava.nix
     ./shell/git.nix
     ./shell/kitty.nix
     ./shell/nixvim.nix
