@@ -36,7 +36,7 @@
     enable = true;
     allowedTCPPorts = [ 22 80 443 ];
     allowedUDPPorts = [ 22 80 443 ];
-    trustedInterfaces = [ "tailscale0" ];
+    #trustedInterfaces = [ "tailscale0" ];
   };
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
