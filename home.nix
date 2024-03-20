@@ -23,16 +23,17 @@
   home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
   home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
   home.file.".config/starship.toml".source = ./config/starship.toml;
+  home.file.".config/wezterm/wezterm.lua".source = ./config/wezterm.lua;
+
   home.file.".emoji".source = ./config/emoji;
   home.file.".face".source = ./config/face.png;
-  home.file.".vimrc".source = ./config/vimrc;
-  home.file.".config/wezterm/wezterm.lua".source = ./config/wezterm.lua;
-  home.file."Pictures/wallpapers" = {
-    source = ./media/wallpapers;
-    recursive = true;
-  };
+
   home.file.".local/share/fonts" = {
     source = ./fonts;
+    recursive = true;
+  };
+  home.file.".config/hypr" = {
+    source = ./config/hyprland;
     recursive = true;
   };
   home.file.".config/rofi" = {
@@ -43,8 +44,12 @@
     source = ./config/swaync;
     recursive = true;
   };
-  home.file.".config/hypr" = {
-    source = ./config/hyprland;
+  home.file.".config/vim" = {
+    source = ./config/vim;
+    recursive = true;
+  };
+  home.file."Pictures/wallpapers" = {
+    source = ./media/wallpapers;
     recursive = true;
   };
 
