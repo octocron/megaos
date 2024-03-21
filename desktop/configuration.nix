@@ -1,10 +1,11 @@
-{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, pkgs, nixvim, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      nixvim.homeManagerModules.nixvim
       #./app/crowdsec.nix
       #./app/tailscale.nix
     ];

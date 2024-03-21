@@ -39,7 +39,6 @@
             ./desktop/configuration.nix
             darkmatter-grub-theme.nixosModule
             home-manager.nixosModules.home-manager
-            nixvim.homeManagerModules.nixvim
             {
               home-manager.extraSpecialArgs = {
                 inherit username;
@@ -61,7 +60,6 @@
             ./laptop/configuration.nix
             darkmatter-grub-theme.nixosModule
             home-manager.nixosModules.home-manager
-            nixvim.homeManagerModules.nixvim
             {
               home-manager.extraSpecialArgs = {
                 inherit username;
