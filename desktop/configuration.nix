@@ -1,4 +1,4 @@
-{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, pkgs, nixvim, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
@@ -115,6 +115,7 @@
     dedicatedServer.openFirewall = true;
   };
 
+  programs.nixvim.enable = true;
   programs.thunar.enable = true;
   programs.mtr.enable = true;
   programs.gnupg.agent = {
