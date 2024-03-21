@@ -10,10 +10,10 @@
   imports = [
     ./app/theme.nix
     ./app/waybar.nix
-#./shell/cava.nix
+    ./shell/cava.nix
     ./shell/git.nix
     ./shell/kitty.nix
-#    ./shell/nixvim.nix
+    ./shell/nixvim.nix
     ./shell/packages.nix
     ./shell/tmux.nix
     ./shell/zsh.nix
