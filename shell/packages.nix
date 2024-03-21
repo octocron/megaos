@@ -13,6 +13,7 @@
     gparted
     kdenlive
     mpv
+    mullvad-vpn
     obs-studio
     openra
     plex-media-player
@@ -64,6 +65,7 @@
     lua
     magic-wormhole
     mosh
+    mullvad
     navi
     neofetch
     neovim
