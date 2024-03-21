@@ -1,11 +1,10 @@
-{ inputs, pkgs, nixvim, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      nixvim.homeManagerModules.nixvim
       #./app/crowdsec.nix
       #./app/tailscale.nix
     ];
@@ -115,7 +114,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.nixvim.enable = true;
   programs.thunar.enable = true;
   programs.mtr.enable = true;
   programs.gnupg.agent = {
