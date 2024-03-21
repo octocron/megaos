@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, username, nixvim, ... }:
 
 {
   # Home Manager Settings
@@ -8,6 +8,7 @@
 
   # Module imports
   imports = [
+    nixvim.homeManagerModules.nixvim
     ./app/theme.nix
     ./app/waybar.nix
     ./shell/cava.nix
