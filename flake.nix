@@ -8,16 +8,13 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim/nixos-23.11";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
     darkmatter-grub-theme.url = "gitlab:VandalByte/darkmatter-grub-theme";
     darkmatter-grub-theme.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixvim, home-manager, darkmatter-grub-theme, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, darkmatter-grub-theme, hyprland, ... }:
     let
       system = "x86_64-linux";
       hostname = "galvatron";
