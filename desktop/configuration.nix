@@ -1,4 +1,4 @@
-{ inputs, pkgs, nixvim, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
