@@ -65,7 +65,6 @@
     lua
     magic-wormhole
     mosh
-    mullvad
     navi
     neofetch
     neovim
