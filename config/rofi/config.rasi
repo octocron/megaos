@@ -9,11 +9,11 @@ configuration {
 	show-icons: true;
 	icon-theme: "Papirus";
 	location: 0;
-	font: "JetBrainsMono Nerd Font 12";	
+	font: "Maple Mono 12";	
 	display-drun: "Launch:";
 }
 
-window { 
+window {
 	width: 35%;
 	transparency: "real";
 	orientation: vertical;

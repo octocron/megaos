@@ -95,10 +95,6 @@
                 {
                     "label": "",
                     "command": "obs"
-                },
-                {
-                    "label": "󱁥",
-                    "command": "mullvad-vpn"
                 }
             ]
         }
