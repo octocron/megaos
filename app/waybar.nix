@@ -32,7 +32,7 @@
       };
       "memory" = {
         interval = 5;
-        format = " {}%";
+        format = "󰍛 {}%";
         tooltip = true;
       };
       "cpu" = {
@@ -41,7 +41,7 @@
         tooltip = true;
       };
       "disk" = {
-        format = "  {free}";
+        format = "  {free}";
         tooltip = true;
       };
       "network" = {
@@ -57,14 +57,14 @@
       "pulseaudio" = {
         format = "{icon} {volume}% {format_source}";
         format-bluetooth = "{volume}% {icon} {format_source}";
-        format-bluetooth-muted = " {icon} {format_source}";
-        format-muted = " {format_source}";
+        format-bluetooth-muted = "󰂲 {icon} {format_source}";
+        format-muted = " {format_source}";
         format-source = " {volume}%";
         format-source-muted = "";
         format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
+          headphone = "󰋎";
+          hands-free = "󰋎";
+          headset = "󰋎";
           phone = "";
           portable = "";
           car = "";
@@ -89,8 +89,6 @@
           interval = 5;
           tooltip = true;
           format = "{icon} {status}";
-          format-connected = "󱎚 {status}";
-          format-disconnected = "󱚳 {status}";
           format-icons = {
             connected = "󱎚";
             disconnected = "󱚳";
