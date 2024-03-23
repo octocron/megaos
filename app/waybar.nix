@@ -87,7 +87,7 @@
         };
         "mullvad-vpn" = {
           interval = 5;
-          tooltip = false;
+          tooltip = true;
           format = "{icon} {status}";
           format-connected = "󱎚 {status}";
           format-disconnected = "󱚳 {status}";
