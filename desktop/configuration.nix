@@ -1,7 +1,7 @@
-{ inputs, system, pkgs, nixpkgs-unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, system, pkgs, unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 let
-  pkgs-unstable = import nixpkgs-unstable {
+  pkgs-unstable = import unstable {
     inherit system;
     config.allowUnfree = true;
   };
