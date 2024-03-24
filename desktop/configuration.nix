@@ -1,12 +1,6 @@
-{ inputs, system, pkgs, nixpkgs-unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, pkgs, nixpkgs-unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
-  pkgs = import <nixpkgs> {};
-  pkgs-unstable = import nixpkgs-unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
   imports =
     [
       # Include the results of the hardware scan.
@@ -169,7 +163,7 @@
   };
   services.pipewire = {
     enable = true;
-    package = pkgs-unstable.pipewire;
+    package = nixpkgs-unstable.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
