@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +14,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, home-manager, darkmatter-grub-theme, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darkmatter-grub-theme, hyprland, ... }:
     let
       system = "x86_64-linux";
       hostname = "galvatron";
