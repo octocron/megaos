@@ -1,13 +1,12 @@
 { inputs, system, pkgs, nixpkgs-unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
-let
+{
+  pkgs = import <nixpkgs> {};
   pkgs-unstable = import nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
   };
-in
 
-{
   imports =
     [
       # Include the results of the hardware scan.
