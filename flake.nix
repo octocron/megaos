@@ -14,7 +14,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, darkmatter-grub-theme, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, unstable, home-manager, darkmatter-grub-theme, hyprland, ... }:
     let
       system = "x86_64-linux";
       hostname = "galvatron";

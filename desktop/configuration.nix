@@ -1,4 +1,11 @@
-{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+{ inputs, system, config, pkgs, lib, unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
+
+let
+  unstable = import unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+in
 
 {
   imports =
@@ -163,6 +170,7 @@
   };
   services.pipewire = {
     enable = true;
+    package = unstable.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -194,12 +202,19 @@
   };
 
   system.stateVersion = "23.11";
+  system.activationScripts.diff = {
+    supportsDryActivation = true;
+    text = ''
+      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
+           /run/current-system "$systemConfig"
+    '';
+  };
   nix = {
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
       trusted-users = [ "root" "@wheel" ];
-      allowed-users = [ "root"  "@wheel" ];
+      allowed-users = [ "root" "@wheel" ];
       experimental-features = [ "flakes" "nix-command" ];
     };
     gc = {
