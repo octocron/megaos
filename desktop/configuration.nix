@@ -1,7 +1,7 @@
 { inputs, system, pkgs, nixpkgs-unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 let
-  unstable = import nixpkgs-unstable {
+  pkgs-unstable = import nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
   };
@@ -170,7 +170,7 @@ in
   };
   services.pipewire = {
     enable = true;
-    package = unstable.pipewire;
+    package = pkgs-unstable.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
