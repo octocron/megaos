@@ -1,12 +1,4 @@
-{ inputs, system, pkgs, unstable, username, hostname, gitUsername, theLocale, theTimezone, ... }:
-
-let
-  pkgs-unstable = import unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
-in
+{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
 
 {
   imports =
@@ -171,7 +163,6 @@ in
   };
   services.pipewire = {
     enable = true;
-    package = pkgs-unstable.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
