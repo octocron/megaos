@@ -1,13 +1,19 @@
-{ inputs, pkgs, username, hostname, gitUsername, theLocale, theTimezone, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      #./app/crowdsec.nix
-      #./app/tailscale.nix
-    ];
+  inputs,
+  pkgs,
+  username,
+  hostname,
+  gitUsername,
+  theLocale,
+  theTimezone,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    #./app/crowdsec.nix
+    #./app/tailscale.nix
+  ];
 
   # Bootloader choose either systemd (modern) or grub (legacy)
   boot.loader.grub = {
@@ -34,8 +40,8 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 443 ];
-    allowedUDPPorts = [ 22 80 443 ];
+    allowedTCPPorts = [22 80 443];
+    allowedUDPPorts = [22 80 443];
     #trustedInterfaces = [ "tailscale0" ];
   };
   # networking.wireless.enable = true;
@@ -68,7 +74,7 @@
     homeMode = "755";
     isNormalUser = true;
     description = "${gitUsername}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCFpd0UZyX1T0WewVnzEWYY+9oXX+JcJaTLusO33/FX ansible"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPOPzh8vu5f8/T5IbbD6/1tzpnH94EPcta7FS2vUy45 optimus"
@@ -91,7 +97,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (pkgs.nnn.override { withNerdIcons = true; })
+    (pkgs.nnn.override {withNerdIcons = true;})
     cifs-utils # for mounting SMB shares
     curl
     file
@@ -136,7 +142,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.openrazer.enable = true;
-  hardware.openrazer.users = [ "$username" ];
+  hardware.openrazer.users = ["$username"];
 
   # security
   security.rtkit.enable = true;
@@ -153,7 +159,7 @@
     layout = "us";
     xkbVariant = "";
     libinput.enable = true;
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = ["amdgpu"];
     displayManager = {
       gdm.enable = true;
       gdm.wayland = true;
@@ -202,18 +208,30 @@
     '';
   };
   nix = {
+    nrBuildUsers = 64;
     settings = {
+      cores = 0; # 0 means all available cores
       warn-dirty = false;
       auto-optimise-store = true;
-      trusted-users = [ "root" "@wheel" ];
-      allowed-users = [ "root" "@wheel" ];
-      experimental-features = [ "flakes" "nix-command" ];
+      min-free = 10 * 1024 * 1024;
+      max-free = 200 * 1024 * 1024;
+      max-jobs = "auto";
+      trusted-users = ["root" "@wheel"];
+      allowed-users = ["root" "@wheel"];
+      experimental-features = ["flakes" "nix-command"];
     };
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+  };
+
+  # optimise nix builders (keep from running out of memory)
+  systemd.services.nix-daemon.serviceConfig = {
+    MemoryAccounting = true;
+    MemoryMax = "90%";
+    OOMScoreAdjust = 500;
   };
 
   # Set Environment Variables
