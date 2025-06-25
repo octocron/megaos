@@ -1,10 +1,96 @@
-{ pkgs, username, ... }:
-
 {
-  # Home Manager Settings
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-  home.stateVersion = "23.11";
+  pkgs,
+  username,
+  ...
+}: {
+  home = {
+    # Home Manager Settings
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.11";
+    file = {
+      # Place Files Inside Home Directory
+      ".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
+      ".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
+      ".config/starship.toml".source = ./config/starship.toml;
+      ".config/wezterm/wezterm.lua".source = ./config/wezterm.lua;
+
+      ".emoji".source = ./config/emoji;
+      ".face".source = ./config/face.png;
+
+      ".local/share/fonts" = {
+        source = ./fonts;
+        recursive = true;
+      };
+      ".config/hypr" = {
+        source = ./config/hyprland;
+        recursive = true;
+      };
+      ".config/rofi" = {
+        source = ./config/rofi;
+        recursive = true;
+      };
+      ".config/swaync" = {
+        source = ./config/swaync;
+        recursive = true;
+      };
+      ".config/vim" = {
+        source = ./config/vim;
+        recursive = true;
+      };
+      "Pictures/wallpapers" = {
+        source = ./media/wallpapers;
+        recursive = true;
+      };
+    };
+
+    # Install Packages For The User
+    packages = with pkgs; [
+      font-awesome
+      gnome.file-roller
+      libnotify
+      lm_sensors
+      material-icons
+      meson
+      ninja
+      noto-fonts-color-emoji
+      pavucontrol
+      pkg-config
+      polkit_gnome
+      rofi-wayland
+      socat
+      swaynotificationcenter
+      symbola
+      swww
+      transmission-gtk
+      v4l-utils
+      wl-clipboard
+      ydotool
+      zeroad
+
+      # Import Scripts
+      (import ./scripts/emopicker9000.nix {inherit pkgs;})
+      (import ./scripts/task-waybar.nix {inherit pkgs;})
+      (import ./scripts/squirtle.nix {inherit pkgs;})
+      (import ./scripts/wallsetter.nix {inherit pkgs;})
+    ];
+  };
+
+  # Builtin Programs
+  programs = {
+    home-manager.enable = true;
+    cava.enable = true;
+    command-not-found.enable = true;
+    jq.enable = true;
+    tealdeer = {
+      enable = true;
+      settings = {
+        updates = {
+          auto_update = true;
+        };
+      };
+    };
+  };
 
   # Module imports
   imports = [
@@ -18,40 +104,6 @@
     ./shell/zsh.nix
   ];
 
-  # Place Files Inside Home Directory
-  home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
-  home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
-  home.file.".config/starship.toml".source = ./config/starship.toml;
-  home.file.".config/wezterm/wezterm.lua".source = ./config/wezterm.lua;
-
-  home.file.".emoji".source = ./config/emoji;
-  home.file.".face".source = ./config/face.png;
-
-  home.file.".local/share/fonts" = {
-    source = ./fonts;
-    recursive = true;
-  };
-  home.file.".config/hypr" = {
-    source = ./config/hyprland;
-    recursive = true;
-  };
-  home.file.".config/rofi" = {
-    source = ./config/rofi;
-    recursive = true;
-  };
-  home.file.".config/swaync" = {
-    source = ./config/swaync;
-    recursive = true;
-  };
-  home.file.".config/vim" = {
-    source = ./config/vim;
-    recursive = true;
-  };
-  home.file."Pictures/wallpapers" = {
-    source = ./media/wallpapers;
-    recursive = true;
-  };
-
   # editorconfig
   editorconfig = {
     enable = true;
@@ -62,52 +114,9 @@
         end_of_line = "lf";
         charset = "utf-8";
       };
-    };
-  };
-
-
-  # Install Packages For The User
-  home.packages = with pkgs; [
-    font-awesome
-    gnome.file-roller
-    libnotify
-    lm_sensors
-    material-icons
-    meson
-    ninja
-    noto-fonts-color-emoji
-    pavucontrol
-    pkg-config
-    polkit_gnome
-    rofi-wayland
-    socat
-    swaynotificationcenter
-    symbola
-    swww
-    transmission-gtk
-    v4l-utils
-    wl-clipboard
-    ydotool
-    zeroad
-
-    # Import Scripts
-    (import ./scripts/emopicker9000.nix { inherit pkgs; })
-    (import ./scripts/task-waybar.nix { inherit pkgs; })
-    (import ./scripts/squirtle.nix { inherit pkgs; })
-    (import ./scripts/wallsetter.nix { inherit pkgs; })
-  ];
-
-  programs.home-manager.enable = true;
-  programs.cava.enable = true;
-  programs.command-not-found.enable = true;
-  programs.jq.enable = true;
-  programs.tealdeer = {
-    enable = true;
-    settings = {
-      updates = {
-        auto_update = true;
+      "*.{js,py}" = {
+        indent_size = 4;
       };
     };
   };
 }
-

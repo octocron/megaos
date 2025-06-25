@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Configure zsh
   programs.zsh = {
     enable = true;
@@ -39,6 +41,7 @@
       #-------------nix---------------------------------------------------->>>
       nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
       nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
+      nrp = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
       nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
       nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#desktop";
       ncg = "nix-collect-garbage --delete-old";
@@ -150,7 +153,7 @@
       #fi
     '';
 
-    sessionVariables = { };
+    sessionVariables = {};
   };
 
   #-------------zsh plugins---------------------------------------------------->>>
@@ -189,7 +192,6 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
-
 }
