@@ -107,8 +107,6 @@
     pulseaudio.enable = false;
   };
 
-  sound.enable = true;
-
   #-----------------INTERNATIONALISATION----------------#
   time.timeZone = "${theTimezone}";
   i18n = {
@@ -246,10 +244,12 @@
       package = pkgs.samba4Full;
       enable = true;
       openFirewall = true;
-      extraConfig = ''
-        server smb encrypt = required
-        server min protocol = SMB3_00
-      '';
+      settings = {
+        global = {
+          "server smb encrypt" = "required";
+          "server min protocol" = "SMB3";
+        };
+      };
     };
 
     samba-wsdd = {
