@@ -9,7 +9,6 @@
     gimp
     godot_4
     gparted
-    kdenlive
     mpv
     mullvad-vpn
     obs-studio
