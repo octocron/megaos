@@ -9,7 +9,7 @@
       enable = true;
       autocd = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       historySubstringSearch.enable = true;
       history = {
         save = 10000;

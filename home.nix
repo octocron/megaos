@@ -61,7 +61,7 @@
       swaynotificationcenter
       symbola
       swww
-      transmission-gtk
+      transmission_4-gtk
       v4l-utils
       wl-clipboard
       ydotool

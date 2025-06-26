@@ -1,11 +1,15 @@
-{ config, pkgs, username, gitUsername, gitEmail, ... }:
-
 {
+  config,
+  pkgs,
+  username,
+  gitUsername,
+  gitEmail,
+  ...
+}: {
   # Define Settings For Xresources
   xresources.properties = {
     "Xcursor.size" = 24;
   };
-
 
   # Configure Cursor Theme
   home.pointerCursor = {
@@ -17,10 +21,12 @@
   };
 
   # Enable & Configure QT
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
-  qt.style.package = pkgs.adwaita-qt;
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
+  };
 
   # Theme GTK
   gtk = {
@@ -44,12 +50,12 @@
     };
     gtk3.extraConfig = {
       Settings = ''
-      gtk-application-prefer-dark-theme=1
+        gtk-application-prefer-dark-theme=1
       '';
     };
     gtk4.extraConfig = {
       Settings = ''
-      gtk-application-prefer-dark-theme=1
+        gtk-application-prefer-dark-theme=1
       '';
     };
   };
@@ -57,8 +63,8 @@
   # Create XDG Dirs
   xdg = {
     userDirs = {
-        enable = true;
-        createDirectories = true;
+      enable = true;
+      createDirectories = true;
     };
   };
 }

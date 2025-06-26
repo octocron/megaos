@@ -89,21 +89,23 @@
   #------------------FONTS-SYSTEMWIDE------------------#
   fonts.packages = with pkgs; [
     ipafont
-    nerdfonts
     maple-mono.NF
+    nerd-fonts.noto
+    nerd-fonts.symbols-only
+    nerd-fonts.ubuntu
   ];
 
   #-----------------------HARDWARE---------------------#
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
+
     openrazer = {
       enable = true;
       users = ["$username"];
     };
-    pulseaudio.enable = false;
   };
 
   #-----------------INTERNATIONALISATION----------------#
@@ -217,17 +219,32 @@
     # List services that should be enabled:
     fstrim.enable = true;
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
+    libinput.enable = true;
     mullvad-vpn.package = pkgs.mullvad-vpn;
     openssh.enable = true;
     printing.enable = false;
+    pulseaudio.enable = false;
     tumbler.enable = true;
 
     avahi = {
-      publish.enable = true;
-      publish.userServices = true;
-      nssmdns = true;
       enable = true;
+      nssmdns4 = true;
       openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+    };
+
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "${username}";
+      };
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
     };
 
     pipewire = {
@@ -259,15 +276,10 @@
 
     xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
-      libinput.enable = true;
       videoDrivers = ["amdgpu"];
-      displayManager = {
-        gdm.enable = true;
-        gdm.wayland = true;
-        autoLogin.enable = true;
-        autoLogin.user = "${username}";
+      xkb = {
+        layout = "us";
+        variant = "";
       };
     };
   };
