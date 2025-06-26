@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     # apps
     audacity
-    blender
     brave
     discord
     davinci-resolve
@@ -12,7 +11,6 @@
     mpv
     mullvad-vpn
     obs-studio
-    openra
     plex-desktop
     plexamp
     signal-desktop
@@ -54,7 +52,7 @@
     hyperfine
     imv
     inxi
-    #isd
+    isd
     just
     killall
     lazydocker
@@ -87,29 +85,5 @@
     vim
     wget
     zip
-
-    # language servers
-    ccls # c / c++
-    gopls
-    nodePackages.typescript-language-server
-    pkgs.nodePackages.vscode-langservers-extracted # html, css, json, eslint
-    nodePackages.yaml-language-server
-    sumneko-lua-language-server
-    nil # nix
-    nodePackages.pyright
-
-    # formatters and linters
-    alejandra # nix
-    black # python
-    ruff # python
-    deadnix # nix
-    golangci-lint
-    lua52Packages.luacheck
-    nodePackages.prettier
-    shellcheck
-    shfmt
-    statix # nix
-    sqlfluff
-    tflint
   ];
 }

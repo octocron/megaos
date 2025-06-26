@@ -90,7 +90,7 @@
   fonts.packages = with pkgs; [
     ipafont
     nerdfonts
-    maple-mono-NF
+    maple-mono.NF
   ];
 
   #-----------------------HARDWARE---------------------#
