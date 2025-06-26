@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # apps
     audacity
@@ -57,6 +55,7 @@
     hyperfine
     imv
     inxi
+    isd
     just
     killall
     lazydocker
