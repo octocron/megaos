@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   inputs,
   username,
   hostname,
@@ -102,6 +103,17 @@
       enable32Bit = true;
     };
 
+    nvidia = {
+      open = false;
+      nvidiaSettings = true;
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable; # could also use latest
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+    };
+
     openrazer = {
       enable = true;
       users = ["$username"];
@@ -147,12 +159,12 @@
   nix = {
     nrBuildUsers = 64;
     settings = {
-      cores = 0; # 0 means all available cores
+      cores = 2; # 0 means all available cores
       warn-dirty = false;
       auto-optimise-store = true;
       min-free = 10 * 1024 * 1024;
       max-free = 200 * 1024 * 1024;
-      max-jobs = "auto";
+      max-jobs = 4; # "auto" means all, 0 means use remote specified in builders
       trusted-users = ["root" "@wheel"];
       allowed-users = ["root" "@wheel"];
       experimental-features = ["flakes" "nix-command"];
@@ -276,7 +288,7 @@
 
     xserver = {
       enable = true;
-      videoDrivers = ["amdgpu"];
+      videoDrivers = ["nvidia"];
       xkb = {
         layout = "us";
         variant = "";

@@ -64,6 +64,7 @@
     navi
     neofetch
     neovim
+    pciutils # Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
     pinentry
     procs
     pscircle
