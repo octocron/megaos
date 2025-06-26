@@ -47,7 +47,6 @@
     # Install Packages For The User
     packages = with pkgs; [
       font-awesome
-      gnome.file-roller
       libnotify
       lm_sensors
       material-icons
