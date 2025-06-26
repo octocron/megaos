@@ -55,7 +55,7 @@
     hyperfine
     imv
     inxi
-    isd
+    #isd
     just
     killall
     lazydocker
