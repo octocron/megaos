@@ -13,7 +13,7 @@
     mullvad-vpn
     obs-studio
     openra
-    plex-media-player
+    plex-desktop
     plexamp
     signal-desktop
     spotify
