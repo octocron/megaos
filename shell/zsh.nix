@@ -146,7 +146,7 @@
         export PATH=$PATH:$HOME/.local/bin
       '';
 
-      initExtra = ''
+      initContent = ''
         # fixes duplication of commands when using tab-completion
         export LANG=C.UTF-8
       '';
@@ -181,12 +181,6 @@
 
     # starship >>> config/starship.toml
     starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    # fuck config
-    thefuck = {
       enable = true;
       enableZshIntegration = true;
     };
