@@ -55,10 +55,6 @@
           ./desktop/configuration.nix
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
-          nix-minecraft.nixosModules.minecraft-servers
-          {
-            nixpkgs.overlays = [inputs.nix-minecraft.overlay];
-          }
           {
             home-manager = {
               extraSpecialArgs = personalArgs;

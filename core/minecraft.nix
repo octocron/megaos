@@ -10,14 +10,15 @@
   serverVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
+  nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
-  services.minecraft-server = {
+  services.minecraft-servers = {
     enable = true;
     eula = true; # Accept Minecraft EULA
-    declarative = true;
+    dataDir = "/var/lib/minecraft";
     servers.cobblemon = {
       enable = true;
-      package = pkgs.minecraftServers.${serverVersion}.override {loaderVersion = fabricVersion;};
+      package = pkgs.fabricServers.${serverVersion}.override {loaderVersion = fabricVersion;};
       serverProperties = {
         server-port = 25565;
         difficulty = "easy"; # peaceful, easy, normal, hard
@@ -31,8 +32,8 @@ in {
         level-type = "amplified"; # normal, flat, large_biomes, amplified, single_biome_surface
         white-list = false;
         whitelist = {
-          megacron = "uuid"; # https://mcuuid.net/ to get UUID for a username
-          player2 = "uuid";
+          needMoreInput = "9c86bb75-1ecc-484f-a008-7ce055b47208"; # https://mcuuid.net/ to get UUID for a username
+          #player2 = "uuid";
         };
         server-name = "Megamon";
         enable-rcon = true;
