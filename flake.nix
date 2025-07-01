@@ -13,6 +13,7 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs @ {
@@ -23,6 +24,7 @@
     nixpkgs,
     self,
     stable,
+    stylix,
     ...
   }: let
     system = "x86_64-linux";
@@ -54,6 +56,7 @@
         modules = [
           ./desktop/configuration.nix
           darkmatter-grub-theme.nixosModule
+          inputs.stylix.nixosModules.stylix # includes home-manager
           home-manager.nixosModules.home-manager
           {
             home-manager = {
