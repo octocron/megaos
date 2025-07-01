@@ -3,7 +3,7 @@ _: let
 in {
   #----------Home Configurations----------#
   imports = [
-    ./fastfetch
+    ./fastfetch/fastfetch.nix
     ./hyprland
     ./rofi
     ./scripts
