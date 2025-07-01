@@ -13,7 +13,6 @@ in {
     ./kitty.nix
     ./packages.nix
     ./qt.nix
-    ./stylix.nix
     ./swappy.nix
     ./swaync.nix
     ./tmux.nix
