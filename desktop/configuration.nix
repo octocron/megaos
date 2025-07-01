@@ -355,7 +355,6 @@
   #-----------------------SERVICES-----------------------#
   services = {
     # List services that should be enabled:
-    bluetooth.enable = true; # bluetooth support
     fstrim.enable = true; # ssd optimizer
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
