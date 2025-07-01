@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  options,
   inputs,
   username,
   hostname,
@@ -9,18 +10,20 @@
   gitUsername,
   ...
 }: {
-  #----------------------NixOS-MODULES---------------#
+  #----------------------NixOS-MODULES-----------------#
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #./app/crowdsec.nix
-    #./app/tailscale.nix
+    ../core
   ];
 
-  #-----------------------BOOT-----------------------#
+  #-----------------------BOOT--------------------------#
   # Choose either systemd (modern) or grub (legacy)
   boot.loader = {
+    #-----------Systemd---------------------------------#
     systemd-boot.enable = false;
+    #efi.canTouchEfiVariables = true;
+    #---------------------------------------------------#
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
@@ -38,56 +41,51 @@
         resolution = "1440p";
       };
     };
-  };
 
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-  #boot.kernelModules = [ "v4l2loopback" ];
-  #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    # for tailscale exit node
+    #kernel.sysctl = {
+    #  "net.ipv6.conf.all.forwarding" = "1";
+    #};
+  };
 
   #-----------------------ENVIRONMENT-------------------#
   environment = {
     systemPackages = with pkgs; [
       (pkgs.nnn.override {withNerdIcons = true;})
       # bazecore
+      brightnessctl
       cifs-utils # for mounting SMB shares
       curl
       file
+      ffmpegthumbnailer
       git
+      networkmanagerapplet
+      nix-output-monitor
+      nvd
       parted
       polychromatic
+      sddm-astronaut
+      tailscale
+      uwsm # universal wayland session manager
       vim
       wget
       zsh
     ];
 
     variables = {
-      NIXOS_OZONE_WL = "1";
       PATH = [
         "\${HOME}/.local/bin"
         "\${HOME}/.cargo/bin"
         "\$/usr/local/bin"
       ];
-      NIXPKGS_ALLOW_UNFREE = "1";
       SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
       STARSHIP_CONFIG = "\${HOME}/.config/starship.toml";
-      XDG_CURRENT_DESKTOP = "Hyprland";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Hyprland";
-      GDK_BACKEND = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      SDL_VIDEODRIVER = "x11";
       XCURSOR_SIZE = "24";
       XCURSOR_THEME = "Bibata-Modern-Ice";
-      QT_QPA_PLATFORM = "wayland";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      MOZ_ENABLE_WAYLAND = "1";
     };
   };
 
-  #------------------FONTS-SYSTEMWIDE------------------#
+  #------------------FONTS-SYSTEM-WIDE------------------#
   fonts.packages = with pkgs; [
     ipafont
     maple-mono.NF
@@ -98,6 +96,13 @@
 
   #-----------------------HARDWARE---------------------#
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    enableRedistributableFirmware = true;
+
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -118,9 +123,16 @@
       enable = true;
       users = ["$username"];
     };
+
+    sane = {
+      enable = true;
+      extraBackends = [pkgs.sane-airscan];
+      disabledDefaultBackends = ["escl"];
+    };
   };
 
   #-----------------INTERNATIONALISATION----------------#
+  console.keyMap = "us";
   time.timeZone = "${theTimezone}";
   i18n = {
     defaultLocale = "${theLocale}";
@@ -142,12 +154,22 @@
     hostName = "${hostname}"; # Defines hostname.
     networkmanager.enable = true;
     nftables.enable = true;
+    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     wireless.enable = false;
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 80 443];
-      allowedUDPPorts = [22 80 443];
-      #trustedInterfaces = [ "tailscale0" ];
+      allowedTCPPorts = [
+        22
+        80
+        443
+      ];
+      allowedUDPPorts = [
+        22
+        80
+        443
+        config.services.tailscale.port
+      ];
+      trustedInterfaces = ["tailscale0"];
     };
     #proxy = {
     #  default = "http://user:password@proxy:port/";
@@ -162,25 +184,66 @@
       cores = 2; # 0 means all available cores
       warn-dirty = false;
       auto-optimise-store = true;
+      download-buffer-size = 240 * 1024 * 1024;
       min-free = 10 * 1024 * 1024;
       max-free = 200 * 1024 * 1024;
       max-jobs = 4; # "auto" means all, 0 means use remote specified in builders
-      trusted-users = ["root" "@wheel"];
-      allowed-users = ["root" "@wheel"];
-      experimental-features = ["flakes" "nix-command"];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      allowed-users = [
+        "root"
+        "${username}"
+        "@wheel"
+      ];
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
 
   # optimise nix builders (keep from running out of memory)
-  systemd.services.nix-daemon.serviceConfig = {
-    MemoryAccounting = true;
-    MemoryMax = "90%";
-    OOMScoreAdjust = 500;
+  systemd = {
+    extraConfig = "DefaultTimeoutStopSec=10s"; # give more time for services to shutdown gracefully
+    services = {
+      nix-daemon.serviceConfig = {
+        MemoryAccounting = true;
+        MemoryMax = "90%";
+        OOMScoreAdjust = 500;
+      };
+
+      tailscale-autoconnect = {
+        description = "Automatic connection to Tailscale";
+        # make sure tailscale is running before trying to connect
+        after = [
+          "network-pre.target"
+          "tailscale.service"
+        ];
+        wants = [
+          "network-pre.target"
+          "tailscale.service"
+        ];
+        wantedBy = ["multi-user.target"];
+        # set this service as a oneshot job
+        serviceConfig.Type = "oneshot";
+        # have the job run this shell script
+        script = with pkgs; ''
+          # wait for tailscaled to settle
+          sleep 2
+          # check if we are already authenticated to tailscale
+          status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
+          if [ $status = "Running" ]; then
+            exit 0
+          fi
+          # otherwise authenticate with tailscale
+          ${tailscale}/bin/tailscale up --authkey=tskey-auth-k9YCRHoYfR11CNTRL-x19aNr127p1JTay7JadSo1V8MiejMYM7U
+        '';
+      };
+    };
   };
 
   # Allow unfree packages
@@ -195,22 +258,52 @@
   programs = {
     hyprland = {
       enable = true;
+      withUWSM = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
+    hyprlock.enable = true;
+
     gamemode.enable = true;
-    thunar.enable = true;
-    mtr.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
+    };
 
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
 
+    mtr.enable = true;
+
+    nh = {
+      enable = true;
+      flake = "/home/${username}/projects/megaos";
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 40d --keep 10";
+      };
+    };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+      extraCompatPackages = [pkgs.proton-ge-bin];
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
     };
 
     zsh = {
@@ -221,6 +314,38 @@
   #-----------------------SECURITY-----------------------#
   security = {
     rtkit.enable = true;
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = ["${username}"];
+          keepEnv = true;
+          noPass = false;
+        }
+        {
+          groups = ["wheel"];
+          noPass = false; # Allows passwordless execution
+        }
+      ];
+    };
+
+    polkit = {
+      enable = true;
+      extraConfig = ''
+        polkit.addRule(function(action, subject) {
+          if ( subject.isInGroup("users") && (
+           action.id == "org.freedesktop.login1.reboot" ||
+           action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+           action.id == "org.freedesktop.login1.power-off" ||
+           action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          ))
+          { return polkit.Result.YES; }
+        })
+      '';
+    };
+    pam.services.swaylock = {
+      text = ''auth include login '';
+    };
     sudo.extraConfig = ''
       Defaults      timestamp_timeout=1800
     '';
@@ -229,14 +354,17 @@
   #-----------------------SERVICES-----------------------#
   services = {
     # List services that should be enabled:
-    fstrim.enable = true;
+    bluetooth.enable = true; # bluetooth support
+    fstrim.enable = true; # ssd optimizer
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
-    libinput.enable = true;
+    libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
-    openssh.enable = true;
+    nfs.server.enable = false; # NFS
     printing.enable = false;
-    pulseaudio.enable = false;
-    tumbler.enable = true;
+    #pulseaudio.enable = false;
+    rpcbind.enable = false; # NFS
+    tailscale.enable = true;
+    tumbler.enable = true; # image/video previewer
 
     avahi = {
       enable = true;
@@ -248,14 +376,13 @@
       };
     };
 
-    displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "${username}";
-      };
-      gdm = {
-        enable = true;
-        wayland = true;
+    openssh = {
+      enable = true;
+      ports = [22];
+      settings = {
+        PermitRootLogin = "no"; # prevent root from SSH login
+        PasswordAuthentication = true; # users can SSH using username and password
+        KbdInteractiveAuthentication = true; # allow keyboard based auth
       };
     };
 
@@ -286,6 +413,13 @@
       openFirewall = true;
     };
 
+    syncthing = {
+      enable = false;
+      user = "${username}";
+      dataDir = "/home/${username}";
+      configDir = "/home/${username}/.config/syncthing";
+    };
+
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
@@ -299,13 +433,13 @@
   #-----------------------SYSTEM-----------------------#
   system = {
     stateVersion = "23.11";
-    activationScripts.diff = {
-      supportsDryActivation = true;
-      text = ''
-        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
-             /run/current-system "$systemConfig"
-      '';
-    };
+    #activationScripts.diff = {
+    #  supportsDryActivation = true;
+    #  text = ''
+    #    ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
+    #         /run/current-system "$systemConfig"
+    #  '';
+    #};
   };
 
   #-----------------------USERS-----------------------#
@@ -316,7 +450,11 @@
       homeMode = "755";
       isNormalUser = true;
       description = "${gitUsername}";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = [
+        "networkmanager"
+        "scanner"
+        "wheel"
+      ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCFpd0UZyX1T0WewVnzEWYY+9oXX+JcJaTLusO33/FX ansible"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPOPzh8vu5f8/T5IbbD6/1tzpnH94EPcta7FS2vUy45 optimus"

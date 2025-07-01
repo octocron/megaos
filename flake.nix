@@ -12,12 +12,14 @@
     darkmatter-grub-theme.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = inputs @ {
     darkmatter-grub-theme,
     home-manager,
     hyprland,
+    nix-minecraft,
     nixpkgs,
     self,
     stable,
@@ -30,30 +32,37 @@
     gitEmail = "megacron@d3c3p7.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/New_York";
+    commonSpecialArgs = {
+      inherit gitEmail;
+      inherit gitUsername;
+      inherit hostname;
+      inherit inputs;
+      inherit system;
+      inherit theLocale;
+      inherit theTimezone;
+      inherit username;
+    };
+    personalArgs = {
+      inherit username;
+      inherit gitUsername;
+      inherit gitEmail;
+    };
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit system;
-          inherit username;
-          inherit hostname;
-          inherit gitUsername;
-          inherit gitEmail;
-          inherit theLocale;
-          inherit theTimezone;
-        };
+        specialArgs = commonSpecialArgs;
         modules = [
           ./desktop/configuration.nix
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
+          ./minecraft.nix
+          nix-minecraft.nixosModules.minecraft-servers
+          {
+            nixpkgs.overlays = [inputs.nix-minecraft.overlay];
+          }
           {
             home-manager = {
-              extraSpecialArgs = {
-                inherit username;
-                inherit gitUsername;
-                inherit gitEmail;
-              };
+              extraSpecialArgs = personalArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
               users.${username} = import ./home.nix;
@@ -62,29 +71,18 @@
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit system;
-          inherit username;
-          inherit hostname;
-          inherit gitUsername;
-          inherit gitEmail;
-          inherit theLocale;
-          inherit theTimezone;
-        };
+        specialArgs = commonSpecialArgs;
         modules = [
           ./laptop/configuration.nix
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = {
-              inherit username;
-              inherit gitUsername;
-              inherit gitEmail;
+            home-manager = {
+              extraSpecialArgs = personalArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${username} = import ./home.nix;
             };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home.nix;
           }
         ];
       };
