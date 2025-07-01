@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
@@ -10,14 +6,14 @@
     stateVersion = "23.11";
     file = {
       # Place Files Inside Home Directory
-      ".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
-      ".config/starship.toml".source = ./config/starship.toml;
-      ".config/wezterm/wezterm.lua".source = ./config/wezterm.lua;
+      ".config/neofetch/config.conf".source = ./home/neofetch/config.conf;
+      ".config/starship.toml".source = ./home/starship.toml;
+      ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
 
-      ".emoji".source = ./config/emoji;
+      ".emoji".source = ./home/emoji;
 
       ".config/vim" = {
-        source = ./config/vim;
+        source = ./home/vim;
         recursive = true;
       };
     };
