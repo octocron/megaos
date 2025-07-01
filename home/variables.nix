@@ -34,8 +34,8 @@
   #waybarChoice = ./waybar/waybar-ddubs.nix;
 
   #---------------Animations-------------------------------------------#
-  #animChoice = ../../home/hyprland/animations.nix;
-  animChoice = ./animations-dynamic.nix;
-  #animChoice = ../../home/hyprland/animations-end4.nix;
-  #animChoice = ../../home/hyprland/animations-moving.nix;
+  #animChoice = ./hyprland/animations.nix;
+  animChoice = ./hyprland/animations-dynamic.nix;
+  #animChoice = ./hyprland/animations-end4.nix;
+  #animChoice = ./hyprland/animations-moving.nix;
 }
