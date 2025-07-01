@@ -11,7 +11,7 @@
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
 
-  services.minecraft-servers = {
+  services.minecraft-server = {
     enable = true;
     eula = true; # Accept Minecraft EULA
     declarative = true;
