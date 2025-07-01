@@ -23,6 +23,7 @@
     asciinema
     bandwhich
     bat
+    bibata-cursors
     bottom
     btop
     cargo-cache
