@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   options,
@@ -100,7 +101,7 @@
       enable = true;
       powerOnBoot = true;
     };
-
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
 
     graphics = {

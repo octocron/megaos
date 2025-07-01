@@ -9,7 +9,7 @@
   fabricVersion = "0.17.0"; # Latest Fabric loader for 1.21.1
   serverVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
 in {
-  imports = [inputs.nix-minecraft.nixosModule]; # Import nix-minecraft module
+  imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
 
   services.minecraft-servers = {
     enable = true;
@@ -20,7 +20,7 @@ in {
       package = pkgs.minecraftServers.${serverVersion}.override {loaderVersion = fabricVersion;};
       serverProperties = {
         server-port = 25565;
-        difficulty = "normal"; # peaceful, easy, normal, hard
+        difficulty = "easy"; # peaceful, easy, normal, hard
         gamemode = "survival"; # adventure, creative, survival, spectator
         generate-structures = true;
         motd = "§3♥NixOS♥ §4Cobblemon §6Server";
