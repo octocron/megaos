@@ -94,8 +94,8 @@ in {
         gaps_out = 8;
         border_size = 3;
         resize_on_border = true;
-        "col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
-        "col.inactive_border" = "rgba(002288cc) rgba(880022cc) 45deg";
+        #"col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
+        #"col.inactive_border" = "rgba(002288cc) rgba(880022cc) 45deg";
       };
 
       misc = {
@@ -135,7 +135,7 @@ in {
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
+          #color = "rgba(1a1a1aee)";
         };
       };
 

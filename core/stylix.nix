@@ -50,9 +50,8 @@ in {
         popups = 12;
       };
     };
-    autoEnable = false;
+    autoEnable = true;
     targets = {
-      waybar.enable = true;
     };
   };
 }
