@@ -50,6 +50,7 @@ in {
         popups = 12;
       };
     };
+    homeManagerIntegration.autoImport = true;
     autoEnable = true;
     targets = {
       kitty.enable = false;
