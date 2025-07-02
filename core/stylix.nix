@@ -1,3 +1,4 @@
+# stylix.homeManagerModules.stylix does not work with boot or display manager, so always use nixos when possible
 {pkgs, ...}: let
   inherit (import ../home/variables.nix) stylixImage;
 in {
@@ -48,6 +49,9 @@ in {
         desktop = 11;
         popups = 12;
       };
+    };
+    targets = {
+      hyprland.enable = false;
     };
   };
 }
