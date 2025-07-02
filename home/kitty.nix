@@ -4,11 +4,11 @@
     enable = true;
     package = pkgs.kitty;
 
-    font = {
-      #size = 10;
-      name = "Maple Mono";
-      package = pkgs.maple-mono.NF;
-    };
+    #font = {
+    #  size = 10;
+    #  name = "Maple Mono";
+    #  package = pkgs.maple-mono.NF;
+    #};
 
     settings = {
       scrollback_lines = 2000;
