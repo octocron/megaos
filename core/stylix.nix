@@ -1,5 +1,9 @@
 # stylix.homeManagerModules.stylix does not work with boot or display manager, so always use nixos when possible
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (import ../home/variables.nix) stylixImage;
 in {
   stylix = {
@@ -35,14 +39,9 @@ in {
         package = pkgs.maple-mono.NF;
         name = "Maple Mono";
       };
-      sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
-      serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
+      sansSerif = config.stylix.fonts.monospace;
+      serif = config.stylix.fonts.monospace;
+      #emoji = config.stylix.fonts.monospace;
       sizes = {
         applications = 12;
         terminal = 15;
