@@ -24,7 +24,7 @@ in {
       base0F = "00f769";
     };
     polarity = "dark";
-    opacity.terminal = 1.0;
+    opacity.terminal = 0.85;
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
@@ -53,7 +53,6 @@ in {
     homeManagerIntegration.autoImport = true;
     autoEnable = true;
     targets = {
-      kitty.enable = false;
     };
   };
 }
