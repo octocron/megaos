@@ -39,8 +39,6 @@
         default = "current";
         autoSetupRemote = true;
       };
-      "rerere.enabled" = "true";
-      "rerere.autoupdate" = "true";
     };
   };
 }
