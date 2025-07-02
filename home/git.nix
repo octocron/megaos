@@ -27,7 +27,6 @@
         ssh.allowedSignersFile = "~/.ssh/allowed_signers";
       };
       user.signingkey = "~/.ssh/id_galvatron.pub";
-      rerere = true;
       core.editor = "nvim";
       diff.colorMoved = "default";
       init.defaultBranch = "trunk";
@@ -40,6 +39,8 @@
         default = "current";
         autoSetupRemote = true;
       };
+      "rerere.enabled" = "true";
+      "rerere.autoupdate" = "true";
     };
   };
 }
