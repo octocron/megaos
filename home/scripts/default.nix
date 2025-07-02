@@ -11,7 +11,7 @@
     (import ./screenshootin.nix {inherit pkgs;})
     (import ./squirtle.nix {inherit pkgs;})
     (import ./task-waybar.nix {inherit pkgs;})
-    (import ./web-search.nix {inherit pkgs;})
+    (import ./websearch.nix {inherit pkgs;})
     (import ./wallsetter.nix {
       inherit pkgs;
       inherit username;
