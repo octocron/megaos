@@ -94,8 +94,10 @@ in {
         gaps_out = 8;
         border_size = 3;
         resize_on_border = true;
-        "col.active_border" = "lib.mkDefault rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg"; # rgba(ee4400ff) rgba(228800ff) 45deg
-        "col.inactive_border" = "lib.mkDefault rgb(${config.lib.stylix.colors.base01})"; # rgba(002288cc) rgba(880022cc) 45deg
+        "col.active_border" = ''lib.mkDefault rgb(${config.lib.stylix.colors.base08}) rgb(${
+            config.lib.stylix.colors."base0C"
+          }) 45deg''; # rgba(ee4400ff) rgba(228800ff) 45deg
+        "col.inactive_border" = ''lib.mkDefault rgb(${config.lib.stylix.colors.base01})''; # rgba(002288cc) rgba(880022cc) 45deg
       };
 
       misc = {
