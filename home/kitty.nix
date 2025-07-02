@@ -5,7 +5,7 @@
     package = pkgs.kitty;
 
     font = {
-      size = 10;
+      #size = 10;
       name = "Maple Mono";
       package = pkgs.maple-mono.NF;
     };
