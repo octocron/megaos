@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   gtk = {
-    font = {
-      name = "Maple Mono";
-      size = 12;
-      package = pkgs.maple-mono.NF;
-    };
+    #font = {
+    #  name = "Maple Mono";
+    #  size = 12;
+    #  package = pkgs.maple-mono.NF;
+    #};
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
