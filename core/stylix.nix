@@ -6,21 +6,21 @@ in {
     enable = true;
     image = stylixImage;
     base16Scheme = {
-      base00 = "282936";
-      base01 = "3a3c4e";
-      base02 = "4d4f68";
-      base03 = "626483";
-      base04 = "62d6e8";
-      base05 = "e9e9f4";
+      base00 = "282936"; # default background
+      base01 = "3a3c4e"; # alternate background, incomplete progress bar
+      base02 = "4d4f68"; # selection background, complete progress bar
+      base03 = "626483"; # unfocused window border
+      base04 = "62d6e8"; # alternate text
+      base05 = "e9e9f4"; # default text, window title text
       base06 = "f1f2f8";
       base07 = "f7f7fb";
-      base08 = "ea51b2";
-      base09 = "b45bcf";
-      base0A = "00f769";
+      base08 = "ea51b2"; # error text, urgent window border
+      base09 = "b45bcf"; # urgent text
+      base0A = "00f769"; # warning text
       base0B = "ebff87";
       base0C = "a1efe4";
-      base0D = "62d6e8";
-      base0E = "b45bcf";
+      base0D = "62d6e8"; # focused window border
+      base0E = "b45bcf"; # item on background color
       base0F = "00f769";
     };
     polarity = "dark";
@@ -50,8 +50,9 @@ in {
         popups = 12;
       };
     };
+    autoEnable = false;
     targets = {
-      hyprland.enable = false;
+      waybar.enable = true;
     };
   };
 }
