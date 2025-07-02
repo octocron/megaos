@@ -10,7 +10,7 @@
       };
       background = [
         {
-          path = "/home/${username}/Pictures/Wallpapers/groot_oldies.png";
+          #path = "/home/${username}/Pictures/Wallpapers/groot_oldies.png";
           blur_passes = 3;
           blur_size = 8;
         }
