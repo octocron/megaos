@@ -135,7 +135,7 @@ in {
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "#${config.stylix.base16Scheme.base00}";
+          #color = "#${config.stylix.base16Scheme.base00}";
         };
       };
 
