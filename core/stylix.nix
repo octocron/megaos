@@ -52,6 +52,7 @@ in {
     };
     autoEnable = true;
     targets = {
+      kitty.enable = false;
     };
   };
 }
