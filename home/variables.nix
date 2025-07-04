@@ -1,7 +1,4 @@
 {
-  #---------------SDDM-(Set by stylixImage)---------------------------#
-  displayManager = "sddm"; # tui for text, sddm for gui
-
   #---------------Monitors-(create new line for each monitor)---------#
   # ex: extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # ex: extraMonitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
@@ -23,9 +20,9 @@
   intelID = "PCI:1:0:0";
   nvidiaID = "PCI:0:2:0";
 
-  #---------------Stylix-Image-(Set color palette)--------------------#
-  stylixImage = ../media/wallpapers/optilast.jpg;
-  #stylixImage = ../media/wallpapers/groot_oldies.png;
+  #---------------swww-Image-(Set color palette)--------------------#
+  swwwImage = ../media/wallpapers/optilast.jpg;
+  #swwwImage = ../media/wallpapers/groot_oldies.png;
 
   #---------------Waybar----------------------------------------------#
   clock24h = false;

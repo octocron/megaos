@@ -20,17 +20,17 @@
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
-        #"*" = {
-        #  bg = mkLiteral "#${config.stylix.base16Scheme.base00}";
-        #  bg-alt = mkLiteral "#${config.stylix.base16Scheme.base09}";
-        #  foreground = mkLiteral "#${config.stylix.base16Scheme.base01}";
-        #  selected = mkLiteral "#${config.stylix.base16Scheme.base08}";
-        #  active = mkLiteral "#${config.stylix.base16Scheme.base0B}";
-        #  text-selected = mkLiteral "#${config.stylix.base16Scheme.base00}";
-        #  text-color = mkLiteral "#${config.stylix.base16Scheme.base05}";
-        #  border-color = mkLiteral "#${config.stylix.base16Scheme.base0F}";
-        #  urgent = mkLiteral "#${config.stylix.base16Scheme.base0E}";
-        #};
+        "*" = {
+          bg = mkLiteral "#212121";
+          bg-alt = mkLiteral "#101014";
+          foreground = mkLiteral "#2ac3de";
+          selected = mkLiteral "#ff9900";
+          active = mkLiteral "#3d591a";
+          text-selected = mkLiteral "#aa66cc";
+          text-color = mkLiteral "#0066cc";
+          border-color = mkLiteral "#ee4400";
+          urgent = mkLiteral "#ee1b1b";
+        };
         "window" = {
           transparency = "real";
           width = mkLiteral "1000px";

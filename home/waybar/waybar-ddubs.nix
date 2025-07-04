@@ -5,7 +5,6 @@
   ...
 }: let
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../variables.nix) clock24h;
 in
   with lib; {
     # Configure & Theme Waybar
@@ -45,10 +44,7 @@ in
             on-scroll-down = "hyprctl dispatch workspace e-1";
           };
           "clock" = {
-            format =
-              if clock24h == true
-              then '' {:L%H:%M}''
-              else '' {:L%I:%M %p}'';
+            format = '' {:L%H:%M}''; # '' {:L%I:%M %p}'' for 12h clock
             tooltip = true;
             tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           };
@@ -193,8 +189,8 @@ in
             background: rgba(0,0,0,0);
           }
           #workspaces {
-            color: #${config.lib.stylix.colors.base00};
-            background: #${config.lib.stylix.colors.base01};
+            color: #212121;
+            background: #414868;
             margin: 4px 4px;
             padding: 5px 5px;
             border-radius: 16px;
@@ -204,8 +200,8 @@ in
             padding: 0px 5px;
             margin: 0px 3px;
             border-radius: 16px;
-            color: #${config.lib.stylix.colors.base00};
-            background: linear-gradient(45deg, #${config.lib.stylix.colors.base08}, #${config.lib.stylix.colors.base0D});
+            color: #15161e;
+            background: linear-gradient(45deg, #7aa2f7, #0066cc);
             opacity: 0.5;
             transition: ${betterTransition};
           }
@@ -214,8 +210,8 @@ in
             padding: 0px 5px;
             margin: 0px 3px;
             border-radius: 16px;
-            color: #${config.lib.stylix.colors.base00};
-            background: linear-gradient(45deg, #${config.lib.stylix.colors.base08}, #${config.lib.stylix.colors.base0D});
+            color: #7aa2f7;
+            background: linear-gradient(45deg, #ee4400, #220088);
             transition: ${betterTransition};
             opacity: 1.0;
             min-width: 40px;
@@ -223,34 +219,34 @@ in
           #workspaces button:hover {
             font-weight: bold;
             border-radius: 16px;
-            color: #${config.lib.stylix.colors.base00};
-            background: linear-gradient(45deg, #${config.lib.stylix.colors.base08}, #${config.lib.stylix.colors.base0D});
+            color: #0066cc;
+            background: linear-gradient(45deg, #aaff00, #8844dd);
             opacity: 0.8;
             transition: ${betterTransition};
           }
           tooltip {
-            background: #${config.lib.stylix.colors.base00};
-            border: 1px solid #${config.lib.stylix.colors.base08};
+            background: #1a1b26;
+            border: 1px solid #ee4400;
             border-radius: 12px;
           }
           tooltip label {
-            color: #${config.lib.stylix.colors.base08};
+            color: #7aa2f7;
           }
           #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
             font-weight: bold;
             margin: 4px 0px;
             margin-left: 7px;
             padding: 0px 18px;
-            background: #${config.lib.stylix.colors.base00};
-            color: #${config.lib.stylix.colors.base08};
+            background: #1a1b26;
+            color: #ffaa00;
             border-radius: 8px 8px 8px 8px;
           }
           #idle_inhibitor {
           font-size: 28px;
           }
           #custom-startmenu {
-            color: #${config.lib.stylix.colors.base0B};
-            background: #${config.lib.stylix.colors.base02};
+            color: #00ccff;
+            background: #5277c3;
             font-size: 22px;
             margin: 0px;
             padding: 0px 5px 0px 5px;
@@ -260,8 +256,8 @@ in
           #custom-notification, #tray, #custom-exit {
             /* font-weight: bold; */
             font-size: 20px;
-            background: #${config.lib.stylix.colors.base00};
-            color: #${config.lib.stylix.colors.base08};
+            background: #1a1;
+            color: #660088;
             margin: 4px 0px;
             margin-right: 7px;
             border-radius: 8px 8px 8px 8px;
@@ -271,7 +267,7 @@ in
             font-weight: bold;
             font-size: 16px;
             color: #0D0E15;
-            background: linear-gradient(90deg, #${config.lib.stylix.colors.base0B}, #${config.lib.stylix.colors.base02});
+            background: linear-gradient(90deg, #8888ff, #228800);
             margin: 0px;
             padding: 0px 5px 0px 5px;
             border-radius: 16px 16px 16px 16px;

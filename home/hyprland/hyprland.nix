@@ -1,37 +1,14 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   inherit
     (import ../variables.nix)
     extraMonitorSettings
     keyboardLayout
-    stylixImage
+    swwwImage
     ;
 in {
-  home.packages = with pkgs; [
-    grim
-    hyprland-qtutils # needed for banners and ANR messages
-    hyprpolkitagent
-    slurp
-    swappy
-    swww
-    wl-clipboard
-    ydotool
-  ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
-  # Place Files Inside Home Directory
-  home.file = {
-    "Pictures/Wallpapers" = {
-      source = ../../media/wallpapers;
-      recursive = true;
-    };
-    ".face.icon".source = ./face.png;
-    ".config/face.png".source = ./face.png;
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -55,7 +32,7 @@ in {
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
-        "sleep 1.5 && swww img ${stylixImage}"
+        "sleep 1.5 && swww img ${swwwImage}"
       ];
 
       input = {
@@ -94,8 +71,8 @@ in {
         gaps_out = 8;
         border_size = 3;
         resize_on_border = true;
-        #"col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
-        #"col.inactive_border" = "rgba(002288cc) rgba(880022cc) 45deg";
+        "col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
+        "col.inactive_border" = "rgba(0066cccc) rgba(880022cc) 45deg";
       };
 
       misc = {
@@ -135,7 +112,7 @@ in {
           enabled = true;
           range = 4;
           render_power = 3;
-          #color = "rgba(1a1a1aee)";
+          color = "rgba(1a1a1aee)";
         };
       };
 

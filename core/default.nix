@@ -5,6 +5,5 @@ _: {
     ./greetd.nix
     ./minecraft.nix
     ./sddm.nix
-    ./stylix.nix
   ];
 }

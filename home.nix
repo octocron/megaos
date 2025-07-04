@@ -1,4 +1,8 @@
-{username, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
@@ -10,6 +14,12 @@
       #".config/starship.toml".source = ./home/starship.toml;
       ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
 
+      "Pictures/Wallpapers" = {
+        source = ../../media/wallpapers;
+        recursive = true;
+      };
+      ".face.icon".source = ./face.png;
+      ".config/face.png".source = ./face.png;
       ".emoji".source = ./home/emoji;
 
       ".config/vim" = {
@@ -17,6 +27,16 @@
         recursive = true;
       };
     };
+    packages = with pkgs; [
+      grim
+      hyprland-qtutils # needed for banners and ANR messages
+      hyprpolkitagent
+      slurp
+      swappy
+      swww
+      wl-clipboard
+      ydotool
+    ];
   };
 
   #-----------------Home-Modules-----------------------------#

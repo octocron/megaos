@@ -4,18 +4,18 @@
     enable = true;
     package = pkgs.kitty;
 
-    #font = {
-    #  size = 10;
-    #  name = "Maple Mono";
-    #  package = pkgs.maple-mono.NF;
-    #};
+    font = {
+      size = 10;
+      name = "Maple Mono";
+      package = pkgs.maple-mono.NF;
+    };
 
     settings = {
       scrollback_lines = 2000;
       wheel_scroll_min_lines = 1;
       window_padding_width = 6;
       confirm_os_window_close = 0;
-      #background_opacity = "0.85";
+      background_opacity = "0.85";
       copy_on_select = "yes";
 
       # OS Window titlebar colors
