@@ -19,6 +19,11 @@
         expireDuplicatesFirst = true;
       };
 
+      # script for command-not-found
+      interactiveShellInit = ''
+        source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+      '';
+
       plugins = [
         {
           name = "fast-syntax-highlighting";

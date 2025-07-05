@@ -52,7 +52,7 @@
     home-manager = {
       enable = true;
     };
-    command-not-found.enable = true;
+    command-not-found.enable = false; # mutex to nix-index (using ShellInit script in zsh.nix)
     jq.enable = true;
     tealdeer = {
       enable = true;
