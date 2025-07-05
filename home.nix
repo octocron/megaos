@@ -31,6 +31,7 @@
     };
     packages = with pkgs; [
       megavim.packages.${pkgs.system}.default
+      nix-index-database.hmModules.nix-index
       hyprland-qtutils # needed for banners and ANR messages
       hyprpolkitagent
       wl-clipboard
@@ -45,7 +46,6 @@
   #-----------------Home-Modules-----------------------------#
   imports = [
     ./home
-    nix-index-database.hmModules.nix-index
   ];
 
   #-----------------Builtin Programs-------------------------#
