@@ -48,7 +48,6 @@
   programs = {
     home-manager = {
       enable = true;
-      backupFileExtension = "backup";
     };
     command-not-found.enable = true;
     jq.enable = true;
