@@ -46,7 +46,10 @@
 
   #-----------------Builtin Programs-------------------------#
   programs = {
-    home-manager.enable = true;
+    home-manager = {
+      enable = true;
+      backupFileExtension = "backup";
+    };
     command-not-found.enable = true;
     jq.enable = true;
     tealdeer = {
