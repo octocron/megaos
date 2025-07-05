@@ -19,6 +19,10 @@ in {
     servers.cobblemon = {
       enable = true;
       package = pkgs.fabricServers.${cobblemonVersion}.override {loaderVersion = fabricVersion;};
+      whitelist = {
+        needMoreInput = "9c86bb75-1ecc-484f-a008-7ce055b47208"; # https://mcuuid.net/ to get UUID for a username
+        #player2 = "uuid";
+      };
       serverProperties = {
         server-port = 25565;
         difficulty = "easy"; # peaceful, easy, normal, hard
@@ -31,10 +35,6 @@ in {
         level-seed = ""; # Optional: Set a world seed, default is blank
         level-type = "amplified"; # normal, flat, large_biomes, amplified, single_biome_surface
         white-list = true;
-        whitelist = {
-          needMoreInput = "9c86bb75-1ecc-484f-a008-7ce055b47208"; # https://mcuuid.net/ to get UUID for a username
-          #player2 = "uuid";
-        };
         server-name = "Megamon";
         enable-rcon = true;
         "rcon.password" = "P1kachu";
