@@ -1,9 +1,6 @@
 {
   pkgs,
-  inputs,
-  megavim,
   username,
-  nix-index-database,
   ...
 }: {
   #----------------Home Manager-----------------------------#
@@ -29,9 +26,8 @@
         recursive = true;
       };
     };
+
     packages = with pkgs; [
-      inputs.megavim.packages.${pkgs.system}.default
-      inputs.nix-index-database.hmModules.nix-index
       hyprland-qtutils # needed for banners and ANR messages
       hyprpolkitagent
       wl-clipboard
