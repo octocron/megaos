@@ -70,7 +70,6 @@
     meson
     mosh
     navi
-    neofetch
     neovim
     ninja
     noto-fonts-color-emoji

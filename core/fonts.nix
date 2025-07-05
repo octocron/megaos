@@ -3,12 +3,10 @@
     enable = true;
     defaultFonts = {
       sansSerif = [
-        "Maple Mono"
         "Noto Sans"
         "IPAGothic"
       ];
       serif = [
-        "Maple Mono"
         "Noto Serif"
         "IPAMincho"
       ];
