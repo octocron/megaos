@@ -52,7 +52,6 @@
   #-----------------------ENVIRONMENT-------------------#
   environment = {
     systemPackages = with pkgs; [
-      (pkgs.nnn.override {withNerdIcons = true;})
       # bazecore
       brightnessctl
       cifs-utils # for mounting SMB shares
@@ -64,6 +63,7 @@
       nix-output-monitor
       nvd
       parted
+      pipewire
       polychromatic
       sddm-astronaut
       tailscale

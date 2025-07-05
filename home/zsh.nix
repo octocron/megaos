@@ -173,10 +173,29 @@
       nix-direnv.enable = true;
     };
 
+    # eza config
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+      icons = true;
+      git = true;
+    };
+
     # fzf config
     fzf = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    # nix-index config
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    # comma config
+    nix-index-database = {
+      comma.enable = true;
     };
 
     # starship >>> config/starship.toml

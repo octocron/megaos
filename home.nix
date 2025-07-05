@@ -1,6 +1,8 @@
 {
   pkgs,
+  inputs,
   username,
+  nix-index-database,
   ...
 }: {
   #----------------Home Manager-----------------------------#
@@ -27,14 +29,16 @@
       };
     };
     packages = with pkgs; [
-      grim
+      inputs.megavim.packages.${pkgs.system}.default
       hyprland-qtutils # needed for banners and ANR messages
+      nix-index-database.hmModules.nix-index
       hyprpolkitagent
-      slurp
-      swappy
-      swww
       wl-clipboard
       ydotool
+      swappy
+      slurp
+      grim
+      swww
     ];
   };
 

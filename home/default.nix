@@ -11,6 +11,7 @@ in {
     ./git.nix
     ./gtk.nix
     ./kitty.nix
+    ./nnn.nix
     ./packages.nix
     ./qt.nix
     ./swappy.nix
@@ -18,6 +19,7 @@ in {
     ./tmux.nix
     waybarChoice
     ./xdg.nix
+    ./yazi.nix
     ./zsh.nix
   ];
 }

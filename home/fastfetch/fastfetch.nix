@@ -14,7 +14,7 @@
       logo = {
         source = ./nixos.png;
         type = "kitty-direct";
-        height = 10;
+        height = 20;
         width = 20;
         padding = {
           top = 2;
@@ -51,7 +51,7 @@
         }
         {
           type = "custom";
-          format = " OS -> ZaneyOS 2.2";
+          format = " OS -> MegaOS";
         }
         {
           type = "kernel";

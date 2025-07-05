@@ -5,21 +5,33 @@
     stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    darkmatter-grub-theme.url = "gitlab:VandalByte/darkmatter-grub-theme";
-    darkmatter-grub-theme.inputs.nixpkgs.follows = "nixpkgs";
+    darkmatter-grub-theme = {
+      url = "gitlab:VandalByte/darkmatter-grub-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    megavim.url = "gitlab:megacron/megavim?ref=nixvim";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     darkmatter-grub-theme,
     home-manager,
     hyprland,
+    megavim,
     nix-minecraft,
+    nix-index-database,
     nixpkgs,
     self,
     stable,
