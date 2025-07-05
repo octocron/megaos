@@ -142,9 +142,11 @@ in {
       };
     };
 
+    # list monitors: hyprctl monitors all
+    # highres: highest resolution, highrr: highest refresh rate, preferred: resolution & refresh rate
     extraConfig = "
-      monitor=,preferred,auto,auto
-      monitor=Virtual-1,1920x1080@60,auto,1
+      monitor=,highres,auto,auto
+      monitor=Virtual-1,1920x1200@60,auto,1
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       #layerrule = blur,waybar

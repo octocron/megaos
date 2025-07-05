@@ -11,7 +11,7 @@
     file = {
       # Place Files Inside Home Directory
       ".config/neofetch/config.conf".source = ./home/neofetch/config.conf;
-      #".config/starship.toml".source = ./home/starship.toml;
+      ".config/starship.toml".source = ./home/starship.toml;
       ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
 
       "Pictures/Wallpapers" = {
