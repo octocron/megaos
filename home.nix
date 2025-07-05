@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  megavim,
   username,
   nix-index-database,
   ...
@@ -28,22 +29,22 @@
         recursive = true;
       };
     };
-    packages = [
-      inputs.megavim.packages.${pkgs.system}.default
-      pkgs.hyprland-qtutils # needed for banners and ANR messages
-      pkgs.hyprpolkitagent
-      pkgs.wl-clipboard
-      pkgs.ydotool
-      pkgs.swappy
-      pkgs.slurp
-      pkgs.grim
-      pkgs.swww
+    packages = with pkgs; [
+      hyprland-qtutils # needed for banners and ANR messages
+      hyprpolkitagent
+      wl-clipboard
+      ydotool
+      swappy
+      slurp
+      grim
+      swww
     ];
   };
 
   #-----------------Home-Modules-----------------------------#
   imports = [
     ./home
+    megavim.packages.${pkgs.system}.default
     nix-index-database.hmModules.nix-index
   ];
 
