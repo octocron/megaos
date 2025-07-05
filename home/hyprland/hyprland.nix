@@ -129,11 +129,11 @@ in {
         no_warps = true;
       };
 
-      render = {
-        explicit_sync = 1; # Change to 1 to disable
-        explicit_sync_kms = 1;
-        direct_scanout = 0;
-      };
+      #render = {
+      #  explicit_sync = 1; # Change to 1 to disable
+      #  explicit_sync_kms = 1;
+      #  direct_scanout = 0;
+      #};
 
       master = {
         new_status = "master";
@@ -145,8 +145,8 @@ in {
     # list monitors: hyprctl monitors all
     # highres: highest resolution, highrr: highest refresh rate, preferred: resolution & refresh rate
     extraConfig = "
-      monitor=,highres,auto,auto
-      monitor=Virtual-1,1920x1200@60,auto,1
+      monitor=DP-1,highres,0x0,auto
+      monitor=DP-2,1920x1200@60,1920x0,1
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       #layerrule = blur,waybar
