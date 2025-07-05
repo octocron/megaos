@@ -5,8 +5,8 @@
   inputs,
   ...
 }: let
-  mcVersion = "1.21.1"; # Cobblemon supports 1.21.1
-  fabricVersion = "0.17.0"; # Latest Fabric loader for 1.21.1
+  mcVersion = "1.21.1"; # Minecraft Version (Game Version)
+  fabricVersion = "0.17.0"; # Latest Fabric loader for mcVersion
   cobblemonVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
@@ -30,7 +30,7 @@ in {
         player-idle-timeout = 0; # idle indefinitely
         level-seed = ""; # Optional: Set a world seed, default is blank
         level-type = "amplified"; # normal, flat, large_biomes, amplified, single_biome_surface
-        white-list = false;
+        white-list = true;
         whitelist = {
           needMoreInput = "9c86bb75-1ecc-484f-a008-7ce055b47208"; # https://mcuuid.net/ to get UUID for a username
           #player2 = "uuid";
@@ -40,27 +40,27 @@ in {
         "rcon.password" = "P1kachu";
       };
       symlinks = {
-        # get versionID from https://modrinth.com/mods
+        # get versionID from https://modrinth.com/mods looks like: 19viaBAW
         # nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- versionID
         mods = pkgs.linkFarmFromDrvs "mods" (
           builtins.attrValues {
             #-------------------BASE------------------------------>>
             FabricApi = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/19viawBV/fabric-api-0.116.4%2B1.21.1.jar";
-              sha512 = "";
+              sha512 = "95060def77b54ba6c6eb5af45b478ec6926f33f145d8f3933cd90cb2b6ab6913459d3d0afa3afcb01fca07d714628414a41ee8b6845261e88d92b83bfc668ad8";
             };
             Cobblemon = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/MdwFAVRL/versions/v77SHSXW/Cobblemon-fabric-1.6.1%2B1.21.1.jar";
-              sha512 = "";
+              sha512 = "b7082befee07efd3e0c5857807f739082df5994ec0e7fe3217ce6cdaec7d2ca47ed51bd129096fd4eca8cbcf7de415d14602868a3357980ff88e55b3148dc7f4";
             };
             #------------------FEATURES--------------------------->>
             EBE = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/OVuFYfre/versions/HBZAPs3u/enhancedblockentities-0.10.2%2B1.21.jar";
-              sha512 = "";
+              sha512 = "60e01db603fcf1392c0cd5c3ce742e568f7d445d83fe60828b21f546e7d29fb6947231f22d28e29b07f4bdcb767b6dc2a2398b4decea665ecba1166690a44d49";
             };
             Lithium = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/MM5BBBOK/lithium-fabric-0.15.0%2Bmc1.21.1.jar";
-              sha512 = "";
+              sha512 = "fd3215501ebe8f6590cdf1ccc58182873cad8d74ebc4b0b3a2f5724748b9cb04c2b967503c072311dfbca9ba856195dc4662f3395a071b294fa0acfdd2a86bf6";
             };
             #------------------DEPS------------------------------->>
           }
