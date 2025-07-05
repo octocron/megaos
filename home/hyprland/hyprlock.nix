@@ -4,14 +4,14 @@
     settings = {
       general = {
         disable_loading_bar = true;
-        grace = 10;
+        grace = 30;
         hide_cursor = true;
         no_fade_in = false;
       };
       background = [
         {
           path = "/home/${username}/Pictures/Wallpapers/groot_oldies.png";
-          blur_passes = 3;
+          blur_passes = 2;
           blur_size = 8;
         }
       ];
