@@ -7,7 +7,7 @@
     font = {
       size = 12;
       name = "Maple Mono";
-      package = pkgs.maple-mono.NF;
+      package = pkgs.maple-mono.opentype;
     };
 
     settings = {

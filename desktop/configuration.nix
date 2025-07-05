@@ -89,8 +89,9 @@
   #------------------FONTS-SYSTEM-WIDE------------------#
   fonts.packages = with pkgs; [
     ipafont
-    maple-mono.NF
+    maple-mono.opentype
     nerd-fonts.noto
+    nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
     nerd-fonts.ubuntu
   ];
