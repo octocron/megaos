@@ -3,7 +3,7 @@ _: {
   imports = [
     ./fonts.nix
     ./greetd.nix
-    ./minecraft.nix
+    #./minecraft.nix
     ./sddm.nix
   ];
 }
