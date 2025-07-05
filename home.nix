@@ -15,7 +15,7 @@
       ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
 
       "Pictures/Wallpapers" = {
-        source = ../../media/wallpapers;
+        source = ../media/wallpapers;
         recursive = true;
       };
       ".face.icon".source = ./home/hyprland/face.png;
