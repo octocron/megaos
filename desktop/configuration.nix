@@ -445,11 +445,14 @@
   #-----------------------USERS-----------------------#
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
+    defaultUserShell = pkgs.zsh;
     users."${username}" = {
       homeMode = "755";
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [
+        "docker"
+        "libvirtd"
         "networkmanager"
         "scanner"
         "wheel"

@@ -37,7 +37,7 @@
       # base
       foreground = "#2ac3de";
       background = "#1a1b26";
-      selection_foreground = "##f4dbd6";
+      selection_foreground = "#f4dbd6";
       selection_background = "#28344a";
 
       # cursor

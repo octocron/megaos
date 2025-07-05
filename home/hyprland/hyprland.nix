@@ -147,6 +147,7 @@ in {
     extraConfig = "
       monitor=DP-1,highres,0x0,auto
       monitor=DP-2,1920x1200@60,1920x0,1
+      workspace = 1, monitor:DP-1, default:true
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       #layerrule = blur,waybar
