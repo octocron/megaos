@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   username,
+  nix-index-database,
   ...
 }: {
   #----------------Home Manager-----------------------------#
@@ -29,7 +30,6 @@
     };
     packages = [
       inputs.megavim.packages.${pkgs.system}.default
-      inputs.nix-index-database.hmModules.nix-index
       pkgs.hyprland-qtutils # needed for banners and ANR messages
       pkgs.hyprpolkitagent
       pkgs.wl-clipboard
@@ -44,6 +44,7 @@
   #-----------------Home-Modules-----------------------------#
   imports = [
     ./home
+    nix-index-database.hmModules.nix-index
   ];
 
   #-----------------Builtin Programs-------------------------#
