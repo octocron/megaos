@@ -49,6 +49,8 @@
       inherit gitUsername;
       inherit hostname;
       inherit inputs;
+      inherit megavim;
+      inherit nix-index-database;
       inherit system;
       inherit theLocale;
       inherit theTimezone;
