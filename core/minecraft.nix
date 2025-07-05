@@ -7,7 +7,7 @@
 }: let
   mcVersion = "1.21.1"; # Cobblemon supports 1.21.1
   fabricVersion = "0.17.0"; # Latest Fabric loader for 1.21.1
-  serverVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
+  cobblemonVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
   nixpkgs.overlays = [inputs.nix-minecraft.overlay];
@@ -18,7 +18,7 @@ in {
     dataDir = "/var/lib/minecraft";
     servers.cobblemon = {
       enable = true;
-      package = pkgs.fabricServers.${serverVersion}.override {loaderVersion = fabricVersion;};
+      package = pkgs.fabricServers.${cobblemonVersion}.override {loaderVersion = fabricVersion;};
       serverProperties = {
         server-port = 25565;
         difficulty = "easy"; # peaceful, easy, normal, hard
@@ -44,18 +44,25 @@ in {
         # nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- versionID
         mods = pkgs.linkFarmFromDrvs "mods" (
           builtins.attrValues {
+            #-------------------BASE------------------------------>>
             FabricApi = pkgs.fetchurl {
-              url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.100.7+1.21.1/fabric-api-0.100.7+1.21.1.jar";
-              sha512 = "<FABRIC_API_SHA512>"; # Replace with actual hash
+              url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/19viawBV/fabric-api-0.116.4%2B1.21.1.jar";
+              sha512 = "";
             };
             Cobblemon = pkgs.fetchurl {
-              url = "https://cdn.modrinth.com/data/MdwFAVRL/versions/1.5.2+1.21/Cobblemon-fabric-1.5.2+1.21.jar";
-              sha512 = "<COBBLEMON_SHA512>"; # Replace with actual hash
+              url = "https://cdn.modrinth.com/data/MdwFAVRL/versions/v77SHSXW/Cobblemon-fabric-1.6.1%2B1.21.1.jar";
+              sha512 = "";
             };
-            Sodium = pkgs.fetchurl {
-              url = "https://cdn.modrinth.com/data/AANobbMI/versions/0.5.11+mc1.21/sodium-fabric-0.5.11+mc1.21.jar";
-              sha512 = "<SODIUM_SHA512>";
+            #------------------FEATURES--------------------------->>
+            EBE = pkgs.fetchurl {
+              url = "https://cdn.modrinth.com/data/OVuFYfre/versions/HBZAPs3u/enhancedblockentities-0.10.2%2B1.21.jar";
+              sha512 = "";
             };
+            Lithium = pkgs.fetchurl {
+              url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/MM5BBBOK/lithium-fabric-0.15.0%2Bmc1.21.1.jar";
+              sha512 = "";
+            };
+            #------------------DEPS------------------------------->>
           }
         );
       };
