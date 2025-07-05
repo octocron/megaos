@@ -193,11 +193,6 @@
       enableZshIntegration = true;
     };
 
-    # comma config
-    nix-index-database = {
-      comma.enable = true;
-    };
-
     # starship >>> config/starship.toml
     starship = {
       enable = true;

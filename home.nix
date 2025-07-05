@@ -30,8 +30,8 @@
     };
     packages = with pkgs; [
       inputs.megavim.packages.${pkgs.system}.default
+      inputs.nix-index-database.hmModules.nix-index
       hyprland-qtutils # needed for banners and ANR messages
-      nix-index-database.hmModules.nix-index
       hyprpolkitagent
       wl-clipboard
       ydotool

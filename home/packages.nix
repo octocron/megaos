@@ -29,6 +29,7 @@
     cargo-cache
     cargo-expand
     cmatrix
+    comma
     coreutils
     curl
     ctop
