@@ -20,7 +20,7 @@
       };
 
       # script for command-not-found
-      interactiveShellInit = ''
+      shellInit = ''
         source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
       '';
 
