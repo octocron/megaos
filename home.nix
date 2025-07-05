@@ -18,8 +18,8 @@
         source = ../../media/wallpapers;
         recursive = true;
       };
-      ".face.icon".source = ./face.png;
-      ".config/face.png".source = ./face.png;
+      ".face.icon".source = ./home/hyprland/face.png;
+      ".config/face.png".source = ./home/hyprland/face.png;
       ".emoji".source = ./home/emoji;
 
       ".config/vim" = {
