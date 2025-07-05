@@ -19,11 +19,6 @@
         expireDuplicatesFirst = true;
       };
 
-      # script for command-not-found
-      shellInit = ''
-        source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
-      '';
-
       plugins = [
         {
           name = "fast-syntax-highlighting";
@@ -153,6 +148,7 @@
 
       initContent = ''
         # fixes duplication of commands when using tab-completion
+        source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
         export LANG=C.UTF-8
       '';
       profileExtra = ''
