@@ -6,7 +6,7 @@
   ...
 }: let
   mcVersion = "1.21.1"; # Minecraft Version (Game Version)
-  fabricVersion = "0.17.0"; # Latest Fabric loader for mcVersion
+  fabricVersion = "0.16.4"; # Latest Fabric loader for mcVersion
   cobblemonVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers]; # Import nix-minecraft module
