@@ -49,8 +49,6 @@
       inherit gitUsername;
       inherit hostname;
       inherit inputs;
-      inherit megavim;
-      inherit nix-index-database;
       inherit system;
       inherit theLocale;
       inherit theTimezone;
@@ -69,6 +67,7 @@
           ./desktop/configuration.nix
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
+          nix-index-database.nixosModules.nix-index
           {
             home-manager = {
               extraSpecialArgs = personalArgs;

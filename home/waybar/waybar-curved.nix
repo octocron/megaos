@@ -189,7 +189,7 @@ in
           }
           #workspaces {
             color: #212121;
-            background: #414868;
+            background: #ff0055;
             margin: 4px 4px;
             padding: 5px 5px;
             border-radius: 16px;
@@ -199,8 +199,8 @@ in
             padding: 0px 5px;
             margin: 0px 3px;
             border-radius: 16px;
-            color: #15161e;
-            background: linear-gradient(45deg, #7aa2f7, #0066cc);
+            color: #212121;
+            background: linear-gradient(45deg, #ffaa11, #0066cc);
             opacity: 0.5;
             transition: ${betterTransition};
           }
@@ -209,8 +209,8 @@ in
             padding: 0px 5px;
             margin: 0px 3px;
             border-radius: 16px;
-            color: #7aa2f7;
-            background: linear-gradient(45deg, #ee4400, #220088);
+            color: #ee4400;
+            background: linear-gradient(45deg, #0066cc, #220088);
             transition: ${betterTransition};
             opacity: 1.0;
             min-width: 40px;
@@ -218,8 +218,8 @@ in
           #workspaces button:hover {
             font-weight: bold;
             border-radius: 16px;
-            color: #e5ff33;
-            background: linear-gradient(45deg, #aaff00, #44dd99);
+            color: #333333;
+            background: #44dd99;
             opacity: 0.8;
             transition: ${betterTransition};
           }
@@ -236,13 +236,13 @@ in
             margin: 4px 0px;
             margin-left: 7px;
             padding: 0px 18px;
+            color: #00ccff;
             background: #1a1a00;
-            color: #f7f3ff;
             border-radius: 24px 10px 24px 10px;
           }
           #custom-startmenu {
-            color: #f7f3ff;
-            background: #414868;
+            color: #ee4400;
+            background: #333333;
             font-size: 28px;
             margin: 0px;
             padding: 0px 30px 0px 15px;
@@ -251,8 +251,8 @@ in
           #custom-hyprbindings, #network, #battery,
           #custom-notification, #tray, #custom-exit {
             font-weight: bold;
-            background: #414868;
-            color: #cc77cc;
+            background: #333333;
+            color: #ff77ff;
             margin: 4px 0px;
             margin-right: 7px;
             border-radius: 10px 24px 10px 24px;
@@ -261,7 +261,7 @@ in
           #clock {
             font-weight: bold;
             color: #0D0E15;
-            background: linear-gradient(90deg, #66aa44, #99ff99);
+            background: #66aa44;
             margin: 0px;
             padding: 0px 15px 0px 30px;
             border-radius: 0px 0px 0px 40px;

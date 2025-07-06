@@ -42,9 +42,15 @@
         "...." = "././..";
         sv = "sudo vim";
         #-------------nix---------------------------------------------------->>>
+        nhb = "nh boot --flake ~/projects/megaos/#desktop";
+        nhg = "nh os info";
+        nhr = "nh os repl";
+        nhs = "nh os switch --flake ~/projects/megaos/#desktop";
+        nhsu = "nh os switch --flake ~/projects/megaos/#desktop --ask";
+        nht = "nh os test --flake ~/projects/megaos/#desktop";
         nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
         nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
-        nrp = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
+        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
         nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
         nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#desktop";
         ncg = "nix-collect-garbage --delete-old";
@@ -178,7 +184,7 @@
     eza = {
       enable = true;
       enableZshIntegration = true;
-      icons = true;
+      icons = "auto";
       git = true;
     };
 
