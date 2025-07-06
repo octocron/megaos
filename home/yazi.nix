@@ -12,7 +12,8 @@ _:
     enableZshIntegration = true;
     settings = {
       log.enabled = false;
-      manager = {
+      # mgr was manager but devs are derps
+      mgr = {
         linemode = "size";
         ratio = [
           1
