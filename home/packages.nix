@@ -71,7 +71,6 @@
     meson
     mosh
     navi
-    neovim
     ninja
     noto-fonts-color-emoji
     pavucontrol
