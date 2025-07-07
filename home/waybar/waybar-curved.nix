@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }: let
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
@@ -189,7 +188,7 @@ in
           }
           #workspaces {
             color: #212121;
-            background: #ff0055;
+            background: #ee4400;
             margin: 4px 4px;
             padding: 5px 5px;
             border-radius: 16px;
@@ -200,7 +199,7 @@ in
             margin: 0px 3px;
             border-radius: 16px;
             color: #212121;
-            background: linear-gradient(45deg, #ffaa11, #0066cc);
+            background: linear-gradient(45deg, #ffaa00, #ee4400);
             opacity: 0.5;
             transition: ${betterTransition};
           }
@@ -209,8 +208,8 @@ in
             padding: 0px 5px;
             margin: 0px 3px;
             border-radius: 16px;
-            color: #ee4400;
-            background: linear-gradient(45deg, #0066cc, #220088);
+            color: #212121;
+            background: linear-gradient(45deg, #0066cc, #00ccff);
             transition: ${betterTransition};
             opacity: 1.0;
             min-width: 40px;
@@ -218,31 +217,31 @@ in
           #workspaces button:hover {
             font-weight: bold;
             border-radius: 16px;
-            color: #333333;
-            background: #44dd99;
+            color: #212121;
+            background: #228800;
             opacity: 0.8;
             transition: ${betterTransition};
           }
           tooltip {
-            background: #1a1a00;
+            background: #212121;
             border: 1px solid #ee4400;
             border-radius: 12px;
           }
           tooltip label {
-            color: #7aa2f7;
+            color: #228800;
           }
           #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
             font-weight: bold;
             margin: 4px 0px;
             margin-left: 7px;
             padding: 0px 18px;
-            color: #00ccff;
-            background: #1a1a00;
+            color: #ffaa00;
+            background: #212121;
             border-radius: 24px 10px 24px 10px;
           }
           #custom-startmenu {
-            color: #ee4400;
-            background: #333333;
+            color: #7ebae4;
+            background: #5277c3;
             font-size: 28px;
             margin: 0px;
             padding: 0px 30px 0px 15px;
@@ -251,8 +250,8 @@ in
           #custom-hyprbindings, #network, #battery,
           #custom-notification, #tray, #custom-exit {
             font-weight: bold;
-            background: #333333;
-            color: #ff77ff;
+            background: #212121;
+            color: #660088;
             margin: 4px 0px;
             margin-right: 7px;
             border-radius: 10px 24px 10px 24px;
@@ -260,8 +259,8 @@ in
           }
           #clock {
             font-weight: bold;
-            color: #0D0E15;
-            background: #66aa44;
+            color: #212121;
+            background: #ee4400;
             margin: 0px;
             padding: 0px 15px 0px 30px;
             border-radius: 0px 0px 0px 40px;
