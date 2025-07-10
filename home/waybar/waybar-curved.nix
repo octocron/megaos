@@ -199,7 +199,7 @@ in
             margin: 0px 3px;
             border-radius: 16px;
             color: #212121;
-            background: linear-gradient(45deg, #ffaa00, #ee4400);
+            background: linear-gradient(45deg, #ffaa00, #ffee00);
             opacity: 0.5;
             transition: ${betterTransition};
           }
@@ -240,8 +240,8 @@ in
             border-radius: 24px 10px 24px 10px;
           }
           #custom-startmenu {
-            color: #7ebae4;
-            background: #5277c3;
+            color: #5277c3;
+            background: #7ebae4;
             font-size: 28px;
             margin: 0px;
             padding: 0px 30px 0px 15px;
@@ -251,7 +251,7 @@ in
           #custom-notification, #tray, #custom-exit {
             font-weight: bold;
             background: #212121;
-            color: #660088;
+            color: #ee4400;
             margin: 4px 0px;
             margin-right: 7px;
             border-radius: 10px 24px 10px 24px;
@@ -260,7 +260,7 @@ in
           #clock {
             font-weight: bold;
             color: #212121;
-            background: #ee4400;
+            background: #228800;
             margin: 0px;
             padding: 0px 15px 0px 30px;
             border-radius: 0px 0px 0px 40px;

@@ -9,6 +9,7 @@
     godot_4
     gparted
     mpv
+    modrinth-app
     mullvad-vpn
     obs-studio
     plex-desktop
@@ -16,6 +17,7 @@
     signal-desktop
     spotify
     superTuxKart
+    transmission_4-gtk
     xonotic
 
     # cli tools
@@ -94,7 +96,6 @@
     swww
     tmate
     tokei
-    transmission_4-gtk
     tree
     wl-clipboard
     xclip
