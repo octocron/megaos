@@ -49,6 +49,7 @@
         inherit gitUsername;
         inherit hostname;
         inherit inputs;
+        inherit system;
         inherit theLocale;
         inherit theTimezone;
         inherit username;
@@ -62,7 +63,6 @@
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = commonSpecialArgs;
           modules = [
             ./desktop/configuration.nix
@@ -81,7 +81,6 @@
           ];
         };
         laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = commonSpecialArgs;
           modules = [
             ./laptop/configuration.nix

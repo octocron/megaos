@@ -1,6 +1,8 @@
-_: let
+_:
+let
   inherit (import ../variables.nix) animChoice;
-in {
+in
+{
   #----------Hyprland Configurations----------#
   imports = [
     animChoice
@@ -8,6 +10,7 @@ in {
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
     ./keybinds.nix
     ./pyprland.nix
     ./windowrules.nix
