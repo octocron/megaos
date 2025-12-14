@@ -12,7 +12,7 @@ in
     ./hyprlock.nix
     ./hyprpaper.nix
     ./keybinds.nix
-    ./pyprland.nix
+    #./pyprland.nix
     ./windowrules.nix
   ];
 }

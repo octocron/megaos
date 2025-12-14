@@ -50,7 +50,6 @@ in
       "$modifier ALT,D,exec,pseudo" # Dwindle
       "$modifier ALT,G,exec,gparted"
       "$modifier ALT,P,exec,pavucontrol"
-      "$modifier,ALT,T,exec,pypr toggle term"
       "$modifier ALT,F,workspaceopt, allfloat"
       "$modifier ALT, left, swapwindow,l"
       "$modifier ALT, right, swapwindow,r"
