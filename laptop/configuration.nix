@@ -1,19 +1,18 @@
-{ inputs
-, pkgs
-, username
-, hostname
-, gitUsername
-, theLocale
-, theTimezone
-, ...
-}:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  inputs,
+  pkgs,
+  username,
+  hostname,
+  gitUsername,
+  theLocale,
+  theTimezone,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader choose either systemd (modern) or grub (legacy)
   boot.loader.grub = {
@@ -35,34 +34,38 @@
   #boot.kernelModules = [ "v4l2loopback" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
-  networking.hostName = "${hostname}"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "${hostname}"; # Define your hostname.
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "${theTimezone}";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "${theLocale}";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "${theLocale}";
-    LC_IDENTIFICATION = "${theLocale}";
-    LC_MEASUREMENT = "${theLocale}";
-    LC_MONETARY = "${theLocale}";
-    LC_NAME = "${theLocale}";
-    LC_NUMERIC = "${theLocale}";
-    LC_PAPER = "${theLocale}";
-    LC_TELEPHONE = "${theLocale}";
-    LC_TIME = "${theLocale}";
+  i18n = {
+    defaultLocale = "${theLocale}";
+    extraLocaleSettings = {
+      LC_ADDRESS = "${theLocale}";
+      LC_IDENTIFICATION = "${theLocale}";
+      LC_MEASUREMENT = "${theLocale}";
+      LC_MONETARY = "${theLocale}";
+      LC_NAME = "${theLocale}";
+      LC_NUMERIC = "${theLocale}";
+      LC_PAPER = "${theLocale}";
+      LC_TELEPHONE = "${theLocale}";
+      LC_TIME = "${theLocale}";
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {
     isNormalUser = true;
     description = "${gitUsername}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # Allow unfree packages
@@ -146,7 +149,6 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
-
   system.stateVersion = "23.11";
   nix = {
     settings.auto-optimise-store = true;
@@ -156,5 +158,8 @@
       options = "--delete-older-than 7d";
     };
   };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

@@ -1,11 +1,12 @@
-{pkgs, ...}: let
-  inherit
-    (import ../variables.nix)
+{ pkgs, ... }:
+let
+  inherit (import ../variables.nix)
     extraMonitorSettings
     keyboardLayout
     swwwImage
     ;
-in {
+in
+{
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
@@ -15,7 +16,7 @@ in {
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
     xwayland = {
       enable = true;
@@ -53,16 +54,16 @@ in {
         };
       };
 
-      gestures = {
-        workspace_swipe = 1;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_distance = 500;
-        workspace_swipe_invert = 1;
-        workspace_swipe_min_speed_to_force = 30;
-        workspace_swipe_cancel_ratio = 0.5;
-        workspace_swipe_create_new = 1;
-        workspace_swipe_forever = 1;
-      };
+      # gestures = {
+      #   workspace_swipe = 1;
+      #   workspace_swipe_fingers = 3;
+      #   workspace_swipe_distance = 500;
+      #   workspace_swipe_invert = 1;
+      #   workspace_swipe_min_speed_to_force = 30;
+      #   workspace_swipe_cancel_ratio = 0.5;
+      #   workspace_swipe_create_new = 1;
+      #   workspace_swipe_forever = 1;
+      # };
 
       general = {
         "$modifier" = "SUPER";
@@ -147,8 +148,10 @@ in {
     extraConfig = "
       monitor=DP-1,highres,0x0,auto
       monitor=HDMI-A-1,1920x1200@60,1920x0,1
-      workspace = 1, monitor:DP-1, default:true
-      ${extraMonitorSettings}
+       workspace = DP-1, 1
+      ${
+            extraMonitorSettings
+          }
       # To enable blur on waybar uncomment the line below
       #layerrule = blur,waybar
     ";
