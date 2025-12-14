@@ -2,7 +2,8 @@
   pkgs,
   username,
   ...
-}: {
+}:
+{
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
@@ -35,7 +36,6 @@
       swappy
       slurp
       grim
-      swww
     ];
   };
 

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # apps
     audacity
@@ -93,7 +94,6 @@
     speedread
     swaynotificationcenter
     symbola
-    swww
     tmate
     tokei
     tree

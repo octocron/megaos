@@ -20,10 +20,6 @@
   intelID = "PCI:1:0:0";
   nvidiaID = "PCI:0:2:0";
 
-  #---------------swww-Image-(Set color palette)--------------------#
-  swwwImage = ../media/wallpapers/optilast.jpg;
-  #swwwImage = ../media/wallpapers/groot_oldies.png;
-
   #---------------Waybar----------------------------------------------#
   clock24h = false;
   #waybarChoice = ./waybar/waybar.nix; # original

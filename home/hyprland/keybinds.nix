@@ -1,10 +1,11 @@
-_: let
-  inherit
-    (import ../variables.nix)
+_:
+let
+  inherit (import ../variables.nix)
     browser
     terminal
     ;
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$modifier,Return,exec,uwsm app -- ${terminal}"
@@ -50,7 +51,6 @@ in {
       "$modifier ALT,G,exec,gparted"
       "$modifier ALT,P,exec,pavucontrol"
       "$modifier,ALT,T,exec,pypr toggle term"
-      "$modifier ALT,W,exec,wallsetter"
       "$modifier ALT,F,workspaceopt, allfloat"
       "$modifier ALT, left, swapwindow,l"
       "$modifier ALT, right, swapwindow,r"
