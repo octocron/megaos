@@ -12,19 +12,20 @@ in
     hyprpaper
   ];
 
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${wallpaper1}
-    preload = ${wallpaper2}
+  xdg.configFile."hypr/hyprpaper.conf" = {
+    text = ''
+      preload = ${wallpaper1}
+      preload = ${wallpaper2}
 
-    wallpaper = HDMI-A-1,${wallpaper1}
-    wallpaper = DP-1,${wallpaper2}
+      wallpaper = HDMI-A-1,${wallpaper1}
+      wallpaper = DP-1,${wallpaper2}
 
-    ipc = off
-  '';
-
-  home.file.".config/hypr/hyprpaper.conf".onChange = ''
-    pkill -USR1 hyprpaper || true
-  '';
+      ipc = off
+    '';
+    onChange = ''
+      pkill -USR1 hyprpaper || true
+    '';
+  };
 
   # Optional: autostart hyprpaper
   systemd.user.services.hyprpaper = {
