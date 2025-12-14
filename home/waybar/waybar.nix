@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
@@ -8,7 +9,7 @@
         layer = "top";
         position = "top";
 
-        modules-left = ["hyprland/window"];
+        modules-left = [ "hyprland/window" ];
         modules-center = [
           "network"
           "pulseaudio"
@@ -20,6 +21,7 @@
         ];
         modules-right = [
           "custom/notification"
+          "custom/power"
           "tray"
           "mullvad-vpn"
         ];
@@ -95,7 +97,7 @@
         };
         "custom/notification" = {
           tooltip = false;
-          format = "{icon} {}";
+          format = "{icon} {count}";
           format-icons = {
             notification = "<span foreground='red'><sup></sup></span>";
             none = "";
@@ -115,11 +117,15 @@
               disconnected = "󱚳";
             };
           };
-          return-type = "json";
           exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
+          exec = "swaync-client -c";
           on-click = "task-waybar";
           escape = true;
+        };
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+          tooltip = false;
         };
         "battery" = {
           states = {
@@ -269,13 +275,20 @@
          		margin: 5px;
          		padding: 2px 20px;
       }
-      #custom-notification {
-         		color: #7dcfff;
-         		background: #1a1b26;
-         		border-radius: 15px 50px 15px 50px;
-         		margin: 5px;
-         		padding: 2px 20px;
-      }
+       #custom-notification {
+          		color: #7dcfff;
+          		background: #1a1b26;
+          		border-radius: 15px 50px 15px 50px;
+          		margin: 5px;
+          		padding: 2px 20px;
+       }
+       #custom-power {
+          		color: #f7768e;
+          		background: #1a1b26;
+          		border-radius: 15px 0px 0px 50px;
+          		margin: 5px 5px 5px 0px;
+          		padding: 2px 20px;
+       }
     '';
   };
 }

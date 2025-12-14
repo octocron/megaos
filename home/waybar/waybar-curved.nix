@@ -109,7 +109,7 @@ in
           "custom/exit" = {
             tooltip = false;
             format = "";
-            on-click = "sleep 0.1 && wlogout";
+            on-click = "wlogout";
           };
           "custom/startmenu" = {
             tooltip = false;
@@ -132,7 +132,7 @@ in
           };
           "custom/notification" = {
             tooltip = false;
-            format = "{icon} {}";
+            format = "{icon} {count}";
             format-icons = {
               notification = "<span foreground='red'><sup></sup></span>";
               none = "";
@@ -143,9 +143,8 @@ in
               dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
               dnd-inhibited-none = "";
             };
-            return-type = "json";
             exec-if = "which swaync-client";
-            exec = "swaync-client -swb";
+            exec = "swaync-client -c";
             on-click = "sleep 0.1 && task-waybar";
             escape = true;
           };

@@ -10,7 +10,8 @@
   theTimezone,
   gitUsername,
   ...
-}: {
+}:
+{
   #----------------------NixOS-MODULES-----------------#
   imports = [
     # Include the results of the hardware scan.
@@ -65,7 +66,6 @@
       nvd
       parted
       pipewire
-      polychromatic
       sddm-astronaut
       tailscale
       uwsm # universal wayland session manager
@@ -124,13 +124,13 @@
 
     openrazer = {
       enable = true;
-      users = ["$username"];
+      users = [ "$username" ];
     };
 
     sane = {
       enable = true;
-      extraBackends = [pkgs.sane-airscan];
-      disabledDefaultBackends = ["escl"];
+      extraBackends = [ pkgs.sane-airscan ];
+      disabledDefaultBackends = [ "escl" ];
     };
   };
 
@@ -157,7 +157,7 @@
     hostName = "${hostname}"; # Defines hostname.
     networkmanager.enable = true;
     nftables.enable = true;
-    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     wireless.enable = false;
     firewall = {
       enable = true;
@@ -172,7 +172,7 @@
         443
         config.services.tailscale.port
       ];
-      trustedInterfaces = ["tailscale0"];
+      trustedInterfaces = [ "tailscale0" ];
     };
     #proxy = {
     #  default = "http://user:password@proxy:port/";
@@ -204,8 +204,8 @@
         "flakes"
         "nix-command"
       ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 
@@ -232,7 +232,7 @@
           "network-pre.target"
           "tailscale.service"
         ];
-        wantedBy = ["multi-user.target"];
+        wantedBy = [ "multi-user.target" ];
         # set this service as a oneshot job
         serviceConfig.Type = "oneshot";
         # have the job run this shell script
@@ -300,7 +300,7 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       gamescopeSession.enable = true;
-      extraCompatPackages = [pkgs.proton-ge-bin];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
     thunar = {
@@ -323,12 +323,12 @@
       enable = true;
       extraRules = [
         {
-          users = ["${username}"];
+          users = [ "${username}" ];
           keepEnv = true;
           noPass = false;
         }
         {
-          groups = ["wheel"];
+          groups = [ "wheel" ];
           noPass = false; # Allows passwordless execution
         }
       ];
@@ -382,7 +382,7 @@
 
     openssh = {
       enable = true;
-      ports = [22];
+      ports = [ 22 ];
       settings = {
         PermitRootLogin = "no"; # prevent root from SSH login
         PasswordAuthentication = true; # users can SSH using username and password
@@ -426,7 +426,7 @@
 
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = [ "nvidia" ];
       xkb = {
         layout = "us";
         variant = "";
