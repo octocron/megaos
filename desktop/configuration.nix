@@ -211,7 +211,9 @@
 
   # optimise nix builders (keep from running out of memory)
   systemd = {
-    extraConfig = "DefaultTimeoutStopSec=10s"; # give more time for services to shutdown gracefully
+    settings.Manager = {
+      DefaultTimeoutStopSec = "10s";
+    }; # give more time for services to shutdown gracefully
     services = {
       nix-daemon.serviceConfig = {
         MemoryAccounting = true;
