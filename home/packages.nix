@@ -36,7 +36,7 @@
     curl
     ctop
     diff-so-fancy
-    du-dust
+    dust
     duf
     exiftool
     eza
@@ -77,13 +77,13 @@
     noto-fonts-color-emoji
     pavucontrol
     pciutils # Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
-    pinentry
+    pinentry-gtk2
     pkg-config
     polkit_gnome
     procs
     pscircle
     ripgrep
-    rofi-wayland
+    rofi
     rustup
     scc
     sd
