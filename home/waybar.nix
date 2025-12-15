@@ -19,7 +19,6 @@ in
         modules-left = [
           "custom/startmenu"
           "hyprland/window"
-          "pulseaudio"
           "cpu"
           "memory"
           "temperature"
@@ -32,6 +31,7 @@ in
           "disk"
           "network"
           "tray"
+          "pulseaudio"
           "custom/exit"
           "clock"
         ];
@@ -41,9 +41,6 @@ in
           disable-scroll = true;
           format = "{icon}";
           format-icons = {
-            default = " ";
-            active = " ";
-            urgent = " ";
             "1" = "";
             "2" = "";
             "3" = "";
@@ -168,11 +165,8 @@ in
           format = "{}°F";
           tooltip = true;
           interval = 3600;
-          mph = true;
-          nerd = true;
-          fahrenheit = true;
           location = "wilmington,nc";
-          exec = "wttrbar --location wilmington,nc";
+          exec = "wttrbar --fahrenheit --mph --nerd-font --location wilmington,nc";
           return-type = "json";
         };
         "custom/notification" = {
@@ -263,7 +257,7 @@ in
       tooltip label {
         color: #228800;
       }
-      #window, #pulseaudio, #cpu, #memory, #temperature, #idle_inhibitor {
+      #window, #cpu, #memory, #temperature, #idle_inhibitor {
         font-weight: bold;
         margin: 4px 0px;
         margin-left: 7px;
@@ -280,7 +274,7 @@ in
         padding: 0px 30px 0px 15px;
         border-radius: 0px 0px 40px 0px;
       }
-      #custom-hyprbindings, #network, #battery, #disk,
+      #custom-hyprbindings, #network, #battery, #disk, #pulseaudio,
       #custom-notification, #tray, #custom-exit {
         font-weight: bold;
         background: #212121;
@@ -301,7 +295,6 @@ in
       #custom-weather {
         font-weight: bold;
         color: #ffffff;
-        background: #212121;
         border-radius: 0px 10px 10px 0px;
         border-right: 0px;
         margin-left: 0px;
