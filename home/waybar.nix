@@ -26,8 +26,8 @@ in
         ];
         modules-right = [
           "custom/weather"
-          "custom/hyprbindings"
           "tray"
+          "custom/hyprbindings"
           "pulseaudio"
           "custom/notification"
           "custom/exit"
@@ -164,7 +164,7 @@ in
           tooltip = true;
           interval = 3600;
           location = "wilmington,nc";
-          exec = "wttrbar --fahrenheit --mph --nerd --location wilmington,nc";
+          exec = "wttrbar --fahrenheit --mph --location wilmington,nc";
           return-type = "json";
         };
         "custom/notification" = {
@@ -242,18 +242,18 @@ in
       }
       #workspaces button:hover {
         font-weight: bold;
-        padding: 0px 1px;
+        padding: 0px 3px;
         border-radius: 16px;
         color: #000000;
         background: rgba(0, 255, 34, 0.8);
         transition: ${betterTransition};
       }
-      tooltip menu {
+      tooltip .menu {
         background: #212121;
         border: 1px solid #ee4400;
         border-radius: 12px;
       }
-      tooltip label menu {
+      tooltip label .menu {
         color: #228800;
       }
       #window, #cpu, #memory, #temperature, #idle_inhibitor {
