@@ -13,7 +13,7 @@ in
     enable = true;
     package = pkgs.hyprland;
     systemd = {
-      enable = false;
+      enable = true;
       enableXdgAutostart = true;
       variables = [ "--all" ];
     };

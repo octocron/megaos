@@ -4,17 +4,7 @@
   ...
 }:
 let
-  terminal = "kitty";
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  base00 = "#212121";
-  base01 = "#ee4400";
-  base02 = "#ffaa00";
-  base03 = "#228800";
-  base04 = "#0066cc";
-  base05 = "#00ccff";
-  base06 = "#ffee00";
-  nixdark = "#5277c3";
-  nixlight = "#7ebae4";
 in
 with lib;
 {
@@ -62,26 +52,23 @@ with lib;
         "hyprland/window" = {
           max-length = 22;
           separate-outputs = false;
-          # rewrite = {
-          #   "" = " 🙈 No Windows? ";
-          # };
+          rewrite = {
+            "" = " 🙈 No Windows? ";
+          };
         };
         "memory" = {
           interval = 5;
           format = " {}%";
           tooltip = true;
-          on-click = "${terminal} -e btop";
         };
         "cpu" = {
           interval = 5;
           format = " {usage:2}%";
           tooltip = true;
-          on-click = "${terminal} -e btop";
         };
         "disk" = {
           format = " {free}";
           tooltip = true;
-          on-click = "${terminal} -e sh -c df -h ; read";
         };
         "network" = {
           format-icons = [
@@ -95,7 +82,6 @@ with lib;
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
           tooltip = false;
-          on-click = "${terminal} -e btop";
         };
         "tray" = {
           spacing = 12;
@@ -125,7 +111,7 @@ with lib;
         "custom/exit" = {
           tooltip = false;
           format = "";
-          on-click = "sleep 0.1 && wlogout";
+          on-click = "wlogout";
         };
         "custom/startmenu" = {
           tooltip = false;
@@ -159,9 +145,8 @@ with lib;
             dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
             dnd-inhibited-none = "";
           };
-          return-type = "json";
           exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
+          exec = "swaync-client -c";
           on-click = "sleep 0.1 && task-waybar";
           escape = true;
         };
@@ -203,8 +188,8 @@ with lib;
           background: rgba(0,0,0,0);
         }
         #workspaces {
-          color: #${base00};
-          background: #${base01};
+          color: #212121;
+          background: #ee4400;
           margin: 4px 4px;
           padding: 5px 5px;
           border-radius: 16px;
@@ -214,8 +199,8 @@ with lib;
           padding: 0px 5px;
           margin: 0px 3px;
           border-radius: 16px;
-          color: #${base00};
-          background: linear-gradient(45deg, #${base02}, #${base06});
+          color: #212121;
+          background: linear-gradient(45deg, #ffaa00, #ffee00);
           opacity: 0.5;
           transition: ${betterTransition};
         }
@@ -224,8 +209,8 @@ with lib;
           padding: 0px 5px;
           margin: 0px 3px;
           border-radius: 16px;
-          color: #${base00};
-          background: linear-gradient(45deg, #${base04}, #${base05});
+          color: #212121;
+          background: linear-gradient(45deg, #0066cc, #00ccff);
           transition: ${betterTransition};
           opacity: 1.0;
           min-width: 40px;
@@ -233,31 +218,31 @@ with lib;
         #workspaces button:hover {
           font-weight: bold;
           border-radius: 16px;
-          color: #${base00};
-          background: #${base03};
+          color: #212121;
+          background: #228800;
           opacity: 0.8;
           transition: ${betterTransition};
         }
         tooltip {
-          background: #${base00};
-          border: 1px solid #${base01};
+          background: #212121;
+          border: 1px solid #ee4400;
           border-radius: 12px;
         }
         tooltip label {
-          color: #${base03};
+          color: #228800;
         }
         #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
           font-weight: bold;
           margin: 4px 0px;
           margin-left: 7px;
           padding: 0px 18px;
-          color: #${base02};
-          background: #${base00};
+          color: #ffaa00;
+          background: #212121;
           border-radius: 24px 10px 24px 10px;
         }
         #custom-startmenu {
-          color: #${nixdark};
-          background: #${nixlight};
+          color: #5277c3;
+          background: #7ebae4;
           font-size: 28px;
           margin: 0px;
           padding: 0px 30px 0px 15px;
@@ -266,8 +251,8 @@ with lib;
         #custom-hyprbindings, #network, #battery,
         #custom-notification, #tray, #custom-exit {
           font-weight: bold;
-          background: #${base00};
-          color: #${base01};
+          background: #212121;
+          color: #ee4400;
           margin: 4px 0px;
           margin-right: 7px;
           border-radius: 10px 24px 10px 24px;
@@ -275,8 +260,8 @@ with lib;
         }
         #clock {
           font-weight: bold;
-          color: #${base00};
-          background: #${base03};
+          color: #212121;
+          background: #228800;
           margin: 0px;
           padding: 0px 15px 0px 30px;
           border-radius: 0px 0px 0px 40px;
