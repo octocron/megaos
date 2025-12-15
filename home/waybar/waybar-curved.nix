@@ -159,6 +159,7 @@ with lib;
             dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
             dnd-inhibited-none = "";
           };
+          return-type = "json";
           exec-if = "which swaync-client";
           exec = "swaync-client -swb";
           on-click = "sleep 0.1 && task-waybar";
