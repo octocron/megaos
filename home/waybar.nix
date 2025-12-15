@@ -23,18 +23,16 @@ in
           "cpu"
           "memory"
           "temperature"
-          "disk"
           "idle_inhibitor"
         ];
         modules-right = [
+          "custom/weather"
           "custom/hyprbindings"
           "custom/notification"
+          "disk"
           "network"
-          "bluetooth"
-          "custom/exit"
-          "battery"
           "tray"
-          "custom/weather"
+          "custom/exit"
           "clock"
         ];
 
@@ -237,8 +235,7 @@ in
         margin: 0px 3px;
         border-radius: 16px;
         color: #212121;
-        background: #aa0088;
-        opacity: 0.5;
+        background: rgba(238, 68, 0, 0.5);
         transition: ${betterTransition};
       }
       #workspaces button.active {
@@ -247,17 +244,15 @@ in
         margin: 0px 3px;
         border-radius: 16px;
         color: #000000;
-        background: linear-gradient(45deg, #0066cc, #00ccff);
+        background: rgba(0, 204, 255, 1);
         transition: ${betterTransition};
-        opacity: 1.0;
         min-width: 40px;
       }
       #workspaces button:hover {
         font-weight: bold;
         border-radius: 16px;
         color: #000000;
-        background: #228800;
-        opacity: 0.8;
+        background: rgba(0, 255, 34, 0.8);
         transition: ${betterTransition};
       }
       tooltip {
@@ -268,7 +263,7 @@ in
       tooltip label {
         color: #228800;
       }
-      #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
+      #window, #pulseaudio, #cpu, #memory, #temperature, #idle_inhibitor {
         font-weight: bold;
         margin: 4px 0px;
         margin-left: 7px;
@@ -285,7 +280,7 @@ in
         padding: 0px 30px 0px 15px;
         border-radius: 0px 0px 40px 0px;
       }
-      #custom-hyprbindings, #network, #battery,
+      #custom-hyprbindings, #network, #battery, #disk,
       #custom-notification, #tray, #custom-exit {
         font-weight: bold;
         background: #212121;
