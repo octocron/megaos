@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   programs.hyprpanel = {
     enable = true;
     # Configure and theme almost all options from the GUI.

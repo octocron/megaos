@@ -60,6 +60,7 @@ with lib;
           interval = 5;
           format = " {}%";
           tooltip = true;
+          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
         "cpu" = {
           interval = 5;
