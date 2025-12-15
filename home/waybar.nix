@@ -22,39 +22,46 @@ in
           "pulseaudio"
           "cpu"
           "memory"
-          "custom/weather"
+          "temperature"
+          "disk"
           "idle_inhibitor"
         ];
         modules-right = [
           "custom/hyprbindings"
           "custom/notification"
+          "network"
+          "bluetooth"
           "custom/exit"
           "battery"
           "tray"
+          "custom/weather"
           "clock"
         ];
 
         "hyprland/workspaces" = {
           all-outputs = true;
           disable-scroll = true;
-          format = "{name} {icon}";
+          format = "{icon}";
           format-icons = {
             default = " ";
             active = " ";
             urgent = " ";
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
             "5" = "";
-            "6" = "";
-            "7" = "";
+            "6" = "󰚺";
+            "7" = "󰝚";
           };
           persistent_workspaces = {
             "1" = [ ];
             "2" = [ ];
             "3" = [ ];
             "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
+            "7" = [ ];
           };
           on-click = "activate";
           on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -77,6 +84,11 @@ in
           format = " {}%";
           tooltip = true;
           on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
+        };
+        "temperature" = {
+          critical-threshhold = 80;
+          format = " {temperatureF}°F";
+          interval = 10;
         };
         "cpu" = {
           interval = 5;
@@ -127,6 +139,8 @@ in
             ];
           };
           on-click = "sleep 0.1 && hyprctl dispatch exec pavucontrol";
+          on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
+          on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };
         "custom/exit" = {
           tooltip = false;
@@ -156,26 +170,23 @@ in
           format = "{}°F";
           tooltip = true;
           interval = 3600;
+          mph = true;
+          nerd = true;
+          fahrenheit = true;
+          location = "wilmington,nc";
           exec = "wttrbar --location wilmington,nc";
           return-type = "json";
         };
         "custom/notification" = {
           tooltip = false;
-          format = "{icon} {count}";
-          format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = "";
-          };
+          format = "";
           exec-if = "which swaync-client";
           exec = "swaync-client -c";
           on-click = "sleep 0.1 && task-waybar";
           escape = true;
+        };
+        "bluetooth" = {
+          format = "{icon} {status}";
         };
         "battery" = {
           states = {
@@ -226,7 +237,7 @@ in
         margin: 0px 3px;
         border-radius: 16px;
         color: #212121;
-        background: linear-gradient(45deg, #ffaa00, #ffee00);
+        background: #aa0088;
         opacity: 0.5;
         transition: ${betterTransition};
       }
@@ -235,7 +246,7 @@ in
         padding: 0px 5px;
         margin: 0px 3px;
         border-radius: 16px;
-        color: #212121;
+        color: #000000;
         background: linear-gradient(45deg, #0066cc, #00ccff);
         transition: ${betterTransition};
         opacity: 1.0;
@@ -244,7 +255,7 @@ in
       #workspaces button:hover {
         font-weight: bold;
         border-radius: 16px;
-        color: #212121;
+        color: #000000;
         background: #228800;
         opacity: 0.8;
         transition: ${betterTransition};
@@ -293,6 +304,9 @@ in
         border-radius: 0px 0px 0px 40px;
       }
       #custom-weather {
+        font-weight: bold;
+        color: #ffffff;
+        background: #212121;
         border-radius: 0px 10px 10px 0px;
         border-right: 0px;
         margin-left: 0px;
