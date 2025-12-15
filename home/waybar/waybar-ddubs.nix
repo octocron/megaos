@@ -9,7 +9,7 @@ in
   with lib; {
     # Configure & Theme Waybar
     programs.waybar = {
-      enable = true;
+      enable = false;
       package = pkgs.waybar;
       settings = [
         {
