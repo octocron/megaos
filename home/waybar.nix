@@ -75,7 +75,7 @@ in
         };
         "memory" = {
           interval = 5;
-          format = " {}%";
+          format = " {}%";
           tooltip = true;
           on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
@@ -149,15 +149,16 @@ in
         };
         "custom/hyprbindings" = {
           tooltip = false;
-          format = "󱕴";
+          format = "";
           on-click = "sleep 0.1 && list-keybinds";
         };
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
-            activated = "";
-            deactivated = "";
+            activated = "󰛊";
+            deactivated = "󰾫";
           };
+          start-activated = true;
           tooltip = "true";
         };
         "custom/weather" = {
@@ -266,7 +267,8 @@ in
         color: #228800;
       }
       #tray menuitem:hover {
-        background: #0088ff;
+        background: #ee4400;
+        color: #000000;
       }
       #window, #cpu, #memory, #temperature, #idle_inhibitor {
         font-weight: bold;
@@ -305,7 +307,7 @@ in
       }
       #custom-weather {
         font-weight: bold;
-        color: #ffffff;
+        color: #0088ff;
         border-radius: 0px 10px 10px 0px;
         border-right: 0px;
         margin-left: 0px;
