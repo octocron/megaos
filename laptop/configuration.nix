@@ -147,25 +147,25 @@
       pulse.enable = true;
       jack.enable = true;
       # NOTE: pw-cli list-objects [ Device || Node ]
-  #     wireplumber = {
-  #       enable = true;
-  #       extraConfig = {
-  #         "99-custom" = {
-  #           "monitor.alsa.rules" = [
-  #             {
-  #               matches = [ { "node.name" = "~alsa_input.*"; } ];
-  #               actions.update-props = {
-  #                 "audio.format" = "S16LE";
-  #                 "audio.rate" = 48000;
-  #                 "api.alsa.period-size" = 1024;
-  #               };
-  #             }
-  #           ];
-  #         };
-  #       };
-  #     };
-  #   };
-  # };
+      # wireplumber = {
+      #   enable = true;
+      #   extraConfig = {
+      #     "99-custom" = {
+      #       "monitor.alsa.rules" = [
+      #         {
+      #           matches = [ { "node.name" = "~alsa_input.*"; } ];
+      #           actions.update-props = {
+      #             "audio.format" = "S16LE";
+      #             "audio.rate" = 48000;
+      #             "api.alsa.period-size" = 1024;
+      #           };
+      #         }
+      #       ];
+      #     };
+      #   };
+      # };
+    };
+  };
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   security.rtkit.enable = true;

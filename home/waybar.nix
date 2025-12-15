@@ -6,7 +6,6 @@
 let
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
 in
-with lib;
 {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -23,6 +22,7 @@ with lib;
           "pulseaudio"
           "cpu"
           "memory"
+          "custom/weather"
           "idle_inhibitor"
         ];
         modules-right = [
@@ -35,12 +35,28 @@ with lib;
         ];
 
         "hyprland/workspaces" = {
-          format = "{name}";
+          all-outputs = true;
+          disable-scroll = true;
+          format = "{name} {icon}";
           format-icons = {
             default = " ";
             active = " ";
             urgent = " ";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
+            "7" = "";
           };
+          persistent_workspaces = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+          };
+          on-click = "activate";
           on-scroll-up = "hyprctl dispatch workspace e+1";
           on-scroll-down = "hyprctl dispatch workspace e-1";
         };
@@ -50,10 +66,10 @@ with lib;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
         };
         "hyprland/window" = {
-          max-length = 22;
-          separate-outputs = false;
+          max-length = 30;
+          separate-outputs = true;
           rewrite = {
-            "" = " 🙈 No Windows? ";
+            "" = " ... ";
           };
         };
         "memory" = {
@@ -139,9 +155,6 @@ with lib;
         "custom/weather" = {
           format = "{}°F";
           tooltip = true;
-          mph = true;
-          nerd = true;
-          fahrenheit = true;
           interval = 3600;
           exec = "wttrbar --location wilmington,nc";
           return-type = "json";
@@ -189,103 +202,101 @@ with lib;
         };
       }
     ];
-    style = concatStrings [
-      ''
-        * {
-          font-family: JetBrainsMono Nerd Font Mono;
-          font-size: 16px;
-          border-radius: 0px;
-          border: none;
-          min-height: 0px;
-        }
-        window#waybar {
-          background: rgba(0,0,0,0);
-        }
-        #workspaces {
-          color: #212121;
-          background: #ee4400;
-          margin: 4px 4px;
-          padding: 5px 5px;
-          border-radius: 16px;
-        }
-        #workspaces button {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #212121;
-          background: linear-gradient(45deg, #ffaa00, #ffee00);
-          opacity: 0.5;
-          transition: ${betterTransition};
-        }
-        #workspaces button.active {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #212121;
-          background: linear-gradient(45deg, #0066cc, #00ccff);
-          transition: ${betterTransition};
-          opacity: 1.0;
-          min-width: 40px;
-        }
-        #workspaces button:hover {
-          font-weight: bold;
-          border-radius: 16px;
-          color: #212121;
-          background: #228800;
-          opacity: 0.8;
-          transition: ${betterTransition};
-        }
-        tooltip {
-          background: #212121;
-          border: 1px solid #ee4400;
-          border-radius: 12px;
-        }
-        tooltip label {
-          color: #228800;
-        }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
-          font-weight: bold;
-          margin: 4px 0px;
-          margin-left: 7px;
-          padding: 0px 18px;
-          color: #ffaa00;
-          background: #212121;
-          border-radius: 24px 10px 24px 10px;
-        }
-        #custom-startmenu {
-          color: #5277c3;
-          background: #7ebae4;
-          font-size: 28px;
-          margin: 0px;
-          padding: 0px 30px 0px 15px;
-          border-radius: 0px 0px 40px 0px;
-        }
-        #custom-hyprbindings, #network, #battery,
-        #custom-notification, #tray, #custom-exit {
-          font-weight: bold;
-          background: #212121;
-          color: #ee4400;
-          margin: 4px 0px;
-          margin-right: 7px;
-          border-radius: 10px 24px 10px 24px;
-          padding: 0px 18px;
-        }
-        #clock {
-          font-weight: bold;
-          color: #212121;
-          background: #228800;
-          margin: 0px;
-          padding: 0px 15px 0px 30px;
-          border-radius: 0px 0px 0px 40px;
-        }
-        #custom-weather {
-          border-radius: 0px 10px 10px 0px;
-          border-right: 0px;
-          margin-left: 0px;
-        }
-      ''
-    ];
+    style = ''
+      * {
+        font-family: Maple Mono;
+        font-size: 16px;
+        border-radius: 0px;
+        border: none;
+        min-height: 0px;
+      }
+      window#waybar {
+        background: rgba(0,0,0,0);
+      }
+      #workspaces {
+        color: #212121;
+        background: #ee4400;
+        margin: 4px 4px;
+        padding: 5px 5px;
+        border-radius: 16px;
+      }
+      #workspaces button {
+        font-weight: bold;
+        padding: 0px 5px;
+        margin: 0px 3px;
+        border-radius: 16px;
+        color: #212121;
+        background: linear-gradient(45deg, #ffaa00, #ffee00);
+        opacity: 0.5;
+        transition: ${betterTransition};
+      }
+      #workspaces button.active {
+        font-weight: bold;
+        padding: 0px 5px;
+        margin: 0px 3px;
+        border-radius: 16px;
+        color: #212121;
+        background: linear-gradient(45deg, #0066cc, #00ccff);
+        transition: ${betterTransition};
+        opacity: 1.0;
+        min-width: 40px;
+      }
+      #workspaces button:hover {
+        font-weight: bold;
+        border-radius: 16px;
+        color: #212121;
+        background: #228800;
+        opacity: 0.8;
+        transition: ${betterTransition};
+      }
+      tooltip {
+        background: #212121;
+        border: 1px solid #ee4400;
+        border-radius: 12px;
+      }
+      tooltip label {
+        color: #228800;
+      }
+      #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
+        font-weight: bold;
+        margin: 4px 0px;
+        margin-left: 7px;
+        padding: 0px 18px;
+        color: #ffaa00;
+        background: #212121;
+        border-radius: 24px 10px 24px 10px;
+      }
+      #custom-startmenu {
+        color: #5277c3;
+        background: #7ebae4;
+        font-size: 28px;
+        margin: 0px;
+        padding: 0px 30px 0px 15px;
+        border-radius: 0px 0px 40px 0px;
+      }
+      #custom-hyprbindings, #network, #battery,
+      #custom-notification, #tray, #custom-exit {
+        font-weight: bold;
+        background: #212121;
+        color: #ee4400;
+        margin: 4px 0px;
+        margin-right: 7px;
+        border-radius: 10px 24px 10px 24px;
+        padding: 0px 18px;
+      }
+      #clock {
+        font-weight: bold;
+        color: #212121;
+        background: #228800;
+        margin: 0px;
+        padding: 0px 15px 0px 30px;
+        border-radius: 0px 0px 0px 40px;
+      }
+      #custom-weather {
+        border-radius: 0px 10px 10px 0px;
+        border-right: 0px;
+        margin-left: 0px;
+      }
+    '';
   };
 }
