@@ -105,6 +105,7 @@
     v4l-utils
     vim
     wget
+    wttrbar
     ydotool
     zeroad
     zip

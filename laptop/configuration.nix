@@ -82,22 +82,36 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
+    cava = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.cava;
+      general.frameRate = 60;
+      input.method = "alsa";
+      smoothing.noise_reduction = 88;
+      color = {
+        background = "#ee4400";
+        foreground = "#228800";
+      };
+    };
 
-  programs.cava = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.cava;
-    general.frameRate = 60;
-    input.method = "alsa";
-    smoothing.noise_reduction = 88;
-    color = {
-      background = "#ee4400";
-      foreground = "#228800";
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+
+    # Some programs need SUID wrappers, can be configured further or are
+    # started in user sessions.
+    mtr.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
     };
   };
 
@@ -117,34 +131,41 @@
     driSupport32Bit = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   # List services that you want to enable:
-  services.openssh.enable = true;
-  services.fstrim.enable = true;
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-    libinput.enable = true;
-  };
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+  services = {
+    openssh.enable = true;
+    fstrim.enable = true;
+    xserver = {
+      layout = "us";
+      xkbVariant = "";
+      libinput.enable = true;
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+      # NOTE: pw-cli list-objects [ Device || Node ]
+  #     wireplumber = {
+  #       enable = true;
+  #       extraConfig = {
+  #         "99-custom" = {
+  #           "monitor.alsa.rules" = [
+  #             {
+  #               matches = [ { "node.name" = "~alsa_input.*"; } ];
+  #               actions.update-props = {
+  #                 "audio.format" = "S16LE";
+  #                 "audio.rate" = 48000;
+  #                 "api.alsa.period-size" = 1024;
+  #               };
+  #             }
+  #           ];
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   security.rtkit.enable = true;

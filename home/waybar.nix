@@ -136,6 +136,16 @@ with lib;
           };
           tooltip = "true";
         };
+        "custom/weather" = {
+          format = "{}°F";
+          tooltip = true;
+          mph = true;
+          nerd = true;
+          fahrenheit = true;
+          interval = 3600;
+          exec = "wttrbar --location wilmington,nc";
+          return-type = "json";
+        };
         "custom/notification" = {
           tooltip = false;
           format = "{icon} {count}";
@@ -269,6 +279,11 @@ with lib;
           margin: 0px;
           padding: 0px 15px 0px 30px;
           border-radius: 0px 0px 0px 40px;
+        }
+        #custom-weather {
+          border-radius: 0px 10px 10px 0px;
+          border-right: 0px;
+          margin-left: 0px;
         }
       ''
     ];
