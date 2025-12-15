@@ -16,6 +16,7 @@ _: {
     ./swaync.nix
     ./tmux.nix
     ./waybar.nix
+    ./wlogout
     ./xdg.nix
     ./yazi.nix
     ./zsh.nix
