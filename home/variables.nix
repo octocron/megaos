@@ -20,12 +20,6 @@
   intelID = "PCI:1:0:0";
   nvidiaID = "PCI:0:2:0";
 
-  #---------------Waybar----------------------------------------------#
-  clock24h = false;
-  #waybarChoice = ./waybar/waybar.nix; # original
-  waybarChoice = ./waybar/waybar-curved.nix;
-  #waybarChoice = ./waybar/waybar-ddubs.nix;
-
   #---------------Animations-------------------------------------------#
   #animChoice = ./hyprland/animations.nix;
   animChoice = ./hyprland/animations-dynamic.nix;

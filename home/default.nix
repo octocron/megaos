@@ -1,7 +1,5 @@
-_: let
-  inherit (import ./variables.nix) waybarChoice;
-in {
-  #----------Home Configurations----------#
+#----------Home Configurations----------#
+_: {
   imports = [
     ./fastfetch/fastfetch.nix
     ./hyprland
@@ -17,7 +15,7 @@ in {
     ./swappy.nix
     ./swaync.nix
     ./tmux.nix
-    waybarChoice
+    ./waybar.nix
     ./xdg.nix
     ./yazi.nix
     ./zsh.nix
