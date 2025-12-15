@@ -145,8 +145,8 @@ in
     extraConfig = "
       monitor=DP-1,highres,0x0,auto
       monitor=HDMI-A-1,1920x1200@60,1920x0,1
-       workspace = DP-1, 1
-       workspace = HDMI-A-1, 2
+       workspace = 1, monitor:DP-1
+       workspace = 2, monitor:HDMI-A-1
       ${
             extraMonitorSettings
           }

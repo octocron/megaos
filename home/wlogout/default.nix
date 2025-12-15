@@ -3,10 +3,10 @@ _: {
     enable = true;
     layout = [
       {
-        label = "shutdown";
-        action = "sleep 1; systemctl poweroff";
-        text = "Shutdown";
-        keybind = "s";
+        "label" = "shutdown";
+        "action" = "sleep 1; systemctl poweroff";
+        "text" = "Shutdown";
+        "keybind" = "s";
       }
       {
         "label" = "reboot";
