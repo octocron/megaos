@@ -1,3 +1,4 @@
+# INFO: GTK_DEBUG=interactive waybar
 {
   pkgs,
   lib,
@@ -248,13 +249,24 @@ in
         background: rgba(0, 255, 34, 0.8);
         transition: ${betterTransition};
       }
-      tooltip .menu {
+      tooltip {
         background: #212121;
         border: 1px solid #ee4400;
         border-radius: 12px;
       }
-      tooltip label .menu {
+      tooltip label {
         color: #228800;
+      }
+      #tray menu {
+        background: #212121;
+        border: 1px solid #ee4400;
+        border-radius: 12px;
+      }
+      #tray menuitem {
+        color: #228800;
+      }
+      #tray menuitem:hover {
+        background: #0088ff;
       }
       #window, #cpu, #memory, #temperature, #idle_inhibitor {
         font-weight: bold;
