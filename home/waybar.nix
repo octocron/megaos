@@ -66,10 +66,12 @@ with lib;
           interval = 5;
           format = " {usage:2}%";
           tooltip = true;
+          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
         "disk" = {
           format = " {free}";
           tooltip = true;
+          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
         "network" = {
           format-icons = [
@@ -83,6 +85,7 @@ with lib;
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
           tooltip = false;
+          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
         "tray" = {
           spacing = 12;
@@ -107,12 +110,12 @@ with lib;
               ""
             ];
           };
-          on-click = "sleep 0.1 && pavucontrol";
+          on-click = "sleep 0.1 && hyprctl dispatch exec pavucontrol";
         };
         "custom/exit" = {
           tooltip = false;
           format = "";
-          on-click = "wlogout";
+          on-click = "sleep 0.1 && hyprctl dispatch exec wlogout";
         };
         "custom/startmenu" = {
           tooltip = false;
