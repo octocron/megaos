@@ -108,6 +108,7 @@
     wttrbar
     ydotool
     zeroad
+    zsh-nix-shell
     zip
   ];
 }
