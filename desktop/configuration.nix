@@ -455,10 +455,13 @@
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [
+        "audio"
         "docker"
         "libvirtd"
         "networkmanager"
+        "qemu-libvirtd"
         "scanner"
+        "video"
         "wheel"
       ];
       openssh.authorizedKeys.keys = [

@@ -51,6 +51,7 @@ in
         };
       };
 
+      # INFO: For Trackpad
       # gestures = {
       #   workspace_swipe = 1;
       #   workspace_swipe_fingers = 3;
@@ -142,14 +143,20 @@ in
 
     # list monitors: hyprctl monitors all
     # highres: highest resolution, highrr: highest refresh rate, preferred: resolution & refresh rate
+    monitor = [
+      "DP-1,highres,0x0,auto"
+      "HDMI-A-1,1920x1200@60,1920x0,1"
+    ];
+    workspace = [
+      "1, monitor:DP-1, default:true"
+      "2, monitor:DP-1"
+      "3, monitor:DP-1"
+      "4, monitor:DP-1"
+      "5, monitor:HDMI-A-1"
+      "6, monitor:HDMI-A-1"
+      "7, monitor:HDMI-A-1"
+    ];
     extraConfig = "
-      monitor=DP-1,highres,0x0,auto
-      monitor=HDMI-A-1,1920x1200@60,1920x0,1
-       workspace = 1, monitor:DP-1
-       workspace = 2, monitor:HDMI-A-1
-      ${
-            extraMonitorSettings
-          }
       # To enable blur on waybar uncomment the line below
       #layerrule = blur,waybar
     ";
