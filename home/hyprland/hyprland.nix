@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   inherit (import ../variables.nix)
-    extraMonitorSettings
     keyboardLayout
     ;
 in
