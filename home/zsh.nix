@@ -142,11 +142,6 @@
         source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
         export LANG=C.UTF-8
       '';
-      profileExtra = ''
-        #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        #  exec Hyprland
-        #fi
-      '';
 
       sessionVariables = { };
     };

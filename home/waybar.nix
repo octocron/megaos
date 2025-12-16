@@ -244,7 +244,7 @@ in
       }
       #workspaces button:hover {
         font-weight: bold;
-        padding: 0px 3px;
+        padding: 0px 5px;
         border-radius: 16px;
         color: #000000;
         background: rgba(0, 255, 34, 0.8);
