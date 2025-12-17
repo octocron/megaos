@@ -82,7 +82,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
-                users.${username}.import = [
+                users.${username}.imports = [
                   ./home.nix
                   sops-nix.homeManagerModules.sops
                 ];
