@@ -22,6 +22,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +39,7 @@
       nix-index-database,
       nixpkgs,
       self,
+      sops-nix,
       ...
     }:
     let
@@ -69,13 +75,17 @@
             darkmatter-grub-theme.nixosModule
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
             {
               home-manager = {
                 extraSpecialArgs = personalArgs;
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
-                users.${username} = import ./home.nix;
+                users.${username}.import = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
               };
             }
           ];

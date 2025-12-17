@@ -219,7 +219,7 @@ in
       #workspaces {
         color: #212121;
         background: #ee4400;
-        margin: 4px 4px;
+        margin: 4px 2px 4px 4px;
         padding: 5px 5px;
         border-radius: 16px;
       }
