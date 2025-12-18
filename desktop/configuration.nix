@@ -381,7 +381,7 @@
     };
 
     openssh = {
-      enable = true;
+      enable = false;
       ports = [ 22 ];
       settings = {
         PermitRootLogin = "no"; # prevent root from SSH login
