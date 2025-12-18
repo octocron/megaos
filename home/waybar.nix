@@ -37,10 +37,10 @@ in
           format = "{icon}";
           format-icons = {
             "1" = "";
-            "2" = "";
+            "2" = "";
             "3" = "";
-            "4" = "";
-            "5" = "";
+            "4" = "";
+            "5" = "";
             "6" = "󰚺";
             "7" = "󰝚";
           };
@@ -216,7 +216,7 @@ in
         color: #212121;
         background: #ee4400;
         margin: 4px 2px 4px 4px;
-        padding: 5px 5px;
+        padding: 5px 2px;
         border-radius: 16px;
       }
       #workspaces button {
