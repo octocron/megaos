@@ -61,9 +61,12 @@
         inherit username;
       };
       personalArgs = {
-        inherit username;
         inherit gitUsername;
         inherit gitEmail;
+        inherit hostname;
+        inherit inputs;
+        inherit system;
+        inherit username;
       };
     in
     {

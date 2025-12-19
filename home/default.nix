@@ -12,6 +12,7 @@ _: {
     ./nnn.nix
     ./packages.nix
     ./qt.nix
+    ./sops.nix
     ./swappy.nix
     ./swaync.nix
     ./tmux.nix
