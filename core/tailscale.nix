@@ -12,6 +12,7 @@
     extraUpFlags = [
       "--accept-dns=true" # magicDNS (not for server - exit node)
       "--accept-routes"
+      "--advertise-tags=tag:svc-satisfactory"
       "--hostname=satisfactory"
       "--userspace-networking"
       #"--advertise-routes=0.0.0.0/0" # optional, only if you intend to be exit node
