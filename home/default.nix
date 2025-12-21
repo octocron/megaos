@@ -1,6 +1,7 @@
 #----------Home Configurations----------#
 _: {
   imports = [
+    ./anyrun.nix
     ./fastfetch/fastfetch.nix
     ./hyprland
     ./rofi

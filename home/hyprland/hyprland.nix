@@ -30,6 +30,7 @@ in
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "hyprpaper"
+        "anyrun daemon"
       ];
 
       input = {

@@ -13,7 +13,7 @@
       "--accept-dns=true" # magicDNS (not for server - exit node)
       "--accept-routes"
       "--advertise-tags=tag:svc-satisfactory"
-      "--hostname=satisfactory"
+      #"--hostname=satisfactory"
       "--userspace-networking"
       #"--advertise-routes=0.0.0.0/0" # optional, only if you intend to be exit node
       #"--login-server=https://your-instance" # if you use a non-default login server
@@ -22,7 +22,7 @@
 
   networking = {
     #firewall.allowedUDPPorts = [config.services.tailscale.port]; # only needed on real Linux, not WSL
-    useDHCP = true; # required for WSL2 networking
+    useDHCP = false; # required for WSL2 networking
   };
 
   environment = {
