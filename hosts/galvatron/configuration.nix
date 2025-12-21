@@ -155,7 +155,6 @@
   #-----------------NETWORKING------------------------#
   networking = {
     hostName = "${hostname}"; # Defines hostname.
-    #networkmanager.enable = true;
     nftables.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     wireless.enable = false;
