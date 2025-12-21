@@ -28,16 +28,16 @@
         "...." = "././..";
         sv = "sudo vim";
         #-------------nix---------------------------------------------------->>>
-        nhb = "nh boot --flake ~/projects/megaos/#desktop";
+        nhb = "nh boot --flake ~/projects/megaos/#${hostname}";
         nhg = "nh os info";
         nhr = "nh os repl";
-        nhs = "nh os switch --flake ~/projects/megaos/#galvatron";
-        nhsu = "nh os switch --flake ~/projects/megaos/#galvatron --ask";
+        nhs = "nh os switch --flake ~/projects/megaos/#${hostname}";
+        nhsu = "nh os switch --flake ~/projects/megaos/#${hostname} --ask";
         nht = "nh os test --flake ~/projects/megaos/#${hostname}";
-        nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
-        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
-        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
-        nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#galvatron";
+        nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#${hostname}";
+        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#${hostname} | bat";
+        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#${hostname} -p";
+        nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#${hostname}";
         nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#${hostname}";
         ncg = "nix-collect-garbage --delete-old";
         #-------------aliases------------------------------------------------>>>
