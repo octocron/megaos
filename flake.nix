@@ -75,7 +75,9 @@
     {
       nixosConfigurations = {
         galvatron = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs;
+          specialArgs = commonSpecialArgs // {
+            hostname = "galvatron";
+          };
           modules = [
             ./hosts/galvatron/configuration.nix
             darkmatter-grub-theme.nixosModule
@@ -98,7 +100,9 @@
           ];
         };
         energon = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs;
+          specialArgs = commonSpecialArgs // {
+            hostname = "energon";
+          };
           modules = [
             ./laptop/configuration.nix
             darkmatter-grub-theme.nixosModule
