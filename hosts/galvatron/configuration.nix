@@ -411,6 +411,16 @@
       openFirewall = true;
     };
 
+    steam-servers = {
+      satisfactory = {
+        enable = true;
+        autoStart = false;
+        experimental = false;
+        installDir = "/var/lib/satisfactory";
+        openFirewall = false; # false when using tailscale
+      };
+    };
+
     syncthing = {
       enable = false;
       user = "${username}";
