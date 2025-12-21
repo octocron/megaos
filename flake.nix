@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     megavim.url = "gitlab:megacron/megavim?ref=nixvim";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -30,8 +35,9 @@
   };
 
   outputs =
-    inputs@{
+    {
       darkmatter-grub-theme,
+      disko,
       home-manager,
       hyprland,
       megavim,
@@ -41,10 +47,15 @@
       self,
       sops-nix,
       ...
-    }:
+    }@inputs:
     let
-      system = "x86_64-linux";
-      hostname = "galvatron";
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86-64-darwin"
+        "x86_64-linux"
+        "i686-linux"
+      ];
       username = "megacron";
       gitUsername = "megacron";
       gitEmail = "megacron@d3c3p7.com";
@@ -53,29 +64,28 @@
       commonSpecialArgs = {
         inherit gitEmail;
         inherit gitUsername;
-        inherit hostname;
         inherit inputs;
-        inherit system;
         inherit theLocale;
+        inherit systems;
         inherit theTimezone;
         inherit username;
       };
       personalArgs = {
         inherit gitUsername;
         inherit gitEmail;
-        inherit hostname;
         inherit inputs;
-        inherit system;
+        inherit systems;
         inherit username;
       };
     in
     {
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
+        galvatron = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs;
           modules = [
-            ./desktop/configuration.nix
+            ./hosts/galvatron/configuration.nix
             darkmatter-grub-theme.nixosModule
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
@@ -93,7 +103,7 @@
             }
           ];
         };
-        laptop = nixpkgs.lib.nixosSystem {
+        energon = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs;
           modules = [
             ./laptop/configuration.nix

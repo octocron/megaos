@@ -1,5 +1,6 @@
 {
   config,
+  hostname,
   pkgs,
   ...
 }:
@@ -30,9 +31,9 @@
         nhb = "nh boot --flake ~/projects/megaos/#desktop";
         nhg = "nh os info";
         nhr = "nh os repl";
-        nhs = "nh os switch --flake ~/projects/megaos/#desktop";
-        nhsu = "nh os switch --flake ~/projects/megaos/#desktop --ask";
-        nht = "nh os test --flake ~/projects/megaos/#desktop";
+        nhs = "nh os switch --flake ~/projects/megaos/#galvatron";
+        nhsu = "nh os switch --flake ~/projects/megaos/#galvatron --ask";
+        nht = "nh os test --flake ~/projects/megaos/#${hostname}";
         nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
         nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
         nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
