@@ -35,7 +35,7 @@
   };
 
   outputs =
-    {
+    inputs@{
       darkmatter-grub-theme,
       disko,
       home-manager,
@@ -47,15 +47,9 @@
       self,
       sops-nix,
       ...
-    }@inputs:
+    }:
     let
-      systems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86-64-darwin"
-        "x86_64-linux"
-        "i686-linux"
-      ];
+      system = "x86_64-linux";
       username = "megacron";
       gitUsername = "megacron";
       gitEmail = "megacron@d3c3p7.com";
@@ -66,7 +60,7 @@
         inherit gitUsername;
         inherit inputs;
         inherit theLocale;
-        inherit systems;
+        inherit system;
         inherit theTimezone;
         inherit username;
       };
@@ -74,7 +68,7 @@
         inherit gitUsername;
         inherit gitEmail;
         inherit inputs;
-        inherit systems;
+        inherit system;
         inherit username;
       };
     in

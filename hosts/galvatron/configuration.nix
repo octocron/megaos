@@ -16,7 +16,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../apps
+    ../../apps
   ];
 
   #-----------------------BOOT--------------------------#

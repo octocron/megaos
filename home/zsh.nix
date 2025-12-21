@@ -37,7 +37,7 @@
         nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
         nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
         nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
-        nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
+        nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#galvatron";
         nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#desktop";
         ncg = "nix-collect-garbage --delete-old";
         #-------------aliases------------------------------------------------>>>
