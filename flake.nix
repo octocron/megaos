@@ -87,7 +87,9 @@
             sops-nix.nixosModules.sops
             {
               home-manager = {
-                extraSpecialArgs = personalArgs;
+                extraSpecialArgs = personalArgs // {
+                  hostname = "galvatron";
+                };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
@@ -109,7 +111,9 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = personalArgs;
+                extraSpecialArgs = personalArgs // {
+                  hostname = "energon";
+                };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username} = import ./home.nix;
