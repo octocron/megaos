@@ -239,7 +239,7 @@
             exit 0
           fi
           # otherwise authenticate with tailscale
-          ${tailscale}/bin/tailscale up --authkey=tskey-auth-k9YCRHoYfR11CNTRL-x19aNr127p1JTay7JadSo1V8MiejMYM7U
+          ${tailscale}/bin/tailscale up --auth-key file:/etc/tailscale/tskey-reusable
         '';
       };
     };
