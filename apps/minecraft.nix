@@ -14,10 +14,10 @@ let
   cobblemonVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
 in
 {
+  imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ]; # Import nix-minecraft module
   options.services.minecraft.enable = mkEnableOption "enable minecraft";
 
   config = mkIf cfg.enable {
-    imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ]; # Import nix-minecraft module
     nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
     services.minecraft-servers = {
