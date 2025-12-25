@@ -1,13 +1,21 @@
-{ config, lib, ... }:
-
+{
+  config,
+  lib,
+  ...
+}:
+with lib;
 let
+  cfg = config.services.unbound;
   unbound_conf = "/etc/resolvconf-unbound.conf";
   # match libc_restart (nixos/modules/config/resolvconf.nix)
-  unbound_restart = "/run/current-system/systemd/bin/systemctl try-restart "
+  unbound_restart =
+    "/run/current-system/systemd/bin/systemctl try-restart "
     + "--no-block unbound.service 2> /dev/null";
 in
 {
-  config = lib.mkIf config.services.unbound.enable {
+  options.services.unbound.enable = mkEnableOption "enable unbound";
+
+  config = mkIf cfg.enable {
     networking = {
       resolvconf.extraConfig = ''
         unbound_conf=${unbound_conf}

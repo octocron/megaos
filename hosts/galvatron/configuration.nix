@@ -19,6 +19,15 @@
     ../../apps
   ];
 
+  services = {
+    caddy.enable = false;
+    greetd.enable = false;
+    minecraft.enable = false;
+    podman.enable = true;
+    satisfactory.enable = true;
+    unbound.enable = false;
+  };
+
   #-----------------------BOOT--------------------------#
   # Choose either systemd (modern) or grub (legacy)
   boot.loader = {

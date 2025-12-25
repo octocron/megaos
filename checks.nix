@@ -3,10 +3,7 @@
 {
   flake = {
     checks = {
-      x86_64-linux = {
-        #energon = self.nixosConfigurations.energon.system;
-        galvatron = self.nixosConfigurations.galvatron.system;
-      };
+      x86_64-linux = builtins.mapAttrs (name: config: config.system) self.nixosConfigurations;
     };
   };
 }

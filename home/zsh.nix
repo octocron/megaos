@@ -181,6 +181,12 @@
       enableZshIntegration = true;
     };
 
+    # theFuck upgrade
+    pay-respects = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # starship >>> config/starship.toml
     starship = {
       enable = true;

@@ -93,7 +93,7 @@ in
           ${pkgs.steam-run}/bin/steam-run ${cfg.installDir}/FactoryServer.sh \
             -Port=${toString cfg.port} \
             -ReliablePort=${toString cfg.reliablePort} \
-            -ServerQueryIP=100.102.193.39 \
+            -ServerQueryIP=127.0.0.1 \
             -unattended
         '';
         # Ensure proper cleanup on stop

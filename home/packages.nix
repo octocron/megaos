@@ -22,6 +22,7 @@
     xonotic
 
     # cli tools
+    albert # C++: Launcher
     amfora # Rust: markdown viewer
     asciinema # Rust: terminal recorder
     aria2 # C++: ↑ wget
