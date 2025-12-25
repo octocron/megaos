@@ -94,8 +94,9 @@ in
       "$modifier CONTROL,left,workspace,e-1"
       "$modifier,mouse_down,workspace, e+1"
       "$modifier,mouse_up,workspace, e-1"
-      "ALT,Tab,cyclenext"
-      "ALT,Tab,bringactivetotop"
+       "ALT,Tab,cyclenext"
+       "ALT,Tab,bringactivetotop"
+       "ALT,space,exec,albert"
       #----------AUDIO----------------------------------->>
       ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
