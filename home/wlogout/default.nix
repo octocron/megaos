@@ -3,16 +3,10 @@ _: {
     enable = true;
     layout = [
       {
-        "label" = "shutdown";
-        "action" = "sleep 1; systemctl poweroff";
-        "text" = "Shutdown";
-        "keybind" = "s";
-      }
-      {
-        "label" = "reboot";
-        "action" = "sleep 1; systemctl reboot";
-        "text" = "Reboot";
-        "keybind" = "r";
+        "label" = "lock";
+        "action" = "sleep 1; hyprlock";
+        "text" = "Lock";
+        "keybind" = "l";
       }
       {
         "label" = "logout";
@@ -27,21 +21,27 @@ _: {
         "keybind" = "u";
       }
       {
-        "label" = "lock";
-        "action" = "sleep 1; hyprlock";
-        "text" = "Lock";
-        "keybind" = "l";
-      }
-      {
         "label" = "hibernate";
         "action" = "sleep 1; systemctl hibernate";
         "text" = "Hibernate";
         "keybind" = "h";
       }
+      {
+        "label" = "reboot";
+        "action" = "sleep 1; systemctl reboot";
+        "text" = "Reboot";
+        "keybind" = "r";
+      }
+      {
+        "label" = "shutdown";
+        "action" = "sleep 1; systemctl poweroff";
+        "text" = "Shutdown";
+        "keybind" = "s";
+      }
     ];
     style = ''
       * {
-        font-family: "JetBrainsMono NF", FontAwesome, sans-serif;
+        font-family: "Maple Mono", FontAwesome, sans-serif;
       	background-image: none;
       	transition: 20ms;
       }
