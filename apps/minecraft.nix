@@ -14,7 +14,7 @@ let
   cobblemonVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
 in
 {
-  options.services.podman.enable = mkEnableOption "enable podman";
+  options.services.minecraft.enable = mkEnableOption "enable minecraft";
 
   config = mkIf cfg.enable {
     imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ]; # Import nix-minecraft module
