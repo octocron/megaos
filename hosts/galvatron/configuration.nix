@@ -19,15 +19,6 @@
     ../../apps
   ];
 
-  services = {
-    caddy.enable = false;
-    greetd.enable = false;
-    minecraft.enable = false;
-    podman.enable = true;
-    satisfactory.enable = true;
-    unbound.enable = false;
-  };
-
   #-----------------------BOOT--------------------------#
   # Choose either systemd (modern) or grub (legacy)
   boot.loader = {
@@ -383,6 +374,9 @@
       };
     };
 
+    caddy.enable = false;
+    greetd.enable = false;
+    minecraft.enable = false;
     openssh = {
       enable = false;
       ports = [ 22 ];
@@ -400,6 +394,8 @@
       pulse.enable = true;
       jack.enable = true;
     };
+
+    podman.enable = true;
 
     # still need to $ sudo smbpasswd -a $username
     samba = {
@@ -436,6 +432,8 @@
       dataDir = "/home/${username}";
       configDir = "/home/${username}/.config/syncthing";
     };
+
+    unbound.enable = false;
 
     xserver = {
       enable = true;
