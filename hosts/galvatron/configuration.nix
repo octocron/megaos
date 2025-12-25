@@ -375,7 +375,6 @@
     };
 
     caddy.enable = false;
-    greetd.enable = false;
     minecraft.enable = false;
     openssh = {
       enable = false;
