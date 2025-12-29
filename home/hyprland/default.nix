@@ -13,6 +13,8 @@ in
     ./hyprpaper.nix
     ./keybinds.nix
     #./pyprland.nix
+    ./waybar.nix
     ./windowrules.nix
+    ./xdg.nix
   ];
 }

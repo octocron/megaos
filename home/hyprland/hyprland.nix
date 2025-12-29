@@ -5,6 +5,7 @@ let
     ;
 in
 {
+  home.packages = import ./lsbind.nix { inherit pkgs; };
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
