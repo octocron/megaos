@@ -635,11 +635,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1764017003,
-        "narHash": "sha256-Uj3SF2Gb6cLWO2uCPpx6QRKPNZwpIR8m9LJ6bVr2Pb4=",
+        "lastModified": 1766959082,
+        "narHash": "sha256-9zDSmYwTMlbKRE6MLHqTWq+QCWU3o4YoRfIYGdmda9o=",
         "owner": "megacron",
         "repo": "megavim",
-        "rev": "36dd86c4768963f5f66429be5ca9e2fb81807ab1",
+        "rev": "1ec8fbf180f0ae92409e7783cac91c3cf7066766",
         "type": "gitlab"
       },
       "original": {
