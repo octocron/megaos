@@ -1,7 +1,6 @@
 _: {
   #----------NixOS Configurations------------#
   imports = [
-    ./fonts.nix
     ./minecraft.nix
     ./podman.nix
     ./satisfactory.nix
