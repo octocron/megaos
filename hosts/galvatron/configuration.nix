@@ -4,11 +4,9 @@
   lib,
   pkgs,
   username,
+  desktop,
   ...
 }:
-let
-  desktop = "hyprland"; # WARN: [ hyprland || niri ]
-in
 {
   #----------------------NixOS-MODULES-----------------#
   imports = [
@@ -60,12 +58,6 @@ in
 
   #-----------------------PROGRAMS-----------------------#
   programs = {
-    hyprland = lib.mkIf (desktop == "hyprland") {
-      enable = true;
-      withUWSM = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
-
     gamemode.enable = true;
     gamescope = {
       enable = true;
@@ -115,6 +107,10 @@ in
 
   #-----------------------SERVICES-----------------------#
   services = {
+    # Desktop services
+    hyprland.enable = desktop == "hyprland";
+    niri.enable = desktop == "niri";
+
     # List services that should be enabled:
     fstrim.enable = true; # ssd optimizer
     gvfs.enable = true; # allow gtk based file managers to browse samba shares

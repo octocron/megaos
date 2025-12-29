@@ -1,9 +1,9 @@
 #----------Home Configurations----------#
-_: {
+{ desktop, ... }:
+{
   imports = [
     #./anyrun.nix
     ./fastfetch/fastfetch.nix
-    ./hyprland
     ./rofi
     ./scripts
     ./cava.nix
@@ -22,5 +22,7 @@ _: {
     ./xdg.nix
     ./yazi.nix
     ./zsh.nix
-  ];
+  ]
+  ++ (if desktop == "hyprland" then [ ./hyprland ] else [ ])
+  ++ (if desktop == "niri" then [ ./niri ] else [ ]);
 }
