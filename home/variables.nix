@@ -9,11 +9,6 @@
   keyboardLayout = "us";
   consoleKeyMap = "us";
 
-  #---------------Nvidia-Prime-Support--------------------------------#
-  # NOTE: 'lspci | rg VGA' to find GPU IDs
-  intelID = "PCI:1:0:0";
-  nvidiaID = "PCI:0:2:0";
-
   #---------------Animations-------------------------------------------#
   #animChoice = ./hyprland/animations.nix;
   animChoice = ./hyprland/animations-dynamic.nix;

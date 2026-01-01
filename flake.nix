@@ -22,6 +22,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     megavim.url = "gitlab:megacron/megavim?ref=nixvim";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -35,19 +36,20 @@
   };
 
   outputs =
-    inputs@{
-      darkmatter-grub-theme,
-      disko,
-      home-manager,
-      hyprland,
-      megavim,
-      nix-minecraft,
-      nix-index-database,
-      nixpkgs,
-      self,
-      sops-nix,
-      ...
-    }:
+  inputs@{
+    darkmatter-grub-theme,
+    disko,
+    home-manager,
+    hyprland,
+    megavim,
+    nix-minecraft,
+    nix-index-database,
+    nixpkgs,
+    noctalia,
+    self,
+    sops-nix,
+    ...
+  }:
     let
       system = "x86_64-linux";
       username = "megacron";

@@ -24,6 +24,7 @@
     # cli tools
     albert # C++: Launcher
     amfora # Rust: markdown viewer
+    appimage-run # Bash: Support App Images
     asciinema # Rust: terminal recorder
     aria2 # C++: ↑ wget
     bandwhich # Rust: real time network monitor
@@ -106,6 +107,7 @@
     ripgrep # Rust: ↑ grep
     ripgrep-all # Rust: ↑ extend rg to search pdf, docx, etc
     rofi
+    rofi-emoji # C: emoji plugin for rofi
     rsync # C: inc file xfer
     rustic # Rust: deduplicated backup
     rustup # Rust: rust toolchain
@@ -119,6 +121,7 @@
     ssh-to-age # Go: convert ssh key to age
     spacer # Rust: ↑ insert space when cli output stops
     speedread # Perl:
+    swappy
     swaynotificationcenter
     symbola
     termusic # Rust: ↑ cmus
@@ -127,6 +130,7 @@
     tre # C: ↑ tree
     trippy # Rust: ↑ traceroute + ping + bandwhich in one
     ttyper # Rust: ↑ typing game
+    udiskie
     unrar # C:
     unzip # C:
     up # Go: ↑ pipe with live preview

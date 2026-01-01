@@ -8,6 +8,9 @@
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
     stateVersion = "23.11";
     file = {
       # Place Files Inside Home Directory
@@ -27,16 +30,6 @@
         recursive = true;
       };
     };
-
-    packages = with pkgs; [
-      hyprland-qtutils # needed for banners and ANR messages
-      hyprpolkitagent
-      wl-clipboard
-      ydotool
-      swappy
-      slurp
-      grim
-    ];
   };
 
   #-----------------Home-Modules-----------------------------#
@@ -44,11 +37,17 @@
     ./home
   ];
 
+  services = {
+    cliphist = {
+      enable = true;
+      allowImages = true;
+    };
+  };
+
   #-----------------Builtin Programs-------------------------#
   programs = {
-    home-manager = {
-      enable = true;
-    };
+    home-manager.enable = true;
+
     command-not-found.enable = false; # mutex to nix-index (using ShellInit script in zsh.nix)
     jq.enable = true;
     tealdeer = {

@@ -5,7 +5,16 @@ let
     ;
 in
 {
-  home.packages = [ (import ./lsbind.nix { inherit pkgs; }) ];
+  # Install Hyprland and related packages
+  home.packages =
+    with pkgs;
+    [
+      hyprland-qtutils # needed for banners and ANR messages
+      hyprpolkitagent
+      ydotool
+    ]
+    ++ [ (import ./lsbind.nix { inherit pkgs; }) ];
+
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
