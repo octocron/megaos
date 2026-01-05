@@ -5,7 +5,8 @@
     brightnessctl
     gpu-screen-recorder
     quickshell
-    swww # or swaybg
+    swaybg
+    #swww # or swaybg
     wlsunset # night light
     xdg-desktop-portal
     xdg-desktop-portal-gnome
@@ -15,6 +16,26 @@
   programs.niri = {
     enable = true;
     settings = {
+      config-notification.disable-failed = true;
+      cursor = {
+        size = 24;
+        theme = "Bibata-Modern-Ice";
+      };
+      gestures.hot-corners.enable = false;
+      input = {
+        mod-key = "Super";
+        keyboard.numlock = true;
+        focus-follows-mouse.enable = true;
+        warp-mouse-to-focus.enable = true;
+        mouse = {
+          enable = true;
+          accel-profile = "adaptive";
+          scroll-method = "edge";
+        };
+      };
+      prefer-no-csd = true;
+      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
       binds = {
         # NOTE: Overview
         "Mod+X".action.toggle-overview.repeat = false;
@@ -191,7 +212,7 @@
         "Mod+8".action.focus-workspace = 8;
         "Mod+9".action.focus-workspace = 9;
       };
-      env = {
+      environment = {
         XDG_CURRENT_DESKTOP = "niri";
         XDG_SESSION_DESKTOP = "niri";
         XDG_SESSION_TYPE = "wayland";
@@ -211,25 +232,115 @@
         PROTON_HIDE_NVIDIA_GPU = "0";
         PROTON_ENABLE_NGX_UPDATER = "1";
       };
-      cursor = {
-        size = 24;
-        theme = "Bibata-Modern-Ice";
+
+      animations = {
+        workspace-switch.kind.spring = {
+          damping-ratio = 0.80;
+          stiffness = 523;
+          epsilon = 0.0001;
+        };
+        window-open.kind.easing = {
+          duration-ms = 150;
+          curve = "ease-out-expo";
+        };
+        window-close.kind.easing = {
+          duration-ms = 150;
+          curve = "ease-out-quad";
+        };
+        horizontal-view-movement.kind.spring = {
+          damping-ratio = 0.85;
+          stiffness = 423;
+          epsilon = 0.0001;
+        };
+        window-movement.kind.spring = {
+          damping-ratio = 0.75;
+          stiffness = 323;
+          epsilon = 0.0001;
+        };
+        window-resize.kind.spring = {
+          damping-ratio = 0.85;
+          stiffness = 423;
+          epsilon = 0.0001;
+        };
+        config-notification-open-close.kind.spring = {
+          damping-ratio = 0.65;
+          stiffness = 923;
+          epsilon = 0.001;
+        };
+        screenshot-ui-open.kind.easing = {
+          duration-ms = 200;
+          curve = "ease-out-quad";
+        };
+        overview-open-close.kind.spring = {
+          damping-ratio = 0.85;
+          stiffness = 800;
+          epsilon = 0.0001;
+        };
       };
-      prefer-no-csd = true;
-      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
+      layout = {
+        gaps = 9;
+        center-focused-column = "never";
+        always-center-single-column = true;
+        preset-column-widths = [
+          { proportion = 0.5; }
+          { proportion = 0.66667; }
+          { proportion = 1.0; }
+        ];
+        default-column-width.proportion = 0.5;
+        border = {
+          enable = true;
+          width = 2;
+          active.color = "#228800";
+          inactive.color = "#3d59a1";
+          urgent.color = "#ffaa00";
+        };
+        focus-ring = {
+          enable = false;
+          width = 2;
+          active.color = "#ee4400";
+          inactive.color = "#3d59a1";
+        };
+        shadow = {
+          enable = true;
+          softness = 30;
+          spread = 5;
+          offset = {
+            x = 0;
+            y = 5;
+          };
+          color = "#0007";
+        };
+      };
+
+      overview = {
+        backdrop-color = "#1e1e2e";
+        workspace-shadow = {
+          enable = true;
+          softness = 40;
+          spread = 10;
+          offset = {
+            x = 0;
+            y = 10;
+          };
+          color = "#00000050";
+        };
+        zoom = 0.5;
+      };
+
       spawn-at-startup = [
         {
           command = [
             "albert"
           ];
         }
-        {
-          command = [
-            "bash"
-            "-c"
-            "swww-daemon && sleep 1 && swww img '~/Pictures/Wallpapers/carafe_rainbow.png'"
-          ];
-        }
+        # {
+        #   command = [
+        #     "bash"
+        #     "-c"
+        #     "swww-daemon && sleep 1 && swww img '~/Pictures/Wallpapers/carafe_rainbow.png'"
+        #   ];
+        # }
         {
           command = [
             "noctalia-shell"
@@ -237,7 +348,6 @@
         }
         {
           command = [
-            # FIX: pick either swww or swaybg
             "swaybg"
             "--image"
             "~/Pictures/Wallpapers/carafe_rainbow.png"
@@ -247,6 +357,53 @@
           command = [
             "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
           ];
+        }
+      ];
+
+      window-rules = [
+        {
+          matches = [
+            { app-id = "^org\\.wezfurlong\\.wezterm$"; }
+          ];
+          default-column-width = { };
+        }
+        {
+          matches = [
+            {
+              app-id = "brave$";
+              title = "^Picture-in-Picture$";
+            }
+          ];
+          open-floating = true;
+        }
+        {
+          geometry-corner-radius = {
+            top-left = 9;
+            top-right = 9;
+            bottom-left = 9;
+            bottom-right = 9;
+          };
+          clip-to-geometry = true;
+          draw-border-with-background = false;
+        }
+        {
+          matches = [
+            { app-id = "^(kitty|thunar|discord|wezterm)$"; }
+          ];
+          opacity = 0.9;
+        }
+        {
+          matches = [
+            { app-id = "^com\\.obsproject\\.Studio$"; }
+          ];
+          default-column-width.proportion = 1.0;
+          open-on-output = "DP-2";
+        }
+        {
+          matches = [
+            { app-id = "^(brave|steam|chrome-app)$"; }
+          ];
+          opacity = 0.95;
         }
       ];
     };

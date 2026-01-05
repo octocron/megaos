@@ -22,6 +22,8 @@
         expireDuplicatesFirst = true;
       };
 
+      dotDir = "${config.xdg.configHome}/zsh";
+
       shellAliases = {
         ".." = "cd ..";
         "..." = "./..";

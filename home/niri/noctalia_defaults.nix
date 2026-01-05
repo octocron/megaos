@@ -8,26 +8,6 @@
     enable = true;
     settings = {
       settingsVersion = 0;
-      colors = {
-        # you must set ALL of these
-        mError = "#dddddd";
-        mOnError = "#111111";
-        mOnPrimary = "#111111";
-        mOnSecondary = "#111111";
-        mOnSurface = "#828282";
-        mOnSurfaceVariant = "#5d5d5d";
-        mOnTertiary = "#111111";
-        mOnHover = "#ffff00";
-        mOutline = "#00ff55";
-        mPrimary = "#00ccff";
-        mSecondary = "#ff3300";
-        mShadow = "#ff00aa";
-        mSurface = "#00aadd";
-        mHover = "#1f1f1f";
-        mSurfaceVariant = "#191919";
-        mTertiary = "#0a0015";
-      };
-
       bar = {
         position = "top"; # [ top right bottom left ]
         monitors = [ ];

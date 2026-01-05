@@ -1,6 +1,7 @@
 {
   config,
   hostname,
+  lib,
   options,
   ...
 }:
@@ -11,7 +12,7 @@
     networkmanager.enable = true;
     nftables.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
-    wireless.enable = false;
+    wireless.enable = lib.mkForce false;
     firewall = {
       enable = true;
       allowedTCPPorts = [
