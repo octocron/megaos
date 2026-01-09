@@ -36,20 +36,20 @@
   };
 
   outputs =
-  inputs@{
-    darkmatter-grub-theme,
-    disko,
-    home-manager,
-    hyprland,
-    megavim,
-    nix-minecraft,
-    nix-index-database,
-    nixpkgs,
-    noctalia,
-    self,
-    sops-nix,
-    ...
-  }:
+    inputs@{
+      darkmatter-grub-theme,
+      disko,
+      home-manager,
+      hyprland,
+      megavim,
+      nix-minecraft,
+      nix-index-database,
+      nixpkgs,
+      noctalia,
+      self,
+      sops-nix,
+      ...
+    }:
     let
       system = "x86_64-linux";
       username = "megacron";
@@ -108,6 +108,7 @@
         energon = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs // {
             hostname = "energon";
+            desktop = "hyprland";
           };
           modules = [
             ./laptop/configuration.nix
@@ -117,10 +118,14 @@
               home-manager = {
                 extraSpecialArgs = personalArgs // {
                   hostname = "energon";
+                  desktop = "hyprland";
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = import ./home.nix;
+                users.${username}.imports = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
               };
             }
           ];

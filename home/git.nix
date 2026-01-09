@@ -1,8 +1,10 @@
 {
   gitUsername,
   gitEmail,
+  hostname,
   ...
-}: {
+}:
+{
   programs = {
     git = {
       enable = true;
@@ -22,7 +24,7 @@
           gpg = {
             ssh = "~/.ssh/allowed_signers";
           };
-          user.signingkey = "~/.ssh/id_galvatron.pub";
+          user.signingkey = "~/.ssh/id_${hostname}.pub";
           core.editor = "nvim";
           diff.colorMoved = "default";
           init.defaultBranch = "trunk";

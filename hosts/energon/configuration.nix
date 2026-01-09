@@ -23,6 +23,9 @@
       powerOnBoot = true;
     };
 
+    # NOTE: Corsair Keyboard Support
+    ckb-next.enable = true;
+
     # WARN: [ amd || intel ]
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
@@ -52,12 +55,6 @@
 
   #-----------------------PROGRAMS-----------------------#
   programs = {
-    hyprland = {
-      enable = true;
-      withUWSM = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
-
     gamemode.enable = true;
     gamescope = {
       enable = true;
@@ -130,6 +127,11 @@
     };
 
     caddy.enable = false;
+    goxlr-utility = {
+      enable = true;
+      autoStart.xdg = true;
+    };
+
     minecraft.enable = false;
     openssh = {
       enable = false;
