@@ -29,7 +29,7 @@
       "/share/applications"
       "/share/xdg-desktop-portal"
     ];
-    systemPackages = with pkgs; [ dbusmenu-qt5 ];
+    systemPackages = with pkgs; [ libdbusmenu ];
   };
 
   #-----------------------HARDWARE---------------------#
