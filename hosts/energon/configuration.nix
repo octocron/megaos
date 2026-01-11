@@ -24,10 +24,13 @@
   };
 
   #-----------------------ENVIRONMENT-------------------#
-  environment.pathsToLink = [
-    "/share/applications"
-    "/share/xdg-desktop-portal"
-  ];
+  environment = {
+    pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+    ];
+    systemPackages = with pkgs; [ dbusmenu-qt5 ];
+  };
 
   #-----------------------HARDWARE---------------------#
   hardware = {
