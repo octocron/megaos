@@ -140,6 +140,7 @@
     vim # C: ↑↑ modal editor
     w3m # C: text based browser
     wget # C: ↑ download
+    witr # GO: why is this running
     wl-clipboard
     wthrr # Rust: ↑ wttr
     wttrbar
