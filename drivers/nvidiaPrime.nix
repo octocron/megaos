@@ -5,11 +5,11 @@
 }:
 with lib;
 let
-  cfg = config.drivers.nvidia-prime;
+  cfg = config.drivers.nvidiaPrime;
 in
 {
   #---------------Nvidia-Prime-Support--------------------------------#
-  options.drivers.nvidia-prime = {
+  options.drivers.nvidiaPrime = {
     enable = mkEnableOption "Enable Nvidia Prime Hybrid GPU Offload";
     intelBusID = mkOption {
       type = types.str;
