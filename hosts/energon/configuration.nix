@@ -16,6 +16,9 @@
     ../../users/megacron.nix
   ];
 
+  #-----------------------ENVIRONMENT-----------------------#
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+
   #-----------------------HARDWARE---------------------#
   hardware = {
     bluetooth = {
