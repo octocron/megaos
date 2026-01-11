@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  inputs,
   username,
   ...
 }:
@@ -16,8 +15,11 @@
     ../../users/megacron.nix
   ];
 
-  #-----------------------ENVIRONMENT-----------------------#
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  #-----------------------ENVIRONMENT-------------------#
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   #-----------------------HARDWARE---------------------#
   hardware = {
