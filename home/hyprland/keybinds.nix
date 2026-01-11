@@ -96,7 +96,7 @@ in
       "$modifier,mouse_up,workspace, e-1"
       "ALT,Tab,cyclenext"
       "ALT,Tab,bringactivetotop"
-      "ALT,space,exec,uwsm app -- albert"
+      "ALT,space,exec,uwsm app -- albert show"
       #----------AUDIO----------------------------------->>
       ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

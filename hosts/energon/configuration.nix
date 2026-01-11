@@ -38,12 +38,10 @@
       powerOnBoot = true;
     };
 
-    # NOTE: Corsair Keyboard Support
-    ckb-next = {
+    # NOTE: Razor Keyboard Support
+    openrazer = {
       enable = true;
-      package = pkgs.ckb-next.overrideAttrs (old: {
-        cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DUSE_DBUS_MENU=0" ];
-      });
+      user = [ "${username}" ];
     };
 
     enableRedistributableFirmware = true;

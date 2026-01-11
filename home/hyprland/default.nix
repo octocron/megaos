@@ -10,6 +10,7 @@ in
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    #./hyprpanel.nix
     ./hyprpaper.nix
     ./keybinds.nix
     #./pyprland.nix
