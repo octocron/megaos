@@ -15,6 +15,14 @@
     ../../users/megacron.nix
   ];
 
+  #-----------------------DRIVERS----------------------#
+  drivers = {
+    amd.enable = true;
+    intel.enable = false;
+    nvidia.enable = true;
+    nvidiaPrime.enable = false;
+  };
+
   #-----------------------ENVIRONMENT-------------------#
   environment.pathsToLink = [
     "/share/applications"
@@ -38,17 +46,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-    };
-
-    nvidia = {
-      open = false;
-      nvidiaSettings = true;
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable; # INFO: [ latest || stable]
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
     };
 
     sane = {

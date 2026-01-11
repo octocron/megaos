@@ -17,6 +17,14 @@
     ../../users/megacron.nix
   ];
 
+  #-----------------------DRIVERS----------------------#
+  drivers = {
+    amd.enable = false;
+    intel.enable = true;
+    nvidia.enable = true;
+    nvidiaPrime.enable = false;
+  };
+
   #-----------------------ENVIRONMENT------------------#
   environment.pathsToLink = [
     "/share/applications"
@@ -37,22 +45,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-    };
-
-    nvidia = {
-      open = false;
-      nvidiaSettings = true;
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable; # INFO: [ latest || stable]
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
-    };
-
-    openrazer = {
-      enable = true;
-      users = [ "$username" ];
     };
 
     sane = {
