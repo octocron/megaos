@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   username,
@@ -14,6 +13,7 @@
     ../../apps
     ../../boot/grub.nix
     ../../core
+    ../../drivers
     ../../users/megacron.nix
   ];
 
@@ -38,14 +38,7 @@
       powerOnBoot = true;
     };
 
-    # WARN: [ amd || intel ]
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
 
     sane = {
       enable = true;
@@ -133,6 +126,7 @@
 
     caddy.enable = false;
     minecraft.enable = false;
+
     openssh = {
       enable = false;
       ports = [ 22 ];

@@ -12,6 +12,7 @@
     ../../apps
     ../../boot/systemd.nix
     ../../core
+    ../../drivers
     ../../users/megacron.nix
   ];
 
@@ -38,15 +39,7 @@
 
     # NOTE: Corsair Keyboard Support
     ckb-next.enable = true;
-
-    # WARN: [ amd || intel ]
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
 
     sane = {
       enable = true;
@@ -135,6 +128,7 @@
     };
 
     minecraft.enable = false;
+
     openssh = {
       enable = false;
       ports = [ 22 ];

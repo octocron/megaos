@@ -14,14 +14,21 @@ in
   };
 
   config = mkIf cfg.enable {
-    # OpenGL
-    hardware.graphics = {
-      extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
+    boot.initrd.kernelModules = [ "i915" ];
+
+    hardware = {
+      cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = with pkgs; [
+          intel-media-driver
+          vaapiIntel
+          vaapiVdpau
+          libvdpau-va-gl
+        ];
+      };
     };
   };
 }
