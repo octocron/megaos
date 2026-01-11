@@ -111,9 +111,11 @@
             desktop = "hyprland";
           };
           modules = [
-            ./laptop/configuration.nix
-            darkmatter-grub-theme.nixosModule
+            ./hosts/energon/configuration.nix
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
             {
               home-manager = {
                 extraSpecialArgs = personalArgs // {
