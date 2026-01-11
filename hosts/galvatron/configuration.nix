@@ -1,9 +1,7 @@
 {
-  config,
-  lib,
+  desktop,
   pkgs,
   username,
-  desktop,
   ...
 }:
 {
