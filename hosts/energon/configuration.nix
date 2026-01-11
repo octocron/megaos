@@ -29,7 +29,6 @@
       "/share/applications"
       "/share/xdg-desktop-portal"
     ];
-    systemPackages = with pkgs; [ libdbusmenu ];
   };
 
   #-----------------------HARDWARE---------------------#
@@ -40,7 +39,13 @@
     };
 
     # NOTE: Corsair Keyboard Support
-    ckb-next.enable = true;
+    ckb-next = {
+      enable = true;
+      package = pkgs.ckb-next.overrideAttrs (old: {
+        cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DUSE_DBUS_MENU=0" ];
+      });
+    };
+
     enableRedistributableFirmware = true;
 
     sane = {
