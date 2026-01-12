@@ -1,4 +1,4 @@
-{ username, desktop, hostname, ... }:
+{ username, ... }:
 {
   #----------------Home Manager-----------------------------#
   home = {
