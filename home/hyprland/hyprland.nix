@@ -1,11 +1,15 @@
-{ pkgs, ... }:
+{
+  hostname,
+  pkgs,
+  ...
+}:
 let
   inherit (import ../variables.nix)
     keyboardLayout
     ;
+  cfg = import ./monitors.nix { inherit hostname; };
 in
 {
-  # Install Hyprland and related packages
   home.packages =
     with pkgs;
     [
@@ -43,6 +47,7 @@ in
         "albert"
       ];
 
+      inherit (cfg) monitor workspace;
       input = {
         kb_layout = "${keyboardLayout}";
         kb_options = [

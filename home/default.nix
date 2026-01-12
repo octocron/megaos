@@ -1,5 +1,5 @@
 #----------Home Configurations----------#
-{ desktop, ... }:
+{ desktop, hostname, ... }:
 {
   imports = [
     #./anyrun.nix

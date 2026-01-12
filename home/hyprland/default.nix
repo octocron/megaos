@@ -1,4 +1,4 @@
-_:
+{ hostname, ... }:
 let
   inherit (import ../variables.nix) animChoice;
 in
