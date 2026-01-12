@@ -24,7 +24,7 @@
           gpg = {
             ssh = "~/.ssh/allowed_signers";
           };
-          user.signingkey = "~/.ssh/id_${hostname}.pub";
+          user.signingkey = "~/.ssh/id_${hostname}";
           core.editor = "nvim";
           diff.colorMoved = "default";
           init.defaultBranch = "trunk";

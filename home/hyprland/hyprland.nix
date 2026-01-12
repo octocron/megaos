@@ -149,19 +149,6 @@ in
         new_on_top = 1;
         mfact = 0.5;
       };
-      monitor = [
-        "DP-1,highres,0x0,auto"
-        "HDMI-A-1,1920x1200@60,1920x0,1"
-      ];
-      workspace = [
-        "1, monitor:DP-1, default:true"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
-        "4, monitor:DP-1"
-        "5, monitor:HDMI-A-1"
-        "6, monitor:HDMI-A-1"
-        "7, monitor:HDMI-A-1"
-      ];
     };
 
     extraConfig = "

@@ -41,7 +41,7 @@
     # NOTE: Razor Keyboard Support
     openrazer = {
       enable = true;
-      user = [ "${username}" ];
+      users = [ "${username}" ];
     };
 
     enableRedistributableFirmware = true;
