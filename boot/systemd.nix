@@ -1,3 +1,6 @@
+# NOTE: [systemd-analyze time] will show the time it takes to boot
+# NOTE: [systemd-analyze critical-chain] shows path units in userscpace
+# NOTE: [systemd-analyze plot > plot.svg] to create a graphical visualization
 {
   pkgs,
   config,
@@ -12,8 +15,12 @@
       "vm.max_map_count" = 2147483642;
     };
     loader = {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        netbootxyz.enable = false;
+      };
+      timeout = 20;
     };
     # Appimage Support
     binfmt.registrations.appimage = {

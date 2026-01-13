@@ -11,7 +11,7 @@ in
     ./hyprland.nix
     ./hyprlock.nix
     #./hyprpanel.nix
-    ./hyprpaper.nix
+    #./hyprpaper.nix
     ./keybinds.nix
     #./pyprland.nix
     ./waybar.nix

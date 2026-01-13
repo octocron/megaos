@@ -45,6 +45,7 @@
         #-------------aliases------------------------------------------------>>>
         a = "ansible";
         ap = "ansible-playbook";
+        bios = "sudo systemctl reboot --firmware";
         d3 = "cd ~/projects/hugo/d3c3p7/";
         ftldr = "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,70% | xargs tldr";
         grep = "grep --color";

@@ -16,7 +16,9 @@ in
     text = ''
       preload = ${wallpaper1}
       preload = ${wallpaper2}
+      preload = /home/megacron/Pictures/Wallpapers/carafe_rainbow.png
 
+      wallpaper = HDMI-A-2,/home/megacron/Pictures/Wallpapers/carafe_rainbow.png
       wallpaper = HDMI-A-1,${wallpaper1}
       wallpaper = DP-1,${wallpaper2}
 

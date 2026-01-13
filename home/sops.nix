@@ -12,8 +12,8 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     age = {
-      #keyFile = "/home/${username}/.config/sops/age/keys.txt";
-      sshKeyPaths = [ "/home/${username}/.ssh/id_${hostname}" ];
+      keyFile = "/home/${username}/.config/sops/age/keys.txt";
+      #sshKeyPaths = [ "/home/${username}/.ssh/id_${hostname}" ];
     };
     secrets."ssh/id_${hostname}" = {
       path = "/home/${username}/.ssh/id_${hostname}";

@@ -23,12 +23,6 @@
     nvidiaPrime.enable = false;
   };
 
-  #-----------------------ENVIRONMENT------------------#
-  environment.pathsToLink = [
-    "/share/applications"
-    "/share/xdg-desktop-portal"
-  ];
-
   #-----------------------HARDWARE---------------------#
   hardware = {
     bluetooth = {
@@ -144,8 +138,6 @@
     };
 
     podman.enable = true;
-
-    # still need to $ sudo smbpasswd -a $username
     samba = {
       package = pkgs.samba4Full;
       enable = true;

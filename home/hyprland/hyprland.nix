@@ -4,9 +4,6 @@
   ...
 }:
 let
-  inherit (import ../variables.nix)
-    keyboardLayout
-    ;
   cfg = import ./monitors.nix { inherit hostname; };
 in
 {
@@ -15,6 +12,7 @@ in
     [
       hyprland-qtutils # needed for banners and ANR messages
       hyprpolkitagent
+      swww
       ydotool
     ]
     ++ [ (import ./lsbind.nix { inherit pkgs; }) ];
@@ -39,17 +37,18 @@ in
         "wl-paste --type image --watch cliphist store # Stores only image data"
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "swww-daemon"
+        "swww img ~/Pictures/Wallpapers/carafe_rainbow.png"
         "systemctl --user start hyprpolkitagent"
         "killall -q waybar;sleep .5 && waybar"
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
-        "hyprpaper"
         "albert"
       ];
 
       inherit (cfg) monitor workspace;
       input = {
-        kb_layout = "${keyboardLayout}";
+        kb_layout = "us";
         kb_options = [
           "grp:alt_caps_toggle"
           "caps:super"
