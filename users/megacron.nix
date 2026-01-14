@@ -11,6 +11,7 @@
     defaultUserShell = pkgs.zsh;
     users."${username}" = {
       homeMode = "755";
+      uid = 1028; # NOTE: to match synology
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [
