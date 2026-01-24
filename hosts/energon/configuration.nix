@@ -62,13 +62,14 @@
       ];
     };
 
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    # gnupg.agent = {
+    #   enable = true;
+    #   enableSSHSupport = true;
+    # };
 
     mtr.enable = true;
 
+    #nebula.enable = false;
     nh = {
       enable = true;
       flake = "/home/${username}/projects/megaos";
@@ -76,6 +77,10 @@
         enable = true;
         extraArgs = "--keep-since 40d --keep 10";
       };
+    };
+
+    ssh = {
+      startAgent = true;
     };
 
     steam = {
@@ -110,7 +115,7 @@
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
-    nfs.enable = true;
+    nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;
     tailscale.enable = true;
@@ -171,15 +176,15 @@
       openFirewall = true;
     };
 
-    steam-servers = {
-      satisfactory = {
-        enable = true;
-        autoStart = false;
-        experimental = false;
-        installDir = "/var/lib/satisfactory";
-        openFirewall = false; # false when using tailscale
-      };
-    };
+    # steam-servers = {
+    #   satisfactory = {
+    #     enable = true;
+    #     autoStart = false;
+    #     experimental = false;
+    #     installDir = "/var/lib/satisfactory";
+    #     openFirewall = false; # false when using tailscale
+    #   };
+    # };
 
     syncthing = {
       enable = false;

@@ -38,6 +38,7 @@ _: {
         "idleinhibit fullscreen, class:^(*)$"
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
+        "focus, class:^(Steam_App_\d+)$"
         "float, tag:settings*"
         "float, class:^([Ff]erdium)$"
         "float, title:^(Picture-in-Picture)$"

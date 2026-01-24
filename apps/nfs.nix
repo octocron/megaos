@@ -24,14 +24,17 @@ in
       device = "192.168.1.87:/volume1/steam";
       fsType = "nfs";
       options = [
+        "async"
+        "hard"
+        "intr"
         "_netdev"
-        "nfsvers=4.2"
+        "nfsvers=4.1"
         "noatime"
-        "noauto"
+        "retrans=5"
         "rw"
-        "soft"
-        "timeo=150"
-        "x-systemd.automount"
+        "timeo=900"
+        "rsize=1048576"
+        "wsize=1048576"
       ];
     };
   };

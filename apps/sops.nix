@@ -1,6 +1,7 @@
 # INFO: For secrets placed at system level like /etc/
 {
   inputs,
+  hostname,
   username,
   ...
 }:
@@ -20,6 +21,25 @@
         path = "/etc/tailscale/tskey-reusable";
         mode = "0600";
       };
+
+      # "nebula/ca.crt" = {
+      #   mode = "0444";
+      #   path = "/etc/nebula/ca.crt";
+      # };
+      #
+      # "nebula/${hostname}.crt" = {
+      #   mode = "0440";
+      #   owner = "${username}";
+      #   group = "nebula";
+      #   path = "/etc/nebula/energon.crt";
+      # };
+      #
+      # "nebula/${hostname}.key" = {
+      #   mode = "0400";
+      #   owner = "${username}";
+      #   group = "nebula";
+      #   path = "/etc/nebula/energon.key";
+      # };
     };
   };
 }

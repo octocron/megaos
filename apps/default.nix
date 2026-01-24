@@ -3,11 +3,12 @@ _: {
   imports = [
     ./hyprland.nix
     ./minecraft.nix
-    ./niri.nix
+    #./nebula.nix
     ./nfs.nix
+    ./niri.nix
     ./podman.nix
     #./samba.nix
-    ./satisfactory.nix
+    #./satisfactory.nix
     ./sddm.nix
     ./sops.nix
     ./tailscale.nix

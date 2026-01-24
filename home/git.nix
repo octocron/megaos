@@ -32,7 +32,7 @@
           merge.conflictstyle = "zdiff3";
           rerere.enabled = true;
           commit = {
-            gpgsign = true;
+            #gpgsign = true;
             verbose = true;
           };
           push = {
