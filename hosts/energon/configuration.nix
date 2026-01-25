@@ -26,6 +26,7 @@
   #-----------------------ENVIRONMENT------------------#
   environment.systemPackages = with pkgs; [
     polychromatic # for razor keyboards and mice
+    xdg-utils
   ];
 
   #-----------------------HARDWARE---------------------#
@@ -89,14 +90,6 @@
       dedicatedServer.openFirewall = true;
       gamescopeSession.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
-    };
-
-    thunar = {
-      enable = true;
-      plugins = with pkgs; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
     };
 
     zsh = {

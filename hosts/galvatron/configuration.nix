@@ -75,14 +75,6 @@
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
-    thunar = {
-      enable = true;
-      plugins = with pkgs; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-
     zsh = {
       enable = true;
     };
