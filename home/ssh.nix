@@ -1,18 +1,18 @@
-{
-  config,
-  hostname,
-  ...
-}:
+{ hostname, ... }:
 {
   programs = {
     ssh = {
       enable = true;
-      enableDefaultConfig = false;
-      matchBlocks = {
-        "*" = {
-          addKeysToAgent = "config.sops.secrets.ssh.id_${hostname}.key";
-        };
-      };
+      extraConfig = ''
+        addKeysToAgent yes
+        IdentityFile ~/.ssh/id_"${hostname}"
+      '';
+      #enableDefaultConfig = false;
+      # matchBlocks = {
+      #   "*" = {
+      #     addKeysToAgent = "config.sops.secrets.ssh.id_${hostname}.key";
+      #   };
+      # };
     };
   };
 }
