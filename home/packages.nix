@@ -35,7 +35,6 @@
     bzip3 # C: ↑ bzip2
     cargo-cache # Rust:
     cargo-expand # Rust:
-    cmatrix # C: terminal matrix
     cmus # C: terminal music player
     #cointop # Go: cryto market
     comma # Rust: like nix shell
@@ -86,11 +85,13 @@
     libvirt # C:
     lm_sensors # C: hardware sensor data
     lua # C:
+    lychee # Rust: Link checker
     man-db # C:
     material-icons
     meson
     mosh # C++:
     most # C: ↑ less
+    #mov-cli-rs # Rust mov-cli
     navi # Rust: cli cheatsheet
     ninja # C++: build system
     nix-melt # Rust: ranger-like flake.lock viewer
@@ -111,6 +112,7 @@
     rsync # C: inc file xfer
     rustic # Rust: deduplicated backup
     rustup # Rust: rust toolchain
+    #rusty-rain # Rust: ↑ cmatrix
     scc # Go: code count
     scriptisto # Rust: ↑ script editor
     sd # Rust: ↑ sed

@@ -1,4 +1,5 @@
 {
+  config,
   gitUsername,
   pkgs,
   username,
@@ -9,17 +10,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
-    groups.gamers.gid = 1028;
     users = {
-      # steam = {
-      #   uid = 1028;
-      #   group = "users";
-      #   createHome = false;
-      #   isSystemUser = true;
-      #   extraGroups = [
-      #     "gamers"
-      #   ];
-      # };
       "${username}" = {
         homeMode = "755";
         isNormalUser = true;
@@ -27,7 +18,6 @@
         extraGroups = [
           "audio"
           "docker"
-          "gamers"
           "libvirtd"
           "networkmanager"
           "qemu-libvirtd"
@@ -35,6 +25,7 @@
           "video"
           "wheel"
         ];
+        hashedPasswordFile = config.sops.secrets.passwordHash.path;
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCFpd0UZyX1T0WewVnzEWYY+9oXX+JcJaTLusO33/FX ansible"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPOPzh8vu5f8/T5IbbD6/1tzpnH94EPcta7FS2vUy45 optimus"

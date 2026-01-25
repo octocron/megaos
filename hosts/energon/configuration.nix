@@ -63,10 +63,10 @@
       ];
     };
 
-    # gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
 
     mtr.enable = true;
 

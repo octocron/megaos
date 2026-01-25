@@ -1,15 +1,18 @@
-{ hostname, ... }:
+{
+  config,
+  hostname,
+  ...
+}:
 {
   programs = {
     ssh = {
       enable = true;
-      addKeysToAgent = "~/.ssh/id_${hostname}";
-      extraConfig = ''
-        addKeysToAgent yes
-        IdentityFile ~/.ssh/id_"${hostname}"
-        ServerAliveInterval 60
-        ServerAliveCountMax 3
-      '';
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          addKeysToAgent = "config.sops.secrets.ssh.id_${hostname}.key";
+        };
+      };
     };
   };
 }
