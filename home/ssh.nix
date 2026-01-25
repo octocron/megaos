@@ -1,4 +1,8 @@
-{ hostname, ... }:
+{
+  hostname,
+  pkgs,
+  ...
+}:
 {
   programs = {
     ssh = {
