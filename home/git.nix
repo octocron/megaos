@@ -28,11 +28,13 @@
         extraConfig = {
           core.editor = "nvim";
           diff.colorMoved = "default";
+          gpg.ssh = "~/.ssh/allowed_signers";
           init.defaultBranch = "trunk";
           merge.conflictstyle = "zdiff3";
           rerere.enabled = true;
+
           commit = {
-            #gpgsign = true;
+            gpgsign = true;
             verbose = true;
           };
           push = {
