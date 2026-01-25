@@ -3,10 +3,10 @@
   programs = {
     ssh = {
       enable = true;
-      addKeysToAgent = true;
+      addKeysToAgent = "~/.ssh/id_${hostname}";
       extraConfig = ''
         addKeysToAgent yes
-        IdentityFile ~/.ssh/"${hostname}"
+        IdentityFile ~/.ssh/id_"${hostname}"
         ServerAliveInterval 60
         ServerAliveCountMax 3
       '';
