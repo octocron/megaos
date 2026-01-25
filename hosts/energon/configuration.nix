@@ -80,10 +80,6 @@
       };
     };
 
-    ssh = {
-      startAgent = true;
-    };
-
     steam = {
       enable = true;
       remotePlay.openFirewall = true;

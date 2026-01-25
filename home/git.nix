@@ -22,7 +22,7 @@
         };
         signing = {
           format = "ssh";
-          key = "sh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQkS/p/7w4lS2K+sTKJ8VPLjPCio6h/weQ9bWuaGIQi gitlab";
+          key = "~/.ssh/id_${hostname}";
           signByDefault = true;
         };
         extraConfig = {

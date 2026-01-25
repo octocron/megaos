@@ -9,6 +9,7 @@
     ./cava.nix
     ./git.nix
     ./gtk.nix
+    ./ssh.nix
     ./kitty.nix
     ./nnn.nix
     ./packages.nix
