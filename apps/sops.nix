@@ -29,13 +29,6 @@
         neededForUsers = true;
       };
 
-      "ssh/id_${hostname}" = {
-        key = "ssh/id_${hostname}";
-        owner = "root";
-        group = "root";
-        mode = "0400";
-      };
-
       # "nebula/ca.crt" = {
       #   mode = "0444";
       #   path = "/etc/nebula/ca.crt";

@@ -63,10 +63,10 @@
       ];
     };
 
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    # gnupg.agent = {
+    #   enable = true;
+    #   enableSSHSupport = true;
+    # };
 
     mtr.enable = true;
 
@@ -79,6 +79,8 @@
         extraArgs = "--keep-since 40d --keep 10";
       };
     };
+
+    ssh.startAgent = true;
 
     steam = {
       enable = true;
@@ -107,7 +109,7 @@
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;
-    tailscale.enable = true;
+    tailscale.enable = false;
     tumbler.enable = true; # image/video previewer
 
     avahi = {

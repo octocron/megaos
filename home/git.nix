@@ -15,20 +15,20 @@
       ];
       lfs.enable = true;
 
+      signing = {
+        format = "ssh";
+        key = "~/.ssh/${hostname}.pub";
+        signByDefault = true;
+      };
+
       settings = {
         user = {
           email = "${gitEmail}";
           name = "${gitUsername}";
         };
-        signing = {
-          format = "ssh";
-          key = "~/.ssh/id_${hostname}";
-          signByDefault = true;
-        };
         extraConfig = {
           core.editor = "nvim";
           diff.colorMoved = "default";
-          gpg.ssh = "~/.ssh/allowed_signers";
           init.defaultBranch = "trunk";
           merge.conflictstyle = "zdiff3";
           rerere.enabled = true;
@@ -44,8 +44,10 @@
         };
       };
     };
+
     delta = {
       enable = true;
+      enableGitIntegration = true;
       options = {
         light = false;
         line-numbers = true;
