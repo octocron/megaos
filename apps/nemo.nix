@@ -47,7 +47,7 @@ in
               "org/nemo/window-state" = {
                 "geometry" = "900x600+100+100";
                 "maximized" = false;
-                "sidebar-width" = 200;
+                "sidebar-width" = lib.gvariant.mkInt32 200;
               };
             };
           }
