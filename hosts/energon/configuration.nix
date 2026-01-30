@@ -15,6 +15,9 @@
     ../../users/megacron.nix
   ];
 
+  #-----------------------ENABLED----------------------#
+  #nebula.enable = false;
+
   #-----------------------DRIVERS----------------------#
   drivers = {
     amd.enable = true;
@@ -70,8 +73,6 @@
 
     mtr.enable = true;
 
-    #nebula.enable = false;
-    nemo.enable = true;
     nh = {
       enable = true;
       flake = "/home/${username}/projects/megaos";
@@ -107,6 +108,7 @@
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
+    nemo.enable = true;
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;

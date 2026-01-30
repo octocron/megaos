@@ -6,24 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.nemo;
+  cfg = config.services.nemo;
 in
 {
-  options.apps.nemo = {
-    enable = mkEnableOption "Nemo file manager";
-
-    darkMode = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable dark mode theme";
-    };
-
-    defaultFileManager = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set Nemo as the default file manager";
-    };
-  };
+  options.services.nemo.enable = mkEnableOption "enable nemo";
 
   config = mkIf cfg.enable {
     environment = {
@@ -32,63 +18,41 @@ in
         nemo-fileroller
       ];
 
-      # Nemo configuration
       variables = {
-        NEMO_THEME = if cfg.darkMode then "Adwaita-dark" else "Adwaita";
+        NEMO_THEME = "Adwaita-dark";
       };
 
-      # Default file manager settings
-      sessionVariables = mkIf cfg.defaultFileManager {
+      sessionVariables = {
         DEFAULT_FILE_MANAGER = "nemo";
       };
     };
 
-    # Enable Cinnamon services for Nemo integration
+    # ensure cinnamon does not start by default
     services.xserver.desktopManager.cinnamon.enable = mkDefault false;
+    programs.dconf = {
+      enable = true;
+      profiles.nemo = {
+        databases = [
+          {
+            settings = {
+              "org/nemo/preferences" = {
+                "show-advanced-permissions" = true;
+                "show-hidden-files" = false;
+                "show-location-entry" = true;
+                "show-full-path-titles" = true;
+                "close-device-view-on-device-eject" = true;
+                "desktop-layout" = "true::true";
+              };
 
-    # GTK theme configuration for dark mode
-    programs.dconf.enable = true;
-
-    # Nemo dconf settings
-    programs.dconf.profiles.nemo = {
-      databases = [
-        {
-          settings = {
-            "org/nemo/preferences" = {
-              "show-advanced-permissions" = true;
-              "show-hidden-files" = false;
-              "show-location-entry" = true;
-              "show-full-path-titles" = true;
-              "close-device-view-on-device-eject" = true;
-              "desktop-layout" = "true::true";
+              "org/nemo/window-state" = {
+                "geometry" = "900x600+100+100";
+                "maximized" = false;
+                "sidebar-width" = 200;
+              };
             };
-
-            "org/nemo/window-state" = {
-              "geometry" = "900x600+100+100";
-              "maximized" = false;
-              "sidebar-width" = 200;
-            };
-          };
-        }
-      ];
-    };
-
-    # Integration with Wayland
-    home-manager.users = mkIf (config.users.users ? megacron) {
-      megacron = {
-        dconf.settings = {
-          "org/nemo/preferences" = {
-            inherit (cfg.darkMode) "dark-mode";
-          };
-        };
-
-        # Ensure Nemo works properly in Wayland
-        home.sessionVariables = {
-          GDK_BACKEND = "wayland";
-          CLUTTER_BACKEND = "wayland";
-        };
+          }
+        ];
       };
     };
   };
 }
-
