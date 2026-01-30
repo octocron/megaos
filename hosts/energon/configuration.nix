@@ -71,6 +71,7 @@
     mtr.enable = true;
 
     #nebula.enable = false;
+    nemo.enable = true;
     nh = {
       enable = true;
       flake = "/home/${username}/projects/megaos";

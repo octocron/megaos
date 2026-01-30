@@ -4,6 +4,7 @@ _: {
     ./hyprland.nix
     ./minecraft.nix
     #./nebula.nix
+    ./nemo.nix
     ./nfs.nix
     ./niri.nix
     ./podman.nix
