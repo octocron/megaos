@@ -106,7 +106,7 @@
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
-    nebula.enable = false;
+    nebula.enable = true;
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;

@@ -35,10 +35,10 @@ in
 
       staticHostMap = { }; # Lighthouses don't need map to other lighthouses
 
-      tun = {
-        disabled = false;
-        #device = "/dev/net/tun"; #FIX: need to figure out what dev
-      };
+      # tun = {
+      #   disabled = false;
+      #   device = "nebula1";
+      # };
 
       firewall = {
         outbound = [
