@@ -3,7 +3,11 @@
 # echo "<tskey-auth-replace>" | sudo tee /etc/tailscale/tskey-reusable
 # sudo chmod 600 /etc/tailscale/tskey-reusable
 # sudo chmod 700 /etc/tailscale
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   services.tailscale = {
     enable = true;
@@ -21,8 +25,8 @@
   };
 
   networking = {
-    #firewall.allowedUDPPorts = [config.services.tailscale.port]; # only needed on real Linux, not WSL
-    useDHCP = false; # required for WSL2 networking
+    firewall.allowedUDPPorts = [ config.services.tailscale.port ]; # only needed on real Linux, not WSL
+    useDHCP = false; # true if for WSL2 networking
   };
 
   environment = {
@@ -34,8 +38,10 @@
 
   systemd = {
     tmpfiles.rules = [
-      "d /etc/tailscale 0755 root root -"
+      "d /etc/tailscale 0700 root root -"
+      "Z /etc/tailscale - - - - 0600 root root"
     ];
+
     services.tailscale-autoconnect = {
       description = "Automatic connection to Tailscale";
       wantedBy = [ "multi-user.target" ];

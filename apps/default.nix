@@ -3,8 +3,7 @@ _: {
   imports = [
     ./hyprland.nix
     ./minecraft.nix
-    #./nebula.nix
-    ./nemo.nix
+    ./nebula.nix
     ./nfs.nix
     ./niri.nix
     ./podman.nix
@@ -12,7 +11,7 @@ _: {
     #./satisfactory.nix
     ./sddm.nix
     ./sops.nix
-    #./tailscale.nix
+    ./tailscale.nix
     ./thunar.nix
   ];
 }

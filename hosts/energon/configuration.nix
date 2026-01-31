@@ -15,9 +15,6 @@
     ../../users/megacron.nix
   ];
 
-  #-----------------------ENABLED----------------------#
-  #nebula.enable = false;
-
   #-----------------------DRIVERS----------------------#
   drivers = {
     amd.enable = true;
@@ -28,6 +25,7 @@
 
   #-----------------------ENVIRONMENT------------------#
   environment.systemPackages = with pkgs; [
+    nebula # GO: overlay mesh network
     polychromatic # for razor keyboards and mice
     xdg-utils
   ];
@@ -108,11 +106,10 @@
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
-    nemo.enable = true;
+    nebula.enable = false;
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;
-    tailscale.enable = false;
     tumbler.enable = true; # image/video previewer
 
     avahi = {

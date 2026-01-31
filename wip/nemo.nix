@@ -1,3 +1,4 @@
+# WARN: Too much gtk/cinnamon desktop needs, kinda busted.
 {
   config,
   lib,
