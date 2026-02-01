@@ -18,6 +18,7 @@
     ./swappy.nix
     ./swaync.nix
     ./tmux.nix
+    ./wezterm.nix
     ./wlogout
     ./yazi.nix
     ./zsh.nix
