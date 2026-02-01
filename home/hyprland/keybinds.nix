@@ -19,6 +19,7 @@ _: {
       "$mainMod,S,exec,uwsm app -- signal-desktop"
       "$mainMod,T,exec,uwsm app -- thunar"
       "$mainMod,V,exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "$mainMod,W,exec,uwsm app -- wezterm"
       "$mainMod,Y,exec,uwsm app -- kitty -e yazi"
       #----------MOD-SHIFT---------------------------------->>
       "$mainMod SHIFT,C,exit,"
