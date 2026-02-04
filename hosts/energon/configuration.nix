@@ -97,19 +97,21 @@
 
   #-----------------------SERVICES-----------------------#
   services = {
-    # Desktop services
+    # Choose Desktop in flake.nix
     hyprland.enable = desktop == "hyprland";
     niri.enable = desktop == "niri";
 
     # List services that should be enabled:
     fstrim.enable = true; # ssd optimizer
-    gvfs.enable = true; # allow gtk based file managers to browse samba shares
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
     nebula.enable = true;
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;
+
+    # Needed for File Managers
+    gvfs.enable = true; # allow gtk based file managers to browse samba shares
     tumbler.enable = true; # image/video previewer
 
     avahi = {

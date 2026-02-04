@@ -1,3 +1,6 @@
+# NOTE: fastfetch --list-modules
+# INFO: fastfetch --list-logos
+# INFO: fastfetch -l NixOS --logo-color-1 "#7ebae4" --logo-color-2 "#5277c3"
 {
   programs.fastfetch = {
     enable = true;
@@ -12,8 +15,14 @@
       };
 
       logo = {
-        source = ./nixos.png;
-        type = "kitty-direct";
+        # NOTE: if using image
+        # source = ./nixos.png;
+        # type = "kitty-direct";
+        source = "NixOS";
+        color = {
+          "1" = "#7ebae4";
+          "2" = "#5277c3";
+        };
         height = 20;
         width = 20;
         padding = {
