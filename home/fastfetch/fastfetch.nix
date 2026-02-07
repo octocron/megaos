@@ -26,7 +26,7 @@
         height = 20;
         width = 20;
         padding = {
-          top = 2;
+          top = 1;
           left = 2;
         };
       };
@@ -50,6 +50,14 @@
           key = "│ 󰑭 ";
         }
         {
+          type = "swap";
+          key = "│ 󰓡";
+        }
+        {
+          type = "disk";
+          key = "│ ";
+        }
+        {
           type = "custom";
           format = "└────────────────────────────────────────────────────┘";
         }
@@ -61,6 +69,10 @@
         {
           type = "custom";
           format = " OS -> MegaOS";
+        }
+        {
+          type = "bios";
+          key = "│ ├ ";
         }
         {
           type = "kernel";
