@@ -71,7 +71,7 @@ set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=2		" Indent using # of spaces
 set autoindent		" New lines inherit indentation of previous line
-set shiftwidth=4	" When shifting, indent # of spaces
+set shiftwidth=2	" When shifting, indent # of spaces
 set softtabstop=2
 set expandtab		" Concert tabs into spaces
 set noshiftround	" Round to nearest shiftwidth

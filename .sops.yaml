@@ -1,4 +1,3 @@
----
 # INFO: convert existing keys to age:
 # ssh-to-age -i ~/.ssh/id_ed25519.pub
 
@@ -10,7 +9,6 @@ keys:
   - &galvatron age1smufwuynmlycgjda4c8erg4rqstdx9ds3020wakvpdre7j6x7ynqgw9n2f
   - &optimus age14kdp2039nk79aa8ytkc8p5acv2vrkd6dn8alj497q4k3u98kua6syzp0s5
   - &ratchet age1t32akwkq7tv4ac0y24xmjh6t4t08e6kqu2ztz9pgh64tqcgcecps24gmus
-
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
@@ -20,3 +18,11 @@ creation_rules:
           - *galvatron
           - *optimus
           - *ratchet
+# NOTE: Indentation Options 0 disable indenting, -1 uses a single tab
+stores:
+  json:
+    indent: 2
+  json_binary:
+    indent: 2
+  yaml:
+    indent: 2
