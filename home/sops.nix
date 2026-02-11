@@ -18,7 +18,8 @@
 
     secrets = {
       "ssh/id_${hostname}" = {
-        mode = "0400";
+        path = "/home/${username}/.ssh/id_${hostname}";
+        mode = "0600";
       };
     };
   };

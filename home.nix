@@ -6,7 +6,7 @@
     homeDirectory = "/home/${username}";
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      GDK_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
       CLUTTER_BACKEND = "wayland";
     };
     stateVersion = "23.11";
