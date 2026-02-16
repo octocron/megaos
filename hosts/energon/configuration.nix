@@ -37,6 +37,12 @@
       powerOnBoot = true;
     };
 
+    # NOTE: used to opengl
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
     # NOTE: Razor Keyboard Support
     openrazer = {
       enable = true;
@@ -123,6 +129,8 @@
         userServices = true;
       };
     };
+
+    blueman.enable = true;
 
     caddy.enable = false;
     goxlr-utility = {

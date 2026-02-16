@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
   programs = {
-    dconf.enable = true;
+    dconf = {
+      enable = true;
+    };
     thunar = {
       enable = true;
       plugins = with pkgs; [
@@ -22,8 +24,8 @@
       gtk-application-prefer-dark-theme=true
     '';
     systemPackages = with pkgs; [
-      xfce.xfconf
-      xfce.exo
+      xfconf
+      xfce4-exo
       gsettings-desktop-schemas
       adwaita-icon-theme
     ];

@@ -4,7 +4,8 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      alvroopenxr-loader
+      alvr
+      openxr-loader
       steamvr
       vulkan-tools
       vulkan-validation-layers
@@ -12,9 +13,8 @@
 
     # INFO: Only for Nvidia (AMD works out of the box and does not need any of this)
     variables = {
-      __GL_GSYC_ALLOWED = "0";
+      __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
-      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json";
     };
   };
 
@@ -32,4 +32,6 @@
   boot.kernel.sysctl = {
     "kernel.sched_rt_runtime_us" = -1;
   };
+
+  # Checks: xrinfo  //  vulkaninfo | rg NVIDIA
 }

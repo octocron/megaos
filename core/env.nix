@@ -8,6 +8,7 @@
   environment = {
     systemPackages = with pkgs; [
       inputs.megavim.packages.${pkgs.system}.default
+      inputs.nox.packages.${pkgs.system}.default
       # bazecore
       brightnessctl
       cifs-utils # for mounting SMB shares

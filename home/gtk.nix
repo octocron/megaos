@@ -5,6 +5,7 @@
 }:
 {
   gtk = {
+    enable = true;
     font = {
       name = "Maple Mono";
       size = 12;
