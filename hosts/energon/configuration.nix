@@ -25,6 +25,7 @@
 
   #-----------------------ENVIRONMENT------------------#
   environment.systemPackages = with pkgs; [
+    glib # needed for gsettings
     nebula # GO: overlay mesh network
     polychromatic # for razor keyboards and mice
     xdg-utils

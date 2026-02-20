@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # NOTE: dconf read /org/gnome/desktop/interface/color-scheme
   xdg = {
     enable = true;
     userDirs = {
@@ -12,8 +13,26 @@
     };
     portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-      configPackages = [ pkgs.hyprland ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-wlr
+      ];
+      configPackages = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-wlr
+      ];
+      config.common = {
+        default = [
+          "gnome"
+          "gtk"
+          "hyprland"
+        ];
+        "org.freedesktop.impl.portal.Settings" = "gnome";
+      };
     };
   };
 }
