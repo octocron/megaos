@@ -1,4 +1,8 @@
-{ username, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
 {
   #-----------------NIX-OPTIMIZATIONS------------------#
   nix = {
@@ -24,6 +28,14 @@
         "flakes"
         "nix-command"
       ];
+
+      gc = {
+        automatic = true;
+        persistent = true; # INFO: runs collection if missed while powered down
+        dates = "weekly";
+        options = "--delete-older-than 60d";
+      };
+
       substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
@@ -35,5 +47,39 @@
     permittedInsecurePackages = [
       # For when dangon devs use EOL dependencies, grrrr..
     ];
+  };
+
+  # NOTE: Profile Garbage Collection
+  systemd.services.nix-clean-profiles = {
+    description = "Remove generations older than 60d from all named NixOS system profiles";
+    wantedBy = [ "multi-user.target" ]; # Ensure it can run after boot if needed
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart =
+        pkgs.writeShellApplication
+          {
+            name = "clean-profiles";
+            runtimeInputs = [ pkgs.nix ];
+            text = ''
+              for profile in /nix/var/nix/profiles/system-profiles/*; do
+                if [[ -e "$profile" ]]; then
+                  echo "Cleaning generations older than 30d for profile: $profile"
+                  nix profile wipe-history --profile "$profile" --older-than 60d || true
+                fi
+              done
+            '';
+          }
+          .outPath
+        + "/bin/clean-profiles";
+    };
+  };
+
+  systemd.timers.nix-clean-profiles = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "weekly";
+      Persistent = true;
+      RandomizedDelaySec = "1h"; # Avoid all timers firing at once
+    };
   };
 }
