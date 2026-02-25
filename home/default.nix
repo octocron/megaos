@@ -9,18 +9,19 @@
     ./cava.nix
     ./git.nix
     ./gtk.nix
-    ./ssh.nix
     ./kitty.nix
     ./nnn.nix
     ./packages.nix
     ./qt.nix
     ./sops.nix
+    ./ssh.nix
     ./swappy.nix
     ./swaync.nix
     ./tmux.nix
     ./wezterm.nix
     ./wlogout
     ./yazi.nix
+    ./zathura.nix
     ./zsh.nix
   ]
   ++ (if desktop == "hyprland" then [ ./hyprland ] else [ ])

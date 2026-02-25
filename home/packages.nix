@@ -97,8 +97,10 @@
     nix-melt # Rust: ranger-like flake.lock viewer
     noto-fonts-color-emoji
     nurl # Rust: ↑ fetch hash from repo url
+    papirus-icon-theme # for qt
     pavucontrol # C: gtk audio gui
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
+    pcmanfm-qt # for qt
     pkg-config # C: lib paths
     pinentry-gtk2
     polkit_gnome

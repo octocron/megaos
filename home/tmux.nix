@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   programs.tmux = {
     enable = true;
@@ -19,6 +18,7 @@
         plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
+          set -g @continuum-save-interval 30
         '';
       }
       {
@@ -49,7 +49,7 @@
       set -g mouse on
 
       unbind %
-      bind | split-window -h 
+      bind | split-window -h
 
       unbind '"'
       bind - split-window -v
