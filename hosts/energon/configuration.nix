@@ -76,6 +76,8 @@
     #   enableSSHSupport = true;
     # };
 
+    dconf.enable = true;
+    xfconf.enable = true;
     mtr.enable = true;
 
     nh = {

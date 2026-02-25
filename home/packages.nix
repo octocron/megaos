@@ -166,5 +166,9 @@
     #   ];
     #   text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
     # })
-  ];
+  ];++ with pkgs.xfce; [
+    thunar
+    thunar-volman
+    thunar-archive-plugin
+    ];
 }
