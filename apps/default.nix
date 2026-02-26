@@ -12,6 +12,5 @@ _: {
     ./sddm.nix
     ./sops.nix
     ./tailscale.nix
-    ./thunar.nix
   ];
 }

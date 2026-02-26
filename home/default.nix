@@ -17,6 +17,7 @@
     ./ssh.nix
     ./swappy.nix
     ./swaync.nix
+    ./thunar.nix
     ./tmux.nix
     ./wezterm.nix
     ./wlogout

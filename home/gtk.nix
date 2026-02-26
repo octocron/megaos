@@ -16,14 +16,14 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = lib.mkForce {
-      name = "Nightfox-Dark";
-      package = pkgs.nightfox-gtk-theme;
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra; # NOTE: nightfox-gtk-theme didnt fully work
     };
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = true;
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = true;
     };
   };
 }
