@@ -157,6 +157,11 @@
     zoxide # Rust: ↑ cd
     zsh-nix-shell # ZSH:
 
+    # INFO: GTK THEMES
+    gnome-themes-extra
+    sassc
+    gtk-engine-murrine
+
     # nix search
     # (pkgs.writeShellApplication {
     #   name = "ns";
