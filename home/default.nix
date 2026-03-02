@@ -11,6 +11,8 @@
     ./gtk.nix
     ./kitty.nix
     ./nnn.nix
+    ./ollama.nix
+    ./opencode.nix
     ./packages.nix
     ./qt.nix
     ./sops.nix

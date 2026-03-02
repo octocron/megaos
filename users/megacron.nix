@@ -13,6 +13,7 @@
     users = {
       "${username}" = {
         homeMode = "755";
+        linger = true; # NOTE: for restarting ollama service after reboot
         isNormalUser = true;
         description = "${gitUsername}";
         extraGroups = [

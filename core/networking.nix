@@ -22,6 +22,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
+        11434
       ];
       allowedUDPPorts = [
         config.services.tailscale.port
