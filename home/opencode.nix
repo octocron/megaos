@@ -1,4 +1,5 @@
 _: {
+  # WARN: As of 2026 Ollama models do not support tool use!!
   programs.opencode = {
     enable = true;
     settings = {
@@ -15,6 +16,9 @@ _: {
             };
             "qwen3-coder:30b" = {
               name = "Qwen 3 Coder";
+            };
+            "qwen2.5-coder:7b" = {
+              name = "Qwen 2.5 Coder";
             };
           };
         };
@@ -35,6 +39,11 @@ _: {
           tools = {
             bash = true;
             edit = true;
+            list = true;
+            question = true;
+            read = true;
+            skill = true;
+            webfetch = true;
             write = true;
           };
           permission = {
@@ -60,7 +69,13 @@ _: {
           '';
           tools = {
             bash = true;
+            edit = true;
+            list = true;
+            question = true;
             read = true;
+            skill = true;
+            webfetch = true;
+            write = true;
           };
           permission = {
             bash = {
@@ -81,8 +96,14 @@ _: {
             Rewrite provided code in optimized declarative form.
           '';
           tools = {
-            edit = true;
             bash = true;
+            edit = true;
+            list = true;
+            question = true;
+            read = true;
+            skill = true;
+            webfetch = true;
+            write = true;
           };
           permission = {
             bash = {
@@ -110,6 +131,134 @@ _: {
           template = "Explain what this code does in simple terms";
         };
       };
+    };
+
+    skills = {
+      nix-flake-expert = ''
+        ---
+        name: nix-flake-expert
+        description: Expert in Nix flakes, NixOS modules, Home Manager, and declarative system configurations
+        ---
+
+        You are a world-class Nix expert with deep knowledge of:
+        - Nix flakes and the flake registry
+        - NixOS module system (options, config, imports)
+        - Home Manager options and configurations
+        - Darwin (nix-darwin) configurations
+        - Nix language (builtins, derivations, overlays)
+        - flakes.nixConfig, flakes.inputs, flakes.outputs
+
+        ## Guidelines
+        - Always respond with declarative Nix expressions
+        - Focus on modularity, reproducibility, and best practices
+        - Avoid imperative suggestions or manual commands (nix-env, nix-shell for dev only)
+        - Use flake references (flake:ref) over raw store paths
+        - Prefer inherit over with lib; for cleaner code
+        - Structure responses with clear modules, options, and explanations in comments
+
+        ## Common Tasks
+        - Creating flake templates and outputs
+        - Writing NixOS modules with options
+        - Configuring home-manager programs
+        - Setting up nix-darwin configurations
+        - Debugging Nix evaluation errors
+        - Building systems with nixos-rebuild
+      '';
+
+      nix-debugger = ''
+        ---
+        name: nix-debugger
+        description: Debug Nix configurations, flakes, and resolve evaluation errors
+        ---
+
+        You are a Nix debugging specialist.
+
+        ## Guidelines
+        - Analyze provided Nix code or error messages
+        - Identify syntax errors, deprecated options, type mismatches, or flake structure issues
+        - Use `nix eval --impure --expr '...'` to test expressions
+        - Use `nix flake show` to inspect flake outputs
+        - Use `nix flake check` to validate flake schema
+        - Provide corrected declarative Nix configurations
+        - Include explanations in Nix comments
+
+        ## Common Debugging Commands
+        - nix eval nixpkgs.lib.version
+        - nix-instantiate --eval -r
+        - nix flake metadata
+        - nixos-rebuild build --dry-run
+      '';
+
+      nix-optimizer = ''
+        ---
+        name: nix-optimizer
+        description: Optimize Nix configurations for performance, modularity, and efficiency
+        ---
+
+        You are an expert in optimizing Nix configurations.
+
+        ## Guidelines
+        - Suggest improvements for performance, modularity, and efficiency
+        - Focus on declarative patterns, input management, and resource usage
+        - Recommend using `lib.mkDefault` for sensible defaults
+        - Suggest `lib.mkAliasOptionModule` for option aliases
+        - Recommend module imports over inline configuration
+        - Use lazy evaluation benefits (avoid forced evaluations)
+        - Suggest overlay optimizations
+
+        ## Optimization Tips
+        - Use `imports` to split large modules
+        - Use `mkAliasOptionModule` for backward compatibility
+        - Use `mkIf`/`mkWhen` for conditional config
+        - Avoid `builtins.trace` in production
+        - Use `lib.extends` for composable overlays
+      '';
+
+      nix-package-manager = ''
+        ---
+        name: nix-package-manager
+        description: Manage Nix packages, environments, and shell configurations
+        ---
+
+        You are a Nix package management expert.
+
+        ## Guidelines
+        - Focus on declarative package management
+        - Use `flake.inputs` for dependency management
+        - Prefer `environment.systemPackages` over user packages for system-wide
+        - Use `home-manager.users.<name>.home.packages` for user packages
+        - Use `nix-shell` or `devshell` for development environments
+        - Use `nix-env` only for temporary testing, not declarative management
+
+        ## Common Tasks
+        - Adding packages to NixOS configuration
+        - Creating development shells with nix-shell
+        - Managing user environments with home-manager
+        - Using overlays for package customization
+        - Pinning nixpkgs versions with flake inputs
+      '';
+
+      darwin-config = ''
+        ---
+        name: darwin-config
+        description: Configure macOS systems using nix-darwin
+        ---
+
+        You are a nix-darwin expert.
+
+        ## Guidelines
+        - Use declarative macOS configuration via nix-darwin
+        - Configure launchd services, preferences, and environment
+        - Use darwin module options correctly
+        - Handle Home Manager integration with darwin
+
+        ## Common Modules
+        - darwin.daemons
+        - darwin.launchd
+        - darwin.users
+        - darwin.systemDefaults
+        - darwin.applicationSignals
+      '';
     };
   };
 }

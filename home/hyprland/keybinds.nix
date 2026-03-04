@@ -12,7 +12,7 @@ _: {
       "$mainMod,F,fullscreen,"
       "$mainMod,G,exec,uwsm app -- gimp"
       "$mainMod,K,exec,list-keybinds"
-      "$mainMod,M,exec,uwsm app -- modrinth-app"
+      "$mainMod,M,exec,uwsm app -- prismlauncher"
       "$mainMod,O,exec,uwsm app -- obs"
       "$mainMod,P,exec,uwsm app -- plex-desktop"
       "$mainMod,Q,killactive,"
@@ -44,6 +44,7 @@ _: {
       "$mainMod ALT,B,exec,bazecor"
       "$mainMod ALT,D,exec,pseudo" # Dwindle
       "$mainMod ALT,G,exec,gparted"
+      "$mainMod ALT,M,exec,uwsm app -- modrinth-app"
       "$mainMod ALT,P,exec,pavucontrol"
       "$mainMod ALT,F,workspaceopt, allfloat"
       "$mainMod ALT, left, swapwindow,l"

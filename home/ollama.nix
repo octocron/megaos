@@ -26,8 +26,8 @@
 
     # auto-pull coding models on activation
     activation.pullOllamaModel = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${pkgs.ollama}/bin/ollama pull qwen2.5-coder:7b
-      ${pkgs.ollama}/bin/ollama pull llama3:8b
+      ${pkgs.ollama}/bin/ollama pull qwen3-coder:30b
+      ${pkgs.ollama}/bin/ollama pull llama4:scout
     '';
   };
 }

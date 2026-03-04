@@ -12,9 +12,11 @@
     mpv
     modrinth-app
     mullvad-vpn
+    nodejs
     obs-studio
     plex-desktop
     plexamp
+    prismlauncher
     signal-desktop
     spotify
     superTuxKart
