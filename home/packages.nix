@@ -85,6 +85,7 @@
     lazygit # Go: full git mgmt app
     libnotify # C: notifications
     libvirt # C:
+    libx11
     lm_sensors # C: hardware sensor data
     lua # C:
     lychee # Rust: Link checker
@@ -108,6 +109,7 @@
     polkit_gnome
     procs # Rust: ↑ ps
     pscircle
+    python315
     rage # Rust: ↑ age
     ripgrep # Rust: ↑ grep
     ripgrep-all # Rust: ↑ extend rg to search pdf, docx, etc
@@ -157,7 +159,7 @@
     yq-go # Go: yaml processor
     zip # C: zip files
     zoxide # Rust: ↑ cd
-    zsh-nix-shell # ZSH:
+    zsh-nix-shell # ZSH: use zsh in a nix-shell environment
 
     # INFO: GTK THEMES
     gnome-themes-extra

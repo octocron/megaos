@@ -8,12 +8,12 @@
   programs = {
     git = {
       enable = true;
+      lfs.enable = true;
       ignores = [
         ".direnv"
         "result"
         ".DS_Store"
       ];
-      lfs.enable = true;
 
       signing = {
         format = "ssh";

@@ -115,7 +115,7 @@
     fstrim.enable = true; # ssd optimizer
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
-    nebula.enable = true;
+    nebula.enable = false;
     nfs.enable = false;
     printing.enable = false;
     #pulseaudio.enable = false;

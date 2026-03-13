@@ -43,8 +43,6 @@
         nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#${hostname}";
         ncg = "nix-collect-garbage --delete-old";
         #-------------aliases------------------------------------------------>>>
-        a = "ansible";
-        ap = "ansible-playbook";
         bios = "sudo systemctl reboot --firmware";
         d3 = "cd ~/projects/hugo/d3c3p7/";
         ftldr = "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,70% | xargs tldr";
@@ -84,27 +82,22 @@
         gsl = "git stash list";
         gsf = "git stash push --";
         gsp = "git stash pop";
-        #-------------copy--------------------------------------------------->>>
-        pbcopy = "/mnt/c/Windows/System32/clip.exe";
-        pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
-        explorer = "/mnt/c/Windows/explorer.exe";
       };
 
       envExtra = ''
         #-------------starship------------------------------------------->>>
-        LFILE="/etc/*-release"
-        MFILE="/System/Library/CoreServices/SystemVersion.plist"
-        if [[ -f $LFILE ]]; then
-          _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-        elif [[ -f $MFILE ]]; then
+        if [[ -f /etc/os-release ]]; then
+          _distro=$(awk -F= '/^ID=/{print tolower($2)}' /etc/os-release)
+
+        elif [[ -f /System/Library/CoreServices/SystemVersion.plist ]]; then
           _distro="macos"
 
-        #-------------determine-mac-model-------------------------------->>>
-          _device=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print $3,$4,$5,$6,$7}')
+          #-------------determine-mac-model-------------------------------->>>
+          _device=$(sysctl -n hw.model 2>/dev/null)
 
           case $_device in
-            *MacBook*)     DEVICE="󰌢";;
-            *)             DEVICE="";;
+            *MacBook*) DEVICE="󰌢" ;;
+            *) DEVICE="" ;;
           esac
         fi
 
