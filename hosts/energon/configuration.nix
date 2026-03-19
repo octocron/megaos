@@ -118,6 +118,7 @@
     nebula.enable = false;
     nfs.enable = false;
     printing.enable = false;
+    udisks2.enable = true; # USB auto mounting
     #pulseaudio.enable = false;
 
     # Needed for File Managers

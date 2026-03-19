@@ -1,34 +1,34 @@
 _: {
-  # WARN: As of 2026 Ollama models do not support tool use!!
   programs.opencode = {
     enable = true;
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       provider = {
-        ollama = {
-          npm = "@ai-sdk/openai-compatible";
+        openai = {
+          npm = "@ai-sdk/openai";
+
           options = {
-            baseURL = "http://localhost:11434/v1";
+            apiKey = "$OPENAI_API_KEY";
           };
+
           models = {
-            "llama4:scout" = {
-              name = "Llama 4 Scout";
+            "gpt-5.4" = {
+              name = "GPT-5.4  ";
             };
-            "qwen3-coder:30b" = {
-              name = "Qwen 3 Coder";
-            };
-            "qwen2.5-coder:7b" = {
-              name = "Qwen 2.5 Coder";
+
+            "gpt-5.4-mini" = {
+              name = "GPT-5.4 Mini";
             };
           };
         };
       };
-      model = "qwen3-coder:30b";
+
+      model = "GPT-5.4 Mini";
       agent = {
         nix-flake-expert = {
           description = "Expert assistant for Nix flakes, NixOS, and Home Manager configurations";
           mode = "all";
-          model = "qwen3-coder:30b";
+          model = "GPT-5.4 Mini";
           prompt = ''
             You are a world-class Nix expert with deep knowledge of Nix flakes, NixOS modules, Home Manager, and declarative configurations.
             Always respond with declarative Nix expressions.
@@ -59,7 +59,7 @@ _: {
         nix-debugger = {
           description = "Debugger for Nix configurations and flakes";
           mode = "subagent";
-          model = "llama4:scout";
+          model = "GPT-5.4 Mini";
           prompt = ''
             You are a Nix debugging specialist.
             Analyze provided Nix code or error messages.
@@ -88,7 +88,7 @@ _: {
         nix-optimizer = {
           description = "Optimizer for Nix flakes and configurations";
           mode = "subagent";
-          model = "qwen3-coder:30b";
+          model = "GPT-5.4 Mini";
           prompt = ''
             You are an expert in optimizing Nix configurations.
             Suggest improvements for performance, modularity, and efficiency.

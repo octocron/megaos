@@ -11,7 +11,7 @@
     ./gtk.nix
     ./kitty.nix
     ./nnn.nix
-    ./ollama.nix
+    #./ollama.nix
     ./opencode.nix
     ./packages.nix
     ./qt.nix
@@ -21,6 +21,7 @@
     ./swaync.nix
     ./thunar.nix
     ./tmux.nix
+    ./udiskie.nix
     ./wezterm.nix
     ./wlogout
     ./yazi.nix

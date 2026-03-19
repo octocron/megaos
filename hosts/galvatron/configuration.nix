@@ -96,6 +96,7 @@
     #pulseaudio.enable = false;
     tailscale.enable = true;
     tumbler.enable = true; # image/video previewer
+    udisks2.enable = true; # USB auto mounting
 
     avahi = {
       enable = true;

@@ -1,4 +1,8 @@
-{ username, ... }:
+{
+  config,
+  username,
+  ...
+}:
 {
   #----------------Home Manager-----------------------------#
   home = {
@@ -9,6 +13,9 @@
       GDK_BACKEND = "wayland,x11";
       CLUTTER_BACKEND = "wayland";
     };
+    sessionVariablesExtra = ''
+      export OPENAI_API_KEY="$(cat ${config.sops.secrets.openai_api_key.path})"
+    '';
     stateVersion = "23.11";
     file = {
       # Place Files Inside Home Directory

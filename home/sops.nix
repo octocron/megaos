@@ -21,6 +21,10 @@
         path = "/home/${username}/.ssh/id_${hostname}";
         mode = "0600";
       };
+
+      "openai_api_key" = {
+        key = "openai/api_key";
+      };
     };
   };
 }
