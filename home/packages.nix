@@ -40,6 +40,7 @@
     cmus # C: terminal music player
     #cointop # Go: cryto market
     comma # Rust: like nix shell
+    compose2nix # Go: convert docker-compose to nix
     coreutils # C: utils
     croc # Go: ↑ magic-wormhole
     curl # C:
