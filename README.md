@@ -2,41 +2,28 @@ This is only the beginning of my sorrows haha!
 
 #### TODO:
 
-- gui apps??
-- containers
-- sops-nix
+> containers
+
+- crowdsec
+- technitium
+- caddy
+- satisfactory
+- minecraft
+- prometheus
+- grafana
 
 #### PROG:
 
 - crowdsec
-- tailscale
 
 #### DONE:
 
 - direnv
-- git
-- gpg
-- mullvad
-- nix-index
 - nixvim (megavim)
-- ssh
-- smb
-- starship
-- swap ram
-- tailscale
-- thinned pkgs
-- tmux
-- unstable
+- sops-nix
 
-#### UNWANTED:
+#### Tests
 
-- agenix # sops-nix is better, agenix =/= home manager or darwin
-
-#### BROKEN:
-
-- wezterm # dev not supporting nix, using kitty
-
-Tests
 You can run the tests with
 
 ```zsh

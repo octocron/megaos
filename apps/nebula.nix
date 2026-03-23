@@ -1,6 +1,7 @@
 # INFO: Create a CA: nebula-cert ca -name "megaport" -duration 2400d -out-dir /etc/nebula
 {
   config,
+  hostname,
   lib,
   ...
 }:
@@ -16,8 +17,8 @@ in
       enable = true;
       isLighthouse = true;
       ca = "/etc/nebula/ca.crt";
-      cert = "/etc/nebula/hostname.crt"; # lighthouse would be called hostname
-      key = "/etc/nebula/hostname.key"; # <- sensitive!
+      cert = "/etc/nebula/${hostname}.crt"; # lighthouse would be called hostname
+      key = "/etc/nebula/${hostname}.key"; # <- sensitive!
 
       listen = {
         host = "0.0.0.0";
