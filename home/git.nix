@@ -1,7 +1,7 @@
 {
   gitUsername,
   gitEmail,
-  hostname,
+  username,
   ...
 }:
 {
@@ -17,7 +17,7 @@
 
       signing = {
         format = "ssh";
-        key = "~/.ssh/${hostname}.pub";
+        key = "~/.ssh/${username}.pub";
         signByDefault = true;
       };
 
