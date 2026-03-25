@@ -8,10 +8,6 @@ _: {
         openai = {
           npm = "@ai-sdk/openai";
 
-          options = {
-            apiKey = "$OPENAI_API_KEY";
-          };
-
           models = {
             "gpt-5.4" = {
               name = "GPT-5.4  ";
