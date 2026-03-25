@@ -8,7 +8,7 @@ _: {
         openai = {
           npm = "@ai-sdk/openai";
           options = {
-            apiKey = "builtins.readFile config.sops.secrets.openai.api_key.path";
+            apiKey = "builtins.readFile config.sops.secrets.openai_api_key.path";
           };
           models = {
             "gpt-5.4" = {
