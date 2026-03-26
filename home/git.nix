@@ -1,3 +1,5 @@
+# INFO: ssh -G github.com | rg identityfile
+# INFO: ssh -T git#github.com
 {
   gitUsername,
   gitEmail,
@@ -17,7 +19,7 @@
 
       signing = {
         format = "ssh";
-        key = "~/.ssh/${username}.pub";
+        key = "~/.ssh/id_${username}.pub";
         signByDefault = true;
       };
 
