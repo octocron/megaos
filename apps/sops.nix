@@ -1,4 +1,5 @@
 # INFO: For secrets placed at system level like /etc/
+# NOTE: $(cat /run/screcrets/someAPIKey) to use a key from secrets
 {
   inputs,
   username,
