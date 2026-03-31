@@ -4,17 +4,11 @@
   pkgs,
   ...
 }:
-with lib;
-let
-  cfg = config.services.samba;
-in
 {
-  options.services.samba.enable = mkEnableOption "enable samba";
-
-  config = mkIf cfg.enable {
-    # still need to $ sudo smbpasswd -a $username
+  # still need to $ sudo smbpasswd -a $username
+  services = {
     samba = {
-      package = pkgs.samba4Full;
+      package = pkgs.samba;
       enable = true;
       openFirewall = true;
       settings = {

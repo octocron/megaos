@@ -7,7 +7,7 @@ _: {
     ./nfs.nix
     ./niri.nix
     ./podman.nix
-    #./samba.nix
+    ./samba.nix
     #./satisfactory.nix
     ./sddm.nix
     ./sops.nix

@@ -85,6 +85,7 @@
         galvatron = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs // {
             hostname = "galvatron";
+            desktop = "hyprland";
           };
           modules = [
             ./hosts/galvatron/configuration.nix
@@ -97,6 +98,7 @@
               home-manager = {
                 extraSpecialArgs = personalArgs // {
                   hostname = "galvatron";
+                  desktop = "hyprland";
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -112,6 +114,7 @@
         energon = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs // {
             hostname = "energon";
+            desktop = "hyprland";
           };
           modules = [
             ./hosts/energon/configuration.nix
@@ -123,6 +126,7 @@
               home-manager = {
                 extraSpecialArgs = personalArgs // {
                   hostname = "energon";
+                  desktop = "hyprland";
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;

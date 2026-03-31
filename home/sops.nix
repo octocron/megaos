@@ -14,11 +14,5 @@
     age = {
       keyFile = "/home/${username}/.config/sops/age/keys.txt";
     };
-
-    secrets = {
-      "openai_api_key" = {
-        key = "openai/api_key";
-      };
-    };
   };
 }
