@@ -1,5 +1,5 @@
 #----------Home Configurations----------#
-{ desktop, ... }:
+{ ... }:
 {
   imports = [
     #./anyrun.nix
@@ -9,6 +9,7 @@
     ./cava.nix
     ./git.nix
     ./gtk.nix
+    ./hyprland
     ./kitty.nix
     ./nnn.nix
     #./ollama.nix
@@ -27,7 +28,5 @@
     ./yazi.nix
     ./zathura.nix
     ./zsh.nix
-  ]
-  ++ (if desktop == "hyprland" then [ ./hyprland ] else [ ])
-  ++ (if desktop == "niri" then [ ./niri ] else [ ]);
+  ];
 }
