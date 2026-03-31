@@ -34,18 +34,4 @@
     #  noProxy = "127.0.0.1,localhost,internal.domain";
     #};
   };
-
-  services = {
-    # needed for mullvad
-    resolved = {
-      enable = true;
-      dnssec = "true"; # NOTE: [ allow-downgrade false true ]
-      dnsovertls = "true"; # NOTE: [ opportunistic false true ]
-      domains = [ "~." ];
-      fallbackDns = [
-        "1.1.1.1"
-        "1.0.0.1"
-      ];
-    };
-  };
 }

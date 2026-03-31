@@ -10,6 +10,7 @@ _:
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
     settings = {
       log.enabled = false;
       # mgr was manager but devs are derps

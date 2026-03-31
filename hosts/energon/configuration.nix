@@ -164,7 +164,7 @@
 
     podman.enable = true;
     samba = {
-      package = pkgs.samba4Full;
+      package = pkgs.samba;
       enable = true;
       openFirewall = true;
       settings = {

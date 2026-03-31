@@ -19,7 +19,7 @@
     prismlauncher
     signal-desktop
     spotify
-    superTuxKart
+    supertuxkart
     transmission_4-gtk
     xonotic
 

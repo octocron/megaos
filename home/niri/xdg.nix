@@ -9,6 +9,9 @@
     mime.enable = true;
     mimeApps = {
       enable = true;
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      };
     };
     portal = {
       enable = true;
@@ -30,7 +33,7 @@
         };
       };
 
-      configPackages = [ pkgs.niri ];
+      #configPackages = [ pkgs.niri ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gnome
         pkgs.xdg-desktop-portal-gtk

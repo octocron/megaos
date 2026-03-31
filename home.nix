@@ -1,8 +1,4 @@
-{
-  config,
-  username,
-  ...
-}:
+{ username, ... }:
 {
   #----------------Home Manager-----------------------------#
   home = {
@@ -13,7 +9,7 @@
       GDK_BACKEND = "wayland,x11";
       CLUTTER_BACKEND = "wayland";
     };
-    stateVersion = "23.11";
+    stateVersion = "26.05";
     file = {
       # Place Files Inside Home Directory
       ".config/starship.toml".source = ./home/starship.toml;
