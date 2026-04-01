@@ -58,7 +58,7 @@ in
         numlock_by_default = true;
         repeat_delay = 300;
         follow_mouse = 1;
-        float_switch_override_focus = 0;
+        float_switch_override_focus = false;
         sensitivity = 0;
         touchpad = {
           natural_scroll = true;
@@ -92,16 +92,16 @@ in
 
       misc = {
         layers_hog_keyboard_focus = true;
-        initial_workspace_tracking = 0;
+        initial_workspace_tracking = false;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         enable_swallow = false;
         vfr = true; # Variable Frame Rate
-        vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
+        vrr = true; # Variable Refresh Rate  Might need to set to false for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
-        # Try setting vrr to 0
+        # Try setting vrr to false
 
         #  Application not responding (ANR) settings
         enable_anr_dialog = true;
@@ -121,7 +121,7 @@ in
           size = 5;
           passes = 3;
           ignore_opacity = false;
-          new_optimizations = true;
+          xray = true;
         };
         shadow = {
           enabled = true;
@@ -138,14 +138,14 @@ in
 
       cursor = {
         sync_gsettings_theme = true;
-        no_hardware_cursors = 2; # change to 1 if want to disable
+        no_hardware_cursors = false;
         enable_hyprcursor = false;
-        warp_on_change_workspace = 2;
+        warp_on_change_workspace = false;
         no_warps = true;
       };
 
       #render = {
-      #  explicit_sync = 1; # Change to 1 to disable
+      #  explicit_sync = 1;
       #  explicit_sync_kms = 1;
       #  direct_scanout = 0;
       #};
