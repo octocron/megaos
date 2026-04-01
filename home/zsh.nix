@@ -42,6 +42,10 @@
         nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#${hostname}";
         nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#${hostname}";
         ncg = "nix-collect-garbage --delete-old";
+        nlgh = "nix profile history --profile /nix/var/nix/profiles/system-profiles/hyprland | bat";
+        nlgn = "nix profile history --profile /nix/var/nix/profiles/system-profiles/niri | bat";
+        ncgh = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/hyprland --older-than 30d";
+        ncgn = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/niri --older-than 30d";
         #-------------aliases------------------------------------------------>>>
         bios = "sudo systemctl reboot --firmware";
         d3 = "cd ~/projects/hugo/d3c3p7/";
