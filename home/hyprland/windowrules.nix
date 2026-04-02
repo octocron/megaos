@@ -18,6 +18,7 @@ _: {
         "tag +settings, match:class xdg-desktop-portal-gtk"
         "tag +settings, match:class (.blueman-manager-wrapped)"
         "tag +settings, match:class (nwg-displays)"
+        "center on, fullscreen_state 00, match:initial_title FFXIVLauncher"
         "move 72% 7%, match:title ^(Picture-in-Picture)$"
         "center on, match:class pavucontrol"
         "center on, match:class thunar"
