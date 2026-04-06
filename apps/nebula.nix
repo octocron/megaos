@@ -1,4 +1,6 @@
 # INFO: Create a CA: nebula-cert ca -name "megaport" -duration 2400d -out-dir /etc/nebula
+# TODO: sudo chmod --reference /etc/nix /etc/nebula
+# TODO: sudo chmod --reference /etc/nix/nix.conf /etc/nebula/*
 { hostname, ... }:
 {
   services.nebula.networks.megaport = {
@@ -16,19 +18,31 @@
     staticHostMap = { }; # Lighthouses don't need map to other lighthouses
 
     # tun = {
-    #   disabled = false;
+    #   disabled = false; # NOTE: when false, lighthouses can start w/o local tun (rootless)
     #   device = "nebula1";
+    #   mtu = 1300; # 1300 is default internet traffic
     # };
 
+    # INFO: firewall is default deny.  There is no way to write a deny rule!
     firewall = {
-      outbound = [
+      # NOTE: Allow traffic TO this node
+      inbound = [
         {
+          # Allow icmp between any nebula hosts
           port = "any";
-          proto = "any";
+          proto = "icmp";
           host = "any";
         }
+        {
+          # Allow ssh from admins
+          port = 22;
+          proto = "tcp";
+          groups = [ "admin" ];
+        }
       ];
-      inbound = [
+
+      # NOTE: Allow traffic FROM this node
+      outbound = [
         {
           port = "any";
           proto = "any";

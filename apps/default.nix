@@ -3,7 +3,7 @@ _: {
   imports = [
     ./hyprland.nix
     ./minecraft.nix
-    #./nebula.nix
+    ./nebula.nix
     ./nfs.nix
     ./niri.nix
     ./podman.nix
