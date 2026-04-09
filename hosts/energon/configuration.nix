@@ -109,7 +109,10 @@
     # List services that should be enabled:
     fstrim.enable = true; # ssd optimizer
     libinput.enable = true; # input handler
-    mullvad-vpn.package = pkgs.mullvad-vpn;
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
+    };
     nfs.enable = false;
     printing.enable = false;
     udisks2.enable = true; # USB auto mounting

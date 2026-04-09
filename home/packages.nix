@@ -107,6 +107,7 @@
     pcmanfm-qt # for qt
     pkg-config # C: lib paths
     pinentry-gtk2
+    playerctl
     polkit_gnome
     procs # Rust: ↑ ps
     pscircle

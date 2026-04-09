@@ -12,7 +12,11 @@ in
       {
         layer = "top";
         position = "top";
-        modules-center = [ "hyprland/workspaces" ];
+        modules-center = [
+          "mpris"
+          "hyprland/workspaces"
+          "cava"
+        ];
         modules-left = [
           "custom/startmenu"
           "hyprland/window"
@@ -91,6 +95,27 @@ in
           tooltip = true;
           on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
         };
+        "mpris" = {
+          format = "{player_icon} {dynamic}";
+          format-paused = " ";
+          format-stopped = " ";
+          player-icons = {
+            default = "🎵";
+            mpv = "🎵";
+            spotify = "󰓇";
+          };
+          status-icons = {
+            paused = "⏸";
+            playing = "▶";
+          };
+          ignored-players = [ "firefox" ];
+          max-length = 55;
+          interval = 1;
+          on-click = "playerctl play-pause";
+          on-click-right = "playerctl next";
+          on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        };
         "network" = {
           format-icons = [
             "󰤯"
@@ -107,6 +132,29 @@ in
         };
         "tray" = {
           spacing = 12;
+        };
+        "cava" = {
+          framerate = 30;
+          bars = 20;
+          format-icons = [
+            " "
+            "▁"
+            "▂"
+            "▃"
+            "▄"
+            "▅"
+            "▆"
+            "▇"
+            "█"
+          ];
+          hide_on_silence = true;
+          silence_threshold = 0.05;
+          input_delay = 1;
+          bar_delimiter = 0;
+          monstercat = true;
+          waves = false;
+          noise_reduction = 0.77;
+          method = "pulse";
         };
         "pulseaudio" = {
           format = "{icon} {volume}% {format_source}";
@@ -212,6 +260,42 @@ in
       window#waybar {
         background: rgba(0,0,0,0);
       }
+
+      #mpris {
+        color: #b4befe;
+        padding: 0 12px;
+        margin: 0 4px;
+        border-radius: 4px;
+      }
+
+      #mpris:hover {
+        background-color: rgba(180, 190, 254, 0.1);
+        border-radius: 4px;
+      }
+
+      #mpris.paused {
+        opacity: 0;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      #cava {
+        color: rgba(180, 190, 254, 0.8);
+        padding: 0 8px;
+        margin: 0 4px;
+        font-family: "JetBrainsMono Nerd Font", monospace;
+        font-size: 12px;
+        background-color: transparent;
+        border-radius: 4px;
+        border: none;
+        letter-spacing: 0px;
+      }
+
+      #cava:hover {
+        background-color: rgba(180, 190, 254, 0.1);
+      }
+
       #workspaces {
         color: #212121;
         background: #ee4400;
