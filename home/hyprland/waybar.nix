@@ -262,14 +262,14 @@ in
       }
 
       #mpris {
-        color: #b4befe;
+        color: #00ccff;
         padding: 0 12px;
         margin: 0 4px;
         border-radius: 4px;
       }
 
       #mpris:hover {
-        background-color: rgba(180, 190, 254, 0.1);
+        background-color: rgba(0, 204, 255, 0.1);
         border-radius: 4px;
       }
 
@@ -281,7 +281,7 @@ in
       }
 
       #cava {
-        color: rgba(180, 190, 254, 0.8);
+        color: rgba(0, 204, 255, 0.8);
         padding: 0 8px;
         margin: 0 4px;
         font-family: "JetBrainsMono Nerd Font", monospace;
@@ -293,7 +293,7 @@ in
       }
 
       #cava:hover {
-        background-color: rgba(180, 190, 254, 0.1);
+        background-color: rgba(0, 204, 255, 0.1);
       }
 
       #workspaces {
@@ -336,7 +336,7 @@ in
         border-radius: 12px;
       }
       tooltip label {
-        color: #228800;
+        color: #00ff22;
       }
       #tray menu {
         background: #212121;
@@ -344,7 +344,7 @@ in
         border-radius: 12px;
       }
       #tray menuitem {
-        color: #228800;
+        color: #00ff22;
       }
       #tray menuitem:hover {
         background: #ee4400;
@@ -380,14 +380,14 @@ in
       #clock {
         font-weight: bold;
         color: #212121;
-        background: #228800;
+        background: #ffaa00;
         margin: 0px;
         padding: 0px 15px 0px 30px;
         border-radius: 0px 0px 0px 40px;
       }
       #custom-weather {
         font-weight: bold;
-        color: #0088ff;
+        color: #00ff22;
         border-radius: 0px 10px 10px 0px;
         border-right: 0px;
         margin-left: 0px;
