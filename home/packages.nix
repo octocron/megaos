@@ -113,7 +113,6 @@
     procs # Rust: ↑ ps
     pscircle
     python315
-    pulseaudio
     qpwgraph # C++: pipewire graph gui interface
     rage # Rust: ↑ age
     ripgrep # Rust: ↑ grep

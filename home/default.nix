@@ -10,11 +10,13 @@
     ./git.nix
     ./gtk.nix
     ./kitty.nix
+    ./mpd.nix
     ./nnn.nix
     #./ollama.nix
     ./opencode.nix
     ./packages.nix
     ./qt.nix
+    ./rmpc.nix
     ./sops.nix
     ./ssh.nix
     ./swappy.nix
