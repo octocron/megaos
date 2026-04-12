@@ -158,6 +158,29 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+      wireplumber = {
+        enable = true;
+        extraConfig = {
+          "10-goxlr" = {
+            "monitor.alsa.rules" = [
+              {
+                matches = [
+                  {
+                    "device.name" = "alsa_output.usb-TC-Helicon_GoXLR-00.pro-output-0";
+                  }
+                ];
+                actions = {
+                  "update-props" = {
+                    "device.description" = "GoXLR Pro";
+                    "node.description" = "GoXLR Pro";
+                    "node.nick" = "GoXLR";
+                  };
+                };
+              }
+            ];
+          };
+        };
+      };
     };
 
     podman.enable = true;

@@ -42,7 +42,7 @@ in
         "swww-daemon"
         "swww img ~/Pictures/Wallpapers/carafe_rainbow.png"
         "systemctl --user start hyprpolkitagent"
-        "killall -q waybar;sleep .5 && waybar"
+        #"killall -q waybar;sleep .5 && waybar"
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "albert"

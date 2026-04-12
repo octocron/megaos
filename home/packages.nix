@@ -41,7 +41,7 @@
     #cointop # Go: cryto market
     comma # Rust: like nix shell
     compose2nix # Go: convert docker-compose to nix
-    coppwr # Rust: manage pipewire gui
+    #coppwr # Rust: manage pipewire gui
     coreutils # C: utils
     croc # Go: ↑ magic-wormhole
     curl # C:
@@ -114,6 +114,7 @@
     pscircle
     python315
     pulseaudio
+    qpwgraph # C++: pipewire graph gui interface
     rage # Rust: ↑ age
     ripgrep # Rust: ↑ grep
     ripgrep-all # Rust: ↑ extend rg to search pdf, docx, etc
