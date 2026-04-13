@@ -11,6 +11,7 @@
     ./gtk.nix
     ./kitty.nix
     ./mpd.nix
+    ./nixSearchTV.nix
     ./nnn.nix
     #./ollama.nix
     ./opencode.nix

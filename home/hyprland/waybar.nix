@@ -198,6 +198,7 @@ in
         "custom/hyprbindings" = {
           tooltip = false;
           format = "";
+          return-type = "text";
           on-click = "sleep 0.1 && list-keybinds";
         };
         "idle_inhibitor" = {
@@ -220,7 +221,7 @@ in
         "custom/notification" = {
           tooltip = false;
           format = "";
-          exec-if = "which swaync-client";
+          exec-if = "command -v swaync-client";
           exec = "swaync-client -c";
           on-click = "sleep 0.1 && task-waybar";
           escape = true;

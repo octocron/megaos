@@ -37,8 +37,6 @@
     bzip3 # C: ↑ bzip2
     cargo-cache # Rust:
     cargo-expand # Rust:
-    cmus # C: terminal music player
-    #cointop # Go: cryto market
     comma # Rust: like nix shell
     compose2nix # Go: convert docker-compose to nix
     #coppwr # Rust: manage pipewire gui
@@ -122,7 +120,6 @@
     rsync # C: inc file xfer
     rustic # Rust: deduplicated backup
     rustup # Rust: rust toolchain
-    #rusty-rain # Rust: ↑ cmatrix
     scc # Go: code count
     scriptisto # Rust: ↑ script editor
     sd # Rust: ↑ sed
