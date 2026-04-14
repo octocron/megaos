@@ -1,33 +1,15 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, ... }:
 {
   programs.nix-search-tv = {
     enable = true;
+    enableTelevisionIntegration = true;
     settings = {
-      indexes = {
-        nixpkgs = {
-          type = "nixpkgs";
-          channel = "nixpkgs";
-        };
-
-        home-manager = {
-          type = "flake";
-          flake = "github:nix-community/home-manager";
-        };
-
-        nixos = {
-          type = "flake";
-          flake = "github:NixOS/nixpkgs/nixos-unstable";
-        };
-
-        darwin = {
-          type = "flake";
-          flake = "github:LnL7/nix-darwin";
-        };
-      };
+      indexes = [
+        "darwin"
+        "home-manager"
+        "nixos"
+        "nixpkgs"
+      ];
 
       cache_dir = "${config.xdg.cacheHome}/nix-search-tv";
       enable_waiting_message = true;

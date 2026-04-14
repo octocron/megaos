@@ -7,6 +7,10 @@ _: {
         bar_width = 2;
         frame_rate = 60;
       };
+      input = {
+        method = "pipewire";
+        source = "alsa_output.usb-TC-Helicon_GoXLR-00.HiFi__Line2__sink.monitor";
+      };
       color = {
         #gradient = 1;
         #gradient_color_1 = "'#011f30'";
