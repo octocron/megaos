@@ -158,31 +158,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      wireplumber = {
-        enable = true;
-        # extraConfig = {
-        #   "99-cava-routing" = {
-        #     "monitor.stream.rules" = [
-        #       {
-        #         matches = [
-        #           {
-        #             "application.name" = "cava";
-        #           }
-        #           {
-        #             "application.process.binary" = ".waybar-wrapped";
-        #           }
-        #         ];
-        #         actions = {
-        #           update-props = {
-        #             "node.source" = "alsa_output.usb-TC-Helicon_GoXLR-00.HiFi__Line2__sink.monitor";
-        #             "media.role" = "music";
-        #           };
-        #         };
-        #       }
-        #     ];
-        #   };
-        # };
-      };
+      wireplumber.enable = true;
     };
 
     podman.enable = true;

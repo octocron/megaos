@@ -16,6 +16,7 @@ _: {
       "$mainMod,O,exec,uwsm app -- obs"
       "$mainMod,P,exec,uwsm app -- plex-desktop"
       "$mainMod,Q,killactive,"
+      "$mainMod,R,exec,uwsm app -- kitty -e rmpc"
       "$mainMod,S,exec,uwsm app -- signal-desktop"
       "$mainMod,T,exec,uwsm app -- thunar"
       "$mainMod,V,exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
