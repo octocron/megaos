@@ -3,17 +3,14 @@
   pkgs,
   ...
 }:
+# INFO: need to manually create ~/.config/mpd/playlists folder manually
+# INFO: add missing album art: , sacad_r ~/Music 600 cover.jpg
 {
   home = {
     packages = with pkgs; [
       mpc
       mpd-mpris
     ];
-
-    # Ensure directories exist
-    file.".config/mpd/playlists".source = pkgs.runCommand "mpd-playlists" { } ''
-      mkdir -p $out
-    '';
   };
 
   services.mpd = {
