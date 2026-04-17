@@ -155,8 +155,9 @@
     wttrbar
     xclip
     xsel
-    yaydl # Rust: ↑ youtube-dl
+    #yaydl # Rust: ↑ youtube-dl
     ydotool
+    yt-dlp
     yq-go # Go: yaml processor
     zip # C: zip files
     zoxide # Rust: ↑ cd

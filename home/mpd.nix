@@ -27,6 +27,7 @@
     };
 
     extraConfig = ''
+      auto_update "yes"
       audio_output {
         type "pipewire"
         name "PipeWire Output"
