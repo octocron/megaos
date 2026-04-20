@@ -26,7 +26,8 @@
     ./tmux.nix
     ./udiskie.nix
     ./wezterm.nix
-    ./wlogout
+    ./wleave
+    #./wlogout
     ./yazi.nix
     ./zathura.nix
     ./zsh.nix

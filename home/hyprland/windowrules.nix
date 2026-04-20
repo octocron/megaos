@@ -46,6 +46,8 @@ _: {
         "opacity 0.8 0.7, match:tag terminal"
         "opacity 0.8 0.7, match:tag settings"
         "opacity 0.95 0.75, match:title ^(Picture-in-Picture)$"
+        "opacity 0.85 0.75, match:class wleave"
+        "no_blur on, match:class wleave"
         "pin on, match:title ^(Picture-in-Picture)$"
         "keep_aspect_ratio on, match:title ^(Picture-in-Picture)$"
         "no_blur on, match:tag games"

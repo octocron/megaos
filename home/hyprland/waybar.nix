@@ -187,7 +187,7 @@ in
         "custom/exit" = {
           tooltip = false;
           format = "";
-          on-click = "sleep 0.1 && hyprctl dispatch exec wlogout";
+          on-click = "sleep 0.1 && hyprctl dispatch exec wleave";
         };
         "custom/startmenu" = {
           tooltip = false;
