@@ -15,11 +15,27 @@
       syntaxHighlighting.enable = true;
       historySubstringSearch.enable = true;
       history = {
+        extended = false; # INFO: false means no time stamps
+        expireDuplicatesFirst = true;
         save = 10000;
         size = 10000;
-        ignoreDups = true;
+        share = true;
+        saveNoDups = true;
+        ignoreAllDups = true;
         ignoreSpace = true;
-        expireDuplicatesFirst = true;
+        ignorePatterns = [
+          "bat *"
+          "cat *"
+          "clear *"
+          "exit"
+          "git commit *"
+          "gc *"
+          "ls *"
+          "la *"
+          "man *"
+          "rm *"
+          "which *"
+        ];
       };
 
       dotDir = "${config.xdg.configHome}/zsh";
