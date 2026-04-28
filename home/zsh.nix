@@ -29,6 +29,8 @@
           "clear *"
           "exit"
           "git commit *"
+          "ga"
+          "gs"
           "gc *"
           "ls *"
           "la *"

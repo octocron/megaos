@@ -57,6 +57,12 @@
 
     # INFO: https://gnome.pages.gitlab.gnome.org/libadwaita/doc/main/css-variables.html
     style = ''
+      :root {
+        --window-bg-color: transparent;
+        --view-bg-color: alpha(#121212, 0.45);
+        --accent-bg-color: alpha(#121212, 0.75);
+      }
+
       window {
           background: transparent;
       }
@@ -68,7 +74,7 @@
       }
 
       button {
-          background-color: rgba(#121212, 0.5);
+          background-color: var(--view-bg-color);
           border: 2px solid #ee4400;
           padding: 10px;
           color: var(--view-fg-color);
@@ -96,11 +102,11 @@
 
       button:focus,
       button:hover {
-          background-color: rgba(#121212, 0.9);
+          background-color: var(--window-bg-color);
       }
 
       button:active {
-          background-color: rgba(#121212, 0.5);
+          background-color: var(--view-bg-color);
           color: var(--accent-fg-color);
       }
 
