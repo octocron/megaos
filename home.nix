@@ -1,9 +1,14 @@
-{ username, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
 {
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
+    stateVersion = "26.05";
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       GDK_BACKEND = "wayland,x11";
@@ -12,7 +17,7 @@
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
     };
-    stateVersion = "26.05";
+
     file = {
       # Place Files Inside Home Directory
       ".config/starship.toml".source = ./home/starship.toml;

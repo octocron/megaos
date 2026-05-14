@@ -117,6 +117,7 @@
     rofi-emoji # C: emoji plugin for rofi
     rsync # C: inc file xfer
     rustic # Rust: deduplicated backup
+    #rustnet # Rust: netstat, ss, wireshark, tcpdump all in one, can ssh too!
     rustup # Rust: rust toolchain
     scc # Go: code count
     scriptisto # Rust: ↑ script editor
@@ -131,6 +132,7 @@
     swappy
     swaynotificationcenter
     symbola
+    terminal-typeracer
     termusic # Rust: ↑ cmus
     tmate # C: instant terminal sharing
     tokei # Rust: ↑ stats about code project

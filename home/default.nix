@@ -23,6 +23,7 @@
     ./swappy.nix
     ./swaync.nix
     ./thunar.nix
+    ./ticker.nix
     ./tmux.nix
     ./udiskie.nix
     ./wezterm.nix
