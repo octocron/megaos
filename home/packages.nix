@@ -85,7 +85,6 @@
     lazygit # Go: full git mgmt app
     libnotify # C: notifications
     libvirt # C:
-    libx11
     lm_sensors # C: hardware sensor data
     lua # C:
     lychee # Rust: Link checker
@@ -104,7 +103,6 @@
     pavucontrol # C: gtk audio gui
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
     pcmanfm-qt # for qt
-    pkg-config # C: lib paths
     pinentry-gtk2
     playerctl
     polkit_gnome
@@ -149,6 +147,7 @@
     vim # C: ↑↑ modal editor
     w3m # C: text based browser
     wget # C: ↑ download
+    wgpu-utils
     witr # GO: why is this running
     wl-clipboard
     wthrr # Rust: ↑ wttr

@@ -8,6 +8,9 @@
       NIXOS_OZONE_WL = "1";
       GDK_BACKEND = "wayland,x11";
       CLUTTER_BACKEND = "wayland";
+      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
     };
     stateVersion = "26.05";
     file = {

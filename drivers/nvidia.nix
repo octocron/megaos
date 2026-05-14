@@ -14,7 +14,7 @@ in
   };
   config = mkIf cfg.enable {
     hardware.nvidia = {
-      open = true; # open source nvidia for Turing+ GPUs
+      open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement = {

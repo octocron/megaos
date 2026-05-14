@@ -26,6 +26,22 @@
       vim
       wget
       zsh
+
+      # INFO: bevy rust projects need:
+      alsa-lib
+      clang
+      libxcursor
+      libxi
+      libx11
+      libxrandr
+      libGL
+      lld
+      libxkbcommon
+      pkg-config
+      udev
+      vulkan-loader
+      vulkan-tools
+      wayland
     ];
 
     variables = {
@@ -49,6 +65,9 @@
       QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
       TERMINAL = "kitty";
       HOTKEY_OVERLAY = "1";
+
+      # INFO: Rust projects
+      WINIT_UNIX_BACKEND = "wayland";
 
       # INFO: NVIDIA Gaming Optimizations
       __GL_GSYNC_ALLOWED = "1";
