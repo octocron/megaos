@@ -6,6 +6,9 @@
     ./fastfetch/fastfetch.nix
     ./rofi
     ./scripts
+    ./wleave
+    #./wlogout
+    ./bat.nix
     ./cava.nix
     ./git.nix
     ./gtk.nix
@@ -27,9 +30,8 @@
     ./tmux.nix
     ./udiskie.nix
     ./wezterm.nix
-    ./wleave
-    #./wlogout
     ./yazi.nix
+    ./yt.nix
     ./zathura.nix
     ./zsh.nix
   ]

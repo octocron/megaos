@@ -30,7 +30,6 @@
     asciinema # Rust: terminal recorder
     aria2 # C++: ↑ wget
     bandwhich # Rust: real time network monitor
-    bat # Rust: ↑ cat
     bibata-cursors
     bottom # Rust: ↑ htop
     btop # C++: htop
@@ -158,7 +157,6 @@
     xsel
     #yaydl # Rust: ↑ youtube-dl
     ydotool
-    yt-dlp
     yq-go # Go: yaml processor
     zip # C: zip files
     zoxide # Rust: ↑ cd
