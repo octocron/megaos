@@ -22,7 +22,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        11434
+        11434 # ollama
       ];
       allowedUDPPorts = [
         config.services.tailscale.port

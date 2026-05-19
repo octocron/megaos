@@ -56,7 +56,6 @@
     ffmpegthumbnailer # C++: lightweight video thumbnailer
     figlet # C: ascii art banner generator | http://www.figlet.org/examples.html
     findutils # C: has find xargs
-    font-awesome
     fq # Go: ↑ jq for binary
     fx # Go: ↑ JSON viewer
     gh # Go: github cli
@@ -96,7 +95,6 @@
     navi # Rust: cli cheatsheet
     ninja # C++: build system
     nix-melt # Rust: ranger-like flake.lock viewer
-    noto-fonts-color-emoji
     nurl # Rust: ↑ fetch hash from repo url
     papirus-icon-theme # for qt
     pavucontrol # C: gtk audio gui

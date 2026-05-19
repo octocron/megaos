@@ -24,11 +24,14 @@
 
     packages = with pkgs; [
       ipafont
+      font-awesome
       maple-mono.opentype
-      nerd-fonts.noto
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
-      nerd-fonts.ubuntu
+      nerd-fonts.noto
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
     ];
   };
 }

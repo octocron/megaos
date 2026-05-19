@@ -84,6 +84,12 @@ config.colors = {
 config.font = wezterm.font_with_fallback({
   { family = "Maple Mono",              scale = 1.4 },
   { family = "JetBrainsMono Nerd Font", scale = 1.4 },
+
+  -- Unicode symbols
+  { family = "Noto Sans Symbols" },
+
+  -- Emoji
+  { family = "Noto Color Emoji" },
 })
 
 config.window_background_opacity = 0.95
