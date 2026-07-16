@@ -5,23 +5,32 @@
 {
   services.nebula.networks.megaport = {
     enable = true;
-    isLighthouse = true;
     ca = "/etc/nebula/ca.crt";
     cert = "/etc/nebula/${hostname}.crt"; # lighthouse would be called hostname
     key = "/etc/nebula/${hostname}.key"; # <- sensitive!
 
-    listen = {
-      host = "0.0.0.0";
-      port = 4242;
+    isLighthouse = false;
+    lighthouses = [
+      "10.99.0.37"
+    ];
+    staticHostMap = {
+      "10.99.0.37" = [
+        "192.168.1.37:4242"
+      ];
     };
 
-    staticHostMap = { }; # Lighthouses don't need map to other lighthouses
+    settings = {
+      punchy = {
+        punch = true;
+        respond = true;
+        delay = "1s";
+      };
 
-    # tun = {
-    #   disabled = false; # NOTE: when false, lighthouses can start w/o local tun (rootless)
-    #   device = "nebula1";
-    #   mtu = 1300; # 1300 is default internet traffic
-    # };
+      relay = {
+        am_relay = false;
+        use_relays = false;
+      };
+    };
 
     # INFO: firewall is default deny.  There is no way to write a deny rule!
     firewall = {

@@ -8,6 +8,7 @@
   #----------------------NixOS-MODULES-----------------#
   imports = [
     ./hardware-configuration.nix
+    ./nebula.nix
     ../../apps
     ../../boot/systemd.nix
     ../../core
