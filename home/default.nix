@@ -33,6 +33,7 @@
     ./yazi.nix
     ./yt.nix
     ./zathura.nix
+    ./zed.nix
     ./zsh.nix
   ]
   ++ (if desktop == "hyprland" then [ ./hyprland ] else [ ])

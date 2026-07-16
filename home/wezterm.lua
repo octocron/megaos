@@ -93,7 +93,7 @@ config.font = wezterm.font_with_fallback({
 })
 
 config.window_background_opacity = 0.95
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 6000
 config.default_workspace = "home"

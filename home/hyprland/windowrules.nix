@@ -5,7 +5,7 @@ _: {
         "tag +file-manager, match:class thunar"
         "tag +terminal, match:class kitty"
         "tag +terminal, match:class kitty-dropterm"
-        "tag +terminal, match:class wezterm"
+        "tag +terminal, match:class org.wezfurlong.wezterm"
         "tag +browser, match:class brave-browser"
         "tag +im, match:class discord"
         "tag +games, match:class gamescope"
