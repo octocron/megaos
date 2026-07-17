@@ -13,7 +13,6 @@
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
     wireless = {
-      enable = true;
       iwd = {
         enable = true;
         settings = {
