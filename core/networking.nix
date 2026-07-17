@@ -1,5 +1,4 @@
 {
-  config,
   hostname,
   lib,
   options,
@@ -8,30 +7,38 @@
 {
   #-----------------NETWORKING------------------------#
   networking = {
-    hostName = "${hostname}"; # Defines hostname.
+    hostName = hostname; # Defines hostname.
     networkmanager.enable = true;
     nftables.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
-    wireless.enable = lib.mkForce false;
+
+    wireless = {
+      enable = true;
+      iwd = {
+        enable = true;
+        settings = {
+          Network = {
+            EnableIPv6 = true;
+            RoutePriorityOffset = 300;
+          };
+          Settings.AutoConnect = true;
+        };
+      };
+    };
 
     nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
+      "10.99.0.37"
+      "9.9.9.9"
     ];
 
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        11434 # ollama
+        #11434 # ollama
       ];
       allowedUDPPorts = [
-        config.services.tailscale.port
       ];
-      trustedInterfaces = [ "tailscale0" ];
+      trustedInterfaces = [ "nebula.megaport" ];
     };
-    #proxy = {
-    #  default = "http://user:password@proxy:port/";
-    #  noProxy = "127.0.0.1,localhost,internal.domain";
-    #};
   };
 }

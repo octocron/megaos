@@ -21,7 +21,6 @@
       nvd
       parted
       sddm-astronaut
-      tailscale
       uwsm # universal wayland session manager
       vim
       wget

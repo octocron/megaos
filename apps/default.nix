@@ -10,6 +10,6 @@ _: {
     #./satisfactory.nix
     ./sddm.nix
     ./sops.nix
-    ./tailscale.nix
+    #./tailscale.nix
   ];
 }

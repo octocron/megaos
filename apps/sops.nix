@@ -16,11 +16,6 @@
       keyFile = "/home/${username}/.config/sops/age/keys.txt";
     };
     secrets = {
-      "tailscale/tskey-reusable" = {
-        path = "/etc/tailscale/tskey-reusable";
-        mode = "0600";
-      };
-
       "passwordHash" = {
         owner = "root";
         group = "root";

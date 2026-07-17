@@ -95,7 +95,6 @@
     nfs.enable = true;
     printing.enable = false;
     #pulseaudio.enable = false;
-    tailscale.enable = true;
     tumbler.enable = true; # image/video previewer
     udisks2.enable = true; # USB auto mounting
 
@@ -137,7 +136,7 @@
         autoStart = false;
         experimental = false;
         installDir = "/var/lib/satisfactory";
-        openFirewall = false; # false when using tailscale
+        openFirewall = false; # false when using nebula
       };
     };
 

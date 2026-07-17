@@ -169,7 +169,7 @@
     #     autoStart = false;
     #     experimental = false;
     #     installDir = "/var/lib/satisfactory";
-    #     openFirewall = false; # false when using tailscale
+    #     openFirewall = false; # false when using nebula
     #   };
     # };
 

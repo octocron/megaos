@@ -5,7 +5,7 @@
 }:
 {
   systemd.user.services.ollama = {
-    Unit.Description = "Ollama service (Tailscale-exposed)";
+    Unit.Description = "Ollama service (nebula-exposed)";
     Install.WantedBy = [ "default.target" ];
 
     Service = {

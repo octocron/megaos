@@ -82,6 +82,6 @@ in
       };
     };
 
-    #networking.firewall.allowedTCPPorts = [25565]; # Using tailscale: turn off rcon if enabling
+    #networking.firewall.allowedTCPPorts = [25565]; # Using nebula: turn off rcon if enabling
   };
 }
