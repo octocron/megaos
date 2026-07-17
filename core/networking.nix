@@ -1,6 +1,5 @@
 {
   hostname,
-  lib,
   options,
   ...
 }:
@@ -11,19 +10,6 @@
     networkmanager.enable = true;
     nftables.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
-
-    wireless = {
-      iwd = {
-        enable = true;
-        settings = {
-          Network = {
-            EnableIPv6 = true;
-            RoutePriorityOffset = 300;
-          };
-          Settings.AutoConnect = true;
-        };
-      };
-    };
 
     nameservers = [
       "10.99.0.37"
