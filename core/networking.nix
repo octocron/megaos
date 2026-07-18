@@ -19,10 +19,6 @@
         ipv4 = {
           method = "auto";
           ignore-auto-dns = true;
-          dns-priority = 10;
-          dns = [
-            "192.168.1.37"
-          ];
         };
         wireless = {
           ssid = "Multiplex";
@@ -34,6 +30,11 @@
         };
       };
     };
+
+    nameservers = [
+      "192.168.1.37"
+    ];
+
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
     firewall = {
