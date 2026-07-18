@@ -8,6 +8,7 @@
   #-----------------NETWORKING------------------------#
   networking = {
     hostName = hostname; # Defines hostname.
+    nftables.enable = true;
     networkmanager = {
       enable = true;
       ensureProfiles.profiles.multiplex = {
@@ -17,6 +18,11 @@
         };
         ipv4 = {
           method = "auto";
+          ignore-auto-dns = true;
+          dns-priority = 10;
+          dns = [
+            "192.168.1.37"
+          ];
         };
         wireless = {
           ssid = "Multiplex";
@@ -28,12 +34,7 @@
         };
       };
     };
-    nftables.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
-    nameservers = [
-      "10.99.0.37"
-      "192.168.1.37"
-    ];
 
     firewall = {
       enable = true;
