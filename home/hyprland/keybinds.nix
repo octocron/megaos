@@ -2,7 +2,7 @@ _: {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
     bind = [
-      "$mainMod,Return,exec,uwsm app -- kitty"
+      "$mainMod,Return,exec,uwsm app -- wezterm"
       "$mainMod SHIFT,Return,exec,rofi-launcher"
       #----------MOD---------------------------------------->>
       "$mainMod,B,exec,uwsm app -- brave"
@@ -28,6 +28,7 @@ _: {
       "$mainMod SHIFT,F,togglefloating,"
       "$mainMod SHIFT,G,exec,uwsm app -- godot4"
       "$mainMod SHIFT,I,togglesplit,"
+      "$mainMod SHIFT,K,exec,uwsm app -- kitty"
       "$mainMod SHIFT,M,exec,uwsm app -- mullvad-vpn"
       "$mainMod SHIFT,N,exec,swaync-client -rs"
       "$mainMod SHIFT,P,exec,uwsm app -- plexamp"

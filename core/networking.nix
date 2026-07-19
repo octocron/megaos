@@ -8,25 +8,17 @@
   #-----------------NETWORKING------------------------#
   networking = {
     hostName = hostname; # Defines hostname.
+    useNetworkd = true;
     nftables.enable = true;
-    networkmanager = {
-      enable = true;
-      ensureProfiles.profiles.multiplex = {
-        connection = {
-          id = "Multiplex";
-          type = "wifi";
-        };
-        ipv4 = {
-          method = "auto";
-          ignore-auto-dns = true;
-        };
-        wireless = {
-          ssid = "Multiplex";
-          mode = "infrastructure";
-        };
-        wireless-security = {
-          key-mgmt = "wpa-psk";
-          psk = config.sops.secrets.passwordMultiplex.path;
+    wireless = {
+      iwd = {
+        enable = false;
+        settings = {
+          Network = {
+            EnableIPv6 = true;
+            RoutePriorityOffset = 300;
+          };
+          Settings.AutoConnect = true;
         };
       };
     };
@@ -42,9 +34,18 @@
       allowedTCPPorts = [
         #11434 # ollama
       ];
+
       allowedUDPPorts = [
       ];
-      trustedInterfaces = [ "nebula.megaport" ];
+
+      # interfaces.end0.allowedTCPPorts = [
+      #   22 # ssh
+      #   5000 # nix-serve
+      # ];
+
+      trustedInterfaces = [
+        "nebula.megaport"
+      ];
     };
   };
 }
