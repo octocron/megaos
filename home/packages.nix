@@ -10,7 +10,7 @@
     godot_4
     gparted
     mpv
-    modrinth-app
+    #modrinth-app
     mullvad-vpn
     nodejs
     obs-studio
