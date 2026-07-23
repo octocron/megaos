@@ -1,7 +1,6 @@
 # INFO: Launch order matters!!
 # INFO: Steam > ALVR Server > SteamVR > Put on Quest & open ALVR > Launch Game from Steam
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment = {
     systemPackages = with pkgs; [
       alvr
@@ -34,4 +33,6 @@
   };
 
   # Checks: xrinfo  //  vulkaninfo | rg NVIDIA
+  #The setcap issue at SteamVR start can be fixed with:
+  #sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher
 }
