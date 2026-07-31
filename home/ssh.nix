@@ -1,7 +1,6 @@
 # NOTE: ssh -T git@github.com
 # NOTE: ssh-agent is not needed when designating an IdentityFile
-{ username, ... }:
-{
+{ username, ... }: {
   programs = {
     ssh = {
       enable = true;
@@ -17,7 +16,11 @@
         };
 
         "primus" = {
-          hostname = "192.168.1.37";
+          hostname = "192.168.10.37";
+        };
+
+        "rodimus" = {
+          hostname = "192.168.10.38";
         };
       };
     };

@@ -1,5 +1,4 @@
 {
-  config,
   hostname,
   options,
   ...
@@ -23,10 +22,6 @@
       };
     };
 
-    nameservers = [
-      "192.168.1.37"
-    ];
-
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
     firewall = {
@@ -40,7 +35,6 @@
 
       # interfaces.end0.allowedTCPPorts = [
       #   22 # ssh
-      #   5000 # nix-serve
       # ];
 
       trustedInterfaces = [
