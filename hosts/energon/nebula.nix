@@ -1,8 +1,7 @@
 # INFO: Create a CA: nebula-cert ca -name "megaport" -duration 2400d -out-dir /etc/nebula
 # TODO: sudo chmod --reference /etc/nix /etc/nebula
 # TODO: sudo chmod --reference /etc/nix/nix.conf /etc/nebula/*
-{ hostname, ... }:
-{
+{ hostname, ... }: {
   services.nebula.networks.megaport = {
     enable = true;
     ca = "/etc/nebula/ca.crt";
@@ -15,7 +14,10 @@
     ];
     staticHostMap = {
       "10.99.0.37" = [
-        "192.168.1.37:4242"
+        "192.168.10.37:4242"
+      ];
+      "10.99.0.38" = [
+        "192.168.10.38:4242"
       ];
     };
 

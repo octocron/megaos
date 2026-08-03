@@ -1,4 +1,5 @@
 {
+  config,
   hostname,
   options,
   ...
@@ -7,17 +8,25 @@
   #-----------------NETWORKING------------------------#
   networking = {
     hostName = hostname; # Defines hostname.
-    useNetworkd = true;
     nftables.enable = true;
-    wireless = {
-      iwd = {
-        enable = false;
-        settings = {
-          Network = {
-            EnableIPv6 = true;
-            RoutePriorityOffset = 300;
-          };
-          Settings.AutoConnect = true;
+    networkmanager = {
+      enable = true;
+      ensureProfiles.profiles.multiplex = {
+        connection = {
+          id = "Multiplex";
+          type = "wifi";
+        };
+        ipv4 = {
+          method = "auto";
+          ignore-auto-dns = true;
+        };
+        wireless = {
+          ssid = "Multiplex";
+          mode = "infrastructure";
+        };
+        wireless-security = {
+          key-mgmt = "wpa-psk";
+          psk = config.sops.secrets.passwordMultiplex.path;
         };
       };
     };

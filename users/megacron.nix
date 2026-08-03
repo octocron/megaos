@@ -20,6 +20,7 @@
           "audio"
           "docker"
           "libvirtd"
+          "networkmanager"
           "qemu-libvirtd"
           "scanner"
           "video"

@@ -16,6 +16,7 @@
       file
       ffmpegthumbnailer
       git
+      networkmanagerapplet
       nix-output-monitor
       nvd
       parted
