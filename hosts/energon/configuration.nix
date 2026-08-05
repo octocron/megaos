@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     ./nebula.nix
     ../../apps
-    ../../boot/systemd.nix
+    ../../boot/limine.nix
     ../../core
     ../../drivers
     ../../users/megacron.nix

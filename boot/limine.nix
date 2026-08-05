@@ -1,6 +1,3 @@
-# NOTE: [systemd-analyze time] will show the time it takes to boot
-# NOTE: [systemd-analyze critical-chain] shows path units in userscpace
-# NOTE: [systemd-analyze plot > plot.svg] to create a graphical visualization
 {
   pkgs,
   config,
@@ -9,9 +6,15 @@
 {
   boot = {
     loader = {
-      systemd-boot = {
+      limine = {
         enable = true;
-        netbootxyz.enable = false;
+        style = {
+          wallpapers = [
+            "${../media/wallpapers/optilast.jpg}"
+            #"${../media/wallpapers/carafe_rainbow.png}"
+          ];
+          wallpaperStyle = "centered"; # INFO: centered || stretched || tiled
+        };
       };
 
       efi.canTouchEfiVariables = true;
