@@ -8,13 +8,23 @@
 }:
 {
   boot = {
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "optimus";
+      # INFO: https://github.com/adi1090x/plymouth-themes
+      # INFO: Favs: circuit colorful_loop darth_vader ironman optimus
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override { selected_themes = [ "optimus" ]; })
+      ];
+    };
+
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
+
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {

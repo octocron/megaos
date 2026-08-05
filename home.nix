@@ -1,9 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
-{
+{ username, ... }: {
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
