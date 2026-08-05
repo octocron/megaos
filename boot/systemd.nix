@@ -10,6 +10,9 @@
   boot = {
     plymouth = {
       enable = true;
+      extraConfig = ''
+        DeviceScale=1
+      '';
       theme = "optimus";
       # INFO: https://github.com/adi1090x/plymouth-themes
       # INFO: Favs: circuit colorful_loop darth_vader ironman optimus
@@ -26,12 +29,22 @@
     };
 
     loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      limine = {
         enable = true;
-        netbootxyz.enable = false;
+        style = {
+          wallpapers = [
+            "${../media/wallpapers/optilast.jpg}"
+          ];
+          wallpaperStyle = "stretched"; # INFO: centered || stretched || tiled
+        };
       };
+
+      efi.canTouchEfiVariables = true;
       timeout = 20;
+      # systemd-boot = {
+      #   enable = true;
+      #   netbootxyz.enable = false;
+      # };
     };
     binfmt = {
       # INFO: for testing pi with build-vm
