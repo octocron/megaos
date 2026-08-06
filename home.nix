@@ -1,4 +1,12 @@
-{ username, ... }: {
+{
+  config,
+  username,
+  ...
+}:
+let
+  pubkey = "${config.home.homeDirectory}/.ssh/id_${config.home.username}.pub";
+in
+{
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
@@ -30,6 +38,16 @@
         source = ./home/vim;
         recursive = true;
       };
+    };
+
+    activation = {
+      allowedSigners = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        echo "* $(cat ${pubkey})" > ${config.home.homeDirectory}/.ssh/allowed_signers
+      '';
+
+      authorized_keys = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        echo "* $(cat ${pubkey})" > ${config.home.homeDirectory}/.ssh/authorized_keys
+      '';
     };
   };
 
