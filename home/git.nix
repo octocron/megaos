@@ -43,6 +43,12 @@
             default = "current";
             autoSetupRemote = true;
           };
+
+          gpg.format = "ssh";
+
+          "gpg \"ssh\"" = {
+            allowedSignersFile = "/home/${username}/.ssh/allowed_signers";
+          };
         };
       };
     };
