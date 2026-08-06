@@ -9,11 +9,22 @@
       limine = {
         enable = true;
         style = {
+          graphicalTerminal = {
+            background = "81212121";
+            foreground = "FFAA00";
+            font.scale = "2x2";
+          };
+
+          interface = {
+            branding = "megaOS by megacron";
+            #brandingColor = "#EE4400";
+          };
+
+          wallpaperStyle = "centered"; # INFO: centered || stretched || tiled
           wallpapers = [
             "${../media/wallpapers/optilast.jpg}"
-            #"${../media/wallpapers/carafe_rainbow.png}"
+            "${../media/wallpapers/carafe_rainbow.png}"
           ];
-          wallpaperStyle = "centered"; # INFO: centered || stretched || tiled
         };
       };
 
