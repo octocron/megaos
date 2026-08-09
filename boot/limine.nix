@@ -10,20 +10,21 @@
         enable = true;
         style = {
           graphicalTerminal = {
-            background = "81212121";
+            background = "65000000";
             foreground = "FFAA00";
-            font.scale = "2x2";
+            font.scale = "1x1";
           };
 
           interface = {
             branding = "megaOS by megacron";
-            #brandingColor = "#EE4400";
+            brandingColor = 5;
+            #helpColorBright = 1;
           };
 
-          wallpaperStyle = "centered"; # INFO: centered || stretched || tiled
+          wallpaperStyle = "stretched"; # INFO: centered || stretched || tiled
           wallpapers = [
-            "${../media/wallpapers/optilast.jpg}"
-            "${../media/wallpapers/carafe_rainbow.png}"
+            #"${../media/wallpapers/frieren.jpg}"
+            "${../media/wallpapers/tanjiro.jpg}"
           ];
         };
       };
@@ -47,6 +48,7 @@
 
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "v4l2loopback" ];
+    kernelParams = [ "quiet" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;

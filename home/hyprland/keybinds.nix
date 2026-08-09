@@ -47,7 +47,7 @@ _: {
       "$mainMod ALT,D,exec,pseudo" # Dwindle
       "$mainMod ALT,G,exec,gparted"
       "$mainMod ALT,M,exec,uwsm app -- modrinth-app"
-      "$mainMod ALT,P,exec,pavucontrol"
+      "$mainMod ALT,P,exec,pwvucontrol"
       "$mainMod ALT,F,workspaceopt, allfloat"
       "$mainMod ALT, left, swapwindow,l"
       "$mainMod ALT, right, swapwindow,r"

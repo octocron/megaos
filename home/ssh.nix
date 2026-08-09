@@ -5,14 +5,22 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
+      # extraConfig = ''
+      #   UseKeychain yes
+      # '';
+
       matchBlocks = {
         "*" = {
-          addKeysToAgent = "yes";
           user = username;
           identitiesOnly = true;
           identityFile = [
             "~/.ssh/id_${username}"
           ];
+
+          addKeysToAgent = "yes";
+          forwardAgent = false;
+          serverAliveInterval = 60;
+          serverAliveCountMax = 3;
         };
 
         "lockdown" = {

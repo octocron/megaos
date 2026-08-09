@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{ inputs, ... }: {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -395,7 +394,7 @@
         visualizerType = "linear";
         mprisBlacklist = [ ];
         preferredPlayer = "";
-        externalMixer = "pwvucontrol || pavucontrol";
+        externalMixer = "pwvucontrol";
       };
       brightness = {
         brightnessStep = 5;

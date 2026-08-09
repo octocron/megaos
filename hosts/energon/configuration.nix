@@ -180,8 +180,6 @@
       configDir = "/home/${username}/.config/syncthing";
     };
 
-    unbound.enable = false;
-
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" ];

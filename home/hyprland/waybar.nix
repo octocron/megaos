@@ -66,7 +66,7 @@ in
           on-scroll-down = "hyprctl dispatch workspace e-1";
         };
         "clock" = {
-          format = '' {:L%H:%M}''; # '' {:L%I:%M %p}'' for 12h clock
+          format = " {:L%H:%M}"; # '' {:L%I:%M %p}'' for 12h clock
           tooltip = true;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
         };
@@ -180,7 +180,7 @@ in
               ""
             ];
           };
-          on-click = "sleep 0.1 && hyprctl dispatch exec pavucontrol";
+          on-click = "sleep 0.1 && hyprctl dispatch exec pwvucontrol";
           on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
           on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };

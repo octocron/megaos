@@ -20,7 +20,6 @@
       nix-output-monitor
       nvd
       parted
-      sddm-astronaut
       uwsm # universal wayland session manager
       vim
       wget

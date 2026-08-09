@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # apps
     audacity
@@ -97,7 +96,7 @@
     nix-melt # Rust: ranger-like flake.lock viewer
     nurl # Rust: ↑ fetch hash from repo url
     papirus-icon-theme # for qt
-    pavucontrol # C: gtk audio gui
+    pwvucontrol # C: gtk audio gui
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
     pcmanfm-qt # for qt
     pinentry-gtk2
