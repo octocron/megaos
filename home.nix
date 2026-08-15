@@ -17,10 +17,10 @@ in
     };
 
     file = {
-      ".config/starship.toml".source = ./home/starship.toml;
+      ".config/starship.toml".source = ./home/cli/starship.toml;
 
       ".config/vim" = {
-        source = ./home/vim;
+        source = ./home/cli/vim;
         recursive = true;
       };
     };

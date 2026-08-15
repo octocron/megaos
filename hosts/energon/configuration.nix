@@ -208,7 +208,6 @@
       wireplumber.enable = true;
     };
 
-    podman.enable = true;
     # steam-servers = {
     #   satisfactory = {
     #     enable = true;
