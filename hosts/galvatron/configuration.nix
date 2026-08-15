@@ -1,5 +1,4 @@
 {
-  desktop,
   pkgs,
   username,
   ...
@@ -57,6 +56,11 @@
       enableSSHSupport = true;
     };
 
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+
     mtr.enable = true;
 
     nh = {
@@ -83,10 +87,6 @@
 
   #-----------------------SERVICES-----------------------#
   services = {
-    # Desktop services
-    hyprland.enable = desktop == "hyprland";
-    niri.enable = desktop == "niri";
-
     # List services that should be enabled:
     fstrim.enable = true; # ssd optimizer
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
@@ -108,7 +108,6 @@
       };
     };
 
-    caddy.enable = false;
     minecraft.enable = false;
 
     openssh = {

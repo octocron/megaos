@@ -1,0 +1,22 @@
+{
+  imports = [
+    ./fastfetch/fastfetch.nix
+    ./bat.nix
+    ./cava.nix
+    ./git.nix
+    ./mpd.nix
+    ./nixSearchTV.nix
+    ./nnn.nix
+    #./ollama.nix
+    ./packages.nix
+    ./rmpc.nix
+    ./sops.nix
+    ./ssh.nix
+    ./tealdeer.nix
+    ./ticker.nix
+    ./tmux.nix
+    ./udiskie.nix
+    ./yazi.nix
+    ./zsh.nix
+  ];
+}

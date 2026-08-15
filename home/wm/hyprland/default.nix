@@ -2,7 +2,8 @@
   #----------Hyprland Configurations----------#
   imports = [
     ./animations.nix
-    ./env.nix
+    ./environment.nix
+    ./hm.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix

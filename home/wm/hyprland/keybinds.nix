@@ -8,7 +8,6 @@
       "$mainMod,B,exec,uwsm app -- brave"
       "$mainMod,C,exec,hyprpicker -a"
       "$mainMod,D,exec,uwsm app -- discord"
-      "$mainMod,E,exec,emopicker9000"
       "$mainMod,F,fullscreen,"
       "$mainMod,G,exec,uwsm app -- gimp"
       "$mainMod,K,exec,list-keybinds"

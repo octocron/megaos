@@ -82,10 +82,39 @@
     in
     {
       nixosConfigurations = {
+        # INFO: Gaming Rig
+        energon = nixpkgs.lib.nixosSystem {
+          specialArgs = commonSpecialArgs // {
+            hostname = "energon";
+          };
+          modules = [
+            ./hosts/energon/configuration.nix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
+            {
+              home-manager = {
+                extraSpecialArgs = personalArgs // {
+                  hostname = "energon";
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username}.imports = [
+                  ./home.nix
+                  ./home/gui
+                  ./home/wm/hyprland
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
+            }
+          ];
+        };
+
+        # INFO: Test Gaming Rig
         galvatron = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs // {
             hostname = "galvatron";
-            desktop = "hyprland";
           };
           modules = [
             ./hosts/galvatron/configuration.nix
@@ -98,40 +127,14 @@
               home-manager = {
                 extraSpecialArgs = personalArgs // {
                   hostname = "galvatron";
-                  desktop = "hyprland";
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 users.${username}.imports = [
                   ./home.nix
-                  sops-nix.homeManagerModules.sops
-                ];
-              };
-            }
-          ];
-        };
-        energon = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "energon";
-            desktop = "hyprland";
-          };
-          modules = [
-            ./hosts/energon/configuration.nix
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-            nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
-            {
-              home-manager = {
-                extraSpecialArgs = personalArgs // {
-                  hostname = "energon";
-                  desktop = "hyprland";
-                };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${username}.imports = [
-                  ./home.nix
+                  ./home/gui
+                  ./home/wm/hyprland
                   sops-nix.homeManagerModules.sops
                 ];
               };

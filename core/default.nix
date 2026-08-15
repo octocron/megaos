@@ -1,7 +1,7 @@
 _: {
   #----------NixOS Core------------#
   imports = [
-    ./env.nix
+    ./environment.nix
     ./fonts.nix
     ./i18n.nix
     ./networking.nix
