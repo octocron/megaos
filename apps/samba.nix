@@ -1,7 +1,6 @@
 {
-  config,
-  lib,
   pkgs,
+  username,
   ...
 }:
 {
@@ -15,6 +14,13 @@
         global = {
           "server smb encrypt" = "required";
           "server min protocol" = "SMB3";
+        };
+
+        documents = {
+          path = "/home/${username}/Documents/windows";
+          "read only" = "no";
+          browseable = "yes";
+          "valid users" = "${username}";
         };
       };
     };
