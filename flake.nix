@@ -141,6 +141,33 @@
             }
           ];
         };
+
+        # INFO: Gaming Rig
+        ironhide = nixpkgs.lib.nixosSystem {
+          specialArgs = commonSpecialArgs // {
+            hostname = "ironhide";
+          };
+          modules = [
+            ./hosts/energon/configuration.nix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
+            {
+              home-manager = {
+                extraSpecialArgs = personalArgs // {
+                  hostname = "ironhide";
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username}.imports = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
+            }
+          ];
+        };
       };
     };
 }

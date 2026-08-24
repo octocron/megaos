@@ -1,10 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}:
-{
-  # still need to $ sudo smbpasswd -a $username
+{ pkgs, ... }: {
+  # still need to $ sudo smbpasswd -a <username>
   services = {
     samba = {
       package = pkgs.samba;
@@ -14,13 +9,6 @@
         global = {
           "server smb encrypt" = "required";
           "server min protocol" = "SMB3";
-        };
-
-        documents = {
-          path = "/home/${username}/Documents/windows";
-          "read only" = "no";
-          browseable = "yes";
-          "valid users" = "${username}";
         };
       };
     };

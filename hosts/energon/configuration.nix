@@ -10,10 +10,12 @@
     ./hardware-configuration.nix
     ./nebula.nix
 
-    ../../apps/podman.nix
-    ../../apps/samba.nix
     ../../apps/sddm.nix
     ../../apps/sops.nix
+
+    ../../containers/podman.nix
+    ../../containers/samba.nix
+    ../../containers/windows.nix
 
     ../../boot/limine.nix
     ../../core

@@ -7,8 +7,6 @@
       discord
       davinci-resolve
       gimp
-      godot_4
-      gparted
       mpv
       #modrinth-app
       mullvad-vpn

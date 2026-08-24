@@ -1,28 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}:
-{
-  environment.systemPackages = with pkgs; [
-    podman-compose
-  ];
-
+{ username, ... }: {
   virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-        flags = [
-          "--filter=until=24h"
-          "--filter=label!=important"
-        ];
-      };
-      defaultNetwork.settings.dns_enabled = true;
-    };
-
     # INFO: sudo systemctl start podman-windows or stop when done.
     # INFO: http://localhost:8006
     oci-containers = {
@@ -51,6 +28,20 @@
         extraOptions = [
           "--device=/dev/kvm"
         ];
+      };
+    };
+  };
+
+  # still need to $ sudo smbpasswd -a <username>
+  services = {
+    samba = {
+      settings = {
+        documents = {
+          path = "/home/${username}/Documents/windows";
+          "read only" = "no";
+          browseable = "yes";
+          "valid users" = "${username}";
+        };
       };
     };
   };

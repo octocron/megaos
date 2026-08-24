@@ -54,9 +54,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Ensure steamcmd is installed
-    environment.systemPackages = [ pkgs.steamcmd ];
-
     # Create Steam User & Group
     users = {
       groups.${cfg.groups} = { };
