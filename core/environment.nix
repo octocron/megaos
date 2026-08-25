@@ -22,16 +22,5 @@
       wget
       zsh
     ];
-
-    variables = {
-      PATH = [
-        "\${HOME}/.local/bin"
-        "\${HOME}/.cargo/bin"
-        "\$/usr/local/bin"
-      ];
-
-      SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
-      STARSHIP_CONFIG = "\${HOME}/.config/starship.toml";
-    };
   };
 }

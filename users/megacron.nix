@@ -1,6 +1,5 @@
 {
   config,
-  gitUsername,
   pkgs,
   username,
   ...
@@ -15,7 +14,7 @@
         homeMode = "755";
         linger = true; # NOTE: for restarting ollama service after reboot
         isNormalUser = true;
-        description = "${gitUsername}";
+        description = username;
         extraGroups = [
           "audio"
           "docker"
@@ -29,7 +28,6 @@
         hashedPasswordFile = config.sops.secrets.passwordHash.path;
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7Nb8wXQWd9H69U6TzPoE1MJDzUbGZSwwJCaXBvzgdb megacron"
-          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG++DllhoaxmTnSQ155B0dgEbRO+XHsXP8a3znDm8YesXYcct+cDvV1ysf7HEP/9jaQmrbOSXKtdC1bA3fYU4mk= drift"
         ];
       };
     };

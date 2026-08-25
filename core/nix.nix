@@ -1,9 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
-{
+{ username, ... }: {
   #-----------------NIX-OPTIMIZATIONS------------------#
   nix = {
     nrBuildUsers = 64;

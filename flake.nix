@@ -148,7 +148,7 @@
             hostname = "ironhide";
           };
           modules = [
-            ./hosts/energon/configuration.nix
+            ./hosts/ironhide/configuration.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
@@ -160,6 +160,42 @@
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                users.${username}.imports = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
+            }
+          ];
+        };
+
+        # INFO: DigitalOcean VPS
+        # INFO: nix build .#nixosConfigurations.scorponok.config.system.build.digitalOceanImage
+        # INFO: Rebuilds: nixos-rebuild switch --flake .#scorponok --target-host root@<scorponok-ip>
+        scorponok = nixpkgs.lib.nixosSystem {
+          specialArgs = commonSpecialArgs // {
+            hostname = "scorponok";
+          };
+
+          modules = [
+            ./hosts/scorponok/configuration.nix
+
+            # NOTE: DigitalOcean image + runtime configuration
+            "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix"
+
+            home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
+
+            {
+              home-manager = {
+                extraSpecialArgs = personalArgs // {
+                  hostname = "scorponok";
+                };
+
+                useGlobalPkgs = true;
+                useUserPackages = true;
+
                 users.${username}.imports = [
                   ./home.nix
                   sops-nix.homeManagerModules.sops
