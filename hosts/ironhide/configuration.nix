@@ -12,7 +12,7 @@
   #----------------------NixOS-MODULES-----------------#
   imports = [
     ./disko.nix
-    #./nebula.nix
+    ./nebula.nix
     ../../apps/sops.nix
     ../../drivers
   ];
@@ -28,7 +28,7 @@
     supportedFilesystems = [ "zfs" ];
     zfs = {
       devNodes = "/dev/disk/by-id";
-      extraPools = [ ];
+      extraPools = [ "vault" ];
     };
   };
 

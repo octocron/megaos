@@ -75,6 +75,44 @@
           };
         };
       };
+
+      vault0 = {
+        type = "disk";
+        # NOTE: ls -l /dev/disk/by-id/ | grep -E 'ata-|wwn-'
+        device = "/dev/disk/by-id/ata-ST12000VN0008-2PH103_ZTN1D2MF";
+        content = {
+          type = "gpt";
+
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "vault";
+              };
+            };
+          };
+        };
+      };
+
+      vault1 = {
+        type = "disk";
+        # NOTE: ls -l /dev/disk/by-id/ | grep -E 'ata-|wwn-'
+        device = "/dev/disk/by-id/ata-ST12000VN0008-2PH103_ZTN19ERQ";
+        content = {
+          type = "gpt";
+
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "vault";
+              };
+            };
+          };
+        };
+      };
     };
 
     zpool = {
@@ -107,6 +145,37 @@
         rootFsOptions = {
           compression = "zstd";
           recordsize = "128K";
+          atime = "off";
+          xattr = "sa";
+          acltype = "posixacl";
+        };
+      };
+
+      vault = {
+        type = "zpool";
+        mode = {
+          topology = {
+            type = "topology";
+            vdev = [
+              {
+                mode = "mirror";
+                members = [
+                  "vault0"
+                  "vault1"
+                ];
+              }
+            ];
+          };
+        };
+
+        options = {
+          ashift = "12";
+        };
+
+        rootFsOptions = {
+          mountpoint = "none";
+          compression = "zstd";
+          recordsize = "1M";
           atime = "off";
           xattr = "sa";
           acltype = "posixacl";
