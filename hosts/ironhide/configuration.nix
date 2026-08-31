@@ -14,6 +14,7 @@
     ./disko.nix
     #./nebula.nix
     #../../apps/sops.nix
+    ../../drivers
   ];
 
   #-----------------------BOOT-------------------------#
