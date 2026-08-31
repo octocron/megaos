@@ -210,16 +210,6 @@
       wireplumber.enable = true;
     };
 
-    # steam-servers = {
-    #   satisfactory = {
-    #     enable = true;
-    #     autoStart = false;
-    #     experimental = false;
-    #     installDir = "/var/lib/satisfactory";
-    #     openFirewall = false; # false when using nebula
-    #   };
-    # };
-
     printing.enable = false;
     pulseaudio.enable = false;
 

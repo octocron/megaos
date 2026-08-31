@@ -12,6 +12,7 @@
     users = {
       "${username}" = {
         homeMode = "755";
+        uid = 1000;
         linger = true; # NOTE: for restarting ollama service after reboot
         isNormalUser = true;
         description = username;

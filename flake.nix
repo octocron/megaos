@@ -142,7 +142,7 @@
           ];
         };
 
-        # INFO: Gaming Rig
+        # INFO: NixOS Server
         ironhide = nixpkgs.lib.nixosSystem {
           specialArgs = commonSpecialArgs // {
             hostname = "ironhide";

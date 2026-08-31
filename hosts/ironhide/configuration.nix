@@ -1,25 +1,42 @@
 {
+  config,
   pkgs,
+  hostname,
   username,
+  theLocale,
+  theTimezone,
   ...
 }:
 {
   system.stateVersion = "26.05";
   #----------------------NixOS-MODULES-----------------#
   imports = [
-    ./hardware-configuration.nix
-    ./nebula.nix
-
+    ./disko.nix
+    #./nebula.nix
     ../../apps/sops.nix
-
-    ../../containers/podman.nix
-    ../../containers/samba.nix
-
-    ../../boot/limine.nix
-    ../../core
-    ../../drivers
-    ../../users/megacron.nix
   ];
+
+  #-----------------------BOOT-------------------------#
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    initrd.supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "zfs" ];
+    zfs = {
+      devNodes = "/dev/disk/by-id";
+      extraPools = [ ];
+    };
+  };
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    swapDevices = 1;
+  };
 
   #-----------------------DRIVERS----------------------#
   drivers = {
@@ -32,46 +49,110 @@
   #-----------------------ENVIRONMENT------------------#
   environment = {
     systemPackages = with pkgs; [
-      steamcmd
+      curl
+      file
+      git
+      nebula # GO: overlay mesh network
+      vim
+      wget
+      zsh
     ];
 
     sessionVariables = {
     };
   };
 
-  #-----------------------HARDWARE---------------------#
-  hardware = {
-    bluetooth = {
+  #------------------FONTS-SYSTEM-WIDE------------------#
+  fonts = {
+    fontconfig = {
       enable = true;
-      powerOnBoot = true;
+      defaultFonts = {
+        monospace = [
+          "Maple Mono"
+          "Noto Sans Mono"
+        ];
+        emoji = [ "Noto Color Emoji" ];
+      };
     };
 
-    # NOTE: used to opengl
-    graphics = {
-      enable = true;
-      enable32Bit = false;
-    };
+    packages = with pkgs; [
+      maple-mono.opentype
+      nerd-fonts.symbols-only
+      nerd-fonts.noto
+      noto-fonts-color-emoji
+    ];
+  };
 
-    enableRedistributableFirmware = true;
+  #-----------------INTERNATIONALISATION----------------#
+  console.keyMap = "us";
+  time.timeZone = theTimezone;
+  i18n.defaultLocale = theLocale;
+
+  #-------------------NETWORKING------------------------#
+  networking = {
+    # INFO: head -c4 /dev/urandom | od -A none -t x4
+    hostId = "8a1d156e";
+    hostName = hostname; # Defines hostname.
+    nftables.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        22
+      ];
+
+      allowedUDPPorts = [
+        4242
+      ];
+
+      trustedInterfaces = [
+        #"nebula.megaport"
+      ];
+    };
+  };
+
+  #-------------------NIX-----------------------------#
+  nix = {
+    settings = {
+      warn-dirty = false;
+      auto-optimise-store = true;
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      allowed-users = [
+        "root"
+        "${username}"
+        "@wheel"
+      ];
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+    };
+  };
+
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
+    config.allowUnfree = true;
   };
 
   #-----------------------PROGRAMS-----------------------#
   programs = {
     mtr.enable = true;
 
-    nh = {
-      enable = true;
-      flake = "/home/${username}/projects/megaos";
-      clean = {
-        enable = true;
-        extraArgs = "--keep-since 40d --keep 10";
-      };
-    };
-
-    ssh.startAgent = true;
-
     zsh = {
       enable = true;
+    };
+  };
+
+  #-----------------------SECURITY-----------------------#
+  security = {
+    polkit.enable = true;
+
+    sudo = {
+      enable = true;
+      execWheelOnly = true;
+      wheelNeedsPassword = false;
     };
   };
 
@@ -87,15 +168,13 @@
       };
     };
 
-    fstrim.enable = true; # ssd optimizer
-
     openssh = {
       enable = true;
       ports = [ 22 ];
       settings = {
-        PermitRootLogin = "no"; # prevent root from SSH login
-        PasswordAuthentication = true; # users can SSH using username and password
-        KbdInteractiveAuthentication = true; # allow keyboard based auth
+        PermitRootLogin = "prohibit-password"; # prevent root from SSH login
+        PasswordAuthentication = false; # if users can SSH using username and password
+        KbdInteractiveAuthentication = false; # allow keyboard based auth
       };
     };
 
@@ -109,14 +188,45 @@
     #   };
     # };
 
-    printing.enable = false;
-    pulseaudio.enable = false;
+    zfs = {
+      autoScrub.enable = true;
+      trim.enable = true;
+    };
+  };
 
-    syncthing = {
-      enable = false;
-      user = "${username}";
-      dataDir = "/home/${username}";
-      configDir = "/home/${username}/.config/syncthing";
+  #-----------------------SYSTEMD----------------------------#
+  systemd = {
+    # INFO: give more time for services to shutdown gracefully
+    settings.Manager = {
+      DefaultTimeoutStopSec = "10s";
+    };
+    services = {
+      # INFO: optimise nix builders (keep from running out of memory)
+      nix-daemon.serviceConfig = {
+        MemoryAccounting = true;
+        MemoryMax = "90%";
+        OOMScoreAdjust = 500;
+      };
+    };
+  };
+
+  #-----------------------USERS----------------------------#
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users = {
+      "${username}" = {
+        homeMode = "755";
+        uid = 1000;
+        isNormalUser = true;
+        description = username;
+        extraGroups = [
+          "wheel"
+        ];
+        hashedPasswordFile = config.sops.secrets.passwordHash.path;
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7Nb8wXQWd9H69U6TzPoE1MJDzUbGZSwwJCaXBvzgdb megacron"
+        ];
+      };
     };
   };
 }
