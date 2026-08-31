@@ -13,7 +13,7 @@
   imports = [
     ./disko.nix
     #./nebula.nix
-    #../../apps/sops.nix
+    ../../apps/sops.nix
     ../../drivers
   ];
 
@@ -225,8 +225,8 @@
         ];
 
         # NOTE: mkpasswd -m sha-512
-        hashedPassword = "$6$MWayoxSTtPM9Q5rM$tB4FmVIjQ0WhycIHpeWhFl4lPM6xqjzvIrh64CmccxxzWS7ULvhh83qGLXCoY7AH5CrSZjwWPZQdF2olpcSeJ1";
-        #hashedPasswordFile = config.sops.secrets.passwordHash.path;
+        #hashedPassword = "$6$MWayoxSTtPM9Q5rM$tB4FmVIjQ0WhycIHpeWhFl4lPM6xqjzvIrh64CmccxxzWS7ULvhh83qGLXCoY7AH5CrSZjwWPZQdF2olpcSeJ1";
+        hashedPasswordFile = config.sops.secrets.passwordHash.path;
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7Nb8wXQWd9H69U6TzPoE1MJDzUbGZSwwJCaXBvzgdb megacron"
         ];
