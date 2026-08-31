@@ -4,7 +4,7 @@
       nvme0 = {
         type = "disk";
         # NOTE: ls -l /dev/disk/by-id/
-        device = "/dev/disk/by-id/nvme-SERIAL_1";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_9100_PRO_2TB_S7YCNJ0L202954P";
 
         content = {
           type = "gpt";
@@ -37,7 +37,7 @@
       nvme1 = {
         type = "disk";
         # NOTE: ls -l /dev/disk/by-id/
-        device = "/dev/disk/by-id/nvme-SERIAL_2";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_9100_PRO_2TB_S7YCNJ0L202994E";
 
         content = {
           type = "gpt";
@@ -58,7 +58,7 @@
       nvme2 = {
         type = "disk";
         # NOTE: ls -l /dev/disk/by-id/
-        device = "/dev/disk/by-id/nvme-SERIAL_3";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_9100_PRO_2TB_S7YCNJ0L203102B";
 
         content = {
           type = "gpt";
