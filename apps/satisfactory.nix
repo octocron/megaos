@@ -52,9 +52,8 @@ in
       description = "Use the experimental branch of the server";
     };
   };
-
   config = mkIf cfg.enable {
-    # Create Steam User & Group
+    # INFO: Create Steam User & Group
     users = {
       groups.${cfg.groups} = { };
       users.${cfg.user} = {
@@ -66,12 +65,16 @@ in
       };
     };
 
-    # Systemd service for Satisfactory
+    # INFO: systemd service
     systemd.services.satisfactory = {
       description = "Satisfactory Dedicated Server";
       wantedBy = mkIf cfg.autoStart [ "multi-user.target" ];
-      after = [ "network-online.target" ];
+      after = [
+        "network-online.target"
+        "nebula@megaport.service"
+      ];
       requires = [ "network-online.target" ];
+      wants = [ "nebula@megaport.service" ];
       serviceConfig = {
         User = cfg.user;
         Group = cfg.groups;
@@ -90,7 +93,7 @@ in
           ${pkgs.steam-run}/bin/steam-run ${cfg.installDir}/FactoryServer.sh \
             -Port=${toString cfg.port} \
             -ReliablePort=${toString cfg.reliablePort} \
-            -ServerQueryIP=127.0.0.1 \
+            -ExternalReliablePort=${toString cfg.reliablePort} \
             -unattended
         '';
         # Ensure proper cleanup on stop
@@ -101,7 +104,6 @@ in
         TimeoutStopSec = 300;
       };
     };
-
     # TODO: Setup an rsync to backup save data 🙂
   };
 }

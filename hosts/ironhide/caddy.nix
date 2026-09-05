@@ -1,0 +1,57 @@
+{
+  config,
+  gitEmail,
+  pkgs,
+  ...
+}:
+{
+  services.caddy = {
+    enable = true;
+    email = gitEmail;
+    package = pkgs.caddy.withPlugins {
+      plugins = [
+        "github.com/caddy-dns/cloudflare@v0.2.4"
+      ];
+
+      hash = "sha256-bzMqxWTqrJ1skZmRTXyEMCKStXpljbqe5r0Ve2cnBfM=";
+    };
+
+    environmentFile = config.sops.templates."caddy-env".path;
+
+    globalConfig = ''
+      acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    '';
+
+    virtualHosts = {
+      "*.megaport.cc" = {
+        extraConfig = ''
+          tls {
+            dns cloudflare {
+              api_token {env.CLOUDFLARE_API_TOKEN}
+            }
+          }
+        '';
+      };
+
+      "satisfactory.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 0.0.0.0:7777
+        '';
+      };
+    };
+  };
+
+  sops = {
+    secrets.CF_API_TOKEN = {
+      owner = "caddy";
+      group = "caddy";
+      mode = "0400";
+    };
+
+    templates."caddy-env" = {
+      content = ''
+        CLOUDFLARE_API_TOKEN=${config.sops.placeholder.CF_API_TOKEN}
+      '';
+    };
+  };
+}

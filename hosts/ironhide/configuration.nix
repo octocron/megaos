@@ -11,8 +11,10 @@
   system.stateVersion = "26.05";
   #----------------------NixOS-MODULES-----------------#
   imports = [
+    ./caddy.nix
     ./disko.nix
     ./nebula.nix
+    ../../apps/satisfactory.nix
     ../../apps/sops.nix
     ../../drivers
   ];
@@ -205,15 +207,15 @@
       };
     };
 
-    # steam-servers = {
-    #   satisfactory = {
-    #     enable = true;
-    #     autoStart = false;
-    #     experimental = false;
-    #     installDir = "/var/lib/satisfactory";
-    #     openFirewall = false; # false when using nebula
-    #   };
-    # };
+    steam-servers = {
+      satisfactory = {
+        enable = true;
+        autoStart = true;
+        experimental = false;
+        installDir = "/var/lib/satisfactory";
+        openFirewall = false; # NOTE: false when using vpn
+      };
+    };
 
     zfs = {
       autoScrub.enable = true;
