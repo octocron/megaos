@@ -5,6 +5,7 @@
     appimage-run # Bash: Support App Images
     bibata-cursors
     #coppwr # Rust: manage pipewire gui
+    code-cursor
     ffmpegthumbnailer # C++: lightweight video thumbnailer
     grim # C: screenshots
     imagemagick # C: edit compose convert images

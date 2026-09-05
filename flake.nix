@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hermes-agent.url = "github:NousResearch/hermes-agent";
     hyprland.url = "github:hyprwm/Hyprland";
     megavim.url = "gitlab:megacron/megavim?ref=nixvim";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -45,6 +46,7 @@
       darkmatter-grub-theme,
       disko,
       home-manager,
+      hermes-agent,
       hyprland,
       megavim,
       nix-minecraft,
@@ -151,6 +153,7 @@
           modules = [
             ./hosts/ironhide/configuration.nix
             disko.nixosModules.disko
+            hermes-agent.nixosModules.default
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops

@@ -167,6 +167,17 @@
       enable = true;
       execWheelOnly = true;
       wheelNeedsPassword = false;
+      extraRules = [
+        {
+          users = [ "${username}" ];
+          commands = [
+            {
+              command = "/run/current-system/sw/bin/podman";
+              options = [ "NOPASSWD" ];
+            }
+          ];
+        }
+      ];
     };
   };
 
