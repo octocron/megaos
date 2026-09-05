@@ -10,6 +10,7 @@
       "$mainMod,D,exec,uwsm app -- discord"
       "$mainMod,F,fullscreen,"
       "$mainMod,G,exec,uwsm app -- gimp"
+      "$mainMod,H,exec,uwsm app -- hermes"
       "$mainMod,K,exec,list-keybinds"
       "$mainMod,M,exec,uwsm app -- prismlauncher"
       "$mainMod,O,exec,uwsm app -- obs"
@@ -43,6 +44,7 @@
       "$mainMod SHIFT,j,movewindow,d"
       #----------MOD-ALT------------------------------------>>
       "$mainMod ALT,B,exec,bazecor"
+      "$mainMod ALT,C,exec,cursor"
       "$mainMod ALT,D,exec,pseudo" # Dwindle
       "$mainMod ALT,G,exec,gparted"
       "$mainMod ALT,M,exec,uwsm app -- modrinth-app"
