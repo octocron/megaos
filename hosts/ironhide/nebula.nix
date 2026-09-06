@@ -44,6 +44,15 @@
           host = "any";
         }
         {
+          port = "any";
+          proto = "tcp";
+          groups = [
+            "admin"
+            "friend"
+            "family"
+          ];
+        }
+        {
           # Allow ssh from admins
           port = 22;
           proto = "tcp";
