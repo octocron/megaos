@@ -27,6 +27,7 @@
       efi.canTouchEfiVariables = true;
     };
 
+    # INFO: sudo zfs create -o recordsize=1M vault/movies
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
     zfs = {

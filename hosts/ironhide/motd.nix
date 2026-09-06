@@ -24,6 +24,7 @@
 
       filesystems {
         filesystem name="/" mount-point="/"
+        filesystem name="Vault" mount-point="/vault"
       }
 
       service-status {

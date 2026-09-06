@@ -173,7 +173,7 @@
         };
 
         rootFsOptions = {
-          mountpoint = "none";
+          mountpoint = "/vault";
           compression = "zstd";
           recordsize = "1M";
           atime = "off";
