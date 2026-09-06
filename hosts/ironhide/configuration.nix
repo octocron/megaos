@@ -112,6 +112,7 @@
     nftables.enable = true;
     firewall = {
       enable = true;
+      checkReversePath = "loose";
       allowedTCPPorts = [
         22
       ];
