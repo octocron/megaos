@@ -114,14 +114,20 @@
       enable = true;
       allowedTCPPorts = [
         22
-        7777
-        8888
       ];
 
       allowedUDPPorts = [
         4242
-        7777
       ];
+
+      interfaces.enp9s0 = {
+        allowedTCPPorts = [
+          7777
+          8888
+        ];
+
+        allowedUDPPorts = [ 7777 ];
+      };
 
       trustedInterfaces = [
         "nebula.megaport"
