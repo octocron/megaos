@@ -21,6 +21,10 @@
     };
 
     settings = {
+      logging = {
+        level = "debug";
+      };
+
       punchy = {
         punch = true;
         respond = true;
