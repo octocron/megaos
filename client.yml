@@ -1,0 +1,31 @@
+pki:
+  ca: /etc/nebula/ca.crt
+  cert: /etc/nebula/scorponok.crt
+  key: /etc/nebula/scorponok.key
+lighthouse:
+  am_lighthouse: false
+  hosts: []
+listen:
+  host: 0.0.0.0
+  port: 4242
+punchy:
+  punch: true
+  respond: true
+  delay: 1s
+relay:
+  am_relay: false
+  use_relays: false
+firewall:
+  outbound:
+    - port: any
+      proto: any
+      host: any
+  inbound:
+    # Nebula hosts can ping the lighthouse.
+    - port: any
+      proto: icmp
+      host: any
+    # Administrators can SSH to the lighthouse over Nebula.
+    - port: 22
+      proto: tcp
+      group: admin
