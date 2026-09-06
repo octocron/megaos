@@ -24,7 +24,6 @@
 
       filesystems {
         filesystem name="/" mount-point="/"
-        filesystem name="home" mount-point="/home"
       }
 
       service-status {
