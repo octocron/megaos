@@ -13,6 +13,7 @@
   imports = [
     ./caddy.nix
     ./disko.nix
+    ./motd.nix
     ./nebula.nix
     ../../apps/satisfactory.nix
     ../../apps/sops.nix
