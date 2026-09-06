@@ -42,65 +42,70 @@
       # NOTE: Allow traffic TO this node
       inbound = [
         {
-          # Allow icmp between any nebula hosts
           port = "any";
-          proto = "icmp";
+          proto = "any";
           host = "any";
         }
-        {
-          port = "any";
-          proto = "tcp";
-          groups = [
-            "admin"
-            "friend"
-            "family"
-          ];
-        }
-        {
-          port = "any";
-          proto = "udp";
-          groups = [
-            "admin"
-            "friend"
-            "family"
-          ];
-        }
-        {
-          # Allow ssh from admins
-          port = 22;
-          proto = "tcp";
-          groups = [ "admin" ];
-        }
-        {
-          # Satisfactory Game
-          port = 7777;
-          proto = "tcp";
-          groups = [
-            "admin"
-            "friend"
-            "family"
-          ];
-        }
-        {
-          # Satisfactory Game
-          port = 7777;
-          proto = "udp";
-          groups = [
-            "admin"
-            "friend"
-            "family"
-          ];
-        }
-        {
-          # Satisfactory Service
-          port = 8888;
-          proto = "tcp";
-          groups = [
-            "admin"
-            "friend"
-            "family"
-          ];
-        }
+        # {
+        #   # Allow icmp between any nebula hosts
+        #   port = "any";
+        #   proto = "icmp";
+        #   host = "any";
+        # }
+        # {
+        #   port = "any";
+        #   proto = "tcp";
+        #   groups = [
+        #     "admin"
+        #     "friend"
+        #     "family"
+        #   ];
+        # }
+        # {
+        #   port = "any";
+        #   proto = "udp";
+        #   groups = [
+        #     "admin"
+        #     "friend"
+        #     "family"
+        #   ];
+        # }
+        # {
+        #   # Allow ssh from admins
+        #   port = 22;
+        #   proto = "tcp";
+        #   groups = [ "admin" ];
+        # }
+        # {
+        #   # Satisfactory Game
+        #   port = 7777;
+        #   proto = "tcp";
+        #   groups = [
+        #     "admin"
+        #     "friend"
+        #     "family"
+        #   ];
+        # }
+        # {
+        #   # Satisfactory Game
+        #   port = 7777;
+        #   proto = "udp";
+        #   groups = [
+        #     "admin"
+        #     "friend"
+        #     "family"
+        #   ];
+        # }
+        # {
+        #   # Satisfactory Service
+        #   port = 8888;
+        #   proto = "tcp";
+        #   groups = [
+        #     "admin"
+        #     "friend"
+        #     "family"
+        #   ];
+        # }
       ];
 
       # NOTE: Allow traffic FROM this node
