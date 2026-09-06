@@ -57,6 +57,15 @@
           ];
         }
         {
+          port = "any";
+          proto = "udp";
+          groups = [
+            "admin"
+            "friend"
+            "family"
+          ];
+        }
+        {
           # Allow ssh from admins
           port = 22;
           proto = "tcp";
