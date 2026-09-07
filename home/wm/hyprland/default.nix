@@ -1,6 +1,7 @@
 {
   #----------Hyprland Configurations----------#
   imports = [
+    ./scripts
     ./animations.nix
     ./environment.nix
     ./hm.nix
