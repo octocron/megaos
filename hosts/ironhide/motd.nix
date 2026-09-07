@@ -67,7 +67,7 @@ in
       modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
       args = [
         "stdout"
-        rustMotd
+        "${rustMotd}"
       ];
     };
   };
