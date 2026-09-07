@@ -20,7 +20,7 @@
       };
 
       "hermes/auth.json" = {
-        format = "json";
+        format = "yaml";
       };
 
       "passwordHash" = {
