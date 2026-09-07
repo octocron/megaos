@@ -56,7 +56,7 @@ in
     }
   '';
 
-  # rust-motd is generated at SSH login, not at NixOS activation.
+  # NOTE: rust-motd is generated at SSH login
   security.pam.services.sshd = {
     showMotd = lib.mkForce false;
 
