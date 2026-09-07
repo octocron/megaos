@@ -58,7 +58,7 @@ in
 
   # rust-motd is generated at SSH login, not at NixOS activation.
   security.pam.services.sshd = {
-    showMotd = false;
+    showMotd = lib.mkForce false;
 
     rules.session.rust-motd = {
       enable = true;
