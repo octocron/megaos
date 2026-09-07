@@ -38,6 +38,12 @@
           reverse_proxy 0.0.0.0:7777
         '';
       };
+
+      "hermes.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 0.0.0.0:9119
+        '';
+      };
     };
   };
 
