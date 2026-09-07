@@ -1,8 +1,22 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }:
+let
+  rustMotd = pkgs.writeShellScript "rust-motd-login" ''
+    export PATH="${
+      lib.makeBinPath [
+        pkgs.bash
+        pkgs.figlet
+        pkgs.inetutils
+      ]
+    }:$PATH"
+
+    exec ${pkgs.rust-motd}/bin/rust-motd /etc/rust-motd.kdl
+  '';
+in
 {
   environment.systemPackages = [
     pkgs.rust-motd
@@ -34,6 +48,7 @@
         service display-name="Satisfactory" unit="satisfactory.service"
         service display-name="SSH" unit="sshd.service"
       }
+
       load-avg format="Load: {one:.02} {five:.02} {fifteen:.02}"
 
       uptime prefix="Uptime"
@@ -41,20 +56,19 @@
     }
   '';
 
-  users.motdFile = "/etc/rust-motd";
+  # rust-motd is generated at SSH login, not at NixOS activation.
+  security.pam.services.sshd = {
+    showMotd = false;
 
-  system.activationScripts.rust-motd = ''
-    PATH="${
-      lib.makeBinPath [
-        pkgs.bash
-        pkgs.systemd
-        pkgs.figlet
-        pkgs.inetutils
-      ]
-    }:$PATH"
-
-    ${pkgs.rust-motd}/bin/rust-motd \
-      /etc/rust-motd.kdl \
-      > /etc/rust-motd
-  '';
+    rules.session.rust-motd = {
+      enable = true;
+      order = 12300;
+      control = "optional";
+      modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
+      args = [
+        "stdout"
+        rustMotd
+      ];
+    };
+  };
 }

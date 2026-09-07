@@ -4,6 +4,10 @@
   ...
 }:
 {
+  sops.secrets."hermes-env" = {
+    format = "yaml";
+  };
+
   virtualisation.docker.enable = false;
   services.hermes-agent = {
     enable = true;

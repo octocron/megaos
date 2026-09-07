@@ -15,10 +15,6 @@
     age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
 
     secrets = {
-      "hermes-env" = {
-        format = "yaml";
-      };
-
       "passwordHash" = {
         owner = "root";
         group = "root";

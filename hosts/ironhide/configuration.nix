@@ -15,7 +15,7 @@
     ./disko.nix
     ./motd.nix
     ./nebula.nix
-    ../../apps/hermes.nix
+    #../../apps/hermes.nix
     ../../apps/satisfactory.nix
     ../../apps/sops.nix
     ../../drivers
