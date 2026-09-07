@@ -18,6 +18,7 @@
     ../../apps/hermes.nix
     ../../apps/satisfactory.nix
     ../../apps/sops.nix
+    ../../containers/podman.nix
     ../../drivers
   ];
 
