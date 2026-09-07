@@ -10,7 +10,7 @@
       "$mainMod,D,exec,uwsm app -- discord"
       "$mainMod,F,fullscreen,"
       "$mainMod,G,exec,uwsm app -- gimp"
-      "$mainMod,H,exec,uwsm app -- hermes"
+      "$mainMod,H,exec,uwsm app -- wezterm -e hermes"
       "$mainMod,K,exec,list-keybinds"
       "$mainMod,M,exec,uwsm app -- prismlauncher"
       "$mainMod,O,exec,uwsm app -- obs"
