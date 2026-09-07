@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   username,
   ...
 }:
@@ -99,5 +100,25 @@
     extraArgs = [ "--verbose" ];
     restart = "always";
     restartSec = 5;
+  };
+
+  # ── Keep Permissions ───────────────────────────────────────────────
+  systemd.tmpfiles.rules = [
+    "a+ /var/lib/hermes/.hermes - - - - group:hermes:r-x"
+    "a+ /var/lib/hermes/.hermes - - - - default:group:hermes:r-x"
+  ];
+
+  system.activationScripts.hermes-acl = {
+    text = ''
+      if [ -d /var/lib/hermes/.hermes ]; then
+        ${pkgs.acl}/bin/setfacl -R -m g:hermes:rX /var/lib/hermes/.hermes
+        ${pkgs.acl}/bin/setfacl -R -d -m g:hermes:rX /var/lib/hermes/.hermes
+      fi
+    '';
+
+    deps = [
+      "users"
+      "groups"
+    ];
   };
 }
