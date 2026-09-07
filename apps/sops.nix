@@ -19,10 +19,6 @@
         format = "yaml";
       };
 
-      "hermes/auth.json" = {
-        format = "yaml";
-      };
-
       "passwordHash" = {
         owner = "root";
         group = "root";

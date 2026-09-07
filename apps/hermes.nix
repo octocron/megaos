@@ -51,9 +51,6 @@
       "memories/USER.md" = ./documents/USER.md;
     };
 
-    # NOTE: used for oauth to store and can seed credentials
-    authFile = config.sops.secrets."hermes/auth.json".path;
-
     # ── MCP Servers ────────────────────────────────────────────────────
     mcpServers = {
       filesystem = {
