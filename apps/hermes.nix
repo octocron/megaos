@@ -51,19 +51,32 @@
       "memories/USER.md" = ./documents/USER.md;
     };
 
+    # NOTE: used for oauth to store and can seed credentials
+    authFile = config.sops.secrets."hermes/auth.json".path;
+
     # ── MCP Servers ────────────────────────────────────────────────────
-    mcpServers.filesystem = {
-      command = "npx";
-      args = [
-        "-y"
-        "@modelcontextprotocol/server-filesystem"
-        "/data/workspace"
-      ];
+    mcpServers = {
+      filesystem = {
+        command = "npx";
+        args = [
+          "-y"
+          "@modelcontextprotocol/server-filesystem"
+          "/data/workspace"
+        ];
+      };
+      github = {
+        command = "npx";
+        args = [
+          "-y"
+          "@modelcontextprotocol/server-github"
+        ];
+        env.GITHUB_PERSONAL_ACCESS_TOKEN = "\${GITHUB_TOKEN}";
+      };
     };
 
     # ── Container options ──────────────────────────────────────────────
     container = {
-      image = "ubuntu:24.04";
+      image = "ubuntu:26.04";
       backend = "podman";
       hostUsers = [ "${username}" ];
       extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];

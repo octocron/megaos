@@ -29,6 +29,7 @@
 
       service-status {
         service display-name="Caddy" unit="caddy.service"
+        service display-name="Hermes" unit="hermes-agent.service"
         service display-name="Nebula" unit="nebula@megaport.service"
         service display-name="Satisfactory" unit="satisfactory.service"
         service display-name="SSH" unit="sshd.service"

@@ -1,6 +1,3 @@
-# This is the nebula example configuration file. You must edit, at a minimum, the static_host_map, lighthouse, and firewall sections
-# Some options in this file are HUPable, including the pki section. (A HUP will reload credentials from disk without affecting existing tunnels)
-# PKI defines the location of credentials for this node. Each of these can also be inlined by using the yaml ": |" syntax.
 pki:
   ca: /etc/nebula/ca.crt
   cert: /etc/nebula/blackout.crt
