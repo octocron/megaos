@@ -5,8 +5,21 @@
   ...
 }:
 {
-  sops.secrets."hermes-env" = {
-    format = "yaml";
+  sops = {
+    secrets = {
+      "hermes-env" = { };
+      "hermes-dashboard-username" = { };
+      "hermes-dashboard-password" = { };
+      "hermes-dashboard-secret" = { };
+    };
+
+    templates."hermes-dashboard-env" = {
+      content = ''
+        HERMES_DASHBOARD_BASIC_AUTH_USERNAME=${config.sops.placeholder."hermes-dashboard-username"}
+        HERMES_DASHBOARD_BASIC_AUTH_PASSWORD=${config.sops.placeholder."hermes-dashboard-password"}
+        HERMES_DASHBOARD_BASIC_AUTH_SECRET=${config.sops.placeholder."hermes-dashboard-secret"}
+      '';
+    };
   };
 
   virtualisation.docker.enable = false;
@@ -52,7 +65,10 @@
     ];
 
     # ── Secrets ────────────────────────────────────────────────────────
-    environmentFiles = [ config.sops.secrets."hermes-env".path ];
+    environmentFiles = [
+      config.sops.secrets."hermes-env".path
+      config.sops.templates."hermes-dashboard-env".path
+    ];
 
     # ── Documents ──────────────────────────────────────────────────────
     workingDirectory = "/var/lib/hermes/workspace";
@@ -120,5 +136,18 @@
       "users"
       "groups"
     ];
+  };
+
+  # ── hermes serve (dashboard/desktop backend) ─────────────────────────────
+  systemd.services.hermes-serve = {
+    description = "Hermes Agent Dashboard (hermes serve)";
+    after = [ "hermes-agent.service" ];
+    requires = [ "hermes-agent.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.podman}/bin/podman exec hermes-agent /data/current-package/bin/hermes serve --host 0.0.0.0 --port 9119";
+      Restart = "always";
+      RestartSec = 10;
+    };
   };
 }

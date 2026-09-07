@@ -119,6 +119,7 @@
       checkReversePath = "loose";
       allowedTCPPorts = [
         22
+        9119 # hermes dashboard/desktop
       ];
 
       allowedUDPPorts = [
