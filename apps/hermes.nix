@@ -25,7 +25,7 @@
       compression = {
         enabled = true;
         threshold = 0.85;
-        summary_model = "google/gemini-3-flash-preview";
+        summary_model = "google/gemini-3.8-flash-preview";
       };
       memory = {
         memory_enabled = true;
@@ -41,14 +41,23 @@
       };
     };
 
+    # ── Chat (discord/telegram) ───────────────────────────────────────
+    extraDependencyGroups = [
+      "messaging"
+    ];
+
     # ── Secrets ────────────────────────────────────────────────────────
     environmentFiles = [ config.sops.secrets."hermes-env".path ];
 
     # ── Documents ──────────────────────────────────────────────────────
-    # USER.md is memory, so it goes to HERMES_HOME. Workspace files use
-    # `documents`, and that option needs an explicit `workingDirectory`.
+    workingDirectory = "/var/lib/hermes/workspace";
+
+    documents = {
+      "AGENTS.md" = ./documents/AGENTS.md;
+    };
+
     hermesHomeFiles = {
-      "memories/USER.md" = ./documents/USER.md;
+      "SOUL.md" = ./documents/SOUL.md;
     };
 
     # ── MCP Servers ────────────────────────────────────────────────────
