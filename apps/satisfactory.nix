@@ -94,6 +94,7 @@ in
             -Port=${toString cfg.port} \
             -ReliablePort=${toString cfg.reliablePort} \
             -ExternalReliablePort=${toString cfg.reliablePort} \
+            -ini:Game:[/Script/Engine.GameSession]:MaxPlayers=16 \
             -unattended
         '';
         # Ensure proper cleanup on stop
