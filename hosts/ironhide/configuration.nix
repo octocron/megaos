@@ -211,7 +211,6 @@
       };
     };
 
-    # INFO: chmod 644 /etc/cron.d/<cronfile>
     cron = {
       enable = true;
       systemCronJobs = [
