@@ -212,7 +212,14 @@
     };
 
     # INFO: chmod 644 /etc/cron.d/<cronfile>
-    cron.enable = true;
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        ''0 4 * * * root mkdir -p /vault/sf-backups/gooberville && tar -czf /vault/sf-backups/gooberville/saves-$(date +\%Y\%m\%d).tar.gz -C /var/lib/satisfactory .config/Epic/FactoryGame/Saved/SaveGames''
+        "0 5 * * 0 root find /vault/sf-backups/gooberville -name 'saves-*.tar.gz' -mtime +30 -delete"
+      ];
+    };
+
     getty.autologinUser = username;
 
     openssh = {
