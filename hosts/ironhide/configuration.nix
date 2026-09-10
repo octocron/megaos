@@ -211,6 +211,8 @@
       };
     };
 
+    # INFO: chmod 644 /etc/cron.d/<cronfile>
+    cron.enable = true;
     getty.autologinUser = username;
 
     openssh = {
