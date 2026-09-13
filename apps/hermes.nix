@@ -34,22 +34,21 @@
       backend = "podman";
       hostUsers = [ "${username}" ];
       extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];
-      extraOptions = [
-      ];
     };
 
     # ── Model ──────────────────────────────────────────────────────────
     settings = {
       model = {
-        provider = "custom";
-        base_url = "https://ollama.megaport.cc/v1";
-        default = "qwen3:8b-q4_K_M";
+        provider = "openrouter";
+        base_url = "https://openrouter.ai/api/v1";
+        default = "deepseek/deepseek-v4-flash";
       };
 
       fallback_providers = [
         {
-          provider = "openrouter";
-          model = "deepseek/deepseek-v4-flash";
+          provider = "custom";
+          model = "qwen3:8b-q4_K_M";
+          base_url = "https://ollama.megaport.cc/v1";
         }
       ];
 
