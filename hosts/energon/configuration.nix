@@ -8,8 +8,10 @@
   #----------------------NixOS-MODULES-----------------#
   imports = [
     ./hardware-configuration.nix
+    ./caddy.nix
     ./nebula.nix
 
+    ../../apps/ollama.nix
     ../../apps/sddm.nix
     ../../apps/sops.nix
 

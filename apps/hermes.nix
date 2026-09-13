@@ -30,9 +30,18 @@
     # ── Model ──────────────────────────────────────────────────────────
     settings = {
       model = {
-        base_url = "https://openrouter.ai/api/v1";
-        default = "anthropic/claude-opus-4.6";
+        provider = "custom";
+        base_url = "https://ollama.megaport.cc/v1";
+        default = "qwen3:8b-q4_K_M";
       };
+
+      fallback_providers = [
+        {
+          provider = "openrouter";
+          model = "deepseek/deepseek-v4-flash";
+        }
+      ];
+
       toolsets = [ "all" ];
       max_turns = 100;
       terminal = {
