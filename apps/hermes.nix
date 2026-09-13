@@ -66,6 +66,23 @@
         max_turns = 60;
         verbose = false;
       };
+
+      # INFO: Discord Gateway
+      discord = {
+        require_mention = true; # Require @mention in server channels
+        thread_require_mention = false; # require @mention in threads too
+        auto_thread = true; # Auto-create threads on @mention
+        reactions = true; # Add emoji reactions during processing
+        free_response_channels = [
+          "1547794898311319673"
+        ]; # Channels that do not require @mention
+        ignored_channels = [
+          "919798584956842084"
+        ]; # Channel IDs where bot never responds
+        no_thread_channels = [
+          "166244573083860992"
+        ]; # Channel IDs where bot responds without threading
+      };
     };
 
     # ── Chat (discord/telegram) ───────────────────────────────────────
