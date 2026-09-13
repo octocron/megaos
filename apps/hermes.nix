@@ -35,7 +35,7 @@
       hostUsers = [ "${username}" ];
       extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];
       extraOptions = [
-        "--add-host=ollama.megaport.cc:10.99.0.98"
+        "--network=host"
       ];
     };
 
