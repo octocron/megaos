@@ -35,7 +35,6 @@
       hostUsers = [ "${username}" ];
       extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];
       extraOptions = [
-        "--network=host"
       ];
     };
 
