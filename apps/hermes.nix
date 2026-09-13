@@ -22,10 +22,22 @@
     };
   };
 
+  #networking.firewall.interfaces."nebula.megaport".allowedTCPPorts = [ 11434 ];
   virtualisation.docker.enable = false;
   services.hermes-agent = {
     enable = true;
-    container.enable = true;
+
+    # ── Container options ──────────────────────────────────────────────
+    container = {
+      enable = true;
+      image = "ubuntu:26.04";
+      backend = "podman";
+      hostUsers = [ "${username}" ];
+      extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];
+      extraOptions = [
+        "--add-host=ollama.megaport.cc:10.99.0.98"
+      ];
+    };
 
     # ── Model ──────────────────────────────────────────────────────────
     settings = {
@@ -75,7 +87,7 @@
         reactions = true; # Add emoji reactions during processing
         free_response_channels = [
           "1547794898311319673"
-        ]; # Channels that do not require @mention
+        ]; # Channel IDs that do not require @mention
         ignored_channels = [
           "919798584956842084"
         ]; # Channel IDs where bot never responds
@@ -125,16 +137,6 @@
         ];
         env.GITHUB_PERSONAL_ACCESS_TOKEN = "\${GITHUB_TOKEN}";
       };
-    };
-
-    # ── Container options ──────────────────────────────────────────────
-    container = {
-      image = "ubuntu:26.04";
-      backend = "podman";
-      hostUsers = [ "${username}" ];
-      extraVolumes = [ "/home/${username}/projects/hermes:/projects:rw" ];
-      extraOptions = [
-      ];
     };
 
     # ── Service tuning ─────────────────────────────────────────────────
