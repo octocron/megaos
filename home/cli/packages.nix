@@ -41,6 +41,7 @@
     hex # Rust: ↑ xxd
     hugo # static site generator
     hyperfine # Rust: cmd benchmark
+    hstr # C: better shell history (ctrl r)
     inxi # Bash: ↑ system info
     isd # Python: systemd tui
     just # ↑ make

@@ -22,6 +22,7 @@
     pscircle
     python315
     qpwgraph # C++: pipewire graph gui interface
+    sone # Rust: Native Tidal Player
     ttyper # Rust: ↑ typing game
     v4l-utils
     wgpu-utils
