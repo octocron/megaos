@@ -105,6 +105,16 @@
     ];
   };
 
+  #-----------------------HARDWARE---------------------#
+  hardware = {
+    enableRedistributableFirmware = true;
+    # NOTE: used to opengl
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
+
   #-----------------INTERNATIONALISATION----------------#
   console.keyMap = "us";
   time.timeZone = theTimezone;
