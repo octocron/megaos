@@ -16,6 +16,7 @@
     ./motd.nix
     ./nebula.nix
     ../../apps/hermes.nix
+    ../../apps/jellyfin.nix
     ../../apps/satisfactory.nix
     ../../apps/sops.nix
     ../../containers/metube.nix
