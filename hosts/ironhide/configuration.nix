@@ -18,6 +18,7 @@
     ../../apps/hermes.nix
     ../../apps/jellyfin.nix
     ../../apps/satisfactory.nix
+    ../../apps/satisfactory-plus.nix
     ../../apps/sops.nix
     ../../containers/metube.nix
     ../../containers/podman.nix
@@ -143,9 +144,14 @@
         allowedTCPPorts = [
           7777
           8888
+          7779
+          8889
         ];
 
-        allowedUDPPorts = [ 7777 ];
+        allowedUDPPorts = [
+          7777
+          7779
+        ];
       };
 
       trustedInterfaces = [
@@ -250,6 +256,20 @@
         experimental = false;
         installDir = "/var/lib/satisfactory";
         openFirewall = false; # NOTE: false when using vpn
+        port = 7777;
+        reliablePort = 8888;
+        validate = true;
+      };
+
+      satisfactory-plus = {
+        enable = true;
+        autoStart = true;
+        experimental = false;
+        installDir = "/var/lib/satisfactory-plus";
+        openFirewall = false; # NOTE: false when using vpn
+        port = 7779;
+        reliablePort = 8889;
+        validate = true;
       };
     };
 

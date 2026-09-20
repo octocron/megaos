@@ -6,11 +6,11 @@
 }:
 with lib;
 let
-  cfg = config.services.steam-servers.satisfactory;
+  cfg = config.services.steam-servers.satisfactory-plus;
 in
 {
-  options.services.steam-servers.satisfactory = {
-    enable = mkEnableOption "Satisfactory dedicated server";
+  options.services.steam-servers.satisfactory-plus = {
+    enable = mkEnableOption "Satisfactory dedicated server (modded / Plus)";
     autoStart = mkOption {
       type = types.bool;
       default = false;
@@ -18,7 +18,7 @@ in
     };
     installDir = mkOption {
       type = types.str;
-      default = "/var/lib/satisfactory";
+      default = "/var/lib/satisfactory-plus";
       description = "Directory where server files are installed";
     };
     user = mkOption {
@@ -33,12 +33,12 @@ in
     };
     port = mkOption {
       type = types.int;
-      default = 7777;
+      default = 7779;
       description = "Game port for the server";
     };
     reliablePort = mkOption {
       type = types.int;
-      default = 8888;
+      default = 8889;
       description = "Reliable port for the server";
     };
     openFirewall = mkOption {
@@ -49,7 +49,7 @@ in
     # INFO: validate rewrites the tree and removes SML. Off after first install if using mods.
     validate = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "steamcmd validate on start. Keep false on the modded tree.";
     };
     experimental = mkOption {
@@ -60,21 +60,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    # INFO: Create Steam User & Group
-    users = {
-      groups.${cfg.groups} = { };
-      users.${cfg.user} = {
-        isSystemUser = true;
-        group = cfg.groups;
-        home = cfg.installDir;
-        createHome = true;
-        description = "Satisfactory server user";
-      };
-    };
-
     # INFO: systemd service
-    systemd.services.satisfactory = {
-      description = "Satisfactory Dedicated Server";
+    systemd.services.satisfactory-plus = {
+      description = "Satisfactory Dedicated Server (Plus / mods)";
       wantedBy = mkIf cfg.autoStart [ "multi-user.target" ];
       after = [
         "network-online.target"

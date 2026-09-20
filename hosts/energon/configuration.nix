@@ -11,6 +11,7 @@
     ./caddy.nix
     ./nebula.nix
 
+    ../../apps/appimage.nix
     ../../apps/ollama.nix
     ../../apps/sddm.nix
     ../../apps/sops.nix
