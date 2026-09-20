@@ -60,6 +60,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    systemd.tmpfiles.rules = [
+      "d ${cfg.installDir} 0750 ${cfg.user} ${cfg.groups} -"
+    ];
+
     # INFO: systemd service
     systemd.services.satisfactory-plus = {
       description = "Satisfactory Dedicated Server (Plus / mods)";
@@ -75,6 +79,7 @@ in
         Group = cfg.groups;
         WorkingDirectory = cfg.installDir;
         Restart = "on-failure";
+        RestartSec = "10s";
         KillSignal = "SIGINT";
         TimeoutStopSec = 300;
         ExecStartPre = [
