@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./caddy.nix
     ./nebula.nix
+    ./nfs.nix
 
     ../../apps/appimage.nix
     ../../apps/ollama.nix

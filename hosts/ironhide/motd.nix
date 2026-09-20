@@ -47,7 +47,8 @@ in
         service display-name="Hermes" unit="hermes-agent.service"
         service display-name="Jellyfin" unit="jellyfin.service"
         service display-name="Nebula" unit="nebula@megaport.service"
-        service display-name="Satisfactory" unit="satisfactory.service"
+        service display-name="Gooberville" unit="satisfactory.service"
+        service display-name="Gooberplus" unit="satisfactory-plus.service"
         service display-name="SSH" unit="sshd.service"
       }
 

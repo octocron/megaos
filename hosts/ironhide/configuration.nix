@@ -15,6 +15,7 @@
     ./disko.nix
     ./motd.nix
     ./nebula.nix
+    ./nfs.nix
     ../../apps/hermes.nix
     ../../apps/jellyfin.nix
     ../../apps/satisfactory.nix

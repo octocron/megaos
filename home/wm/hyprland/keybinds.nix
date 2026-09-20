@@ -9,7 +9,7 @@
       "$mainMod,C,exec,hyprpicker -a"
       "$mainMod,D,exec,uwsm app -- discord"
       "$mainMod,F,fullscreen,"
-      "$mainMod,G,exec,uwsm app -- gimp"
+      "$mainMod,G,exec,uwsm app -- gearlever"
       "$mainMod,H,exec,uwsm app -- wezterm -e hermes"
       "$mainMod,K,exec,list-keybinds"
       "$mainMod,M,exec,uwsm app -- prismlauncher"
