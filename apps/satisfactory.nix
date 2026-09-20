@@ -62,8 +62,11 @@ in
   config = mkIf cfg.enable {
     # INFO: Create Steam User & Group
     users = {
-      groups.${cfg.groups} = { };
+      groups.${cfg.groups} = {
+        gid = 990;
+      };
       users.${cfg.user} = {
+        uid = 993;
         isSystemUser = true;
         group = cfg.groups;
         home = cfg.installDir;
