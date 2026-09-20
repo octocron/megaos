@@ -270,7 +270,7 @@
         openFirewall = false; # NOTE: false when using vpn
         port = 7779;
         reliablePort = 8889;
-        validate = true;
+        validate = false;
       };
     };
 
