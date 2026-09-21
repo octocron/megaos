@@ -45,7 +45,7 @@ in
         service display-name="Caddy" unit="caddy.service"
         service display-name="Cron" unit="cron.service"
         service display-name="Hermes" unit="hermes-agent.service"
-        service display-name="Immich" unit="immich.service"
+        service display-name="Immich" unit="immich-server.service"
         service display-name="Jellyfin" unit="jellyfin.service"
         service display-name="Nebula" unit="nebula@megaport.service"
         service display-name="Gooberville" unit="satisfactory.service"

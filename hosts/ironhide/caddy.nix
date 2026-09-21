@@ -62,6 +62,49 @@
           reverse_proxy 0.0.0.0:7777
         '';
       };
+
+      # NOTE: ARR Stack
+      "bazarr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:6767
+        '';
+      };
+
+      "lidarr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8686
+        '';
+      };
+
+      "prowlarr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:9696
+        '';
+      };
+
+      "qbittorrent.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8181
+        '';
+      };
+
+      "radarr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:7878
+        '';
+      };
+
+      "seerr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:5055
+        '';
+      };
+
+      "sonarr.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8989
+        '';
+      };
     };
   };
 

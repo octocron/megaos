@@ -18,7 +18,6 @@
       signal-desktop
       spotify
       supertuxkart
-      transmission_4-gtk
       xonotic
       wezterm
 

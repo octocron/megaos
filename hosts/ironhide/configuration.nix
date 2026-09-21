@@ -16,6 +16,7 @@
     ./motd.nix
     ./nebula.nix
     ./nfs.nix
+    ../../apps/arr.nix
     ../../apps/hermes.nix
     ../../apps/immich.nix
     ../../apps/jellyfin.nix
