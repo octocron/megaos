@@ -39,6 +39,12 @@
         '';
       };
 
+      "immich.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 0.0.0.0:2283
+        '';
+      };
+
       "jellyfin.megaport.cc" = {
         extraConfig = ''
           reverse_proxy 0.0.0.0:8096
