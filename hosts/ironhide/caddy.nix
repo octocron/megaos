@@ -82,7 +82,7 @@
         '';
       };
 
-      "qbittorrent.megaport.cc" = {
+      "qbit.megaport.cc" = {
         extraConfig = ''
           reverse_proxy 0.0.0.0:8181
         '';
