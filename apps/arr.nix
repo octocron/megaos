@@ -42,12 +42,16 @@
       torrentingPort = 6881;
       webuiPort = 8181;
       serverConfig = {
+        LegalNotice.Accepted = true;
         BitTorrent.Session = {
           DefaultSavePath = "/downloads/complete";
           TempPath = "/downloads/incomplete";
           TempPathEnabled = true;
         };
-        LegalNotice.Accepted = true;
+        Preferences.WebUI = {
+          CSRFProtection = false;
+          HostHeaderValidation = false;
+        };
       };
     };
     radarr = {
