@@ -17,6 +17,7 @@
     ./nebula.nix
     ./nfs.nix
     ../../apps/hermes.nix
+    ../../apps/immich.nix
     ../../apps/jellyfin.nix
     ../../apps/satisfactory.nix
     ../../apps/satisfactory-plus.nix
