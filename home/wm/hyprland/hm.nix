@@ -29,7 +29,7 @@
       slurp
       swappy
       swaynotificationcenter
-      swww
+      awww
       symbola
 
       #(import ./lsbind.nix { inherit pkgs; })
