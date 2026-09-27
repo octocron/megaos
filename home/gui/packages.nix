@@ -16,7 +16,7 @@
     papirus-icon-theme # for qt
     pwvucontrol # Rust:
     pcmanfm-qt # for qt
-    pinentry-gtk2
+    pinentry-gnome3
     playerctl
     polkit_gnome
     pscircle
@@ -31,6 +31,5 @@
     # INFO: GTK THEMES
     gnome-themes-extra
     sassc
-    gtk-engine-murrine
   ];
 }

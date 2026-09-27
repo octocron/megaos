@@ -1,9 +1,9 @@
 {
   programs.opencode = {
     enable = true;
+    tui.theme = "system";
     settings = {
       "$schema" = "https://opencode.ai/config.json";
-      theme = "system";
       provider = {
         openai = {
           npm = "@ai-sdk/openai";

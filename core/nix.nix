@@ -30,10 +30,13 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      # For when dangon devs use EOL dependencies, grrrr..
-    ];
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        # For when dangon devs use EOL dependencies, grrrr..
+      ];
+    };
   };
 }

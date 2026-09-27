@@ -80,12 +80,11 @@
     speedread # Perl:
     terminal-typeracer
     termusic # Rust: ↑ cmus
-    tmate # C: instant terminal sharing
     tokei # Rust: ↑ stats about code project
     tre # C: ↑ tree
     trippy # Rust: ↑ traceroute + ping + bandwhich in one
+    tuxedo # Rust: todo.txt manager
     udiskie
-    unrar # C:
     unzip # C:
     up # Go: ↑ pipe with live preview
     uutils-coreutils # Rust: ↑ coreutils rewrite

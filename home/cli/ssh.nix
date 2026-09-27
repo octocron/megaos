@@ -9,7 +9,7 @@
       #   UseKeychain yes
       # '';
 
-      matchBlocks = {
+      settings = {
         "*" = {
           user = username;
           identitiesOnly = true;

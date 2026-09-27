@@ -17,8 +17,8 @@
 
           interface = {
             branding = "megaOS by megacron";
-            brandingColor = 5;
-            #helpColorBright = 1;
+            brandingColor = "5";
+            helpColorBright = "1";
           };
 
           wallpaperStyle = "stretched"; # INFO: centered || stretched || tiled

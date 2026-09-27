@@ -12,7 +12,6 @@
       mullvad-vpn
       nodejs
       obs-studio
-      plex-desktop
       plexamp
       prismlauncher
       signal-desktop
@@ -22,7 +21,7 @@
       wezterm
 
       # NOTE: graphical cli tools
-      hyprland-qtutils
+      hyprland-qtutils # needed for banners and ANR messages
       hyprpicker # JS: popup picker
       hyprpolkitagent
       rofi
@@ -30,8 +29,10 @@
       slurp
       swappy
       swaynotificationcenter
+      swww
       symbola
-      ydotool
+
+      #(import ./lsbind.nix { inherit pkgs; })
     ];
 
     file = {
@@ -51,6 +52,8 @@
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
       GTK_THEME = "Adwaita-dark";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
   };
 

@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
-{
+{ pkgs, ... }: {
   gtk = {
     enable = true;
     colorScheme = "dark";
@@ -16,9 +11,9 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    theme = lib.mkForce {
-      name = "Nightfox-dark"; # Adwaita-dark
-      package = pkgs.nightfox-gtk-theme; # NOTE: nightfox-gtk-theme didnt fully work | gnome-themes-extra
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;

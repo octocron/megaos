@@ -3,10 +3,9 @@
   imports = [
     ./scripts
     ./animations.nix
-    ./environment.nix
     ./hm.nix
     ./hypridle.nix
-    ./hyprland.nix
+    ./hyprlua.nix
     ./hyprlock.nix
     ./keybinds.nix
     ./waybar.nix

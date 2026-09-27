@@ -72,7 +72,7 @@
       HOTKEY_OVERLAY = "1";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "gtk3";
       QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
       XDG_SESSION_TYPE = "wayland";
@@ -192,7 +192,7 @@
 
     mullvad-vpn = {
       enable = true;
-      package = pkgs.mullvad-vpn;
+      gui.enable = true;
     };
 
     openssh = {

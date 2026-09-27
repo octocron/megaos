@@ -8,7 +8,7 @@
     rofi = {
       enable = true;
       package = pkgs.rofi;
-      extraConfig = {
+      settings = {
         modi = "drun,filebrowser,run";
         show-icons = true;
         icon-theme = "Papirus";

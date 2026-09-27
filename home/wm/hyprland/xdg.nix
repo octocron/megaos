@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # NOTE: dconf read /org/gnome/desktop/interface/color-scheme
   xdg = {
     enable = true;
@@ -16,25 +15,20 @@
     };
     portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-wlr
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-hyprland
       ];
-      configPackages = [
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-wlr
-      ];
-      config.common = {
+      config.hyprland = {
         default = [
-          "gnome"
-          "gtk"
           "hyprland"
+          "gtk"
         ];
         "org.freedesktop.impl.portal.Settings" = "gnome";
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
+        "org.freedesktop.impl.portal.Screenshot" = "hyprland";
       };
     };
   };
