@@ -33,6 +33,7 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      forceImportRoot = false;
     };
 
     # INFO: sudo zfs create -o recordsize=1M vault/movies

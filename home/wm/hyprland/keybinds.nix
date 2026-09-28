@@ -29,7 +29,7 @@ in
       (bind "SUPER + T" (exec "uwsm app -- thunar"))
       (bind "SUPER + V" (exec "cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
       (bind "SUPER + W" (exec "uwsm app -- wezterm"))
-      (bind "SUPER + Y" (exec "uwsm app -- kitty -e yazi"))
+      (bind "SUPER + Y" (exec "uwsm app -- wezterm -e yazi"))
       #----------SUPER / SHIFT---------------------------------------->>
       (bind "SUPER + SHIFT + C" "hl.dsp.exit()")
       (bind "SUPER + SHIFT + D" (exec "uwsm app -- davinci-resolve"))
