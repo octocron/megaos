@@ -66,13 +66,13 @@
       # NOTE: ARR Stack
       "bazarr.megaport.cc" = {
         extraConfig = ''
-          reverse_proxy 0.0.0.0:6767
+          reverse_proxy 127.0.0.1:6767
         '';
       };
 
       "lidarr.megaport.cc" = {
         extraConfig = ''
-          reverse_proxy 0.0.0.0:8686
+          reverse_proxy 127.0.0.1:8686
         '';
       };
 
