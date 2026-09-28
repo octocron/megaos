@@ -33,7 +33,6 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      forceImportRoot = false;
     };
 
     # INFO: sudo zfs create -o recordsize=1M vault/movies
@@ -42,6 +41,7 @@
     zfs = {
       devNodes = "/dev/disk/by-id";
       extraPools = [ "vault" ];
+      forceImportRoot = false;
     };
   };
 
