@@ -7,10 +7,7 @@ in
   # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-      targets = [ "graphical-session.target" ];
-    };
+    systemd.enable = false;
     package = pkgs.waybar;
     settings = [
       {
@@ -62,9 +59,8 @@ in
             "7" = [ ];
           };
           on-click = "activate";
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
         };
+
         "clock" = {
           format = " {:L%H:%M}"; # '' {:L%I:%M %p}'' for 12h clock
           tooltip = true;
@@ -81,7 +77,7 @@ in
           interval = 5;
           format = " {}%";
           tooltip = true;
-          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
+          on-click = "wezterm -e btop";
         };
         "temperature" = {
           critical-threshhold = 80;
@@ -92,12 +88,12 @@ in
           interval = 5;
           format = " {usage:2}%";
           tooltip = true;
-          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
+          on-click = "wezterm -e btop";
         };
         "disk" = {
           format = " {free}";
           tooltip = true;
-          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
+          on-click = "wezterm -e btop";
         };
         "mpris" = {
           format = "{player_icon} {dynamic}";
@@ -132,7 +128,7 @@ in
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
           tooltip = false;
-          on-click = "sleep 0.1 && hyprctl dispatch exec 'kitty -e btop'";
+          on-click = "wezterm -e btop";
         };
         "tray" = {
           spacing = 12;
@@ -180,26 +176,25 @@ in
               ""
             ];
           };
-          on-click = "sleep 0.1 && hyprctl dispatch exec pwvucontrol";
+          on-click = "pwvucontrol";
           on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
           on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
         };
         "custom/exit" = {
           tooltip = false;
           format = "";
-          on-click = "sleep 0.1 && hyprctl dispatch exec wleave";
+          on-click = "wleave";
         };
         "custom/startmenu" = {
           tooltip = false;
           format = "";
-          # exec = "rofi -show drun";
-          on-click = "sleep 0.1 && rofi-launcher";
+          on-click = "rofi-launcher";
         };
         "custom/hyprbindings" = {
           tooltip = false;
           format = "";
           return-type = "text";
-          on-click = "sleep 0.1 && list-keybinds";
+          on-click = "list-keybinds";
         };
         "idle_inhibitor" = {
           format = "{icon}";
