@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
-{
+{ pkgs, ... }: {
   hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [

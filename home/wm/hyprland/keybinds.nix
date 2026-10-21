@@ -55,7 +55,6 @@ in
       (bind "SUPER + ALT + C" (exec "cursor"))
       (bind "SUPER + ALT + D" "hl.dsp.window.pseudo()")
       (bind "SUPER + ALT + G" (exec "gparted"))
-      (bind "SUPER + ALT + K" (exec "list-keybinds"))
       (bind "SUPER + ALT + M" (exec "uwsm app -- modrinth-app"))
       (bind "SUPER + ALT + P" (exec "pwvucontrol"))
       (bind "SUPER + ALT + left" ''hl.dsp.window.swap({ direction = "l" })'')

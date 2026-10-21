@@ -190,12 +190,6 @@ in
           format = "";
           on-click = "rofi-launcher";
         };
-        "custom/hyprbindings" = {
-          tooltip = false;
-          format = "";
-          return-type = "text";
-          on-click = "list-keybinds";
-        };
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
