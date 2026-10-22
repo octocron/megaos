@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       # NOTE: unmodified graphical apps
-      audacity
+      #audacity
       brave
       discord
       davinci-resolve
