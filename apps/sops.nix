@@ -27,12 +27,6 @@
         group = "root";
         mode = "0400";
       };
-
-      "passwordFBIvan009" = {
-        owner = "root";
-        group = "root";
-        mode = "0400";
-      };
     };
   };
 }
