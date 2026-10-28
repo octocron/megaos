@@ -23,6 +23,7 @@
     ../../apps/satisfactory.nix
     ../../apps/satisfactory-plus.nix
     ../../apps/sops.nix
+    ../../containers/byparr.nix
     ../../containers/metube.nix
     ../../containers/podman.nix
     ../../drivers

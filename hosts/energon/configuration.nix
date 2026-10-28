@@ -42,6 +42,7 @@
       brightnessctl
       ffmpegthumbnailer
       glib # needed for gsettings
+      goxlr-utility
       networkmanagerapplet
       polychromatic # for razor keyboards and mice
       uwsm
@@ -187,7 +188,7 @@
 
     goxlr-utility = {
       enable = true;
-      autoStart.xdg = true;
+      autoStart.xdg = false;
     };
 
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
